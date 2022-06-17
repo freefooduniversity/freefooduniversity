@@ -8,6 +8,75 @@
 import SwiftUI
 import CoreData
 
+struct MainContentView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Button("Sign In |") {
+                    print("Sign in page")
+                }
+                Button("About Us |") {
+                    print("About Us Page")
+                }
+                Button("Feedback |") {
+                    print("Feedback Page")
+                }
+                Button("Tutorial |") {
+                    print("Tutorial Page")
+                }
+                Button("Settings ") {
+                    print("Settings page")
+                }
+            }.background(Color.red).position(x:195, y:0)
+            
+            Text("To Find Free Food...")
+                .font(.custom("Helvetica Neue", size: 25))
+                .position(x:200, y:-35)
+                .foregroundColor(.black)
+            
+            HStack {
+                VStack {
+                    Button(action: {
+                        print("location button pressed")
+                    }) {
+                        Image("location")
+                            .renderingMode(Image.TemplateRenderingMode?
+                            .init(Image.TemplateRenderingMode.original))
+                    }
+                    Text("   Use Current Location   ")
+                        .font(.custom("Helvetica Neue", size: 12))
+                        .foregroundColor(.black)
+                }.border(Color.black)
+                
+                Text(" Or ").foregroundColor(.black)
+                
+                VStack {
+                    Button(action: {
+                        print("pick college button pressed")
+                    }) {
+                        HStack {
+                        Image("graduation-hat")
+                            .renderingMode(Image.TemplateRenderingMode?
+                            .init(Image.TemplateRenderingMode.original))
+                        Image("down-arrow")
+                            .renderingMode(Image.TemplateRenderingMode?
+                            .init(Image.TemplateRenderingMode.original))
+                        }
+                    }
+                    Text("        Pick Your College           ")
+                        .font(.custom("Helvetica Neue", size: 12))
+                        .foregroundColor(.black)
+                }.border(Color.black)
+            }.position(x:200, y:-25)
+            
+            Text("Total Active Markers: 2")
+                .foregroundColor(.black)
+                .font(.custom("Helvetica Neue", size: 14))
+            Image("map")
+        }.background(Color.white)
+    }
+}
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 

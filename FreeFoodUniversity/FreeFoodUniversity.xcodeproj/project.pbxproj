@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D858D09B284D605000F5D4A1 /* FreeFoodUniversity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreeFoodUniversity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D858D09B284D605000F5D4A1 /* Free Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Free Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityApp.swift; sourceTree = "<group>"; };
 		D858D0A0284D605000F5D4A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D858D0A2284D605100F5D4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		D858D09C284D605000F5D4A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D858D09B284D605000F5D4A1 /* FreeFoodUniversity.app */,
+				D858D09B284D605000F5D4A1 /* Free Food.app */,
 				D858D0B0284D605100F5D4A1 /* FreeFoodUniversityTests.xctest */,
 				D858D0BA284D605100F5D4A1 /* FreeFoodUniversityUITests.xctest */,
 			);
@@ -150,7 +150,7 @@
 			);
 			name = FreeFoodUniversity;
 			productName = FreeFoodUniversity;
-			productReference = D858D09B284D605000F5D4A1 /* FreeFoodUniversity.app */;
+			productReference = D858D09B284D605000F5D4A1 /* Free Food.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D858D0AF284D605100F5D4A1 /* FreeFoodUniversityTests */ = {
@@ -438,7 +438,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.freefooduniversity.FreeFoodUniversity;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Free Food";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -466,7 +466,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.freefooduniversity.FreeFoodUniversity;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Free Food";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
