@@ -8,19 +8,80 @@
 import GoogleMaps
 import SwiftUI
 import CoreData
+import UIKit
+
+
+struct GoogleMapsView: UIViewRepresentable {
+   @Binding var latitude: Double
+   @Binding var longitude: Double
+    @Binding var zoom: Float
+    
+    
+    /*
+    init () {
+        lat = latitude
+        var long = longitude
+        var z = zoom
+    }
+     */
+    
+        
+        func makeUIView(context: Context) -> GMSMapView {
+            var usa = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
+            
+            GMSServices.provideAPIKey(APIKey)
+            let camera = usa
+            
+            let mapView = GMSMapView(frame: CGRect.zero, camera: camera)
+                     
+            return mapView
+        }
+             
+        func updateUIView(_ uiView: GMSMapView, context: Context) {
+             
+        }
+ }
 
 
 struct MainContentView: View {
     @State var college: String = ""
+    @State var latitude: Double = 37.0902
+    @State var longitude: Double = -95.7129
+    @State var zoom: Float = 3
     
     var body: some View {
         if (self.college == "") {
+            GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
             MainPageContentView(buttonClick: $college)
+           // GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
         } else if (self.college == "pickCollege") {
             pickCollegeContentView(buttonClick: $college)
         } else {
+            var lat: Double = getLat(college: college)
+            var long: Double = getLong(college: college)
+            GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(14.5))
             CollegeContentView(college: $college)
         }
+    }
+    
+    func getLat(college: String) -> Double {
+        if (college == "uga") { return 33.9480 }
+        if (college == "clemson") { return 34.6834 }
+        if (college == "gt") { return 33.7756 }
+        if (college == "bama") { return 33.2140 }
+        if (college == "florida") { return 29.6436 }
+        if (college == "harvard") { return 42.3770 }
+        return 37.0902
+    }
+    
+    func getLong(college: String) -> Double {
+        if (college == "uga") { return -83.3773 }
+        if (college == "clemson") { return -82.8374 }
+        if (college == "gt") { return -84.3963 }
+        if (college == "bama") { return -87.5391 }
+        if (college == "florida") { return -82.3549 }
+        if (college == "harvard") { return -71.1167 }
+        return -95.7129
     }
 }
 
@@ -49,7 +110,7 @@ struct MainPageContentView: View {
             
             Text("To Find Free Food...")
                 .font(.custom("Helvetica Neue", size: 25))
-                .position(x:200, y:-35)
+                .position(x:200, y:-65)
                 .foregroundColor(.black)
             
             HStack {
@@ -89,12 +150,13 @@ struct MainPageContentView: View {
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                 }.border(Color.black)
-            }.position(x:200, y:-25)
+            }.position(x:200, y:-55)
             
             Text("Total Active Markers: 2")
                 .foregroundColor(.black)
                 .font(.custom("Helvetica Neue", size: 14))
-            Image("map")
+                .position(x:200, y: -30)
+         //   Image("map")
             
         }.background(Color.white)
     }
@@ -288,17 +350,6 @@ struct CollegeContentView: View {
         return title
     }
     
-    func getMap(college: String) -> String {
-        if (college == "uga") { return "ugaMap" }
-        if (college == "clemson") { return "clemsonMap" }
-        if (college == "gt") { return "gtMap" }
-        if (college == "bama") { return "jordandavis" }
-        if (college == "florida") { return "floridaMap" }
-        if (college == "harvard") { return "harvardMap" }
-        
-        return ""
-    }
-    
     func getColor(college: String) -> Color {
         if (college == "uga") { return Color.red }
         if (college == "clemson") { return Color.orange }
@@ -351,7 +402,6 @@ struct CollegeContentView: View {
                 Text("Total Active Markers: 2")
                     .foregroundColor(.black)
                     .font(.custom("Helvetica Neue", size: 14))
-                Image(getMap(college: college))
                 
             }.background(Color.white)
     }
@@ -465,3 +515,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+ 
