@@ -19,7 +19,7 @@ struct MainContentView: View {
         } else if (self.college == "pickCollege") {
             pickCollegeContentView(buttonClick: $college)
         } else {
-            CollegeContentView(college: college)
+            CollegeContentView(college: $college)
         }
     }
 }
@@ -262,7 +262,7 @@ struct pickCollegeContentView: View {
 
 
 struct CollegeContentView: View {
-    var college: String
+    @Binding var college: String
     
     func getImage(college: String) -> String {
         if (college == "uga") { return "uga" }
@@ -336,7 +336,16 @@ struct CollegeContentView: View {
                 
                 HStack {
                     Image("sidenav")
-                    Image(getImage(college: college))
+                    Button(action: {
+                        withAnimation {
+                            self.college = "pickCollege"
+                        }
+                    }) {
+                        Image(getImage(college: college))
+                            .renderingMode(Image.TemplateRenderingMode?
+                            .init(Image.TemplateRenderingMode.original))
+                    }
+                    Image("down-arrow")
                 }.position(x:200, y:-25)
                 
                 Text("Total Active Markers: 2")
