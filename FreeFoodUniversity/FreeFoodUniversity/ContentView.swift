@@ -15,15 +15,9 @@ struct GoogleMapsView: UIViewRepresentable {
    @Binding var latitude: Double
    @Binding var longitude: Double
     @Binding var zoom: Float
+    @Binding var marker: [GMSMarker]
     
     
-    /*
-    init () {
-        lat = latitude
-        var long = longitude
-        var z = zoom
-    }
-     */
     
         
         func makeUIView(context: Context) -> GMSMapView {
@@ -31,14 +25,19 @@ struct GoogleMapsView: UIViewRepresentable {
             
             GMSServices.provideAPIKey(APIKey)
             let camera = usa
-            
             let mapView = GMSMapView(frame: CGRect.zero, camera: camera)
-                     
             return mapView
         }
              
         func updateUIView(_ uiView: GMSMapView, context: Context) {
-             
+//            let marker : GMSMarker = GMSMarker()
+//            marker.position = CLLocationCoordinate2D(latitude: 33.9480, longitude: -83.3773 )
+//            marker.title = ""
+//            marker.snippet = "Welcome to Hello World"
+//            marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)
+            for i in 0 ... marker.count - 1{
+                    marker[i].map = uiView
+            }
         }
  }
 
@@ -48,19 +47,42 @@ struct MainContentView: View {
     @State var latitude: Double = 37.0902
     @State var longitude: Double = -95.7129
     @State var zoom: Float = 3
+    var markers: [GMSMarker] = []
+   
+    func setMarkers(markers: [GMSMarker]) ->  [ GMSMarker ] {
+        var tempMarkers = markers
+        for i in 0 ... 4 {
+            var marker: GMSMarker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: (33.9480 + Double(i)), longitude: (-83.3773 + Double(i)))
+            marker.title = ""
+            marker.snippet = "Welcome to Hello World"
+            marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)
+            tempMarkers.append(marker)
+            print(tempMarkers)
+        }
+        //print(mark)
+        return tempMarkers
+    }
     
     var body: some View {
+        var m = setMarkers(markers: markers)
         if (self.college == "") {
-            GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
+            GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom), marker: .constant(m))
+                .ignoresSafeArea()
             MainPageContentView(buttonClick: $college)
+                .ignoresSafeArea()
            // GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
         } else if (self.college == "pickCollege") {
+            GoogleMapsView(latitude: .constant(37.0902), longitude: .constant(-95.7129), zoom: .constant(3), marker: .constant(m))
+                .ignoresSafeArea()
             pickCollegeContentView(buttonClick: $college)
+                .ignoresSafeArea()
         } else {
             var lat: Double = getLat(college: college)
             var long: Double = getLong(college: college)
-            GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(14.5))
+            if (self.college != "bama") { GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(14.5), marker: .constant(m)).ignoresSafeArea() }
             CollegeContentView(college: $college)
+                .ignoresSafeArea()
         }
     }
     
@@ -91,26 +113,20 @@ struct MainPageContentView: View {
     var body: some View {
         VStack {
             HStack {
-                Button("Sign In |") {
-                    print("Sign in page")
-                }
-                Button("About Us |") {
-                    print("About Us Page")
-                }
-                Button("Feedback |") {
-                    print("Feedback Page")
-                }
-                Button("Tutorial |") {
-                    print("Tutorial Page")
-                }
-                Button("Settings ") {
-                    print("Settings page")
-                }
-            }.background(Color.red).position(x:195, y:0)
+                Text("Active Events: 98  ")
+                    .foregroundColor(.black)
+                    .font(.custom("Helvetica Neue", size: 14))
+                Text("Fed Today: 842  ")
+                    .foregroundColor(.black)
+                    .font(.custom("Helvetica Neue", size: 14))
+                Text("Fed All Time: 13,456")
+                    .foregroundColor(.black)
+                    .font(.custom("Helvetica Neue", size: 14))
+            }
             
             Text("To Find Free Food...")
                 .font(.custom("Helvetica Neue", size: 25))
-                .position(x:200, y:-65)
+                .position(x:200, y:30)
                 .foregroundColor(.black)
             
             HStack {
@@ -150,23 +166,8 @@ struct MainPageContentView: View {
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                 }.border(Color.black)
-            }.position(x:200, y:-55)
+            }.position(x:200, y:30)
             
-            Text("Total Active Markers: 2")
-                .foregroundColor(.black)
-                .font(.custom("Helvetica Neue", size: 14))
-                .position(x:200, y: -30)
-         //   Image("map")
-            
-        }.background(Color.white)
-    }
-}
-
-struct pickCollegeContentView: View {
-    @Binding var buttonClick: String
-
-    var body: some View {
-        VStack {
             HStack {
                 Button("Sign In |") {
                     print("Sign in page")
@@ -183,50 +184,16 @@ struct pickCollegeContentView: View {
                 Button("Settings ") {
                     print("Settings page")
                 }
-            }.background(Color.red).position(x:195, y:0)
-            
-            Text("To Find Free Food...")
-                .font(.custom("Helvetica Neue", size: 25))
-                .position(x:200, y:-135)
-                .foregroundColor(.black)
-            
-            HStack {
-                VStack {
-                    Button(action: {
-                        withAnimation {
-                            self.buttonClick = "uga"
-                        }
-                    }) {
-                        Image("location")
-                            .renderingMode(Image.TemplateRenderingMode?
-                            .init(Image.TemplateRenderingMode.original))
-                    }
-                    Text("   Use Current Location   ")
-                        .font(.custom("Helvetica Neue", size: 12))
-                        .foregroundColor(.black)
-                }.border(Color.black)
-                
-                Text(" Or ").foregroundColor(.black)
-                
-                VStack {
-                    Button(action: {
-                        
-                    }) {
-                        HStack {
-                        Image("graduation-hat")
-                            .renderingMode(Image.TemplateRenderingMode?
-                            .init(Image.TemplateRenderingMode.original))
-                        Image("down-arrow")
-                            .renderingMode(Image.TemplateRenderingMode?
-                            .init(Image.TemplateRenderingMode.original))
-                        }
-                    }
-                    Text("        Pick Your College           ")
-                        .font(.custom("Helvetica Neue", size: 12))
-                        .foregroundColor(.black)
-                }.border(Color.black)
-            }.position(x:200, y:-225)
-            
+            }.background(Color.red).position(x:195, y:50)
+        }.background(Color.white)
+    }
+}
+
+struct pickCollegeContentView: View {
+    @Binding var buttonClick: String
+
+    var body: some View {
+        VStack {
             HStack {
                 VStack {
                 Button(action: {
@@ -271,7 +238,7 @@ struct pickCollegeContentView: View {
                 .font(.custom("Helvetica Neue", size: 12))
                 .foregroundColor(.black)
                 }
-            }.position(x:200, y:-200)
+            }.position(x:200, y:70)
             
             HStack {
                 VStack {
@@ -317,7 +284,7 @@ struct pickCollegeContentView: View {
                 .font(.custom("Helvetica Neue", size: 12))
                 .foregroundColor(.black)
                 }
-            }.position(x:200, y:-200)
+            }.position(x:200, y:0)
         }.background(Color.white)
     }
 }
@@ -355,34 +322,30 @@ struct CollegeContentView: View {
         if (college == "clemson") { return Color.orange }
         if (college == "gt") { return Color.yellow }
         if (college == "bama") { return Color.red }
-        if (college == "florida") { return Color.green }
+        if (college == "florida") { return Color.blue }
         if (college == "harvard") { return Color.red }
         return Color.red
     }
     
     var body: some View {
             VStack {
+                if (college == "bama") {
+                    Image("jordandavis").position(x:100, y:200)
+                }
                 HStack {
-                    Button("Sign In |") {
-                        print("Sign in page")
-                    }
-                    Button("About Us |") {
-                        print("About Us Page")
-                    }
-                    Button("Feedback |") {
-                        print("Feedback Page")
-                    }
-                    Button("Tutorial |") {
-                        print("Tutorial Page")
-                    }
-                    Button("Settings ") {
-                        print("Settings page")
-                    }
-                }.background(getColor(college: college)).position(x:195, y:0)
-                
+                    Text("Active Events: 2     ")
+                        .foregroundColor(.black)
+                        .font(.custom("Helvetica Neue", size: 14))
+                    Text("Fed Today: 54    ")
+                        .foregroundColor(.black)
+                        .font(.custom("Helvetica Neue", size: 14))
+                    Text("Fed All Time: 1,654")
+                        .foregroundColor(.black)
+                        .font(.custom("Helvetica Neue", size: 14))
+                }
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
-                    .position(x:200, y:-35)
+                    .position(x:200, y:30)
                     .foregroundColor(.black)
                 
                 HStack {
@@ -397,13 +360,26 @@ struct CollegeContentView: View {
                             .init(Image.TemplateRenderingMode.original))
                     }
                     Image("down-arrow")
-                }.position(x:200, y:-25)
-                
-                Text("Total Active Markers: 2")
-                    .foregroundColor(.black)
-                    .font(.custom("Helvetica Neue", size: 14))
-                
-            }.background(Color.white)
+                }.position(x:200, y:0)
+            
+            HStack {
+            Button("Sign In |") {
+                print("Sign in page")
+            }
+            Button("About Us |") {
+                print("About Us Page")
+            }
+            Button("Feedback |") {
+                print("Feedback Page")
+            }
+            Button("Tutorial |") {
+                print("Tutorial Page")
+            }
+            Button("Settings ") {
+                print("Settings page")
+            }
+        }.background(getColor(college: college)).position(x:195, y:50)
+        }.background(Color.white)
     }
 }
 
