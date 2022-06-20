@@ -10,6 +10,35 @@ import SwiftUI
 import CoreData
 import UIKit
 
+struct StatsView: View {
+    @Binding var active: Int
+    @Binding var fedToday: Int
+    @Binding var fedAllTime: Int
+    
+    var body: some View {
+        HStack {
+            Text("Food Events:")
+                .foregroundColor(.black)
+                .font(.custom("Helvetica Neue", size: 14))
+            Text(String(active) + "🍔  ")
+                .foregroundColor(.blue)
+                .font(.custom("Helvetica Neue", size: 14))
+            Text("Today:")
+                .foregroundColor(.black)
+                .font(.custom("Helvetica Neue", size: 14))
+            Text(String(fedToday) + "🧑🏻‍💼  ")
+                .foregroundColor(.blue)
+                .font(.custom("Helvetica Neue", size: 14))
+            Text("All Time:")
+                .foregroundColor(.black)
+                .font(.custom("Helvetica Neue", size: 14))
+            Text(String(fedAllTime) + "🧑🏻‍💼  ")
+                .foregroundColor(.blue)
+                .font(.custom("Helvetica Neue", size: 14))
+        }
+    }
+}
+
 
 struct GoogleMapsView: UIViewRepresentable {
    @Binding var latitude: Double
@@ -70,6 +99,7 @@ struct MainContentView: View {
             GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
+            StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156))
             MainPageContentView(buttonClick: $college)
             BottomButtonsView()
            // GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
@@ -77,6 +107,7 @@ struct MainContentView: View {
             GoogleMapsView(latitude: .constant(37.0902), longitude: .constant(-95.7129), zoom: .constant(3), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
+            StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156))
             pickCollegeContentView(buttonClick: $college)
                 .ignoresSafeArea()
             BottomButtonsView()
@@ -88,6 +119,7 @@ struct MainContentView: View {
                     .ignoresSafeArea()
                     .frame(width: 400, height: 450, alignment: .center)
             }
+            StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176))
             CollegeContentView(college: $college)
                 .ignoresSafeArea()
             BottomButtonsView()
@@ -180,26 +212,15 @@ struct MainPageContentView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text("Active Events: 98  ")
-                    .foregroundColor(.black)
-                    .font(.custom("Helvetica Neue", size: 14))
-                Text("Fed Today: 842  ")
-                    .foregroundColor(.black)
-                    .font(.custom("Helvetica Neue", size: 14))
-                Text("Fed All Time: 13,456")
-                    .foregroundColor(.black)
-                    .font(.custom("Helvetica Neue", size: 14))
-            }
-            Text("To Find Free Food...")
+            Text("For Free Food: ")
                 .font(.custom("Helvetica Neue", size: 25))
                 .foregroundColor(.black)
-                .position(x:200, y:10)
+                .position(x:200, y:20)
             HStack {
                 VStack {
                     Button(action: {
                         withAnimation {
-                          //  self.buttonClick = "uga"
+                            self.buttonClick = "uga"
                         }
                     }) {
                         Image("location")
@@ -211,7 +232,7 @@ struct MainPageContentView: View {
                         .foregroundColor(.black)
                 }.border(Color.black)
                 
-                Text(" Or ").foregroundColor(.black)
+                Text(" Or ").foregroundColor(.black).bold()
                 
                 VStack {
                     Button(action: {
@@ -219,40 +240,23 @@ struct MainPageContentView: View {
                             self.buttonClick = "pickCollege"
                         }
                     }) {
-                        HStack {
                         Image("graduation-hat")
                             .renderingMode(Image.TemplateRenderingMode?
                             .init(Image.TemplateRenderingMode.original))
-                        Image("down-arrow")
-                            .renderingMode(Image.TemplateRenderingMode?
-                            .init(Image.TemplateRenderingMode.original))
-                        }
                     }
                     Text("        Pick Your College           ")
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                 }.border(Color.black)
             }.position(x:200, y:30)
-            
             HStack {
-                /*
-                Button("Sign In |") {
-                    print("Sign in page")
+                Button(action: {
+                    withAnimation {
+                        //self.buttonClick = "pickCollege"
+                    }
+                }) {
                 }
-                Button("About Us |") {
-                    print("About Us Page")
-                }
-                Button("Feedback |") {
-                    print("Feedback Page")
-                }
-                Button("Tutorial |") {
-                    print("Tutorial Page")
-                }
-                Button("Settings ") {
-                    print("Settings page")
-                }
-                 */
-            }.background(Color.red).position(x:195, y:50)
+            }
         }.background(Color.white)
     }
 }
@@ -262,6 +266,19 @@ struct pickCollegeContentView: View {
 
     var body: some View {
         VStack {
+            Button(action: {
+                withAnimation {
+                    self.buttonClick = "uga"
+                }
+            }) {
+                HStack {
+                    Text(" Use Current Location Instead")
+                        .font(.custom("Helvetica Neue", size: 9))
+                        .foregroundColor(.black)
+                    Image ("smallLocation")
+                    Text(" ")
+                }.border(Color.black)
+            }
             HStack {
                 VStack {
                 Button(action: {
@@ -273,7 +290,6 @@ struct pickCollegeContentView: View {
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                 }
-                Text("University Of Georgia")
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
                 }
@@ -288,7 +304,6 @@ struct pickCollegeContentView: View {
                     .renderingMode(Image.TemplateRenderingMode?
                     .init(Image.TemplateRenderingMode.original))
             }
-            Text("Clemson University")
                 .font(.custom("Helvetica Neue", size: 12))
                 .foregroundColor(.black)
                 }
@@ -302,7 +317,6 @@ struct pickCollegeContentView: View {
                     .renderingMode(Image.TemplateRenderingMode?
                     .init(Image.TemplateRenderingMode.original))
             }
-            Text("Georgia Tech")
                 .font(.custom("Helvetica Neue", size: 12))
                 .foregroundColor(.black)
                 }
@@ -319,7 +333,6 @@ struct pickCollegeContentView: View {
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                 }
-                Text("University Of Alabama")
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
                 }
@@ -334,7 +347,6 @@ struct pickCollegeContentView: View {
                     .renderingMode(Image.TemplateRenderingMode?
                     .init(Image.TemplateRenderingMode.original))
             }
-            Text("University of Florida")
                 .font(.custom("Helvetica Neue", size: 12))
                 .foregroundColor(.black)
                 }
@@ -348,7 +360,6 @@ struct pickCollegeContentView: View {
                     .renderingMode(Image.TemplateRenderingMode?
                     .init(Image.TemplateRenderingMode.original))
             }
-            Text("Harvard Univeristy")
                 .font(.custom("Helvetica Neue", size: 12))
                 .foregroundColor(.black)
                 }
@@ -400,17 +411,6 @@ struct CollegeContentView: View {
                 if (college == "bama") {
                     Image("jordandavis").position(x:100, y:200)
                 }
-                HStack {
-                    Text("Active Events: 2     ")
-                        .foregroundColor(.black)
-                        .font(.custom("Helvetica Neue", size: 14))
-                    Text("Fed Today: 54    ")
-                        .foregroundColor(.black)
-                        .font(.custom("Helvetica Neue", size: 14))
-                    Text("Fed All Time: 1,654")
-                        .foregroundColor(.black)
-                        .font(.custom("Helvetica Neue", size: 14))
-                }
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
                     .position(x:200, y:30)
@@ -428,25 +428,15 @@ struct CollegeContentView: View {
                             .init(Image.TemplateRenderingMode.original))
                     }
                     Image("down-arrow")
-                }.position(x:200, y:0)
-            
-            HStack {
-            Button("Sign In |") {
-                print("Sign in page")
-            }
-            Button("About Us |") {
-                print("About Us Page")
-            }
-            Button("Feedback |") {
-                print("Feedback Page")
-            }
-            Button("Tutorial |") {
-                print("Tutorial Page")
-            }
-            Button("Settings ") {
-                print("Settings page")
-            }
-        }.background(getColor(college: college)).position(x:195, y:50)
+                }.position(x:200, y:10)
+                HStack {
+                    Button ("⚠️ Allow Notifications\n For Food at UGA") {
+                        print("Hello")
+                    }.border(Color.black)
+                    Button ("⚠️ Set UGA as Your Default College") {
+                        print("Hello")
+                    }.border(Color.black)
+                }
         }.background(Color.white)
     }
 }

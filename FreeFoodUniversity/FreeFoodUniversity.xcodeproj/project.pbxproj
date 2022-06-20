@@ -81,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5B44D92286106DE00A78E94 /* ContentViews */ = {
+			isa = PBXGroup;
+			children = (
+				D858D0A0284D605000F5D4A1 /* ContentView.swift */,
+			);
+			path = ContentViews;
+			sourceTree = "<group>";
+		};
 		C9B68711E0C31647F2C62370 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +126,8 @@
 		D858D09D284D605000F5D4A1 /* FreeFoodUniversity */ = {
 			isa = PBXGroup;
 			children = (
+				C5B44D92286106DE00A78E94 /* ContentViews */,
 				D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */,
-				D858D0A0284D605000F5D4A1 /* ContentView.swift */,
 				D858D0A2284D605100F5D4A1 /* Assets.xcassets */,
 				D858D0A7284D605100F5D4A1 /* Persistence.swift */,
 				D858D0A9284D605100F5D4A1 /* FreeFoodUniversity.xcdatamodeld */,
