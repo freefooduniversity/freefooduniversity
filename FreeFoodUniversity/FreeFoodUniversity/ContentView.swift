@@ -55,7 +55,7 @@ struct MainContentView: View {
             var marker: GMSMarker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: (33.9480 + Double(i)), longitude: (-83.3773 + Double(i)))
             marker.title = ""
-            marker.snippet = "Welcome to Hello World"
+            marker.snippet = "Event: Burger Club "
             marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)
             tempMarkers.append(marker)
             print(tempMarkers)
@@ -70,19 +70,21 @@ struct MainContentView: View {
             GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom), marker: .constant(m))
                 .ignoresSafeArea()
             MainPageContentView(buttonClick: $college)
-                .ignoresSafeArea()
+            BottomButtonsView()
            // GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
         } else if (self.college == "pickCollege") {
             GoogleMapsView(latitude: .constant(37.0902), longitude: .constant(-95.7129), zoom: .constant(3), marker: .constant(m))
                 .ignoresSafeArea()
             pickCollegeContentView(buttonClick: $college)
                 .ignoresSafeArea()
+            BottomButtonsView()
         } else {
             var lat: Double = getLat(college: college)
             var long: Double = getLong(college: college)
             if (self.college != "bama") { GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(14.5), marker: .constant(m)).ignoresSafeArea() }
             CollegeContentView(college: $college)
                 .ignoresSafeArea()
+            BottomButtonsView()
         }
     }
     
@@ -106,6 +108,66 @@ struct MainContentView: View {
         return -95.7129
     }
 }
+
+struct BottomButtonsView: View {
+    var body: some View {
+        HStack {
+            Text("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ")
+                .font(.system(size:1))
+        }.background(Color.gray)
+        HStack (spacing: 30) {
+            Button(action: {
+                withAnimation {
+                    print("Profile Button Clicked")
+                }
+            }) {
+                VStack {
+                    Image("user")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
+                    Text("Profile\n")
+                }
+            }
+            Button(action: {
+                withAnimation {
+                    print("About Us Button Clicked")
+                }
+            }) {
+                VStack {
+                    Image("team")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
+                    Text("About Us\n")
+                }
+            }
+            Button(action: {
+                withAnimation {
+                    print("Feedback Button Clicked")
+                }
+            }) {
+                VStack {
+                    Image("feedback")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
+                    Text("Feedback\n")
+                }
+            }
+            Button(action: {
+                withAnimation {
+                    print("Settings Clicked")
+                }
+            }) {
+                VStack {
+                    Image("settings")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
+                    Text("Settings\n")
+                }
+            }
+        }
+    }
+}
+
 
 struct MainPageContentView: View {
     @Binding var buttonClick: String
@@ -169,6 +231,7 @@ struct MainPageContentView: View {
             }.position(x:200, y:30)
             
             HStack {
+                /*
                 Button("Sign In |") {
                     print("Sign in page")
                 }
@@ -184,6 +247,7 @@ struct MainPageContentView: View {
                 Button("Settings ") {
                     print("Settings page")
                 }
+                 */
             }.background(Color.red).position(x:195, y:50)
         }.background(Color.white)
     }
