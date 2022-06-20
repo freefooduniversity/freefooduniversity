@@ -69,19 +69,25 @@ struct MainContentView: View {
         if (self.college == "") {
             GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom), marker: .constant(m))
                 .ignoresSafeArea()
+                .frame(width: 400, height: 450, alignment: .center)
             MainPageContentView(buttonClick: $college)
             BottomButtonsView()
            // GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
         } else if (self.college == "pickCollege") {
             GoogleMapsView(latitude: .constant(37.0902), longitude: .constant(-95.7129), zoom: .constant(3), marker: .constant(m))
                 .ignoresSafeArea()
+                .frame(width: 400, height: 450, alignment: .center)
             pickCollegeContentView(buttonClick: $college)
                 .ignoresSafeArea()
             BottomButtonsView()
         } else {
             var lat: Double = getLat(college: college)
             var long: Double = getLong(college: college)
-            if (self.college != "bama") { GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(14.5), marker: .constant(m)).ignoresSafeArea() }
+            if (self.college != "bama") {
+                GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(14.5), marker: .constant(m))
+                    .ignoresSafeArea()
+                    .frame(width: 400, height: 450, alignment: .center)
+            }
             CollegeContentView(college: $college)
                 .ignoresSafeArea()
             BottomButtonsView()
@@ -185,12 +191,10 @@ struct MainPageContentView: View {
                     .foregroundColor(.black)
                     .font(.custom("Helvetica Neue", size: 14))
             }
-            
             Text("To Find Free Food...")
                 .font(.custom("Helvetica Neue", size: 25))
-                .position(x:200, y:30)
                 .foregroundColor(.black)
-            
+                .position(x:200, y:10)
             HStack {
                 VStack {
                     Button(action: {
