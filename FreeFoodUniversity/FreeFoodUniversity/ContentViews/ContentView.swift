@@ -23,6 +23,7 @@ struct StatsView: View {
             Text(String(active) + "🍔  ")
                 .foregroundColor(.blue)
                 .font(.custom("Helvetica Neue", size: 14))
+            
             Text("Today:")
                 .foregroundColor(.black)
                 .font(.custom("Helvetica Neue", size: 14))
@@ -132,6 +133,10 @@ struct MainContentView: View {
         if (college == "gt") { return 33.7756 }
         if (college == "bama") { return 33.2140 }
         if (college == "florida") { return 29.6436 }
+        if (college == "gastate") { return 33.7531 }
+        if (college == "ksu") { return 34.0382 }
+        if (college == "michigan") { return 42.2780 }
+        if (college == "usc") { return 34.0224 }
         if (college == "harvard") { return 42.3770 }
         return 37.0902
     }
@@ -142,6 +147,10 @@ struct MainContentView: View {
         if (college == "gt") { return -84.3963 }
         if (college == "bama") { return -87.5391 }
         if (college == "florida") { return -82.3549 }
+        if (college == "gastate") { return -84.3853 }
+        if (college == "ksu") { return -84.5827 }
+        if (college == "michigan") { return -85.6024 }
+        if (college == "usc") { return -118.2851 }
         if (college == "harvard") { return -71.1167 }
         return -95.7129
     }
@@ -265,12 +274,13 @@ struct pickCollegeContentView: View {
     @Binding var buttonClick: String
 
     var body: some View {
-        VStack {
+            /*
             Button(action: {
                 withAnimation {
                     self.buttonClick = "uga"
                 }
             }) {
+                
                 HStack {
                     Text(" Use Current Location Instead")
                         .font(.custom("Helvetica Neue", size: 9))
@@ -278,92 +288,147 @@ struct pickCollegeContentView: View {
                     Image ("smallLocation")
                     Text(" ")
                 }.border(Color.black)
-            }
+                 
+            
+             */
+        VStack {
             HStack {
-                VStack {
+                Text("Select State:              ")
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+                Text("                              Use Current Location: ")
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+            }
+            Text("Top Colleges In US: ")
+                .font(.custom("Helvetica Neue", size: 14))
+                .foregroundColor(.black)
+                .underline()
+            
+            HStack {
                 Button(action: {
                     withAnimation {
                         self.buttonClick = "uga"
                     }
                 }) {
-                    Image("uga")
+                    Image("ugaCopy")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
+        
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "clemson"
+                    }
+                }) {
+                    Image("clemsonCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
                 }
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+                
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "gt"
+                    }
+                }) {
+                    Image("gtCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
+                }
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
             
-                VStack {
-            Button(action: {
-                withAnimation {
-                    self.buttonClick = "clemson"
-                }
-            }) {
-                Image("clemson")
-                    .renderingMode(Image.TemplateRenderingMode?
-                    .init(Image.TemplateRenderingMode.original))
-            }
-                .font(.custom("Helvetica Neue", size: 12))
-                .foregroundColor(.black)
-                }
-                VStack {
-            Button(action: {
-                withAnimation {
-                    self.buttonClick = "gt"
-                }
-            }) {
-                Image("gt")
-                    .renderingMode(Image.TemplateRenderingMode?
-                    .init(Image.TemplateRenderingMode.original))
-            }
-                .font(.custom("Helvetica Neue", size: 12))
-                .foregroundColor(.black)
-                }
-            }.position(x:200, y:70)
-            
-            HStack {
-                VStack {
                 Button(action: {
                     withAnimation {
                         self.buttonClick = "bama"
                     }
                 }) {
-                    Image("bama")
+                    Image("bamaCopy")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
-                }
             
-                VStack {
-            Button(action: {
-                withAnimation {
-                    self.buttonClick = "florida"
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "florida"
+                    }
+                }) {
+                    Image("floridaCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
                 }
-            }) {
-                Image("florida")
-                    .renderingMode(Image.TemplateRenderingMode?
-                    .init(Image.TemplateRenderingMode.original))
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
             }
-                .font(.custom("Helvetica Neue", size: 12))
-                .foregroundColor(.black)
+            
+            HStack {
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "gastate"
+                    }
+                }) {
+                    Image("gastateCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
                 }
-                VStack {
-            Button(action: {
-                withAnimation {
-                    self.buttonClick = "harvard"
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+        
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "ksu"
+                    }
+                }) {
+                    Image("ksuCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
                 }
-            }) {
-                Image("harvard")
-                    .renderingMode(Image.TemplateRenderingMode?
-                    .init(Image.TemplateRenderingMode.original))
-            }
-                .font(.custom("Helvetica Neue", size: 12))
-                .foregroundColor(.black)
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+                
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "michigan"
+                    }
+                }) {
+                    Image("michiganCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
                 }
-            }.position(x:200, y:0)
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+            
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "usc"
+                    }
+                }) {
+                    Image("uscCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
+                }
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+                
+                Button(action: {
+                    withAnimation {
+                        self.buttonClick = "harvard"
+                    }
+                }) {
+                    Image("harvardCopy")
+                        .renderingMode(Image.TemplateRenderingMode?
+                        .init(Image.TemplateRenderingMode.original))
+                }
+                    .font(.custom("Helvetica Neue", size: 12))
+                    .foregroundColor(.black)
+                
+            }.position(x:200, y:40)
         }.background(Color.white)
     }
 }
@@ -378,6 +443,10 @@ struct CollegeContentView: View {
         if (college == "gt") { return "gt" }
         if (college == "bama") { return "bama" }
         if (college == "florida") { return "florida" }
+        if (college == "gastate") { return "gastate" }
+        if (college == "ksu") { return "ksu" }
+        if (college == "michigan") { return "michigan" }
+        if (college == "usc") { return "usc" }
         if (college == "harvard") { return "harvard" }
         
         return ""
@@ -391,6 +460,10 @@ struct CollegeContentView: View {
         if (college == "gt") { title += "Georgia Tech" }
         if (college == "bama") { title += "Bama" }
         if (college == "florida") { title += "UF" }
+        if (college == "gastate") { return "GA State" }
+        if (college == "ksu") { return "KSU" }
+        if (college == "michigan") { return "Michigan" }
+        if (college == "usc") { return "USC" }
         if (college == "harvard") { title += "Harvard" }
         
         return title
@@ -402,6 +475,10 @@ struct CollegeContentView: View {
         if (college == "gt") { return Color.yellow }
         if (college == "bama") { return Color.red }
         if (college == "florida") { return Color.blue }
+        if (college == "gastate") { return Color.blue }
+        if (college == "ksu") { return Color.black }
+        if (college == "michigan") { return Color.blue }
+        if (college == "usc") { return Color.yellow }
         if (college == "harvard") { return Color.red }
         return Color.red
     }
