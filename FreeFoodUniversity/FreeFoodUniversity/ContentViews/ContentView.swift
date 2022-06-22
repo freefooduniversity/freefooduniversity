@@ -76,12 +76,12 @@ struct MainContentView: View {
     @State var college: String = ""
     @State var latitude: Double = 37.0902
     @State var longitude: Double = -95.7129
-    @State var zoom: Float = 3
+    @State var zoom: Float = 3.2
     var markers: [GMSMarker] = []
    
     func setMarkers(markers: [GMSMarker]) ->  [ GMSMarker ] {
         var tempMarkers = markers
-        for i in 0 ... 4 {
+        for i in 0 ... 14 {
             var marker: GMSMarker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: (33.9480 + Double(i)), longitude: (-83.3773 + Double(i)))
             marker.title = ""
@@ -116,7 +116,7 @@ struct MainContentView: View {
             var lat: Double = getLat(college: college)
             var long: Double = getLong(college: college)
             if (self.college != "bama") {
-                GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(14.5), marker: .constant(m))
+                GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(15), marker: .constant(m))
                     .ignoresSafeArea()
                     .frame(width: 400, height: 450, alignment: .center)
             }
@@ -272,7 +272,12 @@ struct MainPageContentView: View {
 
 struct pickCollegeContentView: View {
     @Binding var buttonClick: String
-
+    
+    @State private var isExpanded = false
+    @State private var viewModel = ""
+    @State private var selectedCountry = ""
+                    @State private var selectedCountryId = ""
+    
     var body: some View {
             /*
             Button(action: {
@@ -291,19 +296,21 @@ struct pickCollegeContentView: View {
                  
             
              */
+        
         VStack {
             HStack {
                 Text("Select State:              ")
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
+                
                 Text("                              Use Current Location: ")
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
             }
-            Text("Top Colleges In US: ")
-                .font(.custom("Helvetica Neue", size: 14))
-                .foregroundColor(.black)
-                .underline()
+                Text("Top Colleges In US: ")
+                    .font(.custom("Helvetica Neue", size: 14))
+                    .foregroundColor(.black)
+                    .underline()
             
             HStack {
                 Button(action: {
@@ -460,6 +467,23 @@ struct CollegeContentView: View {
         if (college == "gt") { title += "Georgia Tech" }
         if (college == "bama") { title += "Bama" }
         if (college == "florida") { title += "UF" }
+        if (college == "gastate") { title += "GA State" }
+        if (college == "ksu") { title += "KSU" }
+        if (college == "michigan") { title += "Michigan" }
+        if (college == "usc") { title += "USC" }
+        if (college == "harvard") { title += "Harvard" }
+        
+        return title
+    }
+    
+    func getName(college: String) -> String {
+        var title = ""
+        
+        if (college == "uga") { title += "UGA" }
+        if (college == "clemson") { title += "Clemson" }
+        if (college == "gt") { title += "Georgia Tech" }
+        if (college == "bama") { title += "Bama" }
+        if (college == "florida") { title += "UF" }
         if (college == "gastate") { return "GA State" }
         if (college == "ksu") { return "KSU" }
         if (college == "michigan") { return "Michigan" }
@@ -507,10 +531,10 @@ struct CollegeContentView: View {
                     Image("down-arrow")
                 }.position(x:200, y:10)
                 HStack {
-                    Button ("⚠️ Allow Notifications\n For Food at UGA") {
+                    Button ("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
                         print("Hello")
                     }.border(Color.black)
-                    Button ("⚠️ Set UGA as Your Default College") {
+                    Button ("⚠️ Set " + getName(college: college) + " as Your Default College") {
                         print("Hello")
                     }.border(Color.black)
                 }
