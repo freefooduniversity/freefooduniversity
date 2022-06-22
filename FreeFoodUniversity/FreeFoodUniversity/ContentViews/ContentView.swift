@@ -81,12 +81,21 @@ struct MainContentView: View {
    
     func setMarkers(markers: [GMSMarker]) ->  [ GMSMarker ] {
         var tempMarkers = markers
-        for i in 0 ... 14 {
+        for i in 0 ... 100 {
             var marker: GMSMarker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: (33.9480 + Double(i)), longitude: (-83.3773 + Double(i)))
+            marker.position = CLLocationCoordinate2D(latitude: (33.9480 + Double.random(in: -5 ... 12)), longitude: (-83.3773 + Double.random(in: -30 ... 2)))
             marker.title = ""
             marker.snippet = "Event: Burger Club "
-            marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)
+            if (i % 10 == 0) { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
+            if (i % 10 == 1) { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 2) {marker.icon = UIImage(named: "breakfast")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 3) {marker.icon = UIImage(named: "lunch")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 4) {marker.icon = UIImage(named: "dinner")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 5) {marker.icon = UIImage(named: "ice-cream")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 6) {marker.icon = UIImage(named: "fruit")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 7) {marker.icon = UIImage(named: "mexican")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 8) {marker.icon = UIImage(named: "coffee")!.withRenderingMode(.alwaysTemplate)}
+            if (i % 10 == 9) {marker.icon = UIImage(named: "sandwich")!.withRenderingMode(.alwaysTemplate)}
             tempMarkers.append(marker)
             print(tempMarkers)
         }
