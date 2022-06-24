@@ -81,7 +81,7 @@ struct MainContentView: View {
    
     func setMarkers(markers: [GMSMarker]) ->  [ GMSMarker ] {
         var tempMarkers = markers
-        for i in 0 ... 100 {
+        for i in 0 ... 50 {
             var marker: GMSMarker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: (33.9480 + Double.random(in: -5 ... 12)), longitude: (-83.3773 + Double.random(in: -30 ... 2)))
             marker.title = ""
@@ -130,8 +130,13 @@ struct MainContentView: View {
                     .frame(width: 400, height: 450, alignment: .center)
             }
             StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176))
-            CollegeContentView(college: $college)
-                .ignoresSafeArea()
+            if (self.college != "bama") {
+                CollegeContentView(college: $college)
+                    .ignoresSafeArea()
+            } else {
+                BamaView(college: $college)
+                    .ignoresSafeArea()
+             }
             BottomButtonsView()
         }
     }
@@ -230,10 +235,14 @@ struct MainPageContentView: View {
 
     var body: some View {
         VStack {
-            Text("For Free Food: ")
-                .font(.custom("Helvetica Neue", size: 25))
+            Text("Welcome to Free Food University!")
+                .font(.custom("Helvetica Neue", size: 23))
                 .foregroundColor(.black)
-                .position(x:200, y:20)
+                .position(x:200, y:13)
+            Text("To Find Free Food Near You... ")
+                .font(.custom("Helvetica Neue", size: 16))
+                .foregroundColor(.black)
+                .position(x:200, y:-25)
             HStack {
                 VStack {
                     Button(action: {
@@ -266,7 +275,7 @@ struct MainPageContentView: View {
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                 }.border(Color.black)
-            }.position(x:200, y:30)
+            }.position(x:200, y:-5)
             HStack {
                 Button(action: {
                     withAnimation {
@@ -307,19 +316,21 @@ struct pickCollegeContentView: View {
              */
         
         VStack {
+            Text("Pick Your College: ")
+                .font(.custom("Helvetica Neue", size: 20))
+                .foregroundColor(.black)
             HStack {
-                Text("Select State:              ")
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-                
-                Text("                              Use Current Location: ")
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-            }
-                Text("Top Colleges In US: ")
-                    .font(.custom("Helvetica Neue", size: 14))
-                    .foregroundColor(.black)
-                    .underline()
+                Button (" Select State  ") {
+                    print("State")
+                }.border(Color.black)
+                Text("        ")
+                HStack {
+                    Button (" Use Current Location") {
+                        self.buttonClick = "uga"
+                    }
+                    Image("smallLocation")
+                }.border(Color.black)
+            }.position(x:200, y:10)
             
             HStack {
                 Button(action: {
@@ -381,21 +392,22 @@ struct pickCollegeContentView: View {
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
-            }
+            }.position(x:200, y:5)
             
             HStack {
+                
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "gastate"
+                        self.buttonClick = "michigan"
                     }
                 }) {
-                    Image("gastateCopy")
+                    Image("michiganCopy")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
-        
+            
                 Button(action: {
                     withAnimation {
                         self.buttonClick = "ksu"
@@ -410,16 +422,14 @@ struct pickCollegeContentView: View {
                 
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "michigan"
+                        self.buttonClick = "gastate"
                     }
                 }) {
-                    Image("michiganCopy")
+                    Image("gastateCopy")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-            
+        
                 Button(action: {
                     withAnimation {
                         self.buttonClick = "usc"
@@ -444,7 +454,7 @@ struct pickCollegeContentView: View {
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
                 
-            }.position(x:200, y:40)
+            }.position(x:200, y:20)
         }.background(Color.white)
     }
 }
@@ -518,12 +528,9 @@ struct CollegeContentView: View {
     
     var body: some View {
             VStack {
-                if (college == "bama") {
-                    Image("jordandavis").position(x:100, y:200)
-                }
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
-                    .position(x:200, y:30)
+                    .position(x:200, y:20)
                     .foregroundColor(.black)
                 
                 HStack {
@@ -533,11 +540,13 @@ struct CollegeContentView: View {
                             self.college = "pickCollege"
                         }
                     }) {
-                        Image(getImage(college: college))
-                            .renderingMode(Image.TemplateRenderingMode?
-                            .init(Image.TemplateRenderingMode.original))
+                        HStack {
+                            Image(getImage(college: college))
+                                .renderingMode(Image.TemplateRenderingMode?
+                                .init(Image.TemplateRenderingMode.original))
+                            Image("down-arrow")
+                        }
                     }
-                    Image("down-arrow")
                 }.position(x:200, y:10)
                 HStack {
                     Button ("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
@@ -548,6 +557,44 @@ struct CollegeContentView: View {
                     }.border(Color.black)
                 }
         }.background(Color.white)
+    }
+}
+
+struct BamaView: View {
+    @Binding var college: String
+    
+    var body: some View {
+        VStack {
+            Image("jordandavis").position(x:100, y:200)
+            Text("Free Food at Bama 🤡")
+                .font(.custom("Helvetica Neue", size: 25))
+                .position(x:200, y:270)
+                .foregroundColor(.black)
+            
+            HStack {
+                Image("sidenav")
+                Button(action: {
+                    withAnimation {
+                        self.college = "pickCollege"
+                    }
+                }) {
+                    HStack {
+                        Image("bama")
+                            .renderingMode(Image.TemplateRenderingMode?
+                            .init(Image.TemplateRenderingMode.original))
+                        Image("down-arrow")
+                    }
+                }
+            }.position(x:200, y:130)
+            HStack {
+                Button ("⚠️ Allow Notifications\n For Food at Bama") {
+                    print("Hello")
+                }.border(Color.black)
+                Button ("⚠️ Set Bama as Your Default College") {
+                    print("Hello")
+                }.border(Color.black)
+            }
+        }
     }
 }
 
