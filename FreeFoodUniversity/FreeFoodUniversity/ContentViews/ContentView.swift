@@ -74,6 +74,7 @@ struct GoogleMapsView: UIViewRepresentable {
 
 struct MainContentView: View {
     @State var college: String = ""
+    @State var addFood: Bool = false
     @State var latitude: Double = 37.0902
     @State var longitude: Double = -95.7129
     @State var zoom: Float = 3.2
@@ -111,7 +112,6 @@ struct MainContentView: View {
                 .frame(width: 400, height: 450, alignment: .center)
             StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156))
             MainPageContentView(buttonClick: $college)
-            BottomButtonsView()
            // GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
         } else if (self.college == "pickCollege") {
             GoogleMapsView(latitude: .constant(37.0902), longitude: .constant(-95.7129), zoom: .constant(3), marker: .constant(m))
@@ -120,25 +120,29 @@ struct MainContentView: View {
             StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156))
             pickCollegeContentView(buttonClick: $college)
                 .ignoresSafeArea()
-            BottomButtonsView()
         } else {
-            var lat: Double = getLat(college: college)
-            var long: Double = getLong(college: college)
-            if (self.college != "bama") {
-                GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(15), marker: .constant(m))
-                    .ignoresSafeArea()
-                    .frame(width: 400, height: 450, alignment: .center)
-            }
-            StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176))
-            if (self.college != "bama") {
-                CollegeContentView(college: $college)
-                    .ignoresSafeArea()
+                var lat: Double = getLat(college: college)
+                var long: Double = getLong(college: college)
+                if (self.college != "bama") {
+                    GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(15), marker: .constant(m))
+                        .ignoresSafeArea()
+                        .frame(width: 400, height: 450, alignment: .center)
+                }
+                StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176))
+            if (!addFood) {
+                if (self.college != "bama") {
+                    CollegeContentView(college: $college, addFood: $addFood)
+                        .ignoresSafeArea()
+                } else {
+                    BamaView(college: $college)
+                        .ignoresSafeArea()
+                }
             } else {
-                BamaView(college: $college)
+                addFoodToMapView(college: $college, addFood: $addFood)
                     .ignoresSafeArea()
-             }
-            BottomButtonsView()
+            }
         }
+        BottomButtonsView()
     }
     
     func getLat(college: String) -> Double {
@@ -239,8 +243,8 @@ struct MainPageContentView: View {
                 .font(.custom("Helvetica Neue", size: 23))
                 .foregroundColor(.black)
                 .position(x:200, y:13)
-            Text("To Find Free Food Near You... ")
-                .font(.custom("Helvetica Neue", size: 16))
+            Text("To Find Food Near You... ")
+                .font(.custom("Helvetica Neue", size: 14))
                 .foregroundColor(.black)
                 .position(x:200, y:-25)
             HStack {
@@ -275,15 +279,8 @@ struct MainPageContentView: View {
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                 }.border(Color.black)
-            }.position(x:200, y:-5)
-            HStack {
-                Button(action: {
-                    withAnimation {
-                        //self.buttonClick = "pickCollege"
-                    }
-                }) {
-                }
-            }
+            }.position(x:200, y:-10)
+           
         }.background(Color.white)
     }
 }
@@ -462,6 +459,7 @@ struct pickCollegeContentView: View {
 
 struct CollegeContentView: View {
     @Binding var college: String
+    @Binding var addFood: Bool
     
     func getImage(college: String) -> String {
         if (college == "uga") { return "uga" }
@@ -534,7 +532,21 @@ struct CollegeContentView: View {
                     .foregroundColor(.black)
                 
                 HStack {
-                    Image("sidenav")
+                    Button(action: {
+                        withAnimation {
+                            self.addFood = true
+                        }
+                    }) {
+                        VStack {
+                            Image("big-burger")
+                                .renderingMode(Image.TemplateRenderingMode?
+                                .init(Image.TemplateRenderingMode.original))
+                            Text(" Add Food To The Map   ")
+                                .font(.custom("Helvetica Neue", size: 12))
+                                .foregroundColor(.black)
+                        }
+                    }.border(Color.black)
+                    Text("          ")
                     Button(action: {
                         withAnimation {
                             self.college = "pickCollege"
@@ -559,6 +571,9 @@ struct CollegeContentView: View {
         }.background(Color.white)
     }
 }
+
+
+
 
 struct BamaView: View {
     @Binding var college: String
@@ -594,6 +609,27 @@ struct BamaView: View {
                     print("Hello")
                 }.border(Color.black)
             }
+        }
+    }
+}
+
+struct addFoodToMapView: View {
+    @Binding var college: String
+    @Binding var addFood: Bool
+    
+    var body: some View {
+        VStack {
+            Text("Add Food To " + college)
+            Text(college)
+            Text(college)
+            Text(college)
+            Text(college)
+            Text(college)
+            Text(college)
+            Text(college)
+        }
+        Button("Back") {
+            addFood = false
         }
     }
 }
