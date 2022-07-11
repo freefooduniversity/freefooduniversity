@@ -10,40 +10,9 @@ import SwiftUI
 import CoreData
 import UIKit
 
-struct StatsView: View {
-    @Binding var active: Int
-    @Binding var fedToday: Int
-    @Binding var fedAllTime: Int
-    
-    var body: some View {
-        HStack {
-            Text("Food Events:")
-                .foregroundColor(.black)
-                .font(.custom("Helvetica Neue", size: 14))
-            Text(String(active) + "🍔  ")
-                .foregroundColor(.blue)
-                .font(.custom("Helvetica Neue", size: 14))
-            
-            Text("Today:")
-                .foregroundColor(.black)
-                .font(.custom("Helvetica Neue", size: 14))
-            Text(String(fedToday) + "🧑🏻‍💼  ")
-                .foregroundColor(.blue)
-                .font(.custom("Helvetica Neue", size: 14))
-            Text("All Time:")
-                .foregroundColor(.black)
-                .font(.custom("Helvetica Neue", size: 14))
-            Text(String(fedAllTime) + "🧑🏻‍💼  ")
-                .foregroundColor(.blue)
-                .font(.custom("Helvetica Neue", size: 14))
-        }
-    }
-}
-
-
 struct GoogleMapsView: UIViewRepresentable {
-   @Binding var latitude: Double
-   @Binding var longitude: Double
+    @Binding var latitude: Double
+    @Binding var longitude: Double
     @Binding var zoom: Float
     @Binding var marker: [GMSMarker]
     
@@ -75,6 +44,10 @@ struct GoogleMapsView: UIViewRepresentable {
 struct MainContentView: View {
     @State var college: String = ""
     @State var addFood: Bool = false
+    
+    @State var navButtonClicked: Bool = false
+    @State var aboutUsButtonClicked: Bool = false
+    
     @State var latitude: Double = 37.0902
     @State var longitude: Double = -95.7129
     @State var zoom: Float = 3.2
@@ -106,43 +79,52 @@ struct MainContentView: View {
     
     var body: some View {
         var m = setMarkers(markers: markers)
-        if (self.college == "") {
+        
+        
+        /* Map Views */
+        if (self.college == "" || self.college == "pickCollege") {
             GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
-            StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156))
-            MainPageContentView(buttonClick: $college)
-           // GoogleMapsView(latitude: .constant(latitude), longitude: .constant(longitude), zoom: .constant(zoom))
-        } else if (self.college == "pickCollege") {
-            GoogleMapsView(latitude: .constant(37.0902), longitude: .constant(-95.7129), zoom: .constant(3), marker: .constant(m))
-                .ignoresSafeArea()
-                .frame(width: 400, height: 450, alignment: .center)
-            StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156))
-            pickCollegeContentView(buttonClick: $college)
-                .ignoresSafeArea()
+            
         } else {
-                var lat: Double = getLat(college: college)
-                var long: Double = getLong(college: college)
-                if (self.college != "bama") {
-                    GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(15), marker: .constant(m))
-                        .ignoresSafeArea()
-                        .frame(width: 400, height: 450, alignment: .center)
-                }
-                StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176))
-            if (!addFood) {
-                if (self.college != "bama") {
-                    CollegeContentView(college: $college, addFood: $addFood)
-                        .ignoresSafeArea()
-                } else {
-                    BamaView(college: $college)
-                        .ignoresSafeArea()
-                }
+            var lat: Double = getLat(college: college)
+            var long: Double = getLong(college: college)
+            if (self.college != "bama") {
+                GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(15), marker: .constant(m))
+                    .ignoresSafeArea()
+                    .frame(width: 400, height: 450, alignment: .center)
             } else {
-                addFoodToMapView(college: $college, addFood: $addFood)
+                BamaView(college: $college)
                     .ignoresSafeArea()
             }
+            StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176))
+        } // else
+        
+        /* Stats Views */
+        if (!navButtonClicked) {
+            if (self.college == "") { StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156)) }
+            if (self.college == "pickCollege") { StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176)) }
         }
-        BottomButtonsView()
+        
+        /* Middle Views */
+        if (!navButtonClicked) {
+            //College Not Yet Picked
+            if (self.college == "") { MainPageContentView(buttonClick: $college) }
+            else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college) }
+            
+            // Specific College Was Picked
+            else if (!addFood) { CollegeContentView(college: $college, addFood: $addFood) }
+            else { addFoodToMapView(college: $college, addFood: $addFood) }
+        } else {
+          //  if (profileButtonClicked) { profileView() }
+            if (aboutUsButtonClicked) { AboutUsView() }
+         //   else if (feedbackButtonClicked) { FeedbackView() }
+         //   else { settingsView() }
+        }
+        
+        // Nav Button Views Always Present At Bottom
+        NavButtonsView(navButtonClicked: $navButtonClicked, profileButtonClicked: .constant(false), aboutUsButtonClicked: $aboutUsButtonClicked, feedbackButtonClicked: .constant(false), settingsButtonClicked: .constant(false))
     }
     
     func getLat(college: String) -> Double {
@@ -171,65 +153,6 @@ struct MainContentView: View {
         if (college == "usc") { return -118.2851 }
         if (college == "harvard") { return -71.1167 }
         return -95.7129
-    }
-}
-
-struct BottomButtonsView: View {
-    var body: some View {
-        HStack {
-            Text("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ")
-                .font(.system(size:1))
-        }.background(Color.gray)
-        HStack (spacing: 30) {
-            Button(action: {
-                withAnimation {
-                    print("Profile Button Clicked")
-                }
-            }) {
-                VStack {
-                    Image("user")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                    Text("Profile\n")
-                }
-            }
-            Button(action: {
-                withAnimation {
-                    print("About Us Button Clicked")
-                }
-            }) {
-                VStack {
-                    Image("team")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                    Text("About Us\n")
-                }
-            }
-            Button(action: {
-                withAnimation {
-                    print("Feedback Button Clicked")
-                }
-            }) {
-                VStack {
-                    Image("feedback")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                    Text("Feedback\n")
-                }
-            }
-            Button(action: {
-                withAnimation {
-                    print("Settings Clicked")
-                }
-            }) {
-                VStack {
-                    Image("settings")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                    Text("Settings\n")
-                }
-            }
-        }
     }
 }
 
@@ -284,178 +207,6 @@ struct MainPageContentView: View {
         }.background(Color.white)
     }
 }
-
-struct pickCollegeContentView: View {
-    @Binding var buttonClick: String
-    
-    @State private var isExpanded = false
-    @State private var viewModel = ""
-    @State private var selectedCountry = ""
-                    @State private var selectedCountryId = ""
-    
-    var body: some View {
-            /*
-            Button(action: {
-                withAnimation {
-                    self.buttonClick = "uga"
-                }
-            }) {
-                
-                HStack {
-                    Text(" Use Current Location Instead")
-                        .font(.custom("Helvetica Neue", size: 9))
-                        .foregroundColor(.black)
-                    Image ("smallLocation")
-                    Text(" ")
-                }.border(Color.black)
-                 
-            
-             */
-        
-        VStack {
-            Text("Pick Your College: ")
-                .font(.custom("Helvetica Neue", size: 20))
-                .foregroundColor(.black)
-            HStack {
-                Button (" Select State  ") {
-                    print("State")
-                }.border(Color.black)
-                Text("        ")
-                HStack {
-                    Button (" Use Current Location") {
-                        self.buttonClick = "uga"
-                    }
-                    Image("smallLocation")
-                }.border(Color.black)
-            }.position(x:200, y:10)
-            
-            HStack {
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "uga"
-                    }
-                }) {
-                    Image("ugaCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-        
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "clemson"
-                    }
-                }) {
-                    Image("clemsonCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-                
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "gt"
-                    }
-                }) {
-                    Image("gtCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-            
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "bama"
-                    }
-                }) {
-                    Image("bamaCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-            
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "florida"
-                    }
-                }) {
-                    Image("floridaCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-            }.position(x:200, y:5)
-            
-            HStack {
-                
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "michigan"
-                    }
-                }) {
-                    Image("michiganCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-            
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "ksu"
-                    }
-                }) {
-                    Image("ksuCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-                
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "gastate"
-                    }
-                }) {
-                    Image("gastateCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-        
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "usc"
-                    }
-                }) {
-                    Image("uscCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-                
-                Button(action: {
-                    withAnimation {
-                        self.buttonClick = "harvard"
-                    }
-                }) {
-                    Image("harvardCopy")
-                        .renderingMode(Image.TemplateRenderingMode?
-                        .init(Image.TemplateRenderingMode.original))
-                }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
-                
-            }.position(x:200, y:20)
-        }.background(Color.white)
-    }
-}
-
 
 struct CollegeContentView: View {
     @Binding var college: String
@@ -571,9 +322,6 @@ struct CollegeContentView: View {
         }.background(Color.white)
     }
 }
-
-
-
 
 struct BamaView: View {
     @Binding var college: String
