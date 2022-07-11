@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 import UIKit
 
-struct PickCollegeContentView: View {
+struct pickCollegeContentView: View {
     @Binding var buttonClick: String
     
     @State private var isExpanded = false
