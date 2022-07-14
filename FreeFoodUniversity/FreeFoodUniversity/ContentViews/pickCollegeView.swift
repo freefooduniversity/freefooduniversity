@@ -12,11 +12,16 @@ import UIKit
 
 struct pickCollegeContentView: View {
     @Binding var buttonClick: String
+    @Binding var locationButtonClicked: Bool
+    
+    @ObservedObject var locationManager = LocationManager()
     
     @State private var isExpanded = false
     @State private var viewModel = ""
     @State private var selectedCountry = ""
-                    @State private var selectedCountryId = ""
+    @State private var selectedCountryId = ""
+    
+    var collegeLocations = CollegeLocations()
     
     var body: some View {
             /*
@@ -48,7 +53,15 @@ struct pickCollegeContentView: View {
                 Text("        ")
                 HStack {
                     Button (" Use Current Location") {
-                        self.buttonClick = "uga"
+                        self.locationButtonClicked = true
+                    
+                        if locationManager.userLocation == nil {
+                          locationManager.requestLocation()
+                      } else if let location = locationManager.userLocation {
+                            var latitude = location.coordinate.latitude
+                          var longitude = location.coordinate.longitude
+                          self.buttonClick = collegeLocations.closestCollege(lat: latitude, long: longitude)
+                      }
                     }
                     Image("smallLocation")
                 }.border(Color.black)

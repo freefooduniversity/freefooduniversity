@@ -11,6 +11,12 @@
 		C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA5287B723800A78E94 /* NavButtonsView.swift */; };
 		C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA7287B742800A78E94 /* StatsView.swift */; };
 		C5B44DAA287B749C00A78E94 /* pickCollegeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA9287B749C00A78E94 /* pickCollegeView.swift */; };
+		C5B44DAF287D205000A78E94 /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DAE287D205000A78E94 /* AddFoodView.swift */; };
+		C5B44DB1287D20D700A78E94 /* CollegeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB0287D20D700A78E94 /* CollegeView.swift */; };
+		C5B44DB5287D350F00A78E94 /* CollegeLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB4287D350F00A78E94 /* CollegeLocations.swift */; };
+		C5B44DB7287FACD500A78E94 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB6287FACD500A78E94 /* ProfileView.swift */; };
+		C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */; };
+		C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E52287FD2CC00434E50 /* SettingsView.swift */; };
 		D858D09F284D605000F5D4A1 /* FreeFoodUniversityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */; };
 		D858D0A1284D605000F5D4A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D0A0284D605000F5D4A1 /* ContentView.swift */; };
 		D858D0A3284D605100F5D4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D858D0A2284D605100F5D4A1 /* Assets.xcassets */; };
@@ -50,6 +56,12 @@
 		C5B44DA5287B723800A78E94 /* NavButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsView.swift; sourceTree = "<group>"; };
 		C5B44DA7287B742800A78E94 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		C5B44DA9287B749C00A78E94 /* pickCollegeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickCollegeView.swift; sourceTree = "<group>"; };
+		C5B44DAE287D205000A78E94 /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
+		C5B44DB0287D20D700A78E94 /* CollegeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeView.swift; sourceTree = "<group>"; };
+		C5B44DB4287D350F00A78E94 /* CollegeLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeLocations.swift; sourceTree = "<group>"; };
+		C5B44DB6287FACD500A78E94 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		C5CD8E52287FD2CC00434E50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D858D09B284D605000F5D4A1 /* Free Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Free Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityApp.swift; sourceTree = "<group>"; };
 		D858D0A0284D605000F5D4A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +109,12 @@
 				C5B44DA5287B723800A78E94 /* NavButtonsView.swift */,
 				C5B44DA7287B742800A78E94 /* StatsView.swift */,
 				C5B44DA9287B749C00A78E94 /* pickCollegeView.swift */,
+				C5B44DAE287D205000A78E94 /* AddFoodView.swift */,
+				C5B44DB0287D20D700A78E94 /* CollegeView.swift */,
+				C5B44DB4287D350F00A78E94 /* CollegeLocations.swift */,
+				C5B44DB6287FACD500A78E94 /* ProfileView.swift */,
+				C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */,
+				C5CD8E52287FD2CC00434E50 /* SettingsView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -415,10 +433,16 @@
 				C5B44DA4287B68A500A78E94 /* AboutUsView.swift in Sources */,
 				D858D0A1284D605000F5D4A1 /* ContentView.swift in Sources */,
 				D858D09F284D605000F5D4A1 /* FreeFoodUniversityApp.swift in Sources */,
+				C5B44DB7287FACD500A78E94 /* ProfileView.swift in Sources */,
+				C5B44DB5287D350F00A78E94 /* CollegeLocations.swift in Sources */,
 				D858D0AB284D605100F5D4A1 /* FreeFoodUniversity.xcdatamodeld in Sources */,
+				C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */,
 				C5B44DAA287B749C00A78E94 /* pickCollegeView.swift in Sources */,
+				C5B44DB1287D20D700A78E94 /* CollegeView.swift in Sources */,
 				C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */,
 				C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */,
+				C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */,
+				C5B44DAF287D205000A78E94 /* AddFoodView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +605,10 @@
 				DEVELOPMENT_TEAM = A392TF3NL6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "<key>NSLocationWhenInUseUsageDescription</key><string>Description</string>";
+				"INFOPLIST_FILE[sdk=*]" = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To allow user to easily find food near them";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -612,6 +640,10 @@
 				DEVELOPMENT_TEAM = A392TF3NL6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "<key>NSLocationWhenInUseUsageDescription</key><string>Description</string>";
+				"INFOPLIST_FILE[sdk=*]" = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To allow user to easily find food near them";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

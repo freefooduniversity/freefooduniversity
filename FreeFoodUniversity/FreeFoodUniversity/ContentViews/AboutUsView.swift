@@ -11,8 +11,46 @@ import UIKit
 
 
 struct AboutUsView: View {
+    @Binding var navButton: String
+    
     var body: some View {
           VStack {
+              
+              HStack {
+                  Button(action: {
+                      navButton = ""
+                  }) {
+                      HStack {
+                          Image("back")
+                          Text("Go Back       ")
+                              .font(.custom("Helvetica Neue", size: 10))
+                              .foregroundColor(.black)
+                      }
+                  }.background(Color.purple).cornerRadius(5)
+                  Text("   ")
+                  Button(action: {
+                      
+                  }) {
+                      HStack {
+                          Image("github")
+                          Text("Github Repo     ")
+                              .font(.custom("Helvetica Neue", size: 10))
+                              .foregroundColor(.black)
+                      }
+                  }.background(Color.purple).cornerRadius(5)
+                  Text("   ")
+                  Button(action: {
+                      
+                  }) {
+                      Image("computer")
+                      Text("Tech Stack    ")
+                          .font(.custom("Helvetica Neue", size: 10))
+                          .foregroundColor(.black)
+                  }.background(Color.purple).cornerRadius(5)
+              }
+            Image("us").cornerRadius(20.0)
+              
+              
               HStack {
                   Button(action: {
                       
@@ -48,7 +86,7 @@ struct AboutUsView: View {
                   }.background(Color.mint).cornerRadius(7.5)
               }
               
-            Image("us").cornerRadius(20.0)
+              
             Text("We're students at the University Of Georgia and created this app")
                   .font(.custom("Helvetica Neue", size: 12))
             Text("because we want to provide college students a quick, simple, and")
@@ -57,39 +95,6 @@ struct AboutUsView: View {
                   .font(.custom("Helvetica Neue", size: 12))
             Text("support nationwide sustainability by reducing food waste")
                     .font(.custom("Helvetica Neue", size: 12))
-        
-        HStack {
-            Button(action: {
-                
-            }) {
-                HStack {
-                    Image("back")
-                    Text("Go Back       ")
-                        .font(.custom("Helvetica Neue", size: 10))
-                        .foregroundColor(.black)
-                }
-            }.background(Color.gray).cornerRadius(5)
-            Text("   ")
-            Button(action: {
-                
-            }) {
-                HStack {
-                    Image("github")
-                    Text("Github Repo     ")
-                        .font(.custom("Helvetica Neue", size: 10))
-                        .foregroundColor(.black)
-                }
-            }.background(Color.gray).cornerRadius(5)
-            Text("   ")
-            Button(action: {
-                
-            }) {
-                Image("computer")
-                Text("Tech Stack    ")
-                    .font(.custom("Helvetica Neue", size: 10))
-                    .foregroundColor(.black)
-            }.background(Color.gray).cornerRadius(5)
-        }
         
         
        }

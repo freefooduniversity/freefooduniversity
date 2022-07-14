@@ -11,11 +11,8 @@ import CoreData
 import UIKit
 
 struct NavButtonsView: View {
-    @Binding var navButtonClicked: Bool
-    @Binding var profileButtonClicked: Bool
-    @Binding var aboutUsButtonClicked: Bool
-    @Binding var feedbackButtonClicked: Bool
-    @Binding var settingsButtonClicked: Bool
+    @Binding var navButton: String
+
     
     var body: some View {
         HStack {
@@ -25,9 +22,7 @@ struct NavButtonsView: View {
         HStack (spacing: 30) {
             Button(action: {
                 withAnimation {
-                    self.profileButtonClicked = true
-                    self.navButtonClicked = true
-                    self.aboutUsButtonClicked = false
+                    self.navButton = "profile"
                 }
             }) {
                 VStack {
@@ -39,8 +34,7 @@ struct NavButtonsView: View {
             }
             Button(action: {
                 withAnimation {
-                    self.navButtonClicked = true
-                    self.aboutUsButtonClicked = true
+                    self.navButton = "aboutUs"
                 }
             }) {
                 VStack {
@@ -52,9 +46,7 @@ struct NavButtonsView: View {
             }
             Button(action: {
                 withAnimation {
-                    self.feedbackButtonClicked = true
-                    self.navButtonClicked = true
-                    self.aboutUsButtonClicked = false
+                    self.navButton = "feedback"
                 }
             }) {
                 VStack {
@@ -66,8 +58,7 @@ struct NavButtonsView: View {
             }
             Button(action: {
                 withAnimation {
-                    self.settingsButtonClicked = true
-                    self.navButtonClicked = true
+                    self.navButton = "settings"
                 }
             }) {
                 VStack {
