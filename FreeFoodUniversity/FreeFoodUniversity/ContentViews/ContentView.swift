@@ -141,7 +141,7 @@ struct MainContentView: View {
         var m = setMarkers(markers: markers)
         
         /* Map Views */
-        if (self.college == "" || self.college == "pickCollege") {
+        if (self.college == "" || self.college == "pickCollege" || self.college == "select-state") {
             GoogleMapsView(latitude: .constant(LAT), longitude: .constant(LONG), zoom: .constant(ZOOM), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
@@ -164,13 +164,13 @@ struct MainContentView: View {
                 BamaView(college: $college)
                     .ignoresSafeArea()
             }
-            StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176))
+            if (!addFood) { StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176)) }
         } // else
         
         /* Stats Views */
         if (navButton == "") {
             if (self.college == "") { StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156)) }
-            if (self.college == "pickCollege") { StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176)) }
+            if (self.college == "pickCollege") { StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156)) }
         }
         
         /* Middle Views */
@@ -178,6 +178,7 @@ struct MainContentView: View {
             //College Not Yet Picked
             if (self.college == "") { MainPageContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked, latitude: $latitude, longitude: $longitude, locationPermissions: $locationPermissions) }
             else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked) }
+            else if (self.college == "select-state") { SelectStateView(buttonClick: $college, locationButtonClicked: $locationButtonClicked)}
             
             // Specific College Was Picked
             else if (!addFood) { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked) }
@@ -334,35 +335,7 @@ struct BamaView: View {
     
     var body: some View {
         VStack {
-            Image("jordandavis").position(x:100, y:200)
-            Text("Free Food at Bama 🤡")
-                .font(.custom("Helvetica Neue", size: 25))
-                .position(x:200, y:270)
-                .foregroundColor(.black)
-            
-            HStack {
-                Image("sidenav")
-                Button(action: {
-                    withAnimation {
-                        self.college = "pickCollege"
-                    }
-                }) {
-                    HStack {
-                        Image("bama")
-                            .renderingMode(Image.TemplateRenderingMode?
-                            .init(Image.TemplateRenderingMode.original))
-                        Image("down-arrow")
-                    }
-                }
-            }.position(x:200, y:130)
-            HStack {
-                Button ("⚠️ Allow Notifications\n For Food at Bama") {
-                    print("Hello")
-                }.border(Color.black)
-                Button ("⚠️ Set Bama as Your Default College") {
-                    print("Hello")
-                }.border(Color.black)
-            }
+            Image("jordandavis").position(x:100, y:300)
         }
     }
 }

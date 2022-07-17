@@ -121,7 +121,7 @@ struct CollegeContentView: View {
                     Button ("⚠️ Set " + getName(college: college) + " as Your Default College") {
                         print("Hello")
                     }.border(Color.black)
-                }
+                }.position(x:195, y:35)
         }.background(Color.white)
     }
 }

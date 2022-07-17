@@ -46,9 +46,10 @@ struct pickCollegeContentView: View {
             Text("Pick Your College: ")
                 .font(.custom("Helvetica Neue", size: 20))
                 .foregroundColor(.black)
+                .position(x: 195, y: 10)
             HStack {
                 Button (" Select State  ") {
-                    print("State")
+                    self.buttonClick = "select-state"
                 }.border(Color.black)
                 Text("        ")
                 HStack {
@@ -65,7 +66,7 @@ struct pickCollegeContentView: View {
                     }
                     Image("smallLocation")
                 }.border(Color.black)
-            }.position(x:200, y:10)
+            }.position(x:200, y:-10)
             
             HStack {
                 Button(action: {
@@ -127,7 +128,7 @@ struct pickCollegeContentView: View {
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
-            }.position(x:200, y:5)
+            }.position(x:200, y:-10)
             
             HStack {
                 
@@ -189,7 +190,7 @@ struct pickCollegeContentView: View {
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
                 
-            }.position(x:200, y:20)
+            }.position(x:200, y:5)
         }.background(Color.white)
     }
 }

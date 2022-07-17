@@ -20,12 +20,12 @@ struct AboutUsView: View {
                   Button(action: {
                       navButton = ""
                   }) {
-                      HStack {
-                          Image("back")
+                
+                         Image("back")
                           Text("Go Back       ")
                               .font(.custom("Helvetica Neue", size: 10))
                               .foregroundColor(.black)
-                      }
+                      
                   }.background(Color.purple).cornerRadius(5)
                   Text("   ")
                   Button(action: {
@@ -42,13 +42,17 @@ struct AboutUsView: View {
                   Button(action: {
                       
                   }) {
+
                       Image("computer")
                       Text("Tech Stack    ")
                           .font(.custom("Helvetica Neue", size: 10))
                           .foregroundColor(.black)
                   }.background(Color.purple).cornerRadius(5)
-              }
-            Image("us").cornerRadius(20.0)
+              }.position(x:190, y:7)
+               
+              HStack {
+                  Image("us").cornerRadius(20.0)
+              }.position(x:190, y:30)
               
               
               HStack {
@@ -84,19 +88,15 @@ struct AboutUsView: View {
                           Image("linkedin")
                       }
                   }.background(Color.mint).cornerRadius(7.5)
-              }
+              }.position(x: 190, y: 50)
               
               
             Text("We're students at the University Of Georgia and created this app")
                   .font(.custom("Helvetica Neue", size: 12))
-            Text("because we want to provide college students a quick, simple, and")
+            Text("to provide college students an easy way to find free food on their")
                   .font(.custom("Helvetica Neue", size: 12))
-            Text("seamless way to find free food on their campuses as well as ")
+            Text("campuses, as well as support sustainability by reducing food waste")
                   .font(.custom("Helvetica Neue", size: 12))
-            Text("support nationwide sustainability by reducing food waste")
-                    .font(.custom("Helvetica Neue", size: 12))
-        
-        
-       }
+          }.position(x: 200, y: 115)
     }
 }

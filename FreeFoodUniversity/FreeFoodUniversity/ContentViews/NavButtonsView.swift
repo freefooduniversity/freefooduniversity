@@ -56,16 +56,18 @@ struct NavButtonsView: View {
                     Text("Feedback\n")
                 }
             }
+
             Button(action: {
                 withAnimation {
-                    self.navButton = "settings"
+                    var vc = ViewController()
+                    vc.share()
                 }
             }) {
                 VStack {
-                    Image("settings")
+                    Image("share")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
-                    Text("Settings\n")
+                        Text("Share \n")
                 }
             }
         }

@@ -51,6 +51,6 @@ struct FeedbackView: View {
                     }
                 }.background(Color.blue).cornerRadius(15)
             }
-        }
+        }.position(x:200, y:120)
     }
 }
