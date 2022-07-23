@@ -15,6 +15,7 @@
 		C5B44DB1287D20D700A78E94 /* CollegeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB0287D20D700A78E94 /* CollegeView.swift */; };
 		C5B44DB5287D350F00A78E94 /* CollegeLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB4287D350F00A78E94 /* CollegeLocations.swift */; };
 		C5B44DB7287FACD500A78E94 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB6287FACD500A78E94 /* ProfileView.swift */; };
+		C5C0111A2889071A00520DCA /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C011192889071A00520DCA /* MarkerView.swift */; };
 		C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */; };
 		C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E52287FD2CC00434E50 /* SettingsView.swift */; };
 		C5CD8E55287FD95200434E50 /* SelectStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E54287FD95100434E50 /* SelectStateView.swift */; };
@@ -62,6 +63,7 @@
 		C5B44DB0287D20D700A78E94 /* CollegeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeView.swift; sourceTree = "<group>"; };
 		C5B44DB4287D350F00A78E94 /* CollegeLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollegeLocations.swift; sourceTree = "<group>"; };
 		C5B44DB6287FACD500A78E94 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C5C011192889071A00520DCA /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		C5CD8E52287FD2CC00434E50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C5CD8E54287FD95100434E50 /* SelectStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStateView.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */,
 				C5CD8E52287FD2CC00434E50 /* SettingsView.swift */,
 				C5CD8E54287FD95100434E50 /* SelectStateView.swift */,
+				C5C011192889071A00520DCA /* MarkerView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */,
 				C5B44DAA287B749C00A78E94 /* pickCollegeView.swift in Sources */,
 				C5B44DB1287D20D700A78E94 /* CollegeView.swift in Sources */,
+				C5C0111A2889071A00520DCA /* MarkerView.swift in Sources */,
 				C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */,
 				C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */,
 				C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */,

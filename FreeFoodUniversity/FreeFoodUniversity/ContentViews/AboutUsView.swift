@@ -15,7 +15,7 @@ struct AboutUsView: View {
     
     var body: some View {
           VStack {
-              
+              /*
               HStack {
                   Button(action: {
                       navButton = ""
@@ -49,7 +49,30 @@ struct AboutUsView: View {
                           .foregroundColor(.black)
                   }.background(Color.purple).cornerRadius(5)
               }.position(x:190, y:7)
-               
+               */
+              HStack {
+                  Button(action: {
+                      navButton = ""
+                  }) {
+                          Text("Go Back       ")
+                  }
+                  Text("   ")
+                  Button(action: {
+                      
+                  }) {
+                      HStack {
+                          Text("Github Repo     ")
+  
+                      }
+                  }
+                  Text("   ")
+                  Button(action: {
+                      
+                  }) {
+                      Text("Tech Stack    ")
+                  }
+              }.position(x:190, y:7)
+              
               HStack {
                   Image("us").cornerRadius(20.0)
               }.position(x:190, y:30)

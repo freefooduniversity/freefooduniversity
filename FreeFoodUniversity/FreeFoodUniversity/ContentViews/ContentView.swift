@@ -12,6 +12,10 @@ import UIKit
 import CoreLocation
 import CoreLocationUI
 
+class ClickEvent: UIViewController, GMSMapViewDelegate {
+    
+}
+
 class LocationManager: NSObject, ObservableObject {
     private let manager = CLLocationManager()
     @Published var userLocation: CLLocation?
@@ -70,17 +74,21 @@ struct GoogleMapsView: UIViewRepresentable {
             GMSServices.provideAPIKey(APIKey)
             let camera = usa
             let mapView = GMSMapView(frame: CGRect.zero, camera: camera)
+
             return mapView
         }
              
         func updateUIView(_ uiView: GMSMapView, context: Context) {
+             uiView.clear()
 //            let marker : GMSMarker = GMSMarker()
 //            marker.position = CLLocationCoordinate2D(latitude: 33.9480, longitude: -83.3773 )
 //            marker.title = ""
 //            marker.snippet = "Welcome to Hello World"
 //            marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)
-            for i in 0 ... marker.count - 1{
-                    marker[i].map = uiView
+            if (marker.count > 0) {
+                for i in 0 ... marker.count - 1 {
+                        marker[i].map = uiView
+                }
             }
         }
  }
@@ -103,29 +111,46 @@ struct MainContentView: View {
     @State var longitude: Double = -95.7129
     @State var zoom: Float = 3.2
     
-    var markers: [GMSMarker] = []
+    @State var Markers: [Marker] = []
+    @State var markers: [Marker] = []
+    @State var GMSMarkers: [GMSMarker] = []
    
-    func setMarkers(markers: [GMSMarker]) ->  [ GMSMarker ] {
-        var tempMarkers = markers
-        for i in 0 ... 50 {
-            var marker: GMSMarker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: (33.9480 + Double.random(in: -5 ... 12)), longitude: (-83.3773 + Double.random(in: -30 ... 2)))
-            marker.title = ""
-            marker.snippet = "Event: Burger Club "
-            if (i % 10 == 0) { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
-            if (i % 10 == 1) { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 2) {marker.icon = UIImage(named: "breakfast")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 3) {marker.icon = UIImage(named: "lunch")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 4) {marker.icon = UIImage(named: "dinner")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 5) {marker.icon = UIImage(named: "ice-cream")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 6) {marker.icon = UIImage(named: "fruit")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 7) {marker.icon = UIImage(named: "mexican")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 8) {marker.icon = UIImage(named: "coffee")!.withRenderingMode(.alwaysTemplate)}
-            if (i % 10 == 9) {marker.icon = UIImage(named: "sandwich")!.withRenderingMode(.alwaysTemplate)}
-            tempMarkers.append(marker)
-            print(tempMarkers)
+    
+    func setMarkers() ->  [ GMSMarker ] {
+        if (Markers.count == 0) {
+            getAllMarkers { (marks) in
+                Markers = marks
+            }
         }
+        var tempMarkers = GMSMarkers
+        print("Hello")
+        print(Markers)
+        print("Hey")
+        
+        if (Markers.count > 0) {
+            for i in 0 ... Markers.count - 1 {
+                var marker: GMSMarker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
+                marker.title = ""
+                marker.snippet = "See Details Below "
+                if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
+                else if (Markers[i].food == "burger") { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "breakfast") {marker.icon = UIImage(named: "breakfast")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "lunch") {marker.icon = UIImage(named: "lunch")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "dinner") {marker.icon = UIImage(named: "dinner")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "ice-cream") {marker.icon = UIImage(named: "ice-cream")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "fruit") {marker.icon = UIImage(named: "fruit")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "mexican") {marker.icon = UIImage(named: "mexican")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "coffee") {marker.icon = UIImage(named: "coffee")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "sandwich") {marker.icon = UIImage(named: "sandwich")!.withRenderingMode(.alwaysTemplate)}
+                else if (Markers[i].food == "chickfila") {marker.icon = UIImage(named: "chickfila")!.withRenderingMode(.alwaysTemplate)}
+                tempMarkers.append(marker)
+            }
+            
+        }
+         
         //print(mark)
+         
         return tempMarkers
     }
     
@@ -135,16 +160,16 @@ struct MainContentView: View {
     var LONG: Double = -95.7129
     var ZOOM: Float = 3.2
     
+   // @State var m : [GMSMarker] = []
     @State var locationPermissions: Bool = false
-    
     var body: some View {
-        var m = setMarkers(markers: markers)
-        
+        var m = setMarkers()
         /* Map Views */
         if (self.college == "" || self.college == "pickCollege" || self.college == "select-state") {
             GoogleMapsView(latitude: .constant(LAT), longitude: .constant(LONG), zoom: .constant(ZOOM), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
+               
             
         } else {
             var lat: Double = collegeLocation.getLat(college: college)
@@ -260,8 +285,28 @@ struct MainPageContentView: View {
     }
 }
 
+func getAllMarkers(completion: @escaping ([Marker]) -> ()) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net") else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+        DispatchQueue.main.async {
+            print("1")
+            print(markers)
+            print("2")
+            completion(markers)
+        }
+    }.resume()
+}
 
-
+struct Marker: Codable, Identifiable {
+    var id: Int
+    var food: String
+    var lat: Double
+    var long: Double
+}
 
 
 
