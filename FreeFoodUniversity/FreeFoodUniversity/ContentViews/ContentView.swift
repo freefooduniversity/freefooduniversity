@@ -120,10 +120,11 @@ struct MainContentView: View {
     
     func setMarkers() ->  [ GMSMarker ] {
         
-        if (Markers.count == 0) {
+        if (Markers.count == 0 || addFood) {
             getAllMarkers { (marks) in
                 Markers = marks
             }
+            addFood = false
         }
          
         var tempMarkers = GMSMarkers
