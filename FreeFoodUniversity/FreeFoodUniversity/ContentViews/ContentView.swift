@@ -317,12 +317,17 @@ struct Marker: Codable, Identifiable {
     var long: Double
 }
 
+/*
 func IDHash(food: String, lat: Double, long: Double) -> Int {
     var id: Int = 0
+    print("HEREEE" + food)
+    print(Array(food)[0].asciiValue)
     id += food.count
-    var Int = Int(round(lat * 10000))
-    return id
+    id += Int(round(lat * 100000))
+    id += Int(round(long * 100000))
+    return abs(id)
 }
+*/
 
 
 
