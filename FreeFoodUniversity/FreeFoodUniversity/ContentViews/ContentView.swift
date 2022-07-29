@@ -12,9 +12,11 @@ import UIKit
 import CoreLocation
 import CoreLocationUI
 
+/*
 class ClickEvent: UIViewController, GMSMapViewDelegate {
     
 }
+*/
 
 class LocationManager: NSObject, ObservableObject {
     private let manager = CLLocationManager()
@@ -71,7 +73,7 @@ struct GoogleMapsView: UIViewRepresentable {
         func makeUIView(context: Context) -> GMSMapView {
             var usa = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
             
-            GMSServices.provideAPIKey(ProcessInfo.processInfo.environment["APIKey"]!)
+            GMSServices.provideAPIKey(APIKey)
             let camera = usa
             let mapView = GMSMapView(frame: CGRect.zero, camera: camera)
 
@@ -117,14 +119,16 @@ struct MainContentView: View {
    
     
     func setMarkers() ->  [ GMSMarker ] {
+        
         if (Markers.count == 0) {
             getAllMarkers { (marks) in
                 Markers = marks
             }
         }
+         
         var tempMarkers = GMSMarkers
         print("Hello")
-        print(Markers)
+       print(Markers)
         print("Hey")
         
         if (Markers.count > 0) {
@@ -173,6 +177,7 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     var body: some View {
         var m = setMarkers()
+        
         /* Map Views */
         if (self.college == "" || self.college == "pickCollege" || self.college == "select-state") {
             GoogleMapsView(latitude: .constant(LAT), longitude: .constant(LONG), zoom: .constant(ZOOM), marker: .constant(m))
