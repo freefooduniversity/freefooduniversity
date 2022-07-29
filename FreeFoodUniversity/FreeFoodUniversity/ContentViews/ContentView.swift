@@ -71,7 +71,7 @@ struct GoogleMapsView: UIViewRepresentable {
         func makeUIView(context: Context) -> GMSMapView {
             var usa = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
             
-            GMSServices.provideAPIKey(APIKey)
+            GMSServices.provideAPIKey(ProcessInfo.processInfo.environment["APIKey"]!)
             let camera = usa
             let mapView = GMSMapView(frame: CGRect.zero, camera: camera)
 
@@ -146,8 +146,17 @@ struct MainContentView: View {
                 else if (Markers[i].food == "chickfila") {marker.icon = UIImage(named: "chickfila")!.withRenderingMode(.alwaysTemplate)}
                 tempMarkers.append(marker)
             }
-            
         }
+        /*
+        var userLocationMarker: GMSMarker = GMSMarker()
+        if (latitude != 37.0902 && longitude != -95.7129) {
+            userLocationMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            userLocationMarker.title = ""
+                userLocationMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)}
+            userLocationMarker.snippet = "Your Location"
+            tempMarkers.append(userLocationMarker)
+        }
+         */
          
         //print(mark)
          
@@ -207,7 +216,7 @@ struct MainContentView: View {
             
             // Specific College Was Picked
             else if (!addFood) { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked) }
-            else { addFoodToMapView(college: $college, addFood: $addFood) }
+            else { addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude) }
         } else {
             if (navButton == "profile") { ProfileView(navButton: $navButton) }
             else if  (navButton == "aboutUs") { AboutUsView(navButton: $navButton) }
@@ -286,7 +295,7 @@ struct MainPageContentView: View {
 }
 
 func getAllMarkers(completion: @escaping ([Marker]) -> ()) {
-    guard let url = URL(string: "https://free-food-university.azurewebsites.net") else {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/all") else {
         return
     }
         
@@ -306,6 +315,13 @@ struct Marker: Codable, Identifiable {
     var food: String
     var lat: Double
     var long: Double
+}
+
+func IDHash(food: String, lat: Double, long: Double) -> Int {
+    var id: Int = 0
+    id += food.count
+    var Int = Int(round(lat * 10000))
+    return id
 }
 
 

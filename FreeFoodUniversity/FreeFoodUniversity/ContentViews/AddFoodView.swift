@@ -12,6 +12,8 @@ import UIKit
 struct addFoodToMapView: View {
     @Binding var college: String
     @Binding var addFood: Bool
+    @Binding var lat: Double
+    @Binding var long: Double
     
     @State var food: String = ""
     @State var duration: String = ""
@@ -23,6 +25,11 @@ struct addFoodToMapView: View {
     var body: some View {
         VStack {
             Text("Add Food To " + college)
+            HStack {
+                TextField("Food ", text: $food)
+                    .frame(width: 120, height: 30)
+                    .border(.secondary)
+            }
             HStack {
                 TextField("Building ", text: $building)
                     .frame(width: 120, height: 30)
@@ -38,7 +45,9 @@ struct addFoodToMapView: View {
             }
             HStack {
                 Button(action: {
-                    
+                    addMarker(id: 5005, food: food, lat: lat, long: long)
+                   // addMarker(id: IDHash(food: food, lat: lat, long: long), food: food, lat: lat, long: long)
+                    addFood = false
                 }) {
                     HStack {
                         Image("blue")
@@ -54,3 +63,44 @@ struct addFoodToMapView: View {
         }.position(x:195, y:100)
     }
 }
+
+func addMarker(id: Int, food: String, lat: Double, long: Double) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/add") else {
+        return
+    }
+   
+    var request = URLRequest(url: url)
+    
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let body: [String: AnyHashable] = [
+        "id": id,
+        "food": food,
+        "lat": lat,
+        "long": long
+    ]
+     
+   request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+    
+    
+    // Make the Request
+    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        guard let data = data, error == nil else {
+            return
+        }
+        
+        do {
+            let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("SUCESSS")
+            print(response)
+        } catch {
+            print("An error occured: ")
+            print(error)
+        }
+         
+    }
+    task.resume()
+    
+}
+ 
