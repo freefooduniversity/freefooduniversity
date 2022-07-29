@@ -119,12 +119,17 @@ struct MainContentView: View {
    
     
     func setMarkers() ->  [ GMSMarker ] {
+        var userMarker: GMSMarker = GMSMarker()
+        userMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        userMarker.snippet = "Your Location"
+        userMarker.title = ""
+        userMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)
         
         if (Markers.count == 0 || addFood) {
             getAllMarkers { (marks) in
                 Markers = marks
             }
-            addFood = false
+           addFood = false
         }
          
         var tempMarkers = GMSMarkers
@@ -152,6 +157,13 @@ struct MainContentView: View {
                 tempMarkers.append(marker)
             }
         }
+        
+        // Don't show user location if it isnt on (When lat is default value)
+        if (latitude != 37.0902) {
+            tempMarkers.append(userMarker)
+        }
+        
+        
         /*
         var userLocationMarker: GMSMarker = GMSMarker()
         if (latitude != 37.0902 && longitude != -95.7129) {
