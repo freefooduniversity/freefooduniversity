@@ -97,7 +97,7 @@ struct GoogleMapsView: UIViewRepresentable {
 
 
 struct MainContentView: View {
-    @State var college: String = ""
+    @State var college: String = "all"
     @State var addFood: Bool = false
     
     @State var navButton: String = ""
@@ -116,6 +116,7 @@ struct MainContentView: View {
     @State var Markers: [Marker] = []
     @State var markers: [Marker] = []
     @State var GMSMarkers: [GMSMarker] = []
+    @State var stats: Stats = Stats(id: 0, food_events: 0, fed_today: 0, fed_all_time: 0)
    
     
     func setMarkers() ->  [ GMSMarker ] {
@@ -180,6 +181,13 @@ struct MainContentView: View {
         return tempMarkers
     }
     
+    func setStats(college: String) -> Stats  {
+        getStats (completion: { (stat) in
+            stats = stat
+        }, college: college)
+        return stats
+    }
+    
     var collegeLocation = CollegeLocations()
     
     var LAT: Double = 37.0902
@@ -190,9 +198,10 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     var body: some View {
         var m = setMarkers()
+        var s = setStats(college: college)
         
         /* Map Views */
-        if (self.college == "" || self.college == "pickCollege" || self.college == "select-state") {
+        if (self.college == "all" || self.college == "pickCollege" || self.college == "select-state") {
             GoogleMapsView(latitude: .constant(LAT), longitude: .constant(LONG), zoom: .constant(ZOOM), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
@@ -216,20 +225,21 @@ struct MainContentView: View {
                 BamaView(college: $college)
                     .ignoresSafeArea()
             }
-            if (!addFood) { StatsView(active: .constant(4), fedToday: .constant(86), fedAllTime: .constant(3176)) }
         } // else
         
         /* Stats Views */
-        if (navButton == "") {
-            if (self.college == "") { StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156)) }
-            if (self.college == "pickCollege") { StatsView(active: .constant(34), fedToday: .constant(861), fedAllTime: .constant(23156)) }
+        if (!self.addFood && self.navButton == "") {
+            StatsView(active: .constant(s.food_events),
+                      fedToday: .constant(s.fed_today),
+                      fedAllTime:.constant(s.fed_all_time))
         }
         
         /* Middle Views */
         if (navButton == "") {
             //College Not Yet Picked
-            if (self.college == "") { MainPageContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked, latitude: $latitude, longitude: $longitude, locationPermissions: $locationPermissions) }
-            else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked) }
+            if (self.college == "all") { MainPageContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked, latitude: $latitude, longitude: $longitude, locationPermissions: $locationPermissions) }
+            else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,
+                                                                             latitude: $latitude, longitude: $longitude) }
             else if (self.college == "select-state") { SelectStateView(buttonClick: $college, locationButtonClicked: $locationButtonClicked)}
             
             // Specific College Was Picked
@@ -312,6 +322,22 @@ struct MainPageContentView: View {
     }
 }
 
+func getStats(completion: @escaping (Stats) -> (), college: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/stats/" + college) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let stats = try!JSONDecoder().decode(Stats.self, from: data!)
+        DispatchQueue.main.async {
+            print("1")
+            print(stats)
+            print("2")
+            completion(stats)
+        }
+    }.resume()
+}
+
 func getAllMarkers(completion: @escaping ([Marker]) -> ()) {
     guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/all") else {
         return
@@ -333,6 +359,13 @@ struct Marker: Codable, Identifiable {
     var food: String
     var lat: Double
     var long: Double
+}
+
+struct Stats: Codable, Identifiable {
+    var id: Int
+    var food_events: Int
+    var fed_today: Int
+    var fed_all_time: Int
 }
 
 /*
