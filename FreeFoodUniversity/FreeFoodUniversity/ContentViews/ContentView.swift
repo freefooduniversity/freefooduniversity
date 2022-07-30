@@ -282,7 +282,6 @@ struct MainPageContentView: View {
                     }
                 }
             }
-       
         } else if let location = locationManager.userLocation {
             self.latitude = location.coordinate.latitude
             self.longitude = location.coordinate.longitude
