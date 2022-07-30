@@ -13,6 +13,8 @@ import UIKit
 struct pickCollegeContentView: View {
     @Binding var buttonClick: String
     @Binding var locationButtonClicked: Bool
+    @Binding var latitude: Double
+    @Binding var longitude: Double
     
     @ObservedObject var locationManager = LocationManager()
     
@@ -22,6 +24,31 @@ struct pickCollegeContentView: View {
     @State private var selectedCountryId = ""
     
     var collegeLocations = CollegeLocations()
+    
+    func getUserLocation() {
+        if locationManager.userLocation == nil {
+           locationManager.requestLocation()
+            var gotLocation = false
+            for i in 1 ... 50 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)/10) {
+                    if let location = locationManager.userLocation {
+                        if (!gotLocation) {
+                            self.latitude = location.coordinate.latitude
+                            self.longitude = location.coordinate.longitude
+                            var collegeLocation = CollegeLocations()
+                            self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
+                            gotLocation = true
+                        }
+                    }
+                }
+            }
+        } else if let location = locationManager.userLocation {
+            self.latitude = location.coordinate.latitude
+            self.longitude = location.coordinate.longitude
+            var collegeLocation = CollegeLocations()
+            self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
+        }
+    }
     
     var body: some View {
             /*
@@ -55,14 +82,7 @@ struct pickCollegeContentView: View {
                 HStack {
                     Button (" Use Current Location") {
                         self.locationButtonClicked = true
-                    
-                        if locationManager.userLocation == nil {
-                          locationManager.requestLocation()
-                      } else if let location = locationManager.userLocation {
-                            var latitude = location.coordinate.latitude
-                          var longitude = location.coordinate.longitude
-                          self.buttonClick = collegeLocations.closestCollege(lat: latitude, long: longitude)
-                      }
+                        getUserLocation()
                     }
                     Image("smallLocation")
                 }.border(Color.black)

@@ -57,6 +57,20 @@ struct CollegeLocations {
         return DEFAULT_ZOOM
     }
     
+    func getState(college: String) -> String {
+        if (college == "uga") { return "georgia" }
+        if (college == "clemson") { return "south-carolina"}
+        if (college == "gt") { return "georgia" }
+        if (college == "bama") { return "alabama" }
+        if (college == "florida") { return "florida" }
+        if (college == "gastate") { return "georgia" }
+        if (college == "ksu") { return "georgia" }
+        if (college == "michigan") { return "michigan" }
+        if (college == "usc") { return "california" }
+        if (college == "harvard") { return "massachusetts" }
+        return "georgia"
+    }
+    
     
     
     //Lat + Long. Used for nearest college to person with good accuracy
