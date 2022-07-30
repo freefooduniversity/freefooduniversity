@@ -268,13 +268,17 @@ struct MainPageContentView: View {
     func getUserLocation() {
         if locationManager.userLocation == nil {
            locationManager.requestLocation()
-            for i in 1 ... 20 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)/5) {
+            var gotLocation = false
+            for i in 1 ... 50 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)/10) {
                     if let location = locationManager.userLocation {
-                        self.latitude = location.coordinate.latitude
-                        self.longitude = location.coordinate.longitude
-                        var collegeLocation = CollegeLocations()
-                        self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
+                        if (!gotLocation) {
+                            self.latitude = location.coordinate.latitude
+                            self.longitude = location.coordinate.longitude
+                            var collegeLocation = CollegeLocations()
+                            self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
+                            gotLocation = true
+                        }
                     }
                 }
             }
