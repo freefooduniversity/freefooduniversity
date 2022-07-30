@@ -117,7 +117,6 @@ struct MainContentView: View {
     @State var markers: [Marker] = []
     @State var GMSMarkers: [GMSMarker] = []
     @State var stats: Stats = Stats(id: 0, food_events: 0, fed_today: 0, fed_all_time: 0)
-   
     
     func setMarkers() ->  [ GMSMarker ] {
         var userMarker: GMSMarker = GMSMarker()
@@ -266,6 +265,28 @@ struct MainPageContentView: View {
     @Binding var locationPermissions: Bool
     @ObservedObject var locationManager = LocationManager()
     
+    func getUserLocation() {
+        if locationManager.userLocation == nil {
+           locationManager.requestLocation()
+            for i in 1 ... 20 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)/5) {
+                    if let location = locationManager.userLocation {
+                        self.latitude = location.coordinate.latitude
+                        self.longitude = location.coordinate.longitude
+                        var collegeLocation = CollegeLocations()
+                        self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
+                    }
+                }
+            }
+       
+        } else if let location = locationManager.userLocation {
+            self.latitude = location.coordinate.latitude
+            self.longitude = location.coordinate.longitude
+            var collegeLocation = CollegeLocations()
+            self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
+        }
+    }
+    
     var body: some View {
         VStack {
             Text("Welcome to Free Food University!")
@@ -281,14 +302,7 @@ struct MainPageContentView: View {
                     Button(action: {
                         withAnimation {
                                 self.locationButtonClicked = true
-                                if locationManager.userLocation == nil {
-                                   locationManager.requestLocation()
-                                } else if let location = locationManager.userLocation {
-                                    self.latitude = location.coordinate.latitude
-                                    self.longitude = location.coordinate.longitude
-                                    var collegeLocation = CollegeLocations()
-                                    self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
-                                }
+                                getUserLocation()
                         }
                     }) {
                         Image("location")
