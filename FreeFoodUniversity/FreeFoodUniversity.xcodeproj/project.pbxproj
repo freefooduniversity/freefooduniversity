@@ -20,6 +20,7 @@
 		C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E52287FD2CC00434E50 /* SettingsView.swift */; };
 		C5CD8E55287FD95200434E50 /* SelectStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E54287FD95100434E50 /* SelectStateView.swift */; };
 		C5CD8E5B2883ACB600434E50 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */; };
+		C5F3C8142895F2AA00293545 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3C8132895F2AA00293545 /* LocationController.swift */; };
 		D858D09F284D605000F5D4A1 /* FreeFoodUniversityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */; };
 		D858D0A1284D605000F5D4A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D0A0284D605000F5D4A1 /* ContentView.swift */; };
 		D858D0A3284D605100F5D4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D858D0A2284D605100F5D4A1 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		C5CD8E52287FD2CC00434E50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C5CD8E54287FD95100434E50 /* SelectStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStateView.swift; sourceTree = "<group>"; };
 		C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		C5F3C8132895F2AA00293545 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		D53333AF788193AFA0906FAD /* Pods-FreeFoodUniversity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.release.xcconfig"; sourceTree = "<group>"; };
 		D858D09B284D605000F5D4A1 /* Free Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Free Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityApp.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				D858D0A7284D605100F5D4A1 /* Persistence.swift */,
 				D858D0A9284D605100F5D4A1 /* FreeFoodUniversity.xcdatamodeld */,
 				D858D0A4284D605100F5D4A1 /* Preview Content */,
+				C5F3C8132895F2AA00293545 /* LocationController.swift */,
 			);
 			path = FreeFoodUniversity;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */,
 				C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */,
 				C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */,
+				C5F3C8142895F2AA00293545 /* LocationController.swift in Sources */,
 				C5B44DAF287D205000A78E94 /* AddFoodView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
