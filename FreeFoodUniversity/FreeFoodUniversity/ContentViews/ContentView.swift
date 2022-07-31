@@ -143,6 +143,8 @@ struct MainContentView: View {
                 marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
                 marker.title = ""
                 marker.snippet = "See Details Below "
+                marker.userData = Marker(id: Markers[i].id, food: Markers[i].food, lat: Markers[i].lat, long: Markers[i].long)
+                print((marker.userData as! Marker).id)
                 if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
                 else if (Markers[i].food == "burger") { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
                 else if (Markers[i].food == "breakfast") {marker.icon = UIImage(named: "breakfast")!.withRenderingMode(.alwaysTemplate)}
