@@ -20,27 +20,33 @@ struct addFoodToMapView: View {
     @State var building: String = ""
     @State var event: String = ""
     @State var details: String = ""
-    @State var maxPeople: String = ""
+    @State var capacity: String = ""
     
     var body: some View {
         VStack {
-            Text("Add Food To " + college)
+            Text("Add Food To " + getName(college: college))
             HStack {
                 TextField("Food ", text: $food)
+                    .frame(width: 120, height: 30)
+                    .border(.secondary)
+                TextField("Duration ", text: $duration)
+                    .frame(width: 120, height: 30)
+                    .border(.secondary)
+                TextField("Capacity ", text: $capacity)
                     .frame(width: 120, height: 30)
                     .border(.secondary)
             }
             HStack {
                 TextField("Building ", text: $building)
-                    .frame(width: 120, height: 30)
+                    .frame(width: 180, height: 30)
                     .border(.secondary)
                 TextField("Event ", text: $event)
-                    .frame(width: 120, height: 30)
+                    .frame(width: 180, height: 30)
                     .border(.secondary)
             }
             HStack {
                 TextField("Additional Details ", text: $details)
-                    .frame(width: 200, height: 80)
+                    .frame(width: 200, height: 60)
                     .border(.secondary)
             }
             HStack {
@@ -77,7 +83,19 @@ func addMarker(id: Int, food: String, lat: Double, long: Double) {
         "id": id,
         "food": food,
         "lat": lat,
-        "long": long
+        "long": long,
+        "college": "UGA",
+        "start_time": "4:45",
+        "end_time": "5:45",
+        "capacity": 200,
+        "dibs": 134,
+        "likes": 41,
+        "dislikes": 11,
+        "creator_email": "free@gmail.com",
+        "pic_url": "place_holder",
+        "event": "Burger Club",
+        "building": "Brumby hall",
+        "additional_info": "info"
     ]
      
    request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)

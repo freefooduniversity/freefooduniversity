@@ -13,70 +13,7 @@ struct CollegeContentView: View {
     @Binding var college: String
     @Binding var addFood: Bool
     @Binding var locationButtonClicked: Bool
-    
-    func getImage(college: String) -> String {
-        if (college == "uga") { return "uga" }
-        if (college == "clemson") { return "clemson" }
-        if (college == "gt") { return "gt" }
-        if (college == "bama") { return "bama" }
-        if (college == "florida") { return "florida" }
-        if (college == "gastate") { return "gastate" }
-        if (college == "ksu") { return "ksu" }
-        if (college == "michigan") { return "michigan" }
-        if (college == "usc") { return "usc" }
-        if (college == "harvard") { return "harvard" }
-        
-        return ""
-    }
-    
-    func getTitle(college: String) -> String {
-        var title = "Free Food at "
-        
-        if (college == "uga") { title += "UGA" }
-        if (college == "clemson") { title += "Clemson" }
-        if (college == "gt") { title += "Georgia Tech" }
-        if (college == "bama") { title += "Bama" }
-        if (college == "florida") { title += "UF" }
-        if (college == "gastate") { title += "GA State" }
-        if (college == "ksu") { title += "KSU" }
-        if (college == "michigan") { title += "Michigan" }
-        if (college == "usc") { title += "USC" }
-        if (college == "harvard") { title += "Harvard" }
-        
-        return title
-    }
-    
-    func getName(college: String) -> String {
-        var title = ""
-        
-        if (college == "uga") { title += "UGA" }
-        if (college == "clemson") { title += "Clemson" }
-        if (college == "gt") { title += "Georgia Tech" }
-        if (college == "bama") { title += "Bama" }
-        if (college == "florida") { title += "UF" }
-        if (college == "gastate") { return "GA State" }
-        if (college == "ksu") { return "KSU" }
-        if (college == "michigan") { return "Michigan" }
-        if (college == "usc") { return "USC" }
-        if (college == "harvard") { title += "Harvard" }
-        
-        return title
-    }
-    
-    func getColor(college: String) -> Color {
-        if (college == "uga") { return Color.red }
-        if (college == "clemson") { return Color.orange }
-        if (college == "gt") { return Color.yellow }
-        if (college == "bama") { return Color.red }
-        if (college == "florida") { return Color.blue }
-        if (college == "gastate") { return Color.blue }
-        if (college == "ksu") { return Color.black }
-        if (college == "michigan") { return Color.blue }
-        if (college == "usc") { return Color.yellow }
-        if (college == "harvard") { return Color.red }
-        return Color.red
-    }
-    
+
     var body: some View {
             VStack {
                 Text(getTitle(college: college))
@@ -125,3 +62,68 @@ struct CollegeContentView: View {
         }.background(Color.white)
     }
 }
+
+
+func getTitle(college: String) -> String {
+    var title = "Free Food at "
+    
+    if (college == "uga") { title += "UGA" }
+    if (college == "clemson") { title += "Clemson" }
+    if (college == "gt") { title += "Georgia Tech" }
+    if (college == "bama") { title += "Bama" }
+    if (college == "florida") { title += "UF" }
+    if (college == "gastate") { title += "GA State" }
+    if (college == "ksu") { title += "KSU" }
+    if (college == "michigan") { title += "Michigan" }
+    if (college == "usc") { title += "USC" }
+    if (college == "harvard") { title += "Harvard" }
+    
+    return title
+}
+
+func getImage(college: String) -> String {
+    if (college == "uga") { return "uga" }
+    if (college == "clemson") { return "clemson" }
+    if (college == "gt") { return "gt" }
+    if (college == "bama") { return "bama" }
+    if (college == "florida") { return "florida" }
+    if (college == "gastate") { return "gastate" }
+    if (college == "ksu") { return "ksu" }
+    if (college == "michigan") { return "michigan" }
+    if (college == "usc") { return "usc" }
+    if (college == "harvard") { return "harvard" }
+    
+    return ""
+}
+
+func getName(college: String) -> String {
+    var title = ""
+    
+    if (college == "uga") { title += "UGA" }
+    if (college == "clemson") { title += "Clemson" }
+    if (college == "gt") { title += "Georgia Tech" }
+    if (college == "bama") { title += "Bama" }
+    if (college == "florida") { title += "UF" }
+    if (college == "gastate") { return "GA State" }
+    if (college == "ksu") { return "KSU" }
+    if (college == "michigan") { return "Michigan" }
+    if (college == "usc") { return "USC" }
+    if (college == "harvard") { title += "Harvard" }
+    
+    return title
+}
+
+func getColor(college: String) -> Color {
+    if (college == "uga") { return Color.red }
+    if (college == "clemson") { return Color.orange }
+    if (college == "gt") { return Color.yellow }
+    if (college == "bama") { return Color.red }
+    if (college == "florida") { return Color.blue }
+    if (college == "gastate") { return Color.blue }
+    if (college == "ksu") { return Color.black }
+    if (college == "michigan") { return Color.blue }
+    if (college == "usc") { return Color.yellow }
+    if (college == "harvard") { return Color.red }
+    return Color.red
+}
+

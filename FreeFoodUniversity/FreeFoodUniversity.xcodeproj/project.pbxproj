@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01472B5E3B723C5A5FA05EF0 /* libPods-FreeFoodUniversity-FreeFoodUniversityUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE83BF32DF9B2EA4FC5D2980 /* libPods-FreeFoodUniversity-FreeFoodUniversityUITests.a */; };
 		C5B44DA4287B68A500A78E94 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA3287B68A300A78E94 /* AboutUsView.swift */; };
 		C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA5287B723800A78E94 /* NavButtonsView.swift */; };
 		C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA7287B742800A78E94 /* StatsView.swift */; };
@@ -16,6 +17,7 @@
 		C5B44DB5287D350F00A78E94 /* CollegeLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB4287D350F00A78E94 /* CollegeLocations.swift */; };
 		C5B44DB7287FACD500A78E94 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DB6287FACD500A78E94 /* ProfileView.swift */; };
 		C5C0111A2889071A00520DCA /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C011192889071A00520DCA /* MarkerView.swift */; };
+		C5C6B06BAC42D455974C20A4 /* libPods-FreeFoodUniversityTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9760D6B9FED957EDAD69B7D /* libPods-FreeFoodUniversityTests.a */; };
 		C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */; };
 		C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E52287FD2CC00434E50 /* SettingsView.swift */; };
 		C5CD8E55287FD95200434E50 /* SelectStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E54287FD95100434E50 /* SelectStateView.swift */; };
@@ -53,7 +55,9 @@
 		5469D098FF22E4B5F5994033 /* Pods-FreeFoodUniversity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.debug.xcconfig"; sourceTree = "<group>"; };
 		69FB88434839AA372E2E7D7F /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		93A1D8BE37CEE5BB5F711FC5 /* Pods-FreeFoodUniversityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0D46D720AD610119F56E62E /* libPods-FreeFoodUniversity.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FreeFoodUniversity.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1BB1A6BDBAF6A87392A52CB /* Pods-FreeFoodUniversityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.release.xcconfig"; sourceTree = "<group>"; };
+		B9760D6B9FED957EDAD69B7D /* libPods-FreeFoodUniversityTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FreeFoodUniversityTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF25F255E1B4DBB7980CD0A /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C5B44DA3287B68A300A78E94 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		C5B44DA5287B723800A78E94 /* NavButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsView.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		D858D0BA284D605100F5D4A1 /* FreeFoodUniversityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreeFoodUniversityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D0BE284D605100F5D4A1 /* FreeFoodUniversityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityUITests.swift; sourceTree = "<group>"; };
 		D858D0C0284D605100F5D4A1 /* FreeFoodUniversityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FE83BF32DF9B2EA4FC5D2980 /* libPods-FreeFoodUniversity-FreeFoodUniversityUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FreeFoodUniversity-FreeFoodUniversityUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C6B06BAC42D455974C20A4 /* libPods-FreeFoodUniversityTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01472B5E3B723C5A5FA05EF0 /* libPods-FreeFoodUniversity-FreeFoodUniversityUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +157,7 @@
 				D858D0BD284D605100F5D4A1 /* FreeFoodUniversityUITests */,
 				D858D09C284D605000F5D4A1 /* Products */,
 				02B6961C62DE3EE57BEF1C59 /* Pods */,
+				DE6C1FB2B5D0891A8028B824 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +209,16 @@
 				D858D0C0284D605100F5D4A1 /* FreeFoodUniversityUITestsLaunchTests.swift */,
 			);
 			path = FreeFoodUniversityUITests;
+			sourceTree = "<group>";
+		};
+		DE6C1FB2B5D0891A8028B824 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0D46D720AD610119F56E62E /* libPods-FreeFoodUniversity.a */,
+				FE83BF32DF9B2EA4FC5D2980 /* libPods-FreeFoodUniversity-FreeFoodUniversityUITests.a */,
+				B9760D6B9FED957EDAD69B7D /* libPods-FreeFoodUniversityTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
