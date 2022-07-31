@@ -18,7 +18,7 @@ struct CollegeContentView: View {
             VStack {
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
-                    .position(x:200, y:20)
+                    .position(x:200, y:10)
                     .foregroundColor(.black)
                 
                 HStack {
