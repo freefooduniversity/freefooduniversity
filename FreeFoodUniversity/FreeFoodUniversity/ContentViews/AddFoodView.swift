@@ -25,6 +25,8 @@ struct addFoodToMapView: View {
     var body: some View {
         VStack {
             Text("Add Food To " + getName(college: college))
+                .font(.custom("Helvetica Neue", size: 20))
+                .foregroundColor(.black)
             HStack {
                 TextField("Food ", text: $food)
                     .frame(width: 120, height: 30)

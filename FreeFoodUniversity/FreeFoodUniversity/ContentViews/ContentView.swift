@@ -153,10 +153,17 @@ struct MainContentView: View {
     
    // @State var m : [GMSMarker] = []
     @State var locationPermissions: Bool = false
+    
+    func getGoogleMapsViewHeight() -> CGFloat {
+        if (addFood) {
+            return 240
+        } else {
+            return 450
+        }
+    }
     var body: some View {
         var m = setMarkers()
         var s = setStats(college: college)
-        
         /* Map Views */
         if (self.college == "all" || self.college == "pickCollege" || self.college == "select-state") {
             GoogleMapsView(latitude: .constant(LAT), longitude: .constant(LONG), zoom: .constant(ZOOM), marker: .constant(m))
@@ -170,13 +177,14 @@ struct MainContentView: View {
             var zoom: Float = collegeLocation.getZoom(college: college)
             if (self.college != "bama") {
                 if (!self.locationButtonClicked) {
+                    
                     GoogleMapsView(latitude: .constant(lat), longitude: .constant(long), zoom: .constant(zoom), marker: .constant(m))
                         .ignoresSafeArea()
-                        .frame(width: 400, height: 450, alignment: .center)
+                        .frame(width: 400, height: getGoogleMapsViewHeight(), alignment: .center)
                 } else {
                     GoogleMapsView(latitude: $latitude, longitude: $longitude, zoom: .constant(zoom), marker: .constant(m))
                         .ignoresSafeArea()
-                        .frame(width: 400, height: 450, alignment: .center)
+                        .frame(width: 400, height: getGoogleMapsViewHeight(), alignment: .center)
                 }
             } else {
                 BamaView(college: $college)
