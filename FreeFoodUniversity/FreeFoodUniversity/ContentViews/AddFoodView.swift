@@ -50,6 +50,16 @@ struct addFoodToMapView: View {
                 TextField("Additional Details ", text: $details)
                     .frame(width: 200, height: 60)
                     .border(.secondary)
+                Button(action: {
+                    
+                }) {
+                    VStack {
+                        Image("camera")
+                        Text(" Take a Picture of the Food!     ")
+                            .font(.custom("Helvetica Neue", size: 11))
+                            .foregroundColor(.white)
+                    }
+                }.background(Color.purple).cornerRadius(15)
             }
             HStack {
                 Button(action: {

@@ -18,9 +18,8 @@ struct CollegeContentView: View {
             VStack {
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
-                    .position(x:200, y:20)
+                    .position(x:200, y:10)
                     .foregroundColor(.black)
-                
                 HStack {
                     Button(action: {
                         withAnimation {
@@ -111,19 +110,5 @@ func getName(college: String) -> String {
     if (college == "harvard") { title += "Harvard" }
     
     return title
-}
-
-func getColor(college: String) -> Color {
-    if (college == "uga") { return Color.red }
-    if (college == "clemson") { return Color.orange }
-    if (college == "gt") { return Color.yellow }
-    if (college == "bama") { return Color.red }
-    if (college == "florida") { return Color.blue }
-    if (college == "gastate") { return Color.blue }
-    if (college == "ksu") { return Color.black }
-    if (college == "michigan") { return Color.blue }
-    if (college == "usc") { return Color.yellow }
-    if (college == "harvard") { return Color.red }
-    return Color.red
 }
 
