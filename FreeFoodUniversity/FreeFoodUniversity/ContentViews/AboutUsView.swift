@@ -58,7 +58,14 @@ struct AboutUsView: View {
                   }
                   Text("   ")
                   Button(action: {
-                      
+                      let url = URL(string: "https://github.com/freefooduniversity/freefooduniversity")!
+                      if UIApplication.shared.canOpenURL(url) {
+                          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                          //If you want handle the completion block than
+                          UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                               print("Open url : \(success)")
+                          })
+                      }
                   }) {
                       HStack {
                           Text("Github Repo     ")
@@ -67,7 +74,7 @@ struct AboutUsView: View {
                   }
                   Text("   ")
                   Button(action: {
-                      
+        
                   }) {
                       Text("Tech Stack    ")
                   }
@@ -80,7 +87,14 @@ struct AboutUsView: View {
               
               HStack {
                   Button(action: {
-                      
+                      let url = URL(string: "https://linkedin.com/in/raymondfeckoury")!
+                      if UIApplication.shared.canOpenURL(url) {
+                          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                          //If you want handle the completion block than
+                          UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                               print("Open url : \(success)")
+                          })
+                      }
                   }) {
                       HStack {
                           Text("  Raymond Feckoury")
@@ -91,8 +105,14 @@ struct AboutUsView: View {
                   }.background(Color.mint).cornerRadius(7.5)
                   
                   Button(action: {
-                      
-                  }) {
+                      let url = URL(string: "https://linkedin.com/in/stephen-nemeth-b9a661161")!
+                      if UIApplication.shared.canOpenURL(url) {
+                          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                          //If you want handle the completion block than
+                          UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                               print("Open url : \(success)")
+                          })
+                      }                  }) {
                       HStack {
                           Text("  Stephen Nemeth")
                               .font(.custom("Helvetica Neue", size: 10))
@@ -102,7 +122,14 @@ struct AboutUsView: View {
                   }.background(Color.mint).cornerRadius(7.5)
                   
                   Button(action: {
-                      
+                      let url = URL(string: "https://linkedin.com/in/williamsirotkin")!
+                      if UIApplication.shared.canOpenURL(url) {
+                          UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                          //If you want handle the completion block than
+                          UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                               print("Open url : \(success)")
+                          })
+                      }
                   }) {
                       HStack {
                           Text("  William Sirotkin")
