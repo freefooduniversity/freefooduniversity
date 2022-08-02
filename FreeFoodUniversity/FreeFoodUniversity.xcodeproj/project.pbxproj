@@ -23,6 +23,7 @@
 		C5CD8E55287FD95200434E50 /* SelectStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E54287FD95100434E50 /* SelectStateView.swift */; };
 		C5CD8E5B2883ACB600434E50 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */; };
 		C5F3C8142895F2AA00293545 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3C8132895F2AA00293545 /* LocationController.swift */; };
+		C5F3C8162898D58700293545 /* TechStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3C8152898D58500293545 /* TechStackView.swift */; };
 		D858D09F284D605000F5D4A1 /* FreeFoodUniversityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */; };
 		D858D0A1284D605000F5D4A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D0A0284D605000F5D4A1 /* ContentView.swift */; };
 		D858D0A3284D605100F5D4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D858D0A2284D605100F5D4A1 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		C5CD8E54287FD95100434E50 /* SelectStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStateView.swift; sourceTree = "<group>"; };
 		C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		C5F3C8132895F2AA00293545 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		C5F3C8152898D58500293545 /* TechStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechStackView.swift; sourceTree = "<group>"; };
 		D53333AF788193AFA0906FAD /* Pods-FreeFoodUniversity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.release.xcconfig"; sourceTree = "<group>"; };
 		D858D09B284D605000F5D4A1 /* Free Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Free Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityApp.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				C5CD8E52287FD2CC00434E50 /* SettingsView.swift */,
 				C5CD8E54287FD95100434E50 /* SelectStateView.swift */,
 				C5C011192889071A00520DCA /* MarkerView.swift */,
+				C5F3C8152898D58500293545 /* TechStackView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				C5B44DAA287B749C00A78E94 /* pickCollegeView.swift in Sources */,
 				C5B44DB1287D20D700A78E94 /* CollegeView.swift in Sources */,
 				C5C0111A2889071A00520DCA /* MarkerView.swift in Sources */,
+				C5F3C8162898D58700293545 /* TechStackView.swift in Sources */,
 				C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */,
 				C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */,
 				C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */,
