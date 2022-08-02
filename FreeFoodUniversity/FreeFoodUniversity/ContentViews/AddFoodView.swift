@@ -77,7 +77,7 @@ struct addFoodToMapView: View {
                     addFood = false
                 }
             }
-        }.position(x:195, y:100)
+        }.position(x:195, y:105)
     }
 }
 
