@@ -214,7 +214,7 @@ struct MainContentView: View {
             if (navButton == "profile") { ProfileView(navButton: $navButton) }
             else if  (navButton == "aboutUs") { AboutUsView(navButton: $navButton) }
           else if (navButton == "feedback") { FeedbackView(navButton: $navButton) }
-           else { SettingsView(navButton: $navButton) }
+           else if (navButton == "tech-stack") { TechStackView(navButton: $navButton) }
         }
         
         // Nav Button Views Always Present At Bottom

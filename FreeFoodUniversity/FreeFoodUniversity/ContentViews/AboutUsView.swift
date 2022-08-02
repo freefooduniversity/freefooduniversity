@@ -74,7 +74,7 @@ struct AboutUsView: View {
                   }
                   Text("   ")
                   Button(action: {
-        
+                      navButton = "tech-stack"
                   }) {
                       Text("Tech Stack    ")
                   }
