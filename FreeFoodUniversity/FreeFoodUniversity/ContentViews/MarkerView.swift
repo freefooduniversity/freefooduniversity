@@ -29,13 +29,17 @@ struct MarkerView: View {
             HStack {
                 VStack {
                     Text("Free " + getFoodDisplayName(food: food) + " at " + building + "!")
+                        .font(.custom("Helvetica Neue", size: 20))
+                        .foregroundColor(.black)
+                    
                     Text("Event Lasts From : " + String(startTime) + " - " + String(endTime))
                     Text("Signed Up: " + String(dibs) + " / " + String(capacity))
                     Text("Event: " + event)
                     Text("Additional Info: " + additionalInfo)
-                }
+                }.position(x:130, y:45)
                 VStack {
-                    Image("burger")
+                    Image("x")
+                    Image("Headshot")
                 }
             }
         }.position(x: 200, y: 115)
