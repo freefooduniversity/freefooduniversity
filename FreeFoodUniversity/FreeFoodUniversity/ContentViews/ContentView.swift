@@ -83,17 +83,17 @@ struct MainContentView: View {
         userMarker.title = ""
         userMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)
         
-        if (Markers.count == 0 || addFood) {
-            getAllMarkers { (marks) in
+        if (Markers.count == 0 || addFood || college != "all") {
+            getAllMarkersForCollege (completion: { (marks) in
                 Markers = marks
-            }
+            }, college: college)
            addFood = false
         }
          
         var tempMarkers = GMSMarkers
-        print("Hello")
-       print(Markers)
-        print("Hey")
+       // print("Hello")
+            //  print(Markers)
+     //   print("Hey")
         
         if (Markers.count > 0) {
             for i in 0 ... Markers.count - 1 {
@@ -115,6 +115,7 @@ struct MainContentView: View {
                 tempMarkers.append(marker)
             }
         }
+        updateFoodEvents(college: college, food_events: Markers.count)
         
         // Don't show user location if it isnt on (When lat is default value)
         if (latitude != 37.0902) {
@@ -326,6 +327,22 @@ func getStats(completion: @escaping (Stats) -> (), college: String) {
 
 func getAllMarkers(completion: @escaping ([Marker]) -> ()) {
     guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/all") else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+        DispatchQueue.main.async {
+        //    print("1")
+        //    print(markers)
+        //    print("2")
+        //    completion(markers)
+        }
+    }.resume()
+}
+
+func getAllMarkersForCollege(completion: @escaping ([Marker]) -> (), college: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/" + college) else {
         return
     }
         

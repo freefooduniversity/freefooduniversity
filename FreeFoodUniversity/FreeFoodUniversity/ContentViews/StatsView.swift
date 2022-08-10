@@ -39,7 +39,7 @@ struct StatsView: View {
     }
 }
 
-func updateFoodEvents(college: String, food_events_change: Int) {
+func updateFoodEvents(college: String, food_events: Int) {
     guard let url = URL(string: "https://free-food-university.azurewebsites.net/stats/food_events/update/" + college) else {
         return
     }
@@ -50,7 +50,7 @@ func updateFoodEvents(college: String, food_events_change: Int) {
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     let body: [String: AnyHashable] = [
-        "food_events_change": food_events_change
+        "food_events": food_events
     ]
      
    request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)

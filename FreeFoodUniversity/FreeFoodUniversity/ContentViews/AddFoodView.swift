@@ -64,7 +64,6 @@ struct addFoodToMapView: View {
             HStack {
                 Button(action: {
                     addMarker(id: Int.random(in: 1..<10000000), food: food, lat: lat, long: long)
-                    updateFoodEvents(college: college, food_events_change: 1)
                     addFood = true
                 }) {
                     HStack {
