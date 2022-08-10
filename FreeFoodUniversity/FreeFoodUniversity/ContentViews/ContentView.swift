@@ -83,11 +83,18 @@ struct MainContentView: View {
         userMarker.title = ""
         userMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)
         
-        if (Markers.count == 0 || addFood || college != "all") {
-            getAllMarkersForCollege (completion: { (marks) in
-                Markers = marks
-            }, college: college)
+        if (Markers.count == 0 || addFood || college != "all" && college != "pickCollege") {
+            if (college != "pickCollege") {
+                getAllMarkersForCollege (completion: { (marks) in
+                    Markers = marks
+                }, college: college)
+            } else {
+                getAllMarkersForCollege (completion: { (marks) in
+                    Markers = marks
+                }, college: "all")
+            }
            addFood = false
+                
         }
          
         var tempMarkers = GMSMarkers
