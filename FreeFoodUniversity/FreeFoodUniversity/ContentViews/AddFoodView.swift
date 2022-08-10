@@ -63,7 +63,7 @@ struct addFoodToMapView: View {
             }
             HStack {
                 Button(action: {
-                    addMarker(id: Int.random(in: 1..<10000000), food: food, lat: lat, long: long)
+                    addMarker(id: Int.random(in: 1..<10000000), food: food, lat: lat, long: long, college: college)
                     addFood = true
                 }) {
                     HStack {
@@ -81,7 +81,7 @@ struct addFoodToMapView: View {
     }
 }
 
-func addMarker(id: Int, food: String, lat: Double, long: Double) {
+func addMarker(id: Int, food: String, lat: Double, long: Double, college: String) {
     guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/add") else {
         return
     }
@@ -96,7 +96,7 @@ func addMarker(id: Int, food: String, lat: Double, long: Double) {
         "food": food,
         "lat": lat,
         "long": long,
-        "college": "UGA",
+        "college": college,
         "start_time": 445,
         "end_time": 545,
         "capacity": 200,
