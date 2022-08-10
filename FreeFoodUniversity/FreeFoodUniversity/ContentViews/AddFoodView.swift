@@ -82,6 +82,11 @@ struct addFoodToMapView: View {
 }
 
 func addMarker(id: Int, food: String, lat: Double, long: Double, college: String) {
+    if (lat == 37.0902 || long == -95.7129) {
+        print("TURN LOCATION ON")
+        return
+    }
+    
     guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/add") else {
         return
     }
