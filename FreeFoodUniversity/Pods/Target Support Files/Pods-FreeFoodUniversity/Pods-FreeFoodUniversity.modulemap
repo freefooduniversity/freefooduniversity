@@ -1,0 +1,6 @@
+framework module Pods_FreeFoodUniversity {
+  umbrella header "Pods-FreeFoodUniversity-umbrella.h"
+
+  export *
+  module * { export * }
+}

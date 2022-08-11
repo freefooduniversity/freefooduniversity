@@ -1,0 +1,6 @@
+framework module Pods_FreeFoodUniversity_FreeFoodUniversityUITests {
+  umbrella header "Pods-FreeFoodUniversity-FreeFoodUniversityUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

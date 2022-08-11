@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 import UIKit
+import DropDown
 
 struct pickCollegeContentView: View {
     @Binding var buttonClick: String
@@ -50,6 +51,8 @@ struct pickCollegeContentView: View {
         }
     }
     
+    
+    
     var body: some View {
             /*
             Button(action: {
@@ -75,9 +78,7 @@ struct pickCollegeContentView: View {
                 .foregroundColor(.black)
                 .position(x: 195, y: 10)
             HStack {
-                Button (" Select State  ") {
-                    self.buttonClick = "select-state"
-                }.border(Color.black)
+                SelectStateDropDownView()
                 Text("        ")
                 HStack {
                     Button (" Use Current Location") {
@@ -212,5 +213,73 @@ struct pickCollegeContentView: View {
                 
             }.position(x:200, y:5)
         }.background(Color.white)
+    }
+}
+
+struct SelectStateDropDownView : View {
+    let selectStateDropDown : DropDown = {
+        let selectStateDropDown = DropDown()
+        selectStateDropDown.dataSource = [
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "DC",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WI",
+            "WY",
+        ]
+        return selectStateDropDown
+    }()
+    
+    var body : some View {
+        
+        Button {
+            selectStateDropDown.show()
+        } label: {
+            Text("Select Your State")
+        }
     }
 }
