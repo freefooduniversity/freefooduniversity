@@ -53,7 +53,6 @@ struct GoogleMapsView: UIViewRepresentable {
         }
  }
 
-
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
@@ -83,7 +82,7 @@ struct MainContentView: View {
         userMarker.title = ""
         userMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)
         
-        if (Markers.count == 0 || addFood || college != "all" && college != "pickCollege") {
+        if (Markers.count == 0 || addFood || college != "all") {
             if (college != "pickCollege") {
                 getAllMarkersForCollege (completion: { (marks) in
                     Markers = marks
@@ -92,8 +91,10 @@ struct MainContentView: View {
                 getAllMarkersForCollege (completion: { (marks) in
                     Markers = marks
                 }, college: "all")
+            
             }
-           addFood = false
+
+            addFood = false
                 
         }
          

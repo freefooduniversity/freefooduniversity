@@ -57,18 +57,60 @@ struct CollegeLocations {
         return DEFAULT_ZOOM
     }
     
-    func getState(college: String) -> String {
-        if (college == "uga") { return "georgia" }
-        if (college == "clemson") { return "south-carolina"}
-        if (college == "gt") { return "georgia" }
-        if (college == "bama") { return "alabama" }
-        if (college == "florida") { return "florida" }
-        if (college == "gastate") { return "georgia" }
-        if (college == "ksu") { return "georgia" }
-        if (college == "michigan") { return "michigan" }
-        if (college == "usc") { return "california" }
-        if (college == "harvard") { return "massachusetts" }
-        return "georgia"
+    // Use this function to get colleges for select state drop down menu results
+    // Max 10 colleges per state
+    func getCollegeByState(state: String) -> [String] {
+        if (state == "alabama") { return ["bama"] }
+        if (state == "alaska") { return [] }
+        if (state == "arizona") { return [] }
+        if (state == "arkansas") { return [] }
+        if (state == "california") { return ["usc"] }
+        if (state == "colorado") { return [] }
+        if (state == "conneticut") { return [] }
+        if (state == "delaware") { return [] }
+        if (state == "florida") { return ["florida"] }
+        if (state == "georgia") { return ["uga", "gastate", "ksu", "gt"] }
+        if (state == "hawaii") { return [] }
+        if (state == "idaho") { return [] }
+        if (state == "illinois") { return [] }
+        if (state == "indiana") { return [] }
+        if (state == "iowa") { return [] }
+        if (state == "kansas") { return [] }
+        if (state == "kentucky") { return [] }
+        if (state == "lousiana") { return [] }
+        if (state == "maine") { return [] }
+        if (state == "maryland") { return [] }
+        if (state == "massachussetts") { return ["harvard"] }
+        if (state == "michigan") { return ["michigan"] }
+        if (state == "minnesota") { return [] }
+        if (state == "mississippi") { return [] }
+        if (state == "missouri") { return [] }
+        if (state == "montana") { return [] }
+        if (state == "nebraska") { return [] }
+        if (state == "nevada") { return [] }
+        if (state == "new hampshire") { return [] }
+        if (state == "new jersey") { return [] }
+        if (state == "new mexico") { return [] }
+        if (state == "new york") { return [] }
+        if (state == "north carolina") { return [] }
+        if (state == "north dakota") { return [] }
+        if (state == "ohio") { return [] }
+        if (state == "oklahoma") { return [] }
+        if (state == "oregon") { return [] }
+        if (state == "pennsylvania") { return [] }
+        if (state == "rhode island") { return [] }
+        if (state == "south carolina") { return ["clemson"] }
+        if (state == "south dakota") { return [] }
+        if (state == "tennessee") { return [] }
+        if (state == "texas") { return [] }
+        if (state == "utah") { return [] }
+        if (state == "vermont") { return [] }
+        if (state == "virginia") { return [] }
+        if (state == "washington") { return [] }
+        if (state == "west virginia") { return [] }
+        if (state == "wisconsin") { return [] }
+        if (state == "wyoming") { return [] }
+        return ["uga"]
     }
     
     
