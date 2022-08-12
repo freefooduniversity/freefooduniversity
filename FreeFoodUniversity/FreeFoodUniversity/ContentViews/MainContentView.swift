@@ -69,6 +69,7 @@ struct MainContentView: View {
                 var foodDisplayName = getFoodDisplayName(food: Markers[i].food)
                 marker.title = "Free \(foodDisplayName) At Brumby Hall!"
                 marker.snippet = "See Details Below"
+                marker.userData = Markers[i]
                 if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
                 else if (Markers[i].food == "burger") { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
                 else if (Markers[i].food == "breakfast") {marker.icon = UIImage(named: "breakfast")!.withRenderingMode(.alwaysTemplate)}
@@ -185,9 +186,9 @@ struct MainContentView: View {
             else if  (navButton == "aboutUs") { AboutUsView(navButton: $navButton) }
           else if (navButton == "feedback") { FeedbackView(navButton: $navButton) }
            //else if (navButton == "tech-stack") { TechStackView(navButton: $navButton) }
-            else if (navButton == "tech-stack") { MarkerView(food: .constant("burger"), lat: .constant(34.422), long: .constant(-83.772), startTime:                                                        .constant(445),
-                                                             endTime: .constant(545), capacity: .constant(100), dibs: .constant(50), building: .constant("Brumby Hall"), event: .constant("Club"),
-                                                             additionalInfo: .constant("Hello World"), image: .constant("image here"), signedIn: .constant(true)) }
+            else if (navButton == "tech-stack") {
+                TechStackView(navButton: $navButton)
+            }
         }
         
         // Nav Button Views Always Present At Bottom
