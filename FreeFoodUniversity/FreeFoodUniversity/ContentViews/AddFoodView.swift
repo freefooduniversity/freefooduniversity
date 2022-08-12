@@ -15,7 +15,6 @@ struct addFoodToMapView: View {
     @Binding var lat: Double
     @Binding var long: Double
     
-    @State var food: String = ""
     @State var duration: String = ""
     @State var building: String = ""
     @State var event: String = ""
@@ -25,7 +24,7 @@ struct addFoodToMapView: View {
     @State var durationSelection = "Duration"
     @State var capacitySelection = "Capacity"
     
-    let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-a 🐄 "]
+    let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
     let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 1.5 hrs ", " 2 hrs ", " 2.5 hrs ", " 3 hrs "]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
@@ -76,7 +75,7 @@ struct addFoodToMapView: View {
             }
             HStack {
                 Button(action: {
-                    addMarker(id: Int.random(in: 1..<10000000), food: food, lat: lat, long: long, college: college)
+                    addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college)
                     addFood = true
                 }) {
                     HStack {
@@ -112,7 +111,7 @@ struct addFoodToMapView: View {
     }
 }
 
-func addMarker(id: Int, food: String, lat: Double, long: Double, college: String) {
+func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String) {
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
         return
@@ -126,6 +125,8 @@ func addMarker(id: Int, food: String, lat: Double, long: Double, college: String
     
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    var food = getFoodFromDropDownName(food: foodSelection)
     
     let body: [String: AnyHashable] = [
         "id": id,
