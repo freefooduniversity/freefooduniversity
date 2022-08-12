@@ -27,7 +27,7 @@ struct addFoodToMapView: View {
     
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-a 🐄 "]
     let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 1.5 hrs ", " 2 hrs ", " 2.5 hrs ", " 3 hrs "]
-    let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 20 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
+    let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
         VStack {
@@ -91,6 +91,24 @@ struct addFoodToMapView: View {
                 }
             }
         }.position(x:195, y:105)
+        HStack {
+            Image("google")
+            Button(action: {
+                
+            }) {
+                HStack {
+                    Image("blue")
+                    Text("Sign in with Google To Add Food      ")
+                        .font(.custom("Helvetica Neue", size: 16))
+                        .foregroundColor(.white)
+                }
+            }.background(Color.green).cornerRadius(15)
+        }
+        Text("")
+        Text("Once logged into Google, remove view of above sign in button and instead display below messages")
+        Text(" ")
+        Text("*Remember*: You're logged into Google.")
+        Text("*Don't* post false or inappropriate info")
     }
 }
 
