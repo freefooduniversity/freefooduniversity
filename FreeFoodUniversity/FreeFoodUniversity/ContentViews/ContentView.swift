@@ -109,8 +109,9 @@ struct MainContentView: View {
             for i in 0 ... Markers.count - 1 {
                 var marker: GMSMarker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
-                marker.title = "\(Markers[i].food)"
-                marker.snippet = "\(Markers[i].food)"
+                var foodDisplayName = getFoodDisplayName(food: Markers[i].food)
+                marker.title = "Free \(foodDisplayName) At Brumby Hall!"
+                marker.snippet = "See Details Below"
                 if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
                 else if (Markers[i].food == "burger") { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
                 else if (Markers[i].food == "breakfast") {marker.icon = UIImage(named: "breakfast")!.withRenderingMode(.alwaysTemplate)}

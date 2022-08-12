@@ -47,9 +47,3 @@ struct MarkerView: View {
 
 }
 
-func getFoodDisplayName(food: String) -> String {
-    if (food == "chickfila") {
-        return "Chick-Fil-A"
-    }
-    return food
-}
