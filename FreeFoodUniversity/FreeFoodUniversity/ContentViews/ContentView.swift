@@ -52,7 +52,7 @@ struct GoogleMapsView: UIViewRepresentable {
             }
         }
  }
-
+var execute: Bool = true
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
@@ -70,19 +70,21 @@ struct MainContentView: View {
     @State var longitude: Double = -95.7129
     @State var zoom: Float = 3.2
     
+    
     @State var Markers: [Marker] = []
     @State var markers: [Marker] = []
     @State var GMSMarkers: [GMSMarker] = []
     @State var stats: Stats = Stats(id: 0, food_events: 0, fed_today: 0, fed_all_time: 0)
     
-    func setMarkers() ->  [ GMSMarker ] {
+    func setMarkers(doExecute: Bool) ->  [ GMSMarker ] {
         var userMarker: GMSMarker = GMSMarker()
         userMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         userMarker.snippet = "\(latitude) \(longitude)"
         userMarker.title = "Your location"
         userMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)
-        
-        if (Markers.count == 0 || addFood || college != "all") {
+
+        if (addFood || doExecute) {
+            execute = false
             if (college != "pickCollege") {
                 getAllMarkersForCollege (completion: { (marks) in
                     Markers = marks
@@ -93,9 +95,9 @@ struct MainContentView: View {
                 }, college: "all")
             
             }
-
             addFood = false
-                
+        } else {
+            execute = true
         }
          
         var tempMarkers = GMSMarkers
@@ -170,8 +172,9 @@ struct MainContentView: View {
             return 450
         }
     }
+    
     var body: some View {
-        var m = setMarkers()
+        var m = setMarkers(doExecute: execute)
         var s = setStats(college: college)
         /* Map Views */
         if (self.college == "all" || self.college == "pickCollege" || self.college == "select-state") {
