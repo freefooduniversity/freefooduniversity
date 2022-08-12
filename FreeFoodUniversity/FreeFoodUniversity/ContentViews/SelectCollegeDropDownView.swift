@@ -11,8 +11,9 @@ import UIKit
 
 
 struct SelectStateDropDownView : View {
-    @State private var selectedState = "GA"
+    @State public var selectedState = "Select Your State"
     let states = [
+        "Select Your State",
         "AL",
         "AK",
         "AZ",
@@ -71,8 +72,9 @@ struct SelectStateDropDownView : View {
                 ForEach(states, id: \.self) {
                     Text($0)
                 }
+            }
+            .onTapGesture {
                 
-                Text("Your state is: \(selectedState)")
             }
         }
     }
