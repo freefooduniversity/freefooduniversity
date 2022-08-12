@@ -25,9 +25,9 @@ struct addFoodToMapView: View {
     @State var durationSelection = "Duration"
     @State var capacitySelection = "Capacity"
     
-    let foods = ["Food", "pizza", "burger", "breakfeast", "lunch", "dinner", "ice-cream", "fruit", "mexican", "coffee", "sandwich", "chikfila"]
-    let durations = ["Duration", "30min", "1hr", "1.5hr", "2hr", "2.5hr", "3hr"]
-    let capacities = ["Capacity", "1", "5", "10", "15", "20", "50", "100", "500"]
+    let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-a 🐄 "]
+    let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 1.5 hrs ", " 2 hrs ", " 2.5 hrs ", " 3 hrs "]
+    let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 20 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
         VStack {
