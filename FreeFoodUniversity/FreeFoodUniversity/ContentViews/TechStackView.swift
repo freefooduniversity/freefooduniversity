@@ -18,6 +18,7 @@ struct TechStackView: View {
             HStack {
                 Button(action: {
                     navButton = "aboutUs"
+                    AboutUsView(navButton: $navButton)
                 }) {
                     HStack {
                         Text("")

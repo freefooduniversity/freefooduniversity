@@ -73,7 +73,7 @@ struct SelectStateDropDownView : View {
                 }
             }
             .onTapGesture {
-                
+                // show list of all college in that state, zoom in on the state, show all markers in that state
             }
         }
     }
