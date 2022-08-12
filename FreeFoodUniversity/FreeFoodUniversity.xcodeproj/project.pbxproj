@@ -33,6 +33,13 @@
 		D858D0B5284D605100F5D4A1 /* FreeFoodUniversityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D0B4284D605100F5D4A1 /* FreeFoodUniversityTests.swift */; };
 		D858D0BF284D605100F5D4A1 /* FreeFoodUniversityUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D0BE284D605100F5D4A1 /* FreeFoodUniversityUITests.swift */; };
 		D858D0C1284D605100F5D4A1 /* FreeFoodUniversityUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D858D0C0284D605100F5D4A1 /* FreeFoodUniversityUITestsLaunchTests.swift */; };
+		D8ACEF8828A6EB170027F88B /* BamaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACEF8728A6EB170027F88B /* BamaView.swift */; };
+		D8ACEF8C28A6F3440027F88B /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACEF8B28A6F3440027F88B /* Marker.swift */; };
+		D8ACEF8F28A6F3850027F88B /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACEF8E28A6F3850027F88B /* Stats.swift */; };
+		D8ACEF9128A6F3C60027F88B /* MainPageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACEF9028A6F3C60027F88B /* MainPageContentView.swift */; };
+		D8ACEF9428A6F4190027F88B /* GoogleMapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACEF9328A6F4190027F88B /* GoogleMapsView.swift */; };
+		D8ACEF9628A6F4770027F88B /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACEF9528A6F4770027F88B /* MainContentView.swift */; };
+		D8ACEF9828A6F4B60027F88B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8ACEF9728A6F4B60027F88B /* Utility.swift */; };
 		D8E24B4228A5A21D00529875 /* SelectCollegeDropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E24B4128A5A21D00529875 /* SelectCollegeDropDownView.swift */; };
 		ECEE82B3A1E0D41D8EE008E2 /* Pods_FreeFoodUniversityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85CBCD12E992CE7B3D84F4 /* Pods_FreeFoodUniversityTests.framework */; };
 		FB004BBDBB229958424CE623 /* Pods_FreeFoodUniversity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B487BBFBDED3D741331F30 /* Pods_FreeFoodUniversity.framework */; };
@@ -92,6 +99,13 @@
 		D858D0BA284D605100F5D4A1 /* FreeFoodUniversityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreeFoodUniversityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D0BE284D605100F5D4A1 /* FreeFoodUniversityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityUITests.swift; sourceTree = "<group>"; };
 		D858D0C0284D605100F5D4A1 /* FreeFoodUniversityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D8ACEF8728A6EB170027F88B /* BamaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BamaView.swift; sourceTree = "<group>"; };
+		D8ACEF8B28A6F3440027F88B /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		D8ACEF8E28A6F3850027F88B /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		D8ACEF9028A6F3C60027F88B /* MainPageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageContentView.swift; sourceTree = "<group>"; };
+		D8ACEF9328A6F4190027F88B /* GoogleMapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsView.swift; sourceTree = "<group>"; };
+		D8ACEF9528A6F4770027F88B /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
+		D8ACEF9728A6F4B60027F88B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		D8E24B4128A5A21D00529875 /* SelectCollegeDropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCollegeDropDownView.swift; sourceTree = "<group>"; };
 		E6BC573C09A566BF1C36EF96 /* Pods-FreeFoodUniversityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D858D0A0284D605000F5D4A1 /* ContentView.swift */,
+				D8ACEF8728A6EB170027F88B /* BamaView.swift */,
 				C5B44DA3287B68A300A78E94 /* AboutUsView.swift */,
 				C5B44DA5287B723800A78E94 /* NavButtonsView.swift */,
 				C5B44DA7287B742800A78E94 /* StatsView.swift */,
@@ -165,6 +180,9 @@
 				C5CD8E54287FD95100434E50 /* SelectStateView.swift */,
 				C5C011192889071A00520DCA /* MarkerView.swift */,
 				C5F3C8152898D58500293545 /* TechStackView.swift */,
+				D8ACEF9028A6F3C60027F88B /* MainPageContentView.swift */,
+				D8ACEF9328A6F4190027F88B /* GoogleMapsView.swift */,
+				D8ACEF9528A6F4770027F88B /* MainContentView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -194,6 +212,7 @@
 		D858D09D284D605000F5D4A1 /* FreeFoodUniversity */ = {
 			isa = PBXGroup;
 			children = (
+				D8ACEF8A28A6F3250027F88B /* Structs */,
 				C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */,
 				C5B44D92286106DE00A78E94 /* ContentViews */,
 				D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */,
@@ -203,6 +222,7 @@
 				D858D0A4284D605100F5D4A1 /* Preview Content */,
 				C5F3C8132895F2AA00293545 /* LocationController.swift */,
 				C50DFD7328A6D59500F57948 /* renameFunctions.swift */,
+				D8ACEF9728A6F4B60027F88B /* Utility.swift */,
 			);
 			path = FreeFoodUniversity;
 			sourceTree = "<group>";
@@ -230,6 +250,15 @@
 				D858D0C0284D605100F5D4A1 /* FreeFoodUniversityUITestsLaunchTests.swift */,
 			);
 			path = FreeFoodUniversityUITests;
+			sourceTree = "<group>";
+		};
+		D8ACEF8A28A6F3250027F88B /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				D8ACEF8B28A6F3440027F88B /* Marker.swift */,
+				D8ACEF8E28A6F3850027F88B /* Stats.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,17 +535,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8ACEF9828A6F4B60027F88B /* Utility.swift in Sources */,
 				D858D0A8284D605100F5D4A1 /* Persistence.swift in Sources */,
 				C5B44DA4287B68A500A78E94 /* AboutUsView.swift in Sources */,
+				D8ACEF9428A6F4190027F88B /* GoogleMapsView.swift in Sources */,
+				D8ACEF8C28A6F3440027F88B /* Marker.swift in Sources */,
 				D858D0A1284D605000F5D4A1 /* ContentView.swift in Sources */,
+				D8ACEF9628A6F4770027F88B /* MainContentView.swift in Sources */,
 				D858D09F284D605000F5D4A1 /* FreeFoodUniversityApp.swift in Sources */,
 				C5B44DB7287FACD500A78E94 /* ProfileView.swift in Sources */,
+				D8ACEF8828A6EB170027F88B /* BamaView.swift in Sources */,
 				C5B44DB5287D350F00A78E94 /* CollegeLocations.swift in Sources */,
 				C5CD8E5B2883ACB600434E50 /* ShareViewController.swift in Sources */,
 				C5CD8E55287FD95200434E50 /* SelectStateView.swift in Sources */,
 				D858D0AB284D605100F5D4A1 /* FreeFoodUniversity.xcdatamodeld in Sources */,
 				C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */,
+				D8ACEF9128A6F3C60027F88B /* MainPageContentView.swift in Sources */,
 				C5B44DAA287B749C00A78E94 /* pickCollegeView.swift in Sources */,
+				D8ACEF8F28A6F3850027F88B /* Stats.swift in Sources */,
 				C5B44DB1287D20D700A78E94 /* CollegeView.swift in Sources */,
 				C5C0111A2889071A00520DCA /* MarkerView.swift in Sources */,
 				C5F3C8162898D58700293545 /* TechStackView.swift in Sources */,

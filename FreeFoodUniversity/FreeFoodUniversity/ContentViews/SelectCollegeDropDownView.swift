@@ -9,7 +9,6 @@ import SwiftUI
 import DropDown
 import UIKit
 
-
 struct SelectStateDropDownView : View {
     @State public var selectedState = "Select Your State"
     let states = [

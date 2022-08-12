@@ -11,6 +11,7 @@ import CoreData
 import UIKit
 
 struct MarkerView: View {
+    
     @Binding var food: String
     @Binding var lat: Double
     @Binding var long: Double
