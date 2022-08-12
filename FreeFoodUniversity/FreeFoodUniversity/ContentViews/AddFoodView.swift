@@ -21,22 +21,35 @@ struct addFoodToMapView: View {
     @State var event: String = ""
     @State var details: String = ""
     @State var capacity: String = ""
+    @State var foodSelection = "Food"
+    @State var durationSelection = "Duration"
+    @State var capacitySelection = "Capacity"
+    
+    let foods = ["Food", "pizza", "burger", "breakfeast", "lunch", "dinner", "ice-cream", "fruit", "mexican", "coffee", "sandwich", "chikfila"]
+    let durations = ["Duration", "30min", "1hr", "1.5hr", "2hr", "2.5hr", "3hr"]
+    let capacities = ["Capacity", "1", "5", "10", "15", "20", "50", "100", "500"]
     
     var body: some View {
         VStack {
             Text("Add Food To " + getName(college: college))
                 .font(.custom("Helvetica Neue", size: 20))
                 .foregroundColor(.black)
-            HStack {
-                TextField("Food ", text: $food)
-                    .frame(width: 120, height: 30)
-                    .border(.secondary)
-                TextField("Duration ", text: $duration)
-                    .frame(width: 120, height: 30)
-                    .border(.secondary)
-                TextField("Capacity ", text: $capacity)
-                    .frame(width: 120, height: 30)
-                    .border(.secondary)
+            HStack(spacing: 30) {
+                Picker("Food", selection: $foodSelection) {
+                    ForEach(foods, id: \.self) {
+                        Text($0).font(.system(size: 20))
+                    }
+                }.border(.secondary)
+                Picker("Duration", selection: $durationSelection) {
+                    ForEach(durations, id: \.self) {
+                        Text($0).font(.system(size: 20))
+                    }
+                }.border(.secondary)
+                Picker("Capacity", selection: $capacitySelection) {
+                    ForEach(capacities, id: \.self) {
+                        Text($0).font(.system(size: 20))
+                    }
+                }.border(.secondary)
             }
             HStack {
                 TextField("Building ", text: $building)
