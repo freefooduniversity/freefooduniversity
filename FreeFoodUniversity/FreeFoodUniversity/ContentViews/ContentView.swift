@@ -78,8 +78,8 @@ struct MainContentView: View {
     func setMarkers() ->  [ GMSMarker ] {
         var userMarker: GMSMarker = GMSMarker()
         userMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        userMarker.snippet = "Your Location"
-        userMarker.title = ""
+        userMarker.snippet = "\(latitude) \(longitude)"
+        userMarker.title = "Your location"
         userMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)
         
         if (Markers.count == 0 || addFood || college != "all") {
@@ -107,8 +107,8 @@ struct MainContentView: View {
             for i in 0 ... Markers.count - 1 {
                 var marker: GMSMarker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
-                marker.title = ""
-                marker.snippet = "See Details Below "
+                marker.title = "\(Markers[i].food)"
+                marker.snippet = "\(Markers[i].food)"
                 if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
                 else if (Markers[i].food == "burger") { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
                 else if (Markers[i].food == "breakfast") {marker.icon = UIImage(named: "breakfast")!.withRenderingMode(.alwaysTemplate)}
