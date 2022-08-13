@@ -314,3 +314,48 @@ func getMarkersForState(completion: @escaping ([Marker]) -> (), state: String) {
     }.resume()
     
 }
+
+func getStatsForState(completion: @escaping (Stats) -> (), state: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/stats/state") else {
+        return
+    }
+   
+    var request = URLRequest(url: url)
+    
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let body: [String: AnyHashable] = [
+        "colleges": getCollegesByState(selectedState: state)
+    ]
+     
+   request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+    
+    
+    // Make the Request
+    /*
+    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        guard let data = data, error == nil else {
+            return
+        }
+        
+        do {
+            let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("SUCESSS")
+            print(response)
+        } catch {
+            print("An error occured: ")
+            print(error)
+        }
+         
+    }
+    task.resume()
+     */
+    URLSession.shared.dataTask(with: request) { (data, _, _) in
+        let stats = try!JSONDecoder().decode(Stats.self, from: data!)
+        DispatchQueue.main.async {
+            completion(stats)
+        }
+    }.resume()
+    
+}

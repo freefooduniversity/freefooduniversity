@@ -115,10 +115,16 @@ struct MainContentView: View {
         return tempMarkers
     }
     
-    func setStats(college: String) -> Stats  {
-        getStats (completion: { (stat) in
-            stats = stat
-        }, college: college)
+    func setStats(college: String, selectedState: String) -> Stats  {
+        if (selectedState == "" || selectedState == "Select Your State") {
+            getStats (completion: { (stat) in
+                stats = stat
+            }, college: college)
+        } else {
+            getStatsForState (completion: { (stat) in
+                stats = stat
+            }, state: selectedState)
+        }
         return stats
     }
     
@@ -141,7 +147,7 @@ struct MainContentView: View {
     
     var body: some View {
         var m = setMarkers(doExecute: execute)
-        var s = setStats(college: college)
+        var s = setStats(college: college, selectedState: selectedState)
         /* Map Views */
         if (self.college == "all" || self.college == "pickCollege") {
             if (selectedState == "") {
