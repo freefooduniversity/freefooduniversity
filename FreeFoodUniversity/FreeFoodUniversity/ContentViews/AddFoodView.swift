@@ -97,7 +97,7 @@ struct addFoodToMapView: View {
                 }
             }.position(x:195, y:105)
         }.sheet(isPresented: $openCameraRoll) {
-            ImagePicker(sourceType: .photoLibrary)
+            ImagePicker(sourceType: .camera)
         }
         HStack {
             Image("google")
