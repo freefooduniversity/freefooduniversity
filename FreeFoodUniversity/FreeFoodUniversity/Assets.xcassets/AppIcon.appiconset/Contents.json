@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "icon4.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
@@ -37,6 +36,7 @@
       "size" : "60x60"
     },
     {
+      "filename" : "appIcon.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
