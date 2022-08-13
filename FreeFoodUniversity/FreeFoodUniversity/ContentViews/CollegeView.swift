@@ -30,6 +30,8 @@ struct CollegeContentView: View {
                             Image("big-burger")
                                 .renderingMode(Image.TemplateRenderingMode?
                                 .init(Image.TemplateRenderingMode.original))
+                                .resizable()
+                                .frame( width: 70, height: 70)
                             Text(" Add Food To The Map   ")
                                 .font(.custom("Helvetica Neue", size: 12))
                                 .foregroundColor(.black)

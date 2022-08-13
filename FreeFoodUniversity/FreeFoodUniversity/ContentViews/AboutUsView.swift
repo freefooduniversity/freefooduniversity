@@ -81,7 +81,10 @@ struct AboutUsView: View {
               }.position(x:190, y:7)
               
               HStack {
-                  Image("us").cornerRadius(20.0)
+                  Image("us-1")
+                      .resizable()
+                      .frame(width: 360, height: 140)
+                      .cornerRadius(20.0)
               }.position(x:190, y:30)
               
               
