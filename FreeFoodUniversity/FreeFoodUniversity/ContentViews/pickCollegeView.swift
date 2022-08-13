@@ -52,7 +52,7 @@ struct pickCollegeContentView: View {
             self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
         }
     }
-    
+
     
     
     var body: some View {
@@ -109,111 +109,114 @@ struct pickCollegeContentView: View {
             HStack {
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "uga"
+                        if (getCollegesByState(selectedState: selectedState)[0] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[0]
+                        }
                     }
                 }) {
-                    Image("uga")
+                    Image(getCollegesByState(selectedState: selectedState)[0])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
         
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "clemson"
+                        if (getCollegesByState(selectedState: selectedState)[1] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[1]
+                        }
                     }
                 }) {
-                    Image("clemson")
+                    Image(getCollegesByState(selectedState: selectedState)[1])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
                 
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "gt"
+                        if (getCollegesByState(selectedState: selectedState)[2] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[2]
+                        }
                     }
                 }) {
-                    Image("gt")
+                    Image(getCollegesByState(selectedState: selectedState)[2])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
+                    
             
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "bama"
+                        if (getCollegesByState(selectedState: selectedState)[3] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[3]
+                        }
                     }
                 }) {
-                    Image("bama")
+                    Image(getCollegesByState(selectedState: selectedState)[3])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
             
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "florida"
+                        if (getCollegesByState(selectedState: selectedState)[4] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[4]
+                        }
                     }
                 }) {
-                    Image("florida")
+                    Image(getCollegesByState(selectedState: selectedState)[4])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
             }.position(x:200, y:28)
             
             HStack {
                 
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "michigan"
+                        if (getCollegesByState(selectedState: selectedState)[5] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[5]
+                        }
                     }
                 }) {
-                    Image("michigan")
+                    Image(getCollegesByState(selectedState: selectedState)[5])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
             
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "ksu"
+                        if (getCollegesByState(selectedState: selectedState)[6] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[6]
+                        }
                     }
                 }) {
-                    Image("ksu")
+                    Image(getCollegesByState(selectedState: selectedState)[6])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
                 
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "gastate"
+                        if (getCollegesByState(selectedState: selectedState)[7] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[7]
+                        }
                     }
                 }) {
-                    Image("gastate")
+                    Image(getCollegesByState(selectedState: selectedState)[7])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
@@ -222,31 +225,31 @@ struct pickCollegeContentView: View {
         
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "usc"
+                        if (getCollegesByState(selectedState: selectedState)[8] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[8]
+                        }
                     }
                 }) {
-                    Image("usc")
+                    Image(getCollegesByState(selectedState: selectedState)[8])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
                 
                 Button(action: {
                     withAnimation {
-                        self.buttonClick = "harvard"
+                        if (getCollegesByState(selectedState: selectedState)[9] != " ") {
+                            self.buttonClick = getCollegesByState(selectedState: selectedState)[9]
+                        }
                     }
                 }) {
-                    Image("harvard")
+                    Image(getCollegesByState(selectedState: selectedState)[9])
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
                         .resizable()
                         .frame(width: 68, height: 65)
                 }
-                    .font(.custom("Helvetica Neue", size: 12))
-                    .foregroundColor(.black)
                 
             }.position(x:200, y:28)
         }.background(Color.white)
