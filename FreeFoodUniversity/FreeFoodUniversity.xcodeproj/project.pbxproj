@@ -20,7 +20,6 @@
 		C5C0111A2889071A00520DCA /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C011192889071A00520DCA /* MarkerView.swift */; };
 		C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */; };
 		C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E52287FD2CC00434E50 /* SettingsView.swift */; };
-		C5CD8E55287FD95200434E50 /* SelectStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E54287FD95100434E50 /* SelectStateView.swift */; };
 		C5CD8E5B2883ACB600434E50 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */; };
 		C5F3C8142895F2AA00293545 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3C8132895F2AA00293545 /* LocationController.swift */; };
 		C5F3C8162898D58700293545 /* TechStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F3C8152898D58500293545 /* TechStackView.swift */; };
@@ -83,7 +82,6 @@
 		C5C011192889071A00520DCA /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 		C5CD8E52287FD2CC00434E50 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		C5CD8E54287FD95100434E50 /* SelectStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStateView.swift; sourceTree = "<group>"; };
 		C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		C5F3C8132895F2AA00293545 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		C5F3C8152898D58500293545 /* TechStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechStackView.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 				C5B44DB6287FACD500A78E94 /* ProfileView.swift */,
 				C5CD8E50287FD0AB00434E50 /* FeedbackView.swift */,
 				C5CD8E52287FD2CC00434E50 /* SettingsView.swift */,
-				C5CD8E54287FD95100434E50 /* SelectStateView.swift */,
 				C5C011192889071A00520DCA /* MarkerView.swift */,
 				C5F3C8152898D58500293545 /* TechStackView.swift */,
 				D8ACEF9028A6F3C60027F88B /* MainPageContentView.swift */,
@@ -547,7 +544,6 @@
 				D8ACEF8828A6EB170027F88B /* BamaView.swift in Sources */,
 				C5B44DB5287D350F00A78E94 /* CollegeLocations.swift in Sources */,
 				C5CD8E5B2883ACB600434E50 /* ShareViewController.swift in Sources */,
-				C5CD8E55287FD95200434E50 /* SelectStateView.swift in Sources */,
 				D858D0AB284D605100F5D4A1 /* FreeFoodUniversity.xcdatamodeld in Sources */,
 				C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */,
 				D8ACEF9128A6F3C60027F88B /* MainPageContentView.swift in Sources */,

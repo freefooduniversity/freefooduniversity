@@ -176,7 +176,6 @@ struct MainContentView: View {
             if (self.college == "all") { MainPageContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked, latitude: $latitude, longitude: $longitude, locationPermissions: $locationPermissions) }
             else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,
                                                                              latitude: $latitude, longitude: $longitude) }
-            else if (self.college == "select-state") { SelectStateView(buttonClick: $college, locationButtonClicked: $locationButtonClicked)}
             
             // Specific College Was Picked
             else if (!addFood) { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked) }

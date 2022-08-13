@@ -73,22 +73,30 @@ struct pickCollegeContentView: View {
              */
         
         VStack {
-            Text("Pick Your College: ")
-                .font(.custom("Helvetica Neue", size: 20))
-                .foregroundColor(.black)
-                .position(x: 195, y: 10)
             HStack {
-                SelectStateDropDownView()
-                Text("        ")
                 HStack {
-                    Button (" Use Current Location") {
-                        self.locationButtonClicked = true
-                        getUserLocation()
+                    Image("3bars")
+                    SelectStateDropDownView()
+                }
+                Text("   ")
+                HStack {
+                    Button(action: {
+                        withAnimation {
+                            self.locationButtonClicked = true
+                            getUserLocation()
+                        }
+                    }) {
+                        HStack {
+                            Text("Use Current Location")
+                            Image("smallLocation")
+                        }
                     }
-                    Image("smallLocation")
-                }.border(Color.black)
-            }.position(x:200, y:-10)
-            
+                }
+            }.position(x:200, y:10)
+            Text("Pick Your College: ")
+                .font(.custom("Helvetica Neue", size: 15))
+                .foregroundColor(.black)
+                .position(x: 195, y: -10)
             HStack {
                 Button(action: {
                     withAnimation {
