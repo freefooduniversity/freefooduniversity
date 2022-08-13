@@ -76,7 +76,7 @@ struct addFoodToMapView: View {
             HStack {
                 Button(action: {
                     addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college)
-                    addFood = true
+                    self.addFood = false
                 }) {
                     HStack {
                         Image("blue")
@@ -86,7 +86,7 @@ struct addFoodToMapView: View {
                     }
                 }.background(Color.blue).cornerRadius(15)
                 Button("Cancel") {
-                    addFood = false
+                    self.addFood = false
                 }
             }
         }.position(x:195, y:105)

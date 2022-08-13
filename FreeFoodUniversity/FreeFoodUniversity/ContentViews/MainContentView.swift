@@ -36,11 +36,11 @@ struct MainContentView: View {
     func setMarkers(doExecute: Bool) ->  [ GMSMarker ] {
         var userMarker: GMSMarker = GMSMarker()
         userMarker.position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        userMarker.snippet = "\(latitude) \(longitude)"
-        userMarker.title = "Your location"
+        userMarker.title = "Your Location"
         userMarker.icon = UIImage(named: "userLocation")!.withRenderingMode(.alwaysTemplate)
 
-        if (addFood || doExecute) {
+        addFood = false
+        if (doExecute) {
             execute = false
             if (college != "pickCollege") {
                 getAllMarkersForCollege (completion: { (marks) in
@@ -52,7 +52,6 @@ struct MainContentView: View {
                 }, college: "all")
             
             }
-            addFood = false
         } else {
             execute = true
         }
