@@ -30,7 +30,7 @@ struct pickCollegeContentView: View {
         if locationManager.userLocation == nil {
            locationManager.requestLocation()
             var gotLocation = false
-            for i in 1 ... 50 {
+            for i in 1 ... 70 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + Double(i)/10) {
                     if let location = locationManager.userLocation {
                         if (!gotLocation) {
@@ -73,30 +73,37 @@ struct pickCollegeContentView: View {
              */
         
         VStack {
-            HStack {
+            VStack {
+                VStack {
+                Text("Pick Your College:")
+                    .underline()
+                    .bold()
+                    .font(.custom("Helvetica Neue", size: 18))
+                    .foregroundColor(.black)
+                }.position(x: 195, y: 10)
                 HStack {
-                    Image("3bars")
-                    SelectStateDropDownView()
-                }
-                Text("   ")
-                HStack {
-                    Button(action: {
-                        withAnimation {
-                            self.locationButtonClicked = true
-                            getUserLocation()
-                        }
-                    }) {
-                        HStack {
-                            Text("Use Current Location")
-                            Image("smallLocation")
-                        }
+                    HStack {
+                        Image("3bars")
+                        SelectStateDropDownView()
                     }
-                }
-            }.position(x:200, y:10)
-            Text("Pick Your College: ")
-                .font(.custom("Helvetica Neue", size: 15))
-                .foregroundColor(.black)
-                .position(x: 195, y: -10)
+                    Text("   ")
+                    HStack {
+                        
+                        Button(action: {
+                            withAnimation {
+                                self.locationButtonClicked = true
+                                getUserLocation()
+                            }
+                        }) {
+                            HStack {
+                               Text("Use Current Location")
+                                Image("smallLocation")
+                            }
+                        }
+                         
+                    }
+                }.position(x:200, y:5)
+            }
             HStack {
                 Button(action: {
                     withAnimation {
@@ -167,7 +174,7 @@ struct pickCollegeContentView: View {
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
-            }.position(x:200, y:-10)
+            }.position(x:200, y:28)
             
             HStack {
                 
@@ -239,7 +246,7 @@ struct pickCollegeContentView: View {
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
                 
-            }.position(x:200, y:5)
+            }.position(x:200, y:28)
         }.background(Color.white)
     }
 }
