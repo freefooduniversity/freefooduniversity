@@ -71,11 +71,22 @@ struct addFoodToMapView: View {
                         changeImage = true
                         openCameraRoll = true
                     }) {
-                        VStack {
-                            Image("camera")
-                            Text(" Take a Picture of the Food!     ")
-                                .font(.custom("Helvetica Neue", size: 11))
-                                .foregroundColor(.white)
+                        if changeImage {
+                            VStack {
+                                Image(uiImage: imageSelected)
+                                    .resizable()
+                                    .frame(width: 120, height: 120)
+                                Text(" Done!     ")
+                                    .font(.custom("Helvetica Neue", size: 11))
+                                    .foregroundColor(.white)
+                            }
+                        } else {
+                            VStack {
+                                Image("camera")
+                                Text(" Take a Picture of the Food!     ")
+                                    .font(.custom("Helvetica Neue", size: 11))
+                                    .foregroundColor(.white)
+                            }
                         }
                     }.background(Color.purple).cornerRadius(15)
                 }
@@ -97,7 +108,7 @@ struct addFoodToMapView: View {
                 }
             }.position(x:195, y:105)
         }.sheet(isPresented: $openCameraRoll) {
-            ImagePicker(sourceType: .camera)
+            ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
         }
         HStack {
             Image("google")
