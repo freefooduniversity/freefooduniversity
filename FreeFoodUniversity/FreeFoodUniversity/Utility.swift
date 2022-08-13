@@ -34,7 +34,7 @@ func getAllMarkers(completion: @escaping ([Marker]) -> ()) {
         //    print("1")
         //    print(markers)
         //    print("2")
-        //    completion(markers)
+           completion(markers)
         }
     }.resume()
 }
