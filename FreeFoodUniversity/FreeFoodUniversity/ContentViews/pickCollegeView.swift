@@ -19,6 +19,8 @@ struct pickCollegeContentView: View {
     
     @ObservedObject var locationManager = LocationManager()
     
+    @Binding var selectedState: String
+    
     @State private var isExpanded = false
     @State private var viewModel = ""
     @State private var selectedCountry = ""
@@ -84,7 +86,7 @@ struct pickCollegeContentView: View {
                 HStack {
                     HStack {
                         Image("3bars")
-                        SelectStateDropDownView()
+                        SelectStateDropDownView(selectedState: $selectedState)
                     }
                     Text("   ")
                     HStack {

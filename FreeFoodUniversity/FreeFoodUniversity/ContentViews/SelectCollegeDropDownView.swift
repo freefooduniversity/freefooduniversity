@@ -10,7 +10,7 @@ import DropDown
 import UIKit
 
 struct SelectStateDropDownView : View {
-    @State var selectedState = "Select State"
+    @Binding var selectedState: String
     let states = [
         "Select Your State",
         "Alabama",

@@ -27,6 +27,7 @@ struct MainContentView: View {
     @State var longitude: Double = -95.7129
     @State var zoom: Float = 3.2
     
+    @State var selectedState = ""
     
     @State var Markers: [Marker] = []
     @State var markers: [Marker] = []
@@ -42,15 +43,21 @@ struct MainContentView: View {
         addFood = false
         if (doExecute) {
             execute = false
-            if (college != "pickCollege") {
-                getAllMarkersForCollege (completion: { (marks) in
-                    Markers = marks
-                }, college: college)
+            if (selectedState == "") {
+                if (college != "pickCollege") {
+                    getAllMarkersForCollege (completion: { (marks) in
+                        Markers = marks
+                    }, college: college)
+                } else {
+                    getAllMarkersForCollege (completion: { (marks) in
+                        Markers = marks
+                    }, college: "all")
+                
+                }
             } else {
                 getAllMarkersForCollege (completion: { (marks) in
                     Markers = marks
-                }, college: "all")
-            
+                }, college: "ksu")
             }
         } else {
             execute = true
@@ -135,11 +142,16 @@ struct MainContentView: View {
         var m = setMarkers(doExecute: execute)
         var s = setStats(college: college)
         /* Map Views */
-        if (self.college == "all" || self.college == "pickCollege" || self.college == "select-state") {
+        if (self.college == "all" || self.college == "pickCollege") {
+            if (selectedState == "") {
             GoogleMapsView(latitude: .constant(LAT), longitude: .constant(LONG), zoom: .constant(ZOOM), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
-               
+            } else {
+                GoogleMapsView(latitude: .constant(getStateLat(selectedState: selectedState)), longitude: .constant(getStateLong(selectedState: selectedState)), zoom: .constant(getStateZoom(selectedState: selectedState)), marker: .constant(m))
+                    .ignoresSafeArea()
+                    .frame(width: 400, height: 450, alignment: .center)
+            }
             
         } else {
             var lat: Double = collegeLocation.getLat(college: college)
@@ -174,7 +186,7 @@ struct MainContentView: View {
             //College Not Yet Picked
             if (self.college == "all") { MainPageContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked, latitude: $latitude, longitude: $longitude, locationPermissions: $locationPermissions) }
             else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,
-                                                                             latitude: $latitude, longitude: $longitude) }
+                                                                             latitude: $latitude, longitude: $longitude, selectedState: $selectedState) }
             
             // Specific College Was Picked
             else if (!addFood) { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked) }
