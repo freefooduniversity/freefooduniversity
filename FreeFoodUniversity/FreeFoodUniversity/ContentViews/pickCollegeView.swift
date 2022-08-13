@@ -21,10 +21,6 @@ struct pickCollegeContentView: View {
     
     @Binding var selectedState: String
     
-    @State private var isExpanded = false
-    @State private var viewModel = ""
-    @State private var selectedCountry = ""
-    @State private var selectedCountryId = ""
     
     var collegeLocations = CollegeLocations()
     
@@ -86,7 +82,7 @@ struct pickCollegeContentView: View {
                 HStack {
                     HStack {
                         Image("3bars")
-                        SelectStateDropDownView(selectedState: $selectedState)
+                        SelectStateDropDownView(selectedState: ($selectedState))
                     }
                     Text("   ")
                     HStack {
@@ -254,4 +250,67 @@ struct pickCollegeContentView: View {
             }.position(x:200, y:28)
         }.background(Color.white)
     }
+}
+
+/*
+func getAllMarkers(completion: @escaping ([Marker]) -> ()) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/all") else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+        DispatchQueue.main.async {
+        //    print("1")
+        //    print(markers)
+        //    print("2")
+        //    completion(markers)
+        }
+    }.resume()
+}
+ */
+
+func getMarkersForState(completion: @escaping ([Marker]) -> (), state: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/state") else {
+        return
+    }
+   
+    var request = URLRequest(url: url)
+    
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let body: [String: AnyHashable] = [
+        "colleges": getCollegesByState(selectedState: state)
+    ]
+     
+   request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+    
+    
+    // Make the Request
+    /*
+    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        guard let data = data, error == nil else {
+            return
+        }
+        
+        do {
+            let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print("SUCESSS")
+            print(response)
+        } catch {
+            print("An error occured: ")
+            print(error)
+        }
+         
+    }
+    task.resume()
+     */
+    URLSession.shared.dataTask(with: request) { (data, _, _) in
+        let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+        DispatchQueue.main.async {
+            completion(markers)
+        }
+    }.resume()
+    
 }

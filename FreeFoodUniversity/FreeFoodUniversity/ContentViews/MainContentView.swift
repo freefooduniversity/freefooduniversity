@@ -43,7 +43,7 @@ struct MainContentView: View {
         addFood = false
         if (doExecute) {
             execute = false
-            if (selectedState == "") {
+            if (selectedState == "" || selectedState == "Select Your State") {
                 if (college != "pickCollege") {
                     getAllMarkersForCollege (completion: { (marks) in
                         Markers = marks
@@ -54,10 +54,11 @@ struct MainContentView: View {
                     }, college: "all")
                 
                 }
+                 
             } else {
-                getAllMarkersForCollege (completion: { (marks) in
+                getMarkersForState(completion: { (marks) in
                     Markers = marks
-                }, college: "ksu")
+                }, state: selectedState)
             }
         } else {
             execute = true

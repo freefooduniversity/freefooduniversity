@@ -82,7 +82,6 @@ struct CollegeLocations {
 // Max 10 colleges per state
 func getCollegesByState(selectedState: String) -> [String] {
     var state = selectedState.lowercased()
-    if (state == "" || state == "Select Your State") {return ["uga", "clemson", "gt", "bama", "florida", "michigan", "ksu", "gastate", "usc", "harvard"]}
     if (state == "alabama") { return ["bama", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "alaska") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arizona") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
@@ -133,7 +132,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "west virginia") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "wisconsin") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "wyoming") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+    return ["uga", "clemson", "gt", "bama", "florida", "michigan", "ksu", "gastate", "usc", "harvard"]
 }
 
 func getStateZoom(selectedState: String) -> Float {
