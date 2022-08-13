@@ -67,7 +67,16 @@ struct NavButtonsView: View {
                     Image("share")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
-                        Text("Share \n")
+                    HStack {
+                        Text("Share\n")
+                        VStack {
+                            Image("send")
+                                .resizable()
+                                .frame(width: 12, height: 17)
+                            Text(" ")
+                                .font(.custom("Helvetica Neue", size: 15))
+                        }
+                    }
                 }
             }
         }
