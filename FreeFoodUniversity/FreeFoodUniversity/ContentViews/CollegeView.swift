@@ -48,6 +48,8 @@ struct CollegeContentView: View {
                             Image(getImage(college: college))
                                 .renderingMode(Image.TemplateRenderingMode?
                                 .init(Image.TemplateRenderingMode.original))
+                                .resizable()
+                                .frame( width: 100, height: 100)
                             Image("down-arrow")
                         }
                     }

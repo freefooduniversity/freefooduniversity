@@ -103,9 +103,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "uga"
                     }
                 }) {
-                    Image("ugaCopy")
+                    Image("uga")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -115,9 +117,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "clemson"
                     }
                 }) {
-                    Image("clemsonCopy")
+                    Image("clemson")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -127,9 +131,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "gt"
                     }
                 }) {
-                    Image("gtCopy")
+                    Image("gt")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -139,9 +145,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "bama"
                     }
                 }) {
-                    Image("bamaCopy")
+                    Image("bama")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -151,9 +159,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "florida"
                     }
                 }) {
-                    Image("floridaCopy")
+                    Image("florida")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -166,9 +176,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "michigan"
                     }
                 }) {
-                    Image("michiganCopy")
+                    Image("michigan")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -178,9 +190,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "ksu"
                     }
                 }) {
-                    Image("ksuCopy")
+                    Image("ksu")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -190,9 +204,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "gastate"
                     }
                 }) {
-                    Image("gastateCopy")
+                    Image("gastate")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
         
                 Button(action: {
@@ -200,9 +216,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "usc"
                     }
                 }) {
-                    Image("uscCopy")
+                    Image("usc")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
@@ -212,9 +230,11 @@ struct pickCollegeContentView: View {
                         self.buttonClick = "harvard"
                     }
                 }) {
-                    Image("harvardCopy")
+                    Image("harvard")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 68, height: 65)
                 }
                     .font(.custom("Helvetica Neue", size: 12))
                     .foregroundColor(.black)
