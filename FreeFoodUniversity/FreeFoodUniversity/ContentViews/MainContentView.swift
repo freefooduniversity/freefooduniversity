@@ -10,6 +10,7 @@ import SwiftUI
 import GoogleMaps
 
 var execute: Bool = true
+var executeStats: Bool = true
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
@@ -115,15 +116,20 @@ struct MainContentView: View {
         return tempMarkers
     }
     
-    func setStats(college: String, selectedState: String) -> Stats  {
-        if (selectedState == "" || selectedState == "Select Your State") {
-            getStats (completion: { (stat) in
-                stats = stat
-            }, college: college)
+    func setStats(college: String, selectedState: String, doExecuteStats: Bool) -> Stats  {
+        if (doExecuteStats) {
+            executeStats = false
+            if (selectedState == "" || selectedState == "Select Your State") {
+                getStats (completion: { (stat) in
+                    stats = stat
+                }, college: college)
+            } else {
+                getStatsForState (completion: { (stat) in
+                    stats = stat
+                }, state: selectedState)
+            }
         } else {
-            getStatsForState (completion: { (stat) in
-                stats = stat
-            }, state: selectedState)
+            executeStats = true
         }
         return stats
     }
@@ -147,7 +153,7 @@ struct MainContentView: View {
     
     var body: some View {
         var m = setMarkers(doExecute: execute)
-        var s = setStats(college: college, selectedState: selectedState)
+        var s = setStats(college: college, selectedState: selectedState, doExecuteStats: executeStats)
         /* Map Views */
         if (self.college == "all" || self.college == "pickCollege") {
             if (selectedState == "") {
