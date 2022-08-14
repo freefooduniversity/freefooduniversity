@@ -141,14 +141,14 @@ func getStateZoom(selectedState: String) -> Float {
     if (state == "alabama") { return 6.5 }
     if (state == "alaska") { return 4 }
     if (state == "arizona") { return 6.3 }
+    if (state == "arkansas") { return 6.5 }
+    if (state == "california") { return 5.6 }
+    if (state == "colorado") { return 6.1}
+    if (state == "conneticut") { return 7.7 }
+    if (state == "delaware") { return 7.7 }
+    if (state == "florida") { return 6 }
+    if (state == "georgia") { return 6.4 }
     /*
-    if (state == "arkansas") { return [] }
-    if (state == "california") { return ["usc"] }
-    if (state == "colorado") { return [] }
-    if (state == "conneticut") { return [] }
-    if (state == "delaware") { return [] }
-    if (state == "florida") { return ["florida"] }
-    if (state == "georgia") { return ["uga", "gastate", "ksu", "gt"] }
     if (state == "hawaii") { return [] }
     if (state == "idaho") { return [] }
     if (state == "illinois") { return [] }
@@ -198,14 +198,14 @@ func getStateLat(selectedState: String) -> Double {
     if (state == "alabama") { return 32.3182 }
     if (state == "alaska") { return 64.2008 }
     if (state == "arizona") { return 34.0489 }
+    if (state == "arkansas") {return 34.5574 }
+    if (state == "california") {return 36.7783 }
+    if (state == "colorado") { return 39.5501 }
+    if (state == "conneticut") { return 41.6032 }
+    if (state == "delaware") { return 38.9108 }
+    if (state == "florida") { return 28.8648 }
+    if (state == "georgia") { return 32.1656 }
     /*
-     if (state == "arkansas") { return [] }
-     if (state == "california") { return ["usc"] }
-     if (state == "colorado") { return [] }
-     if (state == "conneticut") { return [] }
-     if (state == "delaware") { return [] }
-     if (state == "florida") { return ["florida"] }
-     if (state == "georgia") { return ["uga", "gastate", "ksu", "gt"] }
      if (state == "hawaii") { return [] }
      if (state == "idaho") { return [] }
      if (state == "illinois") { return [] }
@@ -255,17 +255,16 @@ func getStateLong(selectedState: String) -> Double {
     var state = selectedState.lowercased()
     
     if (state == "alabama") { return -86.9023}
-    
     if (state == "alaska") { return -152.4937 }
     if (state == "arizona") { return -112.0937 }
+     if (state == "arkansas") { return -92.2863 }
+    if (state == "california") { return -119.4179 }
+    if (state == "colorado") { return -105.7821 }
+    if (state == "conneticut") { return -72.8877 }
+    if (state == "delaware") { return -75.5277 }
+    if (state == "florida") { return -83.4158 }
+    if (state == "georgia") { return -82.9001 }
     /*
-     if (state == "arkansas") { return [] }
-     if (state == "california") { return ["usc"] }
-     if (state == "colorado") { return [] }
-     if (state == "conneticut") { return [] }
-     if (state == "delaware") { return [] }
-     if (state == "florida") { return ["florida"] }
-     if (state == "georgia") { return ["uga", "gastate", "ksu", "gt"] }
      if (state == "hawaii") { return [] }
      if (state == "idaho") { return [] }
      if (state == "illinois") { return [] }
