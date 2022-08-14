@@ -46,6 +46,7 @@ struct pickCollegeContentView: View {
             self.longitude = location.coordinate.longitude
             var collegeLocation = CollegeLocations()
             self.buttonClick = collegeLocation.closestCollege(lat: self.latitude, long: self.longitude)
+            self.selectedState = ""
         }
     }
 
@@ -107,6 +108,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[0] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[0]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -121,6 +123,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[1] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[1]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -135,6 +138,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[2] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[2]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -150,6 +154,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[3] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[3]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -164,6 +169,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[4] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[4]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -181,6 +187,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[5] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[5]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -195,6 +202,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[6] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[6]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -209,6 +217,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[7] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[7]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -223,6 +232,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[8] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[8]
+                            self.selectedState = ""
                         }
                     }
                 }) {
@@ -237,6 +247,7 @@ struct pickCollegeContentView: View {
                     withAnimation {
                         if (getCollegesByState(selectedState: selectedState)[9] != " ") {
                             self.buttonClick = getCollegesByState(selectedState: selectedState)[9]
+                            self.selectedState = ""
                         }
                     }
                 }) {

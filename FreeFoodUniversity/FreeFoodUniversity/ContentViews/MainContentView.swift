@@ -55,11 +55,12 @@ struct MainContentView: View {
                     }, college: "all")
                 
                 }
-                 
             } else {
+                /*
                 getMarkersForState(completion: { (marks) in
                     Markers = marks
                 }, state: selectedState)
+                 */
             }
         } else {
             execute = true
@@ -156,7 +157,7 @@ struct MainContentView: View {
         var s = setStats(college: college, selectedState: selectedState, doExecuteStats: executeStats)
         /* Map Views */
         if (self.college == "all" || self.college == "pickCollege") {
-            if (selectedState == "") {
+            if (selectedState == "" || selectedState == "Select Your State") {
             GoogleMapsView(latitude: .constant(LAT), longitude: .constant(LONG), zoom: .constant(ZOOM), marker: .constant(m))
                 .ignoresSafeArea()
                 .frame(width: 400, height: 450, alignment: .center)
