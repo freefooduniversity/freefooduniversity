@@ -132,7 +132,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "west virginia") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "wisconsin") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "wyoming") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    return ["uga", "clemson", "gt", "bama", "florida", "michigan", "ksu", "gastate", "usc", "harvard"]
+    return ["uga", "bama", "gt", "clemson", "florida", "michigan", "ksu", "gastate", "usc", "harvard"]
 }
 
 func getStateZoom(selectedState: String) -> Float {

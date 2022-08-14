@@ -185,6 +185,7 @@ struct MainContentView: View {
             } else {
                 BamaView(college: $college)
                     .ignoresSafeArea()
+                    .frame(width: 400, height: 450, alignment: .center)
             }
         } // else
         
