@@ -10,7 +10,7 @@ import Foundation
 struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
-        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona"]
+        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -34,6 +34,9 @@ struct CollegeLocations {
         if (college == "arizonatucson") { return 32.23214 }
         if (college == "arizonastate") { return 33.42449 }
         if (college == "northernarizona") { return 35.18089 }
+        if (college == "alaskaanchorage") { return 61.19127 }
+        if (college == "alaskafairbanks") { return 64.85618 }
+        if (college == "alaskasoutheast") { return 58.38526 }
         
         return DEFAULT_LAT
     }
@@ -56,6 +59,9 @@ struct CollegeLocations {
         if (college == "arizonatucson") { return -110.95012 }
         if (college == "arizonastate") { return -111.92810 }
         if (college == "northernarizona") { return -111.65403 }
+        if (college == "alaskaanchorage") { return -149.81966 }
+        if (college == "alaskafairbanks") { return -147.83422 }
+        if (college == "alaskasoutheast") { return -134.64053 }
         
         return DEFAULT_LONG
     }
@@ -78,6 +84,9 @@ struct CollegeLocations {
         if (college == "arizonatucson") { return 14.7 }
         if (college == "arizonastate") { return 14.7 }
         if (college == "northernarizona") { return 14.7 }
+        if (college == "alaskaanchorage") { return 14.7 }
+        if (college == "alaskafairbanks") { return 14.7 }
+        if (college == "alaskasoutheast") { return 14.7 }
         return DEFAULT_ZOOM
     }
     
@@ -107,7 +116,7 @@ struct CollegeLocations {
 func getCollegesByState(selectedState: String) -> [String] {
     var state = selectedState.lowercased()
     if (state == "alabama") { return ["bama", "auburn", "alabamastate", "alabamaa&m", "uabbirmingham", " ", " ", " ", " ", " "] }
-    if (state == "alaska") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "alaska") { return ["alaskaanchorage", "alaskafairbanks", "alaskasoutheast", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arizona") { return ["arizonatucson", "arizonastate", "northernarizona", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arkansas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "california") { return ["usc", " ", " ", " ", " ", " ", " ", " ", " ", " "] }

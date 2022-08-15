@@ -142,6 +142,8 @@ func getTitle(college: String) -> String {
     if (college == "arizonatucson") { title += "Arizona at Tucson" }
     if (college == "arizonastate") { title += "Arizona State" }
     if (college == "northernarizona") { title += "Northern Arizona" }
+    if (college == "alaskaanchorage") { title += "Alaska Anchorage" }
+    if (college == "alaskasoutheast") { title += "Alaska Southeast" }
     
     return title
 }
@@ -163,6 +165,9 @@ func getImage(college: String) -> String {
     if (college == "uabbirmingham") { return "uabbirmingham" }
     if (college == "arizonastate") { return "arizonastate" }
     if (college == "northernarizona") { return "northernarizona" }
+    if (college == "alaskaanchorage") { return "alaskaanchorage" }
+    if (college == "alaskafairbanks") { return "alaskafairbanks" }
+    if (college == "alaskasoutheast") { return "alaskasoutheast" }
     
     return ""
 }
