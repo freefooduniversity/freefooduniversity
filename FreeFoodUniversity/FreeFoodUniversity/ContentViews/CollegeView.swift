@@ -13,13 +13,67 @@ struct CollegeContentView: View {
     @Binding var college: String
     @Binding var addFood: Bool
     @Binding var locationButtonClicked: Bool
+    @Binding var markerClicked: String
 
     var body: some View {
+        VStack {
+            ZStack {
+                VStack {
+                    Text("⌃")
+                    Button(action: {
+                        withAnimation {
+                            markerClicked = "sandwich"
+                        }
+                    }) {
+                    Image("sandwich")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                    }
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("ice-cream")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                    }
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("dinner")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                    }
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("mexican")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                    }
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("coffee")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                    }
+                    Text("⌄")
+                }.background(Color.gray).cornerRadius(15).opacity(0.9)
+            }.position(x: 360, y: -300)
+         
             VStack {
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
-                    .position(x:200, y:10)
                     .foregroundColor(.black)
+                    .position(x: 195, y: -95)
                 HStack {
                     Button(action: {
                         withAnimation {
@@ -30,6 +84,8 @@ struct CollegeContentView: View {
                             Image("big-burger")
                                 .renderingMode(Image.TemplateRenderingMode?
                                 .init(Image.TemplateRenderingMode.original))
+                                .resizable()
+                                .frame( width: 70, height: 70)
                             Text(" Add Food To The Map   ")
                                 .font(.custom("Helvetica Neue", size: 12))
                                 .foregroundColor(.black)
@@ -46,19 +102,22 @@ struct CollegeContentView: View {
                             Image(getImage(college: college))
                                 .renderingMode(Image.TemplateRenderingMode?
                                 .init(Image.TemplateRenderingMode.original))
+                                .resizable()
+                                .frame( width: 100, height: 100)
                             Image("down-arrow")
                         }
                     }
-                }.position(x:200, y:10)
+                }.position(x:195, y: -60)
                 HStack {
-                    Button ("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
+                    Button("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
                         print("Hello")
                     }.border(Color.black)
                     Button ("⚠️ Set " + getName(college: college) + " as Your Default College") {
                         print("Hello")
                     }.border(Color.black)
-                }.position(x:195, y:35)
-        }.background(Color.white)
+                }.position(x: 195, y: -20)
+            }
+        }.position(x:195, y:100)
     }
 }
 

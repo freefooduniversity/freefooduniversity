@@ -92,7 +92,7 @@ struct addFoodToMapView: View {
                 }
                 HStack {
                     Button(action: {
-                        addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college)
+                        addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection)
                         addFood = true
                     }) {
                         HStack {
@@ -129,9 +129,37 @@ struct addFoodToMapView: View {
         Text("*Remember*: You're logged into Google.")
         Text("*Don't* post false or inappropriate info")
     }
+    
+    
 }
 
-func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String) {
+func getStartTime() -> Int {
+    let today = Date()
+    let hour = Calendar.current.component(.hour, from: today)
+    let minute = Calendar.current.component(.minute, from: today)
+    
+    var time = 0
+    
+    time = hour * 100
+    time += minute
+    return time
+}
+
+func getEndTime(duration : String) -> Int {
+    let startTime = getStartTime()
+    
+    let split = duration.split(separator: " ")
+    
+    var add = Int(split[0])!
+    
+    if (split[1] == "hr" || split[1] == "hrs") {
+        add = add * 100
+    }
+    
+    return getStartTime() + add
+}
+
+func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String) {
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
         return
@@ -154,8 +182,8 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "lat": lat,
         "long": long,
         "college": college,
-        "start_time": 445,
-        "end_time": 545,
+        "start_time": getStartTime(),
+        "end_time": getEndTime(duration: duration),
         "capacity": 200,
         "dibs": 134,
         "likes": 41,

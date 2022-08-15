@@ -34,13 +34,29 @@ func getAllMarkers(completion: @escaping ([Marker]) -> ()) {
         //    print("1")
         //    print(markers)
         //    print("2")
-        //    completion(markers)
+           completion(markers)
         }
     }.resume()
 }
 
 func getAllMarkersForCollege(completion: @escaping ([Marker]) -> (), college: String) {
     guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/" + college) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+        DispatchQueue.main.async {
+            print("1")
+            print(markers)
+            print("2")
+            completion(markers)
+        }
+    }.resume()
+}
+
+func getMarkerFromTitleAndCollege(completion: @escaping ([Marker]) -> (), college: String, food: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/uga/breakfast") else {
         return
     }
         

@@ -12,7 +12,9 @@ struct BamaView: View {
     
     var body: some View {
         VStack {
-            Image("jordandavis").position(x:100, y:300)
+            Image("jordandavis")
+                .resizable()
+                .frame(width: 400, height: 500)
         }
     }
 }

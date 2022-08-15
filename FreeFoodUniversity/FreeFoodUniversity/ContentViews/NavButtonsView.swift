@@ -26,9 +26,11 @@ struct NavButtonsView: View {
                 }
             }) {
                 VStack {
-                    Image("user")
+                    Image("profile")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 50, height: 50)
                     Text("Profile\n")
                 }
             }
@@ -41,6 +43,8 @@ struct NavButtonsView: View {
                     Image("team")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 50, height: 50)
                     Text("About Us\n")
                 }
             }
@@ -53,6 +57,8 @@ struct NavButtonsView: View {
                     Image("feedback")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 50, height: 50)
                     Text("Feedback\n")
                 }
             }
@@ -67,6 +73,8 @@ struct NavButtonsView: View {
                     Image("share")
                         .renderingMode(Image.TemplateRenderingMode?
                         .init(Image.TemplateRenderingMode.original))
+                        .resizable()
+                        .frame(width: 50, height: 50)
                         Text("Share \n")
                 }
             }

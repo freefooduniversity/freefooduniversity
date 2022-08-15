@@ -14,7 +14,7 @@ var APIKey: String = "AIzaSyCgBb4hG2hijjScdCmZy6jKm2K8_VAgq3Q"
 @main
 struct FreeFoodUniversityApp: App {
     let persistenceController = PersistenceController.shared
-//  @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
@@ -30,11 +30,16 @@ struct FreeFoodUniversityApp: App {
         }
     }
 }
-/*
-class AppDelegate: NSObject, UIApplicationDelegate    {
+
+class AppDelegate: NSObject, UIApplicationDelegate, GMSMapViewDelegate{
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
          GMSServices.provideAPIKey(APIKey)
          return true
      }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        print("you tapped something")
+        return true
+    }
  }
- */
+ 

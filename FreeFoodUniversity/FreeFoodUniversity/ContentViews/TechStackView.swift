@@ -35,10 +35,20 @@ struct TechStackView: View {
             
             HStack{
                 Image("swift")
+                    .resizable()
+                    .frame(width: 70, height: 60)
                 Image("python")
+                    .resizable()
+                    .frame(width: 60, height: 60)
                 Image("flask")
+                    .resizable()
+                    .frame(width: 70, height: 70)
                 Image("postgresql")
+                    .resizable()
+                    .frame(width: 70, height: 70)
                 Image("azure")
+                    .resizable()
+                    .frame(width: 70, height: 65)
             }
                 Text("We created this app using Swift for our front-end")
                 Text("UI/UX, Python & Flask for our back-end server,")

@@ -61,6 +61,8 @@ struct MainPageContentView: View {
                         Image("location")
                             .renderingMode(Image.TemplateRenderingMode?
                             .init(Image.TemplateRenderingMode.original))
+                            .resizable()
+                            .frame(width: 100, height: 100)
                     }
                     Text("   Use Current Location   ")
                         .font(.custom("Helvetica Neue", size: 12))
@@ -78,6 +80,8 @@ struct MainPageContentView: View {
                         Image("graduation-hat")
                             .renderingMode(Image.TemplateRenderingMode?
                             .init(Image.TemplateRenderingMode.original))
+                            .resizable()
+                            .frame(width: 100, height: 100)
                     }
                     Text("        Pick Your College           ")
                         .font(.custom("Helvetica Neue", size: 12))
