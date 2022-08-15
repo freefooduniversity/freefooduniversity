@@ -718,7 +718,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreeFoodUniversity/Preview Content\"";
-				DEVELOPMENT_TEAM = A392TF3NL6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "<key>NSLocationWhenInUseUsageDescription</key><string>Description</string>";
@@ -753,7 +753,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreeFoodUniversity/Preview Content\"";
-				DEVELOPMENT_TEAM = A392TF3NL6;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "<key>NSLocationWhenInUseUsageDescription</key><string>Description</string>";
