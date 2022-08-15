@@ -10,7 +10,8 @@ import Foundation
 struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
-        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast"]
+        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
+                              "arkansasstate"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -37,6 +38,8 @@ struct CollegeLocations {
         if (college == "alaskaanchorage") { return 61.19127 }
         if (college == "alaskafairbanks") { return 64.85618 }
         if (college == "alaskasoutheast") { return 58.38526 }
+        if (college == "arkansas") { return 36.06896 }
+        if (college == "arkansasstate") { return 35.84339 }
         
         return DEFAULT_LAT
     }
@@ -62,6 +65,8 @@ struct CollegeLocations {
         if (college == "alaskaanchorage") { return -149.81966 }
         if (college == "alaskafairbanks") { return -147.83422 }
         if (college == "alaskasoutheast") { return -134.64053 }
+        if (college == "arkansas") { return -94.17497 }
+        if (college == "arkansasstate") { return -90.67496 }
         
         return DEFAULT_LONG
     }
@@ -87,6 +92,8 @@ struct CollegeLocations {
         if (college == "alaskaanchorage") { return 14.7 }
         if (college == "alaskafairbanks") { return 14.7 }
         if (college == "alaskasoutheast") { return 14.7 }
+        if (college == "arkansas") { return 14.7 }
+        if (college == "arkansasstate") { return 14.7 }
         return DEFAULT_ZOOM
     }
     
@@ -118,7 +125,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "alabama") { return ["bama", "auburn", "alabamastate", "alabamaa&m", "uabbirmingham", " ", " ", " ", " ", " "] }
     if (state == "alaska") { return ["alaskaanchorage", "alaskafairbanks", "alaskasoutheast", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arizona") { return ["arizonatucson", "arizonastate", "northernarizona", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "arkansas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "arkansas") { return ["arkansas", "arkansasstate", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "california") { return ["usc", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "colorado") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "conneticut") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
