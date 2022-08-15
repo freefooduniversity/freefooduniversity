@@ -15,6 +15,10 @@ struct addFoodToMapView: View {
     @Binding var lat: Double
     @Binding var long: Double
     
+    @State var changeImage = false
+    @State var openCameraRoll = false
+    @State var imageSelected = UIImage()
+    
     @State var duration: String = ""
     @State var building: String = ""
     @State var event: String = ""
@@ -29,67 +33,83 @@ struct addFoodToMapView: View {
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
-        VStack {
-            Text("Add Food To " + getName(college: college))
-                .font(.custom("Helvetica Neue", size: 20))
-                .foregroundColor(.black)
-            HStack(spacing: 30) {
-                Picker("Food", selection: $foodSelection) {
-                    ForEach(foods, id: \.self) {
-                        Text($0).font(.system(size: 20))
-                    }
-                }.border(.secondary)
-                Picker("Duration", selection: $durationSelection) {
-                    ForEach(durations, id: \.self) {
-                        Text($0).font(.system(size: 20))
-                    }
-                }.border(.secondary)
-                Picker("Capacity", selection: $capacitySelection) {
-                    ForEach(capacities, id: \.self) {
-                        Text($0).font(.system(size: 20))
-                    }
-                }.border(.secondary)
-            }
-            HStack {
-                TextField("Building ", text: $building)
-                    .frame(width: 180, height: 30)
-                    .border(.secondary)
-                TextField("Event ", text: $event)
-                    .frame(width: 180, height: 30)
-                    .border(.secondary)
-            }
-            HStack {
-                TextField("Additional Details ", text: $details)
-                    .frame(width: 200, height: 60)
-                    .border(.secondary)
-                Button(action: {
-                    
-                }) {
-                    VStack {
-                        Image("camera")
-                        Text(" Take a Picture of the Food!     ")
-                            .font(.custom("Helvetica Neue", size: 11))
-                            .foregroundColor(.white)
-                    }
-                }.background(Color.purple).cornerRadius(15)
-            }
-            HStack {
-                Button(action: {
-                    addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection)
-                    self.addFood = false
-                }) {
-                    HStack {
-                        Image("blue")
-                        Text("Add Food To Map            ")
-                            .font(.custom("Helvetica Neue", size: 16))
-                            .foregroundColor(.white)
-                    }
-                }.background(Color.blue).cornerRadius(15)
-                Button("Cancel") {
-                    self.addFood = false
+        ZStack {
+            VStack {
+                Text("Add Food To " + getName(college: college))
+                    .font(.custom("Helvetica Neue", size: 20))
+                    .foregroundColor(.black)
+                HStack(spacing: 30) {
+                    Picker("Food", selection: $foodSelection) {
+                        ForEach(foods, id: \.self) {
+                            Text($0).font(.system(size: 20))
+                        }
+                    }.border(.secondary)
+                    Picker("Duration", selection: $durationSelection) {
+                        ForEach(durations, id: \.self) {
+                            Text($0).font(.system(size: 20))
+                        }
+                    }.border(.secondary)
+                    Picker("Capacity", selection: $capacitySelection) {
+                        ForEach(capacities, id: \.self) {
+                            Text($0).font(.system(size: 20))
+                        }
+                    }.border(.secondary)
                 }
-            }
-        }.position(x:195, y:105)
+                HStack {
+                    TextField("Building ", text: $building)
+                        .frame(width: 180, height: 30)
+                        .border(.secondary)
+                    TextField("Event ", text: $event)
+                        .frame(width: 180, height: 30)
+                        .border(.secondary)
+                }
+                HStack {
+                    TextField("Additional Details ", text: $details)
+                        .frame(width: 200, height: 60)
+                        .border(.secondary)
+                    Button(action: {
+                        changeImage = true
+                        openCameraRoll = true
+                    }) {
+                        if changeImage {
+                            VStack {
+                                Image(uiImage: imageSelected)
+                                    .resizable()
+                                    .frame(width: 120, height: 120)
+                                Text(" Done!     ")
+                                    .font(.custom("Helvetica Neue", size: 11))
+                                    .foregroundColor(.white)
+                            }
+                        } else {
+                            VStack {
+                                Image("camera")
+                                Text(" Take a Picture of the Food!     ")
+                                    .font(.custom("Helvetica Neue", size: 11))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                    }.background(Color.purple).cornerRadius(15)
+                }
+                HStack {
+                    Button(action: {
+                        addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection)
+                        addFood = true
+                    }) {
+                        HStack {
+                            Image("blue")
+                            Text("Add Food To Map            ")
+                                .font(.custom("Helvetica Neue", size: 16))
+                                .foregroundColor(.white)
+                        }
+                    }.background(Color.blue).cornerRadius(15)
+                    Button("Cancel") {
+                        addFood = false
+                    }
+                }
+            }.position(x:195, y:105)
+        }.sheet(isPresented: $openCameraRoll) {
+            ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
+        }
         HStack {
             Image("google")
             Button(action: {
