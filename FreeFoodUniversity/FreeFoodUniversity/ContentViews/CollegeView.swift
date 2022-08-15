@@ -13,60 +13,61 @@ struct CollegeContentView: View {
     @Binding var college: String
     @Binding var addFood: Bool
     @Binding var locationButtonClicked: Bool
+    @Binding var markerClicked: String
 
     var body: some View {
         VStack {
-        ZStack {
-            VStack {
-                Text("⌃")
-                Button(action: {
-                    withAnimation {
-                        
+            ZStack {
+                VStack {
+                    Text("⌃")
+                    Button(action: {
+                        withAnimation {
+                            markerClicked = "sandwich"
+                        }
+                    }) {
+                    Image("sandwich")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     }
-                }) {
-                Image("sandwich")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                }
-                Button(action: {
-                    withAnimation {
-                        
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("ice-cream")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     }
-                }) {
-                Image("ice-cream")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                }
-                Button(action: {
-                    withAnimation {
-                        
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("dinner")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     }
-                }) {
-                Image("dinner")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                }
-                Button(action: {
-                    withAnimation {
-                        
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("mexican")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     }
-                }) {
-                Image("mexican")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                }
-                Button(action: {
-                    withAnimation {
-                        
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                    Image("coffee")
+                        .resizable()
+                        .frame(width: 40, height: 40)
                     }
-                }) {
-                Image("coffee")
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                }
-                Text("⌄")
-            }.background(Color.gray).cornerRadius(15).opacity(0.9)
-        }.position(x: 355, y: -330)
+                    Text("⌄")
+                }.background(Color.gray).cornerRadius(15).opacity(0.9)
+            }.position(x: 360, y: -300)
          
             VStack {
                 Text(getTitle(college: college))
@@ -107,9 +108,8 @@ struct CollegeContentView: View {
                         }
                     }
                 }.position(x:195, y: -60)
-                
                 HStack {
-                    Button ("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
+                    Button("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
                         print("Hello")
                     }.border(Color.black)
                     Button ("⚠️ Set " + getName(college: college) + " as Your Default College") {
@@ -117,7 +117,7 @@ struct CollegeContentView: View {
                     }.border(Color.black)
                 }.position(x: 195, y: -20)
             }
-        }.position(x:195, y:110)
+        }.position(x:195, y:100)
     }
 }
 
