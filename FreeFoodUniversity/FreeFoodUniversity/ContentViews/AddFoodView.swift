@@ -29,7 +29,7 @@ struct addFoodToMapView: View {
     @State var capacitySelection = "Capacity"
     
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
-    let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 1.5 hrs ", " 2 hrs ", " 2.5 hrs ", " 3 hrs "]
+    let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 2 hrs ", " 3 hrs ", "4 hrs"]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
@@ -151,12 +151,18 @@ func getEndTime(duration : String) -> Int {
     let split = duration.split(separator: " ")
     
     var add = Int(split[0])!
-    
     if (split[1] == "hr" || split[1] == "hrs") {
-        add = add * 100
+       
+        return startTime + (add * 100) + 400
+        
+    } else {
+        if (startTime % 100 >= 30) {
+            return startTime + 470
+        } else {
+            return startTime + 430
+        }
     }
-    
-    return getStartTime() + add
+
 }
 
 func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String) {
