@@ -33,7 +33,7 @@ struct CollegeLocations {
         if (college == "uabbirmingham") { return 33.49770 }
         if (college == "arizonatucson") { return 32.23214 }
         if (college == "arizonastate") { return 33.42449 }
-        if (college == "northernarizona") { return 33.42449 }
+        if (college == "northernarizona") { return 35.18089 }
         
         return DEFAULT_LAT
     }
@@ -55,7 +55,7 @@ struct CollegeLocations {
         if (college == "uabbirmingham") { return -86.80019 }
         if (college == "arizonatucson") { return -110.95012 }
         if (college == "arizonastate") { return -111.92810 }
-        if (college == "northernarizona") { return 33.42449 }
+        if (college == "northernarizona") { return -111.65403 }
         
         return DEFAULT_LONG
     }
