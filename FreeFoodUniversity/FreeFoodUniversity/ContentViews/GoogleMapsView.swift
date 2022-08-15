@@ -24,7 +24,6 @@ struct GoogleMapsView: UIViewRepresentable {
             GMSServices.provideAPIKey(APIKey)
             let camera = usa
             let mapView = GMSMapView(frame: CGRect.zero, camera: camera)
-
             return mapView
         }
              

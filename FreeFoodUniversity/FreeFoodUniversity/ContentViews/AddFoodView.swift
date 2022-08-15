@@ -122,7 +122,6 @@ func getStartTime() -> Int {
     
     time = hour * 100
     time += minute
-    print(time)
     return time
 }
 
@@ -137,7 +136,6 @@ func getEndTime(duration : String) -> Int {
         add = add * 100
     }
     
-    print(add)
     return getStartTime() + add
 }
 
