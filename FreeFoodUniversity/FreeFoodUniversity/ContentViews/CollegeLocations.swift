@@ -17,7 +17,7 @@ struct CollegeLocations {
     
     func getLat(college: String) -> Double {
         if (college == "uga") { return 33.9480 }
-        if (college == "clemson") { return 34.6834 }
+        if (college == "clemson") { return 34.673354 }
         if (college == "gt") { return 33.7756 }
         if (college == "bama") { return 33.2140 }
         if (college == "florida") { return 29.6436 }
@@ -31,7 +31,7 @@ struct CollegeLocations {
 
     func getLong(college: String) -> Double {
         if (college == "uga") { return -83.3773 }
-        if (college == "clemson") { return -82.8374 }
+        if (college == "clemson") { return -82.837404 }
         if (college == "gt") { return -84.3963 }
         if (college == "bama") { return -87.5391 }
         if (college == "florida") { return -82.3549 }
@@ -44,15 +44,15 @@ struct CollegeLocations {
     }
     
     func getZoom(college: String) -> Float {
-        if (college == "uga") { return 14.8 }
-        if (college == "clemson") { return 15}
-        if (college == "gt") { return 15 }
+        if (college == "uga") { return 14.2 }
+        if (college == "clemson") { return 14.7 }
+        if (college == "gt") { return 14.8 }
         if (college == "bama") { return 15 }
-        if (college == "florida") { return 15 }
+        if (college == "florida") { return 14.7 }
         if (college == "gastate") { return 15 }
-        if (college == "ksu") { return 15 }
-        if (college == "michigan") { return 15.8 }
-        if (college == "usc") { return 15 }
+        if (college == "ksu") { return 14.8 }
+        if (college == "michigan") { return 15.4 }
+        if (college == "usc") { return 14.7 }
         if (college == "harvard") { return 15 }
         return DEFAULT_ZOOM
     }
