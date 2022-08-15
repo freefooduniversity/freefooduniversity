@@ -15,6 +15,7 @@ struct CollegeContentView: View {
     @Binding var locationButtonClicked: Bool
 
     var body: some View {
+        VStack {
         ZStack {
             VStack {
                 Text("⌃")
@@ -71,7 +72,7 @@ struct CollegeContentView: View {
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
                     .foregroundColor(.black)
-                    
+                    .position(x: 195, y: -95)
                 HStack {
                     Button(action: {
                         withAnimation {
@@ -105,7 +106,7 @@ struct CollegeContentView: View {
                             Image("down-arrow")
                         }
                     }
-                }
+                }.position(x:195, y: -60)
                 
                 HStack {
                     Button ("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
@@ -114,8 +115,9 @@ struct CollegeContentView: View {
                     Button ("⚠️ Set " + getName(college: college) + " as Your Default College") {
                         print("Hello")
                     }.border(Color.black)
-                }
+                }.position(x: 195, y: -20)
             }
+        }.position(x:195, y:110)
     }
 }
 
