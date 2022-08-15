@@ -151,9 +151,9 @@ func getStateZoom(selectedState: String) -> Float {
     if (state == "delaware") { return 7.7 }
     if (state == "florida") { return 6 }
     if (state == "georgia") { return 6.4 }
+    if (state == "hawaii") { return 7.2 }
+    if (state == "idaho") { return 6.1 }
     /*
-    if (state == "hawaii") { return [] }
-    if (state == "idaho") { return [] }
     if (state == "illinois") { return [] }
     if (state == "indiana") { return [] }
     if (state == "iowa") { return [] }
@@ -208,9 +208,9 @@ func getStateLat(selectedState: String) -> Double {
     if (state == "delaware") { return 38.9108 }
     if (state == "florida") { return 28.8648 }
     if (state == "georgia") { return 32.1656 }
+     if (state == "hawaii") { return 19.8968 }
+     if (state == "idaho") { return 44.0682 }
     /*
-     if (state == "hawaii") { return [] }
-     if (state == "idaho") { return [] }
      if (state == "illinois") { return [] }
      if (state == "indiana") { return [] }
      if (state == "iowa") { return [] }
@@ -267,9 +267,9 @@ func getStateLong(selectedState: String) -> Double {
     if (state == "delaware") { return -75.5277 }
     if (state == "florida") { return -83.4158 }
     if (state == "georgia") { return -82.9001 }
+     if (state == "hawaii") { return -156.5828 }
+    if (state == "idaho") { return -114.7420 }
     /*
-     if (state == "hawaii") { return [] }
-     if (state == "idaho") { return [] }
      if (state == "illinois") { return [] }
      if (state == "indiana") { return [] }
      if (state == "iowa") { return [] }
