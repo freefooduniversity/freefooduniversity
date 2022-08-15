@@ -16,6 +16,7 @@ struct MainContentView: View {
     @State var addFood: Bool = false
     
     @State var navButton: String = ""
+    @State var markerClicked: String = ""
     
     @State var locationButtonClicked: Bool = false
     @State var navButtonClicked: Bool = false
@@ -23,13 +24,13 @@ struct MainContentView: View {
     @State var profileButtonClicked: Bool = false
     @State var aboutUsButtonClicked: Bool = false
     
-    
     @State var latitude: Double = 37.0902
     @State var longitude: Double = -95.7129
     @State var zoom: Float = 3.2
     
     @State var selectedState = ""
     
+    @State var returnMarkers: [Marker] = []
     @State var Markers: [Marker] = []
     @State var markers: [Marker] = []
     @State var GMSMarkers: [GMSMarker] = []
@@ -117,6 +118,13 @@ struct MainContentView: View {
         return tempMarkers
     }
     
+    func getMarkersFromFoodAndCollege() -> Marker {
+        getMarkerFromTitleAndCollege (completion: { (marks) in
+            Markers = marks
+        }, college: college, food: "breakfast")
+        return Markers[0]
+    }
+    
     func setStats(college: String, selectedState: String, doExecuteStats: Bool) -> Stats  {
         if (doExecuteStats) {
             executeStats = false
@@ -202,9 +210,10 @@ struct MainContentView: View {
             if (self.college == "all") { MainPageContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked, latitude: $latitude, longitude: $longitude, locationPermissions: $locationPermissions) }
             else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,
                                                                              latitude: $latitude, longitude: $longitude, selectedState: $selectedState) }
-            
-            // Specific College Was Picked
-            else if (!addFood) { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked) }
+            else if (!addFood) {
+                if (markerClicked == "") { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked) }
+                else {MarkerView(markerData: .constant(getMarkersFromFoodAndCollege()), markerClicked: $markerClicked)}
+            }
             else { addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude) }
         } else {
             if (navButton == "profile") { ProfileView(navButton: $navButton) }
