@@ -9,7 +9,7 @@ import Foundation
 
 struct CollegeLocations {
     
-    var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard"]
+    var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -26,6 +26,7 @@ struct CollegeLocations {
         if (college == "michigan") { return 42.2780 }
         if (college == "usc") { return 34.0224 }
         if (college == "harvard") { return 42.3770 }
+        if (college == "auburn") { return 32.59360 }
         return DEFAULT_LAT
     }
 
@@ -40,6 +41,7 @@ struct CollegeLocations {
         if (college == "michigan") { return -83.7382 }
         if (college == "usc") { return -118.2851 }
         if (college == "harvard") { return -71.1167 }
+        if (college == "auburn") { return -85.49519 }
         return DEFAULT_LONG
     }
     
@@ -54,6 +56,7 @@ struct CollegeLocations {
         if (college == "michigan") { return 15.4 }
         if (college == "usc") { return 14.7 }
         if (college == "harvard") { return 15 }
+        if (college == "auburn") { return 15 }
         return DEFAULT_ZOOM
     }
     
@@ -82,7 +85,7 @@ struct CollegeLocations {
 // Max 10 colleges per state
 func getCollegesByState(selectedState: String) -> [String] {
     var state = selectedState.lowercased()
-    if (state == "alabama") { return ["bama", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "alabama") { return ["bama", "auburn", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "alaska") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arizona") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arkansas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
