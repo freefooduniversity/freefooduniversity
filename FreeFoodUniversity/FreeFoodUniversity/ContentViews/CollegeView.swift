@@ -23,7 +23,7 @@ struct CollegeContentView: View {
     var body: some View {
         
                 
-        var foods = getFoodSortedByExistence(college: college)
+        let foods = getFoodSortedByExistence(college: college)
         //var markers = getAllMarkersForCollege(completion: {(marks) in Markers = marks}, college: college)
         
         VStack {

@@ -115,24 +115,12 @@ struct addFoodToMapView: View {
         }.sheet(isPresented: $openCameraRoll) {
             ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
         }
-        HStack {
-            Image("google")
-            Button(action: {
-                
-            }) {
-                HStack {
-                    Image("blue")
-                    Text("Sign in with Google To Add Food      ")
-                        .font(.custom("Helvetica Neue", size: 16))
-                        .foregroundColor(.white)
-                }
-            }.background(Color.green).cornerRadius(15)
-        }
-        Text("")
-        Text("Once logged into Google, remove view of above sign in button and instead display below messages")
-        Text(" ")
         Text("*Remember*: You're logged into Google.")
+            .font(.custom("Helvetica Neue", size: 22))
+            .foregroundColor(.black)
         Text("*Don't* post inappropriate info")
+            .font(.custom("Helvetica Neue", size: 22))
+            .foregroundColor(.black)
     }
     
     

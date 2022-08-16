@@ -10,6 +10,7 @@
 		6AE7B6E373DDE5A7A63FA4DF /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10137A5F53F9B9A7BB779CFB /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */; };
 		C50DFD7428A6D59500F57948 /* renameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7328A6D59500F57948 /* renameFunctions.swift */; };
 		C50DFD7828A7398000F57948 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7728A7398000F57948 /* ImagePicker.swift */; };
+		C592537228AC3FA60041F1FC /* GoogleAddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */; };
 		C5B44DA4287B68A500A78E94 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA3287B68A300A78E94 /* AboutUsView.swift */; };
 		C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA5287B723800A78E94 /* NavButtonsView.swift */; };
 		C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA7287B742800A78E94 /* StatsView.swift */; };
@@ -74,6 +75,7 @@
 		C50DFD7328A6D59500F57948 /* renameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = renameFunctions.swift; sourceTree = "<group>"; };
 		C50DFD7728A7398000F57948 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C592537028ABFAD50041F1FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAddFoodView.swift; sourceTree = "<group>"; };
 		C5B44DA3287B68A300A78E94 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		C5B44DA5287B723800A78E94 /* NavButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsView.swift; sourceTree = "<group>"; };
 		C5B44DA7287B742800A78E94 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				D8ACEF9028A6F3C60027F88B /* MainPageContentView.swift */,
 				D8ACEF9328A6F4190027F88B /* GoogleMapsView.swift */,
 				D8ACEF9528A6F4770027F88B /* MainContentView.swift */,
+				C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				C5CD8E51287FD0AB00434E50 /* FeedbackView.swift in Sources */,
 				D8E24B4228A5A21D00529875 /* SelectCollegeDropDownView.swift in Sources */,
 				C5F3C8142895F2AA00293545 /* LocationController.swift in Sources */,
+				C592537228AC3FA60041F1FC /* GoogleAddFoodView.swift in Sources */,
 				C50DFD7428A6D59500F57948 /* renameFunctions.swift in Sources */,
 				C5B44DAF287D205000A78E94 /* AddFoodView.swift in Sources */,
 			);

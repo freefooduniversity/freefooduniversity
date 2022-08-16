@@ -16,6 +16,7 @@ struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
     
+    @State var isSignedIntoGoogle: Bool = false
     @State var navButton: String = ""
     @State var markerClicked: String = ""
     @State var reload: Int = 0
@@ -166,7 +167,7 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     
     func getGoogleMapsViewHeight() -> CGFloat {
-        if (addFood) {
+        if (addFood && isSignedIntoGoogle) {
             return 240
         } else {
             return 450
@@ -227,7 +228,13 @@ struct MainContentView: View {
                 if (markerClicked == "") { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked, reload: $reload) }
                 else {MarkerView(markerData: getMarkersFromFoodAndCollege(food: markerClicked, doExecute: executeForCollege), markerClicked: $markerClicked)}
             }
-            else { addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude) }
+            else {
+                if (isSignedIntoGoogle) {
+                    addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude)
+                } else {
+                    GoogleAddFoodView(isSignedIntoGoogle: $isSignedIntoGoogle)
+                }
+            }
         } else {
             if (navButton == "profile") { ProfileView(navButton: $navButton) }
             else if  (navButton == "aboutUs") { AboutUsView(navButton: $navButton) }
