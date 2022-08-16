@@ -18,7 +18,7 @@ struct MarkerView: View {
     var body: some View {
         VStack {
                 HStack {
-                    Text(makeMarkerTitle(food: markerData.food, building: "Creswell"))
+                    Text(makeMarkerTitle(food: markerData.food, building: markerData.building))
                         .bold()
                         .font(.custom("Helvetica Neue", size: 20))
                         .foregroundColor(.black)
@@ -44,9 +44,9 @@ struct MarkerView: View {
                         Text(String(markerData.dibs) + " / " + String(markerData.capacity))
                         Text(" ")
                         Text("Event: ").bold().underline()
-                        Text("None Yet")
+                        Text(markerData.event)
                         Text(" ")
-                        Text("Coming Soon")
+                        Text(markerData.additional_info)
                     }.position(x: 70, y: 50)
                     VStack {
                         Image("Headshot")

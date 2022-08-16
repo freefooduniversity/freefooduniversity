@@ -93,7 +93,8 @@ struct addFoodToMapView: View {
                 HStack {
                     Button(action: {
                         if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "") {
-                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection)
+                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: capacitySelection,
+                                      building: building, event: event, additional_info: details)
                             addFood = false
                         } else {
                             
@@ -182,7 +183,7 @@ func getEndTime(duration : String) -> Int {
 
 }
 
-func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String) {
+func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: String, building: String, event: String, additional_info: String) {
     getTimeZone()
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
@@ -199,7 +200,7 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     var food = getFoodFromDropDownName(food: foodSelection)
-    
+    print("capacity: " + capacity)
     let body: [String: AnyHashable] = [
         "id": id,
         "food": food,
@@ -215,9 +216,9 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "dislikes": 11,
         "creator_email": "free@gmail.com",
         "pic_url": "place_holder",
-        "event": "Burger Club",
-        "building": "Brumby hall",
-        "additional_info": "info"
+        "event": event,
+        "building": building,
+        "additional_info": additional_info
     ]
      
    request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
