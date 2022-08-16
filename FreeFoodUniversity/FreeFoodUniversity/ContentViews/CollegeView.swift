@@ -15,79 +15,93 @@ struct CollegeContentView: View {
     @Binding var locationButtonClicked: Bool
     @Binding var markerClicked: String
     @Binding var reload: Int
-
+    
+    @State var Markers : [Marker] = []
+    @State var selectionOne : String = "Select an Event"
+    @State var selectionTwo : String = "Select an Event"
+    @State var selectionThree : String = "Select an Event"
+    @State var selectionFour : String = "Select an Event"
+    @State var selectionFive : String = "Select an Event"
+    
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        /*
-        var d = DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            print(reload)
-            reload += 1
-        }
-         */
-
+        
+                
         var foods = getFoodSortedByExistence(college: college)
+        var markers = getAllMarkersForCollege(completion: {(marks) in Markers = marks}, college: college)
+                
+        let selectionOneOptions = setSelectionOne(foods: foods, markers: Markers)
+        let selectionTwoOptions = setSelectionTwo(foods: foods, markers: Markers)
+        let selectionThreeOptions = setSelectionThree(foods: foods, markers: Markers)
+        let selectionFourOptions = setSelectionFour(foods: foods, markers: Markers)
+        let selectionFiveOptions = setSelectionFive(foods: foods, markers: Markers)
+        
+        var picker1 = Picker("Food1", selection : $selectionOne) {
+            ForEach(selectionOneOptions, id :\.self) {
+                Text($0)
+            }
+        }
+        
         VStack {
+            picker1
             ZStack {
-                VStack {
-                    Text("⌃")
+                ScrollView {
+                    VStack {
+                        Text("⌃")
+                        Button(action: {
+                            }) {
+                                Image(foods[0].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            }
                         Button(action: {
                             withAnimation {
-                                if (foods[0].1 != 0) {
-                                    markerClicked = foods[0].0
+                                if (foods[1].1 != 0) {
+                                    markerClicked = foods[1].0
                                 }
                             }
                         }) {
-                            Image(foods[0].0)
+                            Image(foods[1].0)
                             .resizable()
                             .frame(width: 40, height: 40)
                         }
-                    Button(action: {
-                        withAnimation {
-                            if (foods[1].1 != 0) {
-                                markerClicked = foods[1].0
+                        Button(action: {
+                            withAnimation {
+                                if (foods[2].1 != 0) {
+                                    markerClicked = foods[2].0
+                                }
                             }
+                        }) {
+                            Image(foods[2].0)
+                            .resizable()
+                            .frame(width: 40, height: 40)
                         }
-                    }) {
-                        Image(foods[1].0)
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    }
-                    Button(action: {
-                        withAnimation {
-                            if (foods[2].1 != 0) {
-                                markerClicked = foods[2].0
+                        Button(action: {
+                            withAnimation {
+                                if (foods[3].1 != 0) {
+                                    markerClicked = foods[3].0
+                                }
                             }
+                        }) {
+                            Image(foods[3].0)
+                            .resizable()
+                            .frame(width: 40, height: 40)
                         }
-                    }) {
-                        Image(foods[2].0)
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    }
-                    Button(action: {
-                        withAnimation {
-                            if (foods[3].1 != 0) {
-                                markerClicked = foods[3].0
+                        Button(action: {
+                            withAnimation {
+                                if (foods[4].1 != 0) {
+                                    markerClicked = foods[4].0
+                                }
                             }
+                        }) {
+                            Image(foods[4].0)
+                            .resizable()
+                            .frame(width: 40, height: 40)
                         }
-                    }) {
-                        Image(foods[3].0)
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    }
-                    Button(action: {
-                        withAnimation {
-                            if (foods[4].1 != 0) {
-                                markerClicked = foods[4].0
-                            }
-                        }
-                    }) {
-                        Image(foods[4].0)
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    }
-                    Text("⌄")
-                }.background(Color.gray).cornerRadius(15).opacity(0.9)
+                        Text("⌄")
+                    }.background(Color.gray).cornerRadius(15).opacity(0.9)
+                }.frame(width: 40, height: 250)
             }.position(x: 360, y: -300)
          
             VStack {
@@ -143,6 +157,71 @@ struct CollegeContentView: View {
             print("updating")
         })
     }
+}
+
+func setSelectionOne(foods : [(String, Int)], markers : [Marker]) -> [String] {
+    
+    var selectionOneOptions : [String] = []
+    let foodType = foods[0].0
+    for i in markers {
+        if i.food == foodType{
+            selectionOneOptions.append("Free \(i.food) at \(i.building)")
+        }
+    }
+    
+    return selectionOneOptions
+}
+
+func setSelectionTwo(foods : [(String, Int)], markers : [Marker]) -> [String] {
+    
+    var selectionTwoOptions : [String] = []
+    let foodType = foods[1].0
+    for i in markers {
+        if i.food == foodType{
+            selectionTwoOptions.append("Free \(i.food) at \(i.building)")
+        }
+    }
+    
+    return selectionTwoOptions
+}
+
+func setSelectionThree(foods : [(String, Int)], markers : [Marker]) -> [String] {
+    
+    var selectionThreeOptions : [String] = []
+    let foodType = foods[2].0
+    for i in markers {
+        if i.food == foodType{
+            selectionThreeOptions.append("Free \(i.food) at \(i.building)")
+        }
+    }
+    
+    return selectionThreeOptions
+}
+
+func setSelectionFour(foods : [(String, Int)], markers : [Marker]) -> [String] {
+    
+    var selectionFourOptions : [String] = []
+    let foodType = foods[3].0
+    for i in markers {
+        if i.food == foodType{
+            selectionFourOptions.append("Free \(i.food) at \(i.building)")
+        }
+    }
+    
+    return selectionFourOptions
+}
+
+func setSelectionFive(foods : [(String, Int)], markers : [Marker]) -> [String] {
+    
+    var selectionFiveOptions : [String] = []
+    let foodType = foods[4].0
+    for i in markers {
+        if i.food == foodType{
+            selectionFiveOptions.append("Free \(i.food) at \(i.building)")
+        }
+    }
+    
+    return selectionFiveOptions
 }
 
 
