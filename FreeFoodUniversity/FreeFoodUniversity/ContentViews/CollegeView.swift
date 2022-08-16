@@ -16,7 +16,7 @@ struct CollegeContentView: View {
     @Binding var markerClicked: String
     @Binding var reload: Int
 
-    let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
         /*
@@ -33,49 +33,56 @@ struct CollegeContentView: View {
                     Text("⌃")
                         Button(action: {
                             withAnimation {
-                              //  print(getMarkerFromTitleAndCollege(college: college, food: foods[0]))
-                              //  if (getMarkerFromTitleAndCollege(college: college, food: foods[0]).count != 0) {
-                                    markerClicked = foods[0]
-                              //  }
+                                if (foods[0].1 != 0) {
+                                    markerClicked = foods[0].0
+                                }
                             }
                         }) {
-                        Image(foods[0])
+                            Image(foods[0].0)
                             .resizable()
                             .frame(width: 40, height: 40)
                         }
                     Button(action: {
                         withAnimation {
-                            markerClicked = foods[1]
+                            if (foods[1].1 != 0) {
+                                markerClicked = foods[1].0
+                            }
                         }
                     }) {
-                    Image(foods[1])
+                        Image(foods[1].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }
                     Button(action: {
                         withAnimation {
-                            markerClicked = foods[2]
+                            if (foods[2].1 != 0) {
+                                markerClicked = foods[2].0
+                            }
                         }
                     }) {
-                    Image(foods[2])
+                        Image(foods[2].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }
                     Button(action: {
                         withAnimation {
-                            markerClicked = foods[3]
+                            if (foods[3].1 != 0) {
+                                markerClicked = foods[3].0
+                            }
                         }
                     }) {
-                    Image(foods[3])
+                        Image(foods[3].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }
                     Button(action: {
                         withAnimation {
-                            markerClicked = foods[4]
+                            if (foods[4].1 != 0) {
+                                markerClicked = foods[4].0
+                            }
                         }
                     }) {
-                    Image(foods[4])
+                        Image(foods[4].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }

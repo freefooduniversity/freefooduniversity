@@ -87,7 +87,7 @@ func saveMarkersForCollege(markers: [Marker]) {
     Markers = markers
 }
 
-func getFoodSortedByExistence(college: String) -> [String] {
+func getFoodSortedByExistence(college: String) -> [(String, Int)] {
     var dict = ["pizza": 0,
                 "burger": 0,
                 "breakfast": 0,
@@ -104,14 +104,14 @@ func getFoodSortedByExistence(college: String) -> [String] {
         dict[marker.food] = dict[marker.food]! + 1
     }
     
-    var returnArray: [String] = []
+    var returnArray: [(String, Int)] = []
     
     var length = dict.count
     
     for i in 1 ... length  {
-        var key: String = (dict.max {$0.value < $1.value})!.key
-        returnArray.append(key)
-        dict.removeValue(forKey: key)
+        var pair: (String, Int) = (dict.max {$0.value < $1.value})!
+        returnArray.append(pair)
+        dict.removeValue(forKey: pair.0)
     }
     
     return returnArray
