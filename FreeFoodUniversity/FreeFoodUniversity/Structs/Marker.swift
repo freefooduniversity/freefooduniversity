@@ -21,5 +21,4 @@ struct Marker: Codable, Identifiable {
     var dislikes : Int32
     var creator_email : String
     var pic_url : String
-    var building : String
 }
