@@ -10,8 +10,7 @@ import Foundation
 struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
-        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas"]
+        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -34,14 +33,7 @@ struct CollegeLocations {
         if (college == "uabbirmingham") { return 33.49770 }
         if (college == "arizonatucson") { return 32.23214 }
         if (college == "arizonastate") { return 33.42449 }
-        if (college == "northernarizona") { return 35.18089 }
-        if (college == "alaskaanchorage") { return 61.19127 }
-        if (college == "alaskafairbanks") { return 64.85618 }
-        if (college == "alaskasoutheast") { return 58.38526 }
-        if (college == "arkansas") { return 36.06896 }
-        if (college == "arkansasstate") { return 35.84339 }
-        if (college == "arkansastech") { return 35.29410 }
-        if (college == "centralarkansas") { return 35.07843 }
+        if (college == "northernarizona") { return 33.42449 }
         
         return DEFAULT_LAT
     }
@@ -63,14 +55,7 @@ struct CollegeLocations {
         if (college == "uabbirmingham") { return -86.80019 }
         if (college == "arizonatucson") { return -110.95012 }
         if (college == "arizonastate") { return -111.92810 }
-        if (college == "northernarizona") { return -111.65403 }
-        if (college == "alaskaanchorage") { return -149.81966 }
-        if (college == "alaskafairbanks") { return -147.83422 }
-        if (college == "alaskasoutheast") { return -134.64053 }
-        if (college == "arkansas") { return -94.17497 }
-        if (college == "arkansasstate") { return -90.67496 }
-        if (college == "arkansastech") { return -93.13614 }
-        if (college == "centralarkansas") { return -92.45798 }
+        if (college == "northernarizona") { return 33.42449 }
         
         return DEFAULT_LONG
     }
@@ -93,13 +78,6 @@ struct CollegeLocations {
         if (college == "arizonatucson") { return 14.7 }
         if (college == "arizonastate") { return 14.7 }
         if (college == "northernarizona") { return 14.7 }
-        if (college == "alaskaanchorage") { return 14.7 }
-        if (college == "alaskafairbanks") { return 14.7 }
-        if (college == "alaskasoutheast") { return 14.7 }
-        if (college == "arkansas") { return 14.7 }
-        if (college == "arkansasstate") { return 14.7 }
-        if (college == "arkansastech") { return 14.7 }
-        if (college == "centralarkansas") { return 14.7 }
         return DEFAULT_ZOOM
     }
     
@@ -129,9 +107,9 @@ struct CollegeLocations {
 func getCollegesByState(selectedState: String) -> [String] {
     var state = selectedState.lowercased()
     if (state == "alabama") { return ["bama", "auburn", "alabamastate", "alabamaa&m", "uabbirmingham", " ", " ", " ", " ", " "] }
-    if (state == "alaska") { return ["alaskaanchorage", "alaskafairbanks", "alaskasoutheast", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "alaska") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arizona") { return ["arizonatucson", "arizonastate", "northernarizona", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "arkansas") { return ["arkansas", "arkansasstate", "arkansastech", "centralarkansas", " ", " ", " ", " ", " ", " "] }
+    if (state == "arkansas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "california") { return ["usc", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "colorado") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "conneticut") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
@@ -194,11 +172,11 @@ func getStateZoom(selectedState: String) -> Float {
     if (state == "delaware") { return 7.7 }
     if (state == "florida") { return 6 }
     if (state == "georgia") { return 6.4 }
+    if (state == "hawaii") { return 7.2 }
+    if (state == "idaho") { return 6.1 }
+    if (state == "illinois") { return 6.3 }
+    if (state == "indiana") { return 6.3 }
     /*
-    if (state == "hawaii") { return [] }
-    if (state == "idaho") { return [] }
-    if (state == "illinois") { return [] }
-    if (state == "indiana") { return [] }
     if (state == "iowa") { return [] }
     if (state == "kansas") { return [] }
     if (state == "kentucky") { return [] }
@@ -251,11 +229,11 @@ func getStateLat(selectedState: String) -> Double {
     if (state == "delaware") { return 38.9108 }
     if (state == "florida") { return 28.8648 }
     if (state == "georgia") { return 32.1656 }
+     if (state == "hawaii") { return 19.8968 }
+     if (state == "idaho") { return 44.0682 }
+    if (state == "illinois") { return 40.6331 }
+    if (state == "indiana") { return 40.2672 }
     /*
-     if (state == "hawaii") { return [] }
-     if (state == "idaho") { return [] }
-     if (state == "illinois") { return [] }
-     if (state == "indiana") { return [] }
      if (state == "iowa") { return [] }
      if (state == "kansas") { return [] }
      if (state == "kentucky") { return [] }
@@ -310,11 +288,11 @@ func getStateLong(selectedState: String) -> Double {
     if (state == "delaware") { return -75.5277 }
     if (state == "florida") { return -83.4158 }
     if (state == "georgia") { return -82.9001 }
+     if (state == "hawaii") { return -156.5828 }
+    if (state == "idaho") { return -114.7420 }
+    if (state == "illinois") { return -89.3985 }
+    if (state == "indiana") { return -86.1349 }
     /*
-     if (state == "hawaii") { return [] }
-     if (state == "idaho") { return [] }
-     if (state == "illinois") { return [] }
-     if (state == "indiana") { return [] }
      if (state == "iowa") { return [] }
      if (state == "kansas") { return [] }
      if (state == "kentucky") { return [] }
