@@ -174,7 +174,7 @@ struct CollegeContentView: View {
                         }
                     }) {
                         HStack {
-                            Image(getImage(college: college))
+                            Image(college)
                                 .renderingMode(Image.TemplateRenderingMode?
                                 .init(Image.TemplateRenderingMode.original))
                                 .resizable()
@@ -299,7 +299,7 @@ func getTitle(college: String) -> String {
     
     return title
 }
-
+/*
 func getImage(college: String) -> String {
     if (college == "uga") { return "uga" }
     if (college == "clemson") { return "clemson" }
@@ -333,6 +333,7 @@ func getImage(college: String) -> String {
     
     return ""
 }
+*/
 
 func getName(college: String) -> String {
     var title = ""
