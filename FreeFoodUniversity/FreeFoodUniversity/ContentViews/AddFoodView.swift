@@ -132,7 +132,7 @@ struct addFoodToMapView: View {
         Text("Once logged into Google, remove view of above sign in button and instead display below messages")
         Text(" ")
         Text("*Remember*: You're logged into Google.")
-        Text("*Don't* post false or inappropriate info")
+        Text("*Don't* post inappropriate info")
     }
     
     

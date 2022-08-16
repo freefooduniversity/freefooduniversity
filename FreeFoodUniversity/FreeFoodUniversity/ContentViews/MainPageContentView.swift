@@ -67,6 +67,9 @@ struct MainPageContentView: View {
                     Text("   Use Current Location   ")
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
+                    Text("   (Recommended)   ")
+                        .font(.custom("Helvetica Neue", size: 12))
+                        .foregroundColor(.black)
                 }.border(Color.black)
                 
                 Text(" Or ").foregroundColor(.black).bold()
@@ -84,6 +87,9 @@ struct MainPageContentView: View {
                             .frame(width: 100, height: 100)
                     }
                     Text("        Pick Your College           ")
+                        .font(.custom("Helvetica Neue", size: 12))
+                        .foregroundColor(.black)
+                    Text("        (From 100+)           ")
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                 }.border(Color.black)
