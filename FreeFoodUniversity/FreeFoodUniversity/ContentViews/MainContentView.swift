@@ -11,12 +11,14 @@ import GoogleMaps
 
 var execute: Bool = true
 var executeStats: Bool = true
+var executeForCollege: Bool = true
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
     
     @State var navButton: String = ""
     @State var markerClicked: String = ""
+    @State var reload: Int = 0
     
     @State var locationButtonClicked: Bool = false
     @State var navButtonClicked: Bool = false
@@ -50,6 +52,7 @@ struct MainContentView: View {
                     getAllMarkersForCollege (completion: { (marks) in
                         Markers = marks
                     }, college: college)
+                    saveMarkersForCollege(markers: Markers)
                 } else {
                     getAllMarkersForCollege (completion: { (marks) in
                         Markers = marks
@@ -77,7 +80,7 @@ struct MainContentView: View {
                 var marker: GMSMarker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
                 var foodDisplayName = getFoodDisplayName(food: Markers[i].food)
-                marker.title = "Free \(foodDisplayName) At Brumby Hall!"
+                marker.title = makeMarkerTitle(food: Markers[i].food, building: "Brumby")
                 marker.snippet = "See Details Below"
                 marker.userData = Markers[i]
                 if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
@@ -118,10 +121,15 @@ struct MainContentView: View {
         return tempMarkers
     }
     
-    func getMarkersFromFoodAndCollege() -> Marker {
-        getMarkerFromTitleAndCollege (completion: { (marks) in
-            Markers = marks
-        }, college: college, food: "breakfast")
+    func getMarkersFromFoodAndCollege(food: String, doExecute: Bool) -> Marker {
+        if (doExecute) {
+            executeForCollege = false
+            getMarkerFromTitleAndCollege (completion: { (marks) in
+                Markers = marks
+            }, college: college, food: food)
+        } else {
+            executeForCollege = true
+        }
         return Markers[0]
     }
     
@@ -198,7 +206,7 @@ struct MainContentView: View {
         } // else
         
         /* Stats Views */
-        if (!self.addFood && self.navButton == "") {
+        if (!self.addFood && self.navButton == "" && self.markerClicked == "") {
             StatsView(active: .constant(s.food_events),
                       fedToday: .constant(s.fed_today),
                       fedAllTime:.constant(s.fed_all_time))
@@ -211,8 +219,8 @@ struct MainContentView: View {
             else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,
                                                                              latitude: $latitude, longitude: $longitude, selectedState: $selectedState) }
             else if (!addFood) {
-                if (markerClicked == "") { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked) }
-                else {MarkerView(markerData: .constant(getMarkersFromFoodAndCollege()), markerClicked: $markerClicked)}
+                if (markerClicked == "") { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked, reload: $reload) }
+                else {MarkerView(markerData: getMarkersFromFoodAndCollege(food: markerClicked, doExecute: executeForCollege), markerClicked: $markerClicked)}
             }
             else { addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude) }
         } else {

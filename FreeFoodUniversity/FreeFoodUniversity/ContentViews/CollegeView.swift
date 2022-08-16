@@ -14,54 +14,75 @@ struct CollegeContentView: View {
     @Binding var addFood: Bool
     @Binding var locationButtonClicked: Bool
     @Binding var markerClicked: String
+    @Binding var reload: Int
 
+    let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    
     var body: some View {
+        /*
+        var d = DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            print(reload)
+            reload += 1
+        }
+         */
+
+        var foods = getFoodSortedByExistence(college: college)
         VStack {
             ZStack {
                 VStack {
                     Text("⌃")
+                        Button(action: {
+                            withAnimation {
+                                if (foods[0].1 != 0) {
+                                    markerClicked = foods[0].0
+                                }
+                            }
+                        }) {
+                            Image(foods[0].0)
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                        }
                     Button(action: {
                         withAnimation {
-                            markerClicked = "sandwich"
+                            if (foods[1].1 != 0) {
+                                markerClicked = foods[1].0
+                            }
                         }
                     }) {
-                    Image("sandwich")
+                        Image(foods[1].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }
                     Button(action: {
                         withAnimation {
-                            
+                            if (foods[2].1 != 0) {
+                                markerClicked = foods[2].0
+                            }
                         }
                     }) {
-                    Image("ice-cream")
+                        Image(foods[2].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }
                     Button(action: {
                         withAnimation {
-                            
+                            if (foods[3].1 != 0) {
+                                markerClicked = foods[3].0
+                            }
                         }
                     }) {
-                    Image("dinner")
+                        Image(foods[3].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }
                     Button(action: {
                         withAnimation {
-                            
+                            if (foods[4].1 != 0) {
+                                markerClicked = foods[4].0
+                            }
                         }
                     }) {
-                    Image("mexican")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                    }
-                    Button(action: {
-                        withAnimation {
-                            
-                        }
-                    }) {
-                    Image("coffee")
+                        Image(foods[4].0)
                         .resizable()
                         .frame(width: 40, height: 40)
                     }
@@ -94,6 +115,7 @@ struct CollegeContentView: View {
                     Text("          ")
                     Button(action: {
                         withAnimation {
+                            self.reload += 1
                             self.college = "pickCollege"
                             self.locationButtonClicked = false
                         }
@@ -117,7 +139,9 @@ struct CollegeContentView: View {
                     }.border(Color.black)
                 }.position(x: 195, y: -20)
             }
-        }.position(x:195, y:100)
+        }.position(x:195, y:100).onReceive(timer, perform: { _ in
+            print("updating")
+        })
     }
 }
 
@@ -208,4 +232,5 @@ func getName(college: String) -> String {
     
     return title
 }
+
 
