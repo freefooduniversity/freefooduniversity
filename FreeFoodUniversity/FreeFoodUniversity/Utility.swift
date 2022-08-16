@@ -83,8 +83,9 @@ func getMarkerFromTitleAndCollege(college: String, food: String) -> [Marker] {
     return Markers
 }
 
-func saveMarkersForCollege(markers: [Marker]) {
+func saveMarkersForCollege(markers: [Marker]) -> [Marker] {
     Markers = markers
+    retrun markers
 }
 
 func getFoodSortedByExistence(college: String) -> [(String, Int)] {
