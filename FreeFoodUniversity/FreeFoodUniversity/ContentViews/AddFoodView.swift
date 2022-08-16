@@ -29,7 +29,7 @@ struct addFoodToMapView: View {
     @State var capacitySelection = "Capacity"
     
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
-    let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 2 hrs ", " 3 hrs ", "4 hrs"]
+    let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 1.5 hrs ", " 2 hrs ", " 2.5 hrs ", " 3 hrs "]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
@@ -133,19 +133,6 @@ struct addFoodToMapView: View {
     
 }
 
-func getTimeZone() -> Int {
-    let timeZone = TimeZone.current.abbreviation()!
-    if (Array(timeZone)[0] == "P") {
-        return 3
-    } else if (Array(timeZone)[0] == "C") {
-        return 1
-    } else if (Array(timeZone)[0] == "M") {
-        return 2
-    }
-    
-    return 0
-}
-
 func getStartTime() -> Int {
     let today = Date()
     let hour = Calendar.current.component(.hour, from: today)
@@ -164,22 +151,15 @@ func getEndTime(duration : String) -> Int {
     let split = duration.split(separator: " ")
     
     var add = Int(split[0])!
+    
     if (split[1] == "hr" || split[1] == "hrs") {
-       
-        return startTime + (add * 100) + 400
-        
-    } else {
-        if (startTime % 100 >= 30) {
-            return startTime + 470
-        } else {
-            return startTime + 430
-        }
+        add = add * 100
     }
-
+    
+    return getStartTime() + add
 }
 
 func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String) {
-    getTimeZone()
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
         return
@@ -204,7 +184,6 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "college": college,
         "start_time": getStartTime(),
         "end_time": getEndTime(duration: duration),
-        "time_zone": getTimeZone(),
         "capacity": 200,
         "dibs": 134,
         "likes": 41,
