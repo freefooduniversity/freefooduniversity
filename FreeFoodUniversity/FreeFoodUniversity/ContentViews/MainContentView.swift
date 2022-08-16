@@ -17,6 +17,7 @@ struct MainContentView: View {
     
     @State var navButton: String = ""
     @State var markerClicked: String = ""
+    @State var reload: Int = 0
     
     @State var locationButtonClicked: Bool = false
     @State var navButtonClicked: Bool = false
@@ -50,6 +51,7 @@ struct MainContentView: View {
                     getAllMarkersForCollege (completion: { (marks) in
                         Markers = marks
                     }, college: college)
+                    saveMarkersForCollege(markers: Markers)
                 } else {
                     getAllMarkersForCollege (completion: { (marks) in
                         Markers = marks
@@ -118,10 +120,10 @@ struct MainContentView: View {
         return tempMarkers
     }
     
-    func getMarkersFromFoodAndCollege() -> Marker {
+    func getMarkersFromFoodAndCollege(food: String) -> Marker {
         getMarkerFromTitleAndCollege (completion: { (marks) in
             Markers = marks
-        }, college: college, food: "breakfast")
+        }, college: college, food: food)
         return Markers[0]
     }
     
@@ -211,8 +213,8 @@ struct MainContentView: View {
             else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,
                                                                              latitude: $latitude, longitude: $longitude, selectedState: $selectedState) }
             else if (!addFood) {
-                if (markerClicked == "") { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked) }
-                else {MarkerView(markerData: .constant(getMarkersFromFoodAndCollege()), markerClicked: $markerClicked)}
+                if (markerClicked == "") { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked, reload: $reload) }
+                else {MarkerView(markerData: .constant(getMarkersFromFoodAndCollege(food: markerClicked)), markerClicked: $markerClicked)}
             }
             else { addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude) }
         } else {
