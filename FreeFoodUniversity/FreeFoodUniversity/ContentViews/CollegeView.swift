@@ -151,6 +151,9 @@ func getTitle(college: String) -> String {
     if (college == "southerncalifornia") { title += "Southern California" }
     if (college == "ucla") { title += "UCLA" }
     if (college == "berkeley") { title += "UC Berkeley" }
+    if (college == "fullerton") { title += "Cal State Fullerton" }
+    if (college == "northridge") { title += "Cal State Northridge" }
+    if (college == "longbeach") { title += "Cal State Long Beach" }
     
     return title
 }
@@ -182,6 +185,9 @@ func getImage(college: String) -> String {
     if (college == "southerncalifornia") { return "southerncalifornia" }
     if (college == "ucla") { return "ucla" }
     if (college == "berkeley") { return "berkeley" }
+    if (college == "fullerton") { return "fullerton" }
+    if (college == "northridge") { return "northridge" }
+    if (college == "longbeach") { return "longbeach" }
     
     return ""
 }
