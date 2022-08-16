@@ -11,7 +11,7 @@ struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
         "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach"]
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -48,6 +48,9 @@ struct CollegeLocations {
         if (college == "fullerton") { return 33.88290 }
         if (college == "northridge") { return 34.24113 }
         if (college == "longbeach") { return 33.78425 }
+        if (college == "sandiego") { return 32.87926 }
+        if (college == "davis") { return 38.53860 }
+        if (college == "irvine") { return 33.64096 }
         
         return DEFAULT_LAT
     }
@@ -83,6 +86,9 @@ struct CollegeLocations {
         if (college == "fullerton") { return -117.88518 }
         if (college == "northridge") { return -118.53006 }
         if (college == "longbeach") { return -118.11414 }
+        if (college == "sandiego") { return -117.23599 }
+        if (college == "davis") { return -121.76173 }
+        if (college == "irvine") { return -117.84439 }
         
         return DEFAULT_LONG
     }
@@ -118,6 +124,9 @@ struct CollegeLocations {
         if (college == "fullerton") { return 14.7 }
         if (college == "northridge") { return 14.7 }
         if (college == "longbeach") { return 14.7 }
+        if (college == "sandiego") { return 14.7 }
+        if (college == "davis") { return 14.7 }
+        if (college == "irvine") { return 14.7 }
         return DEFAULT_ZOOM
     }
     
@@ -150,7 +159,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "alaska") { return ["alaskaanchorage", "alaskafairbanks", "alaskasoutheast", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arizona") { return ["arizonatucson", "arizonastate", "northernarizona", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arkansas") { return ["arkansas", "arkansasstate", "arkansastech", "centralarkansas", " ", " ", " ", " ", " ", " "] }
-    if (state == "california") { return ["usc", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", " ", " ", " "] }
+    if (state == "california") { return ["usc", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine"] }
     if (state == "colorado") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "conneticut") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "delaware") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
