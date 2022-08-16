@@ -92,8 +92,12 @@ struct addFoodToMapView: View {
                 }
                 HStack {
                     Button(action: {
-                        addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection)
-                        addFood = false
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "") {
+                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection)
+                            addFood = false
+                        } else {
+                            
+                        }
                     }) {
                         HStack {
                             Image("blue")
