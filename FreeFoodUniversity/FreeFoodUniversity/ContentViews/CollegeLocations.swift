@@ -10,7 +10,8 @@ import Foundation
 struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
-        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona"]
+        "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -33,7 +34,20 @@ struct CollegeLocations {
         if (college == "uabbirmingham") { return 33.49770 }
         if (college == "arizonatucson") { return 32.23214 }
         if (college == "arizonastate") { return 33.42449 }
-        if (college == "northernarizona") { return 33.42449 }
+        if (college == "northernarizona") { return 35.18089 }
+        if (college == "alaskaanchorage") { return 61.19127 }
+        if (college == "alaskafairbanks") { return 64.85618 }
+        if (college == "alaskasoutheast") { return 58.38526 }
+        if (college == "arkansas") { return 36.06896 }
+        if (college == "arkansasstate") { return 35.84339 }
+        if (college == "arkansastech") { return 35.29410 }
+        if (college == "centralarkansas") { return 35.07843 }
+        if (college == "southerncalifornia") { return 34.02271 }
+        if (college == "ucla") { return 34.06921 }
+        if (college == "berkeley") { return 37.87226 }
+        if (college == "fullerton") { return 33.88290 }
+        if (college == "northridge") { return 34.24113 }
+        if (college == "longbeach") { return 33.78425 }
         
         return DEFAULT_LAT
     }
@@ -55,7 +69,20 @@ struct CollegeLocations {
         if (college == "uabbirmingham") { return -86.80019 }
         if (college == "arizonatucson") { return -110.95012 }
         if (college == "arizonastate") { return -111.92810 }
-        if (college == "northernarizona") { return 33.42449 }
+        if (college == "northernarizona") { return -111.65403 }
+        if (college == "alaskaanchorage") { return -149.81966 }
+        if (college == "alaskafairbanks") { return -147.83422 }
+        if (college == "alaskasoutheast") { return -134.64053 }
+        if (college == "arkansas") { return -94.17497 }
+        if (college == "arkansasstate") { return -90.67496 }
+        if (college == "arkansastech") { return -93.13614 }
+        if (college == "centralarkansas") { return -92.45798 }
+        if (college == "southerncalifornia") { return -118.28524 }
+        if (college == "ucla") { return -118.44522 }
+        if (college == "berkeley") { return -122.25860 }
+        if (college == "fullerton") { return -117.88518 }
+        if (college == "northridge") { return -118.53006 }
+        if (college == "longbeach") { return -118.11414 }
         
         return DEFAULT_LONG
     }
@@ -78,6 +105,19 @@ struct CollegeLocations {
         if (college == "arizonatucson") { return 14.7 }
         if (college == "arizonastate") { return 14.7 }
         if (college == "northernarizona") { return 14.7 }
+        if (college == "alaskaanchorage") { return 14.7 }
+        if (college == "alaskafairbanks") { return 14.7 }
+        if (college == "alaskasoutheast") { return 14.7 }
+        if (college == "arkansas") { return 14.7 }
+        if (college == "arkansasstate") { return 14.7 }
+        if (college == "arkansastech") { return 14.7 }
+        if (college == "centralarkansas") { return 14.7 }
+        if (college == "southerncalifornia") { return 14.7 }
+        if (college == "ucla") { return 14.7 }
+        if (college == "berkeley") { return 14.7 }
+        if (college == "fullerton") { return 14.7 }
+        if (college == "northridge") { return 14.7 }
+        if (college == "longbeach") { return 14.7 }
         return DEFAULT_ZOOM
     }
     
@@ -107,10 +147,10 @@ struct CollegeLocations {
 func getCollegesByState(selectedState: String) -> [String] {
     var state = selectedState.lowercased()
     if (state == "alabama") { return ["bama", "auburn", "alabamastate", "alabamaa&m", "uabbirmingham", " ", " ", " ", " ", " "] }
-    if (state == "alaska") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "alaska") { return ["alaskaanchorage", "alaskafairbanks", "alaskasoutheast", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "arizona") { return ["arizonatucson", "arizonastate", "northernarizona", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "arkansas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "california") { return ["usc", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "arkansas") { return ["arkansas", "arkansasstate", "arkansastech", "centralarkansas", " ", " ", " ", " ", " ", " "] }
+    if (state == "california") { return ["usc", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", " ", " ", " "] }
     if (state == "colorado") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "conneticut") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "delaware") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
