@@ -116,3 +116,8 @@ func getFoodSortedByExistence(college: String) -> [(String, Int)] {
     
     return returnArray
 }
+
+
+func makeMarkerTitle(food: String, building: String)  -> String{
+    return "Free " + getFoodDisplayName(food: food) +  " at " + building + "!"
+}

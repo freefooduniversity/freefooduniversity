@@ -73,6 +73,7 @@
 		99B487BBFBDED3D741331F30 /* Pods_FreeFoodUniversity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50DFD7328A6D59500F57948 /* renameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = renameFunctions.swift; sourceTree = "<group>"; };
 		C50DFD7728A7398000F57948 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		C592537028ABFAD50041F1FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C5B44DA3287B68A300A78E94 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		C5B44DA5287B723800A78E94 /* NavButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsView.swift; sourceTree = "<group>"; };
 		C5B44DA7287B742800A78E94 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -211,6 +212,7 @@
 		D858D09D284D605000F5D4A1 /* FreeFoodUniversity */ = {
 			isa = PBXGroup;
 			children = (
+				C592537028ABFAD50041F1FC /* Info.plist */,
 				D8ACEF8A28A6F3250027F88B /* Structs */,
 				C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */,
 				C5B44D92286106DE00A78E94 /* ContentViews */,
@@ -725,7 +727,7 @@
 				DEVELOPMENT_TEAM = A392TF3NL6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "<key>NSLocationWhenInUseUsageDescription</key><string>Description</string>";
+				INFOPLIST_FILE = FreeFoodUniversity/Info.plist;
 				"INFOPLIST_FILE[sdk=*]" = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Free Food University to access the camera";
