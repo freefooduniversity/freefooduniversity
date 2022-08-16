@@ -22,7 +22,7 @@
 		<key>DropDown.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>1</integer>
 		</dict>
 		<key>FBAEMKit.xcscheme</key>
 		<dict>
@@ -227,7 +227,7 @@
 		<key>GoogleMaps.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>GoogleSignIn-GoogleSignIn.xcscheme</key>
 		<dict>
@@ -257,7 +257,7 @@
 		<key>Pods-FreeFoodUniversity-FreeFoodUniversityUITests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-FreeFoodUniversity.xcscheme</key>
 		<dict>
@@ -267,7 +267,7 @@
 		<key>Pods-FreeFoodUniversity.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-FreeFoodUniversityTests.xcscheme</key>
 		<dict>
@@ -277,7 +277,7 @@
 		<key>Pods-FreeFoodUniversityTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>PromisesObjC.xcscheme</key>
 		<dict>
