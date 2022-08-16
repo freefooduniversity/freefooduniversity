@@ -17,11 +17,6 @@ struct CollegeContentView: View {
     @Binding var reload: Int
     
     @State var Markers : [Marker] = []
-    @State var selectionOne : String = "Select an Event"
-    @State var selectionTwo : String = "Select an Event"
-    @State var selectionThree : String = "Select an Event"
-    @State var selectionFour : String = "Select an Event"
-    @State var selectionFive : String = "Select an Event"
     
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
@@ -29,77 +24,121 @@ struct CollegeContentView: View {
         
                 
         var foods = getFoodSortedByExistence(college: college)
-        var markers = getAllMarkersForCollege(completion: {(marks) in Markers = marks}, college: college)
-                
-        let selectionOneOptions = setSelectionOne(foods: foods, markers: Markers)
-        let selectionTwoOptions = setSelectionTwo(foods: foods, markers: Markers)
-        let selectionThreeOptions = setSelectionThree(foods: foods, markers: Markers)
-        let selectionFourOptions = setSelectionFour(foods: foods, markers: Markers)
-        let selectionFiveOptions = setSelectionFive(foods: foods, markers: Markers)
-        
-        var picker1 = Picker("Food1", selection : $selectionOne) {
-            ForEach(selectionOneOptions, id :\.self) {
-                Text($0)
-            }
-        }
+        //var markers = getAllMarkersForCollege(completion: {(marks) in Markers = marks}, college: college)
         
         VStack {
-            picker1
             ZStack {
                 ScrollView {
                     VStack {
                         Text("⌃")
-                        Button(action: {
+                        Group {
+                            Button(action: {
+                                if (foods[0].1 != 0) {
+                                    markerClicked = foods[0].0
+                                }
+                                }) {
+                                    Image(foods[0].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[1].1 != 0) {
+                                        markerClicked = foods[1].0
+                                    }
+                                }
                             }) {
-                                Image(foods[0].0)
+                                Image(foods[1].0)
                                 .resizable()
                                 .frame(width: 40, height: 40)
                             }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[1].1 != 0) {
-                                    markerClicked = foods[1].0
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[2].1 != 0) {
+                                        markerClicked = foods[2].0
+                                    }
                                 }
+                            }) {
+                                Image(foods[2].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[1].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                        }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[2].1 != 0) {
-                                    markerClicked = foods[2].0
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[3].1 != 0) {
+                                        markerClicked = foods[3].0
+                                    }
                                 }
+                            }) {
+                                Image(foods[3].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[2].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                        }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[3].1 != 0) {
-                                    markerClicked = foods[3].0
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[4].1 != 0) {
+                                        markerClicked = foods[4].0
+                                    }
                                 }
+                            }) {
+                                Image(foods[4].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[3].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                        }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[4].1 != 0) {
-                                    markerClicked = foods[4].0
+                            Button(action: {
+                                if (foods[5].1 != 0) {
+                                    markerClicked = foods[5].0
                                 }
+                                }) {
+                                    Image(foods[5].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[6].1 != 0) {
+                                        markerClicked = foods[6].0
+                                    }
+                                }
+                            }) {
+                                Image(foods[6].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[4].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[7].1 != 0) {
+                                        markerClicked = foods[7].0
+                                    }
+                                }
+                            }) {
+                                Image(foods[7].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[8].1 != 0) {
+                                        markerClicked = foods[8].0
+                                    }
+                                }
+                            }) {
+                                Image(foods[8].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[9].1 != 0) {
+                                        markerClicked = foods[9].0
+                                    }
+                                }
+                            }) {
+                                Image(foods[9].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            }
                         }
-                        Text("⌄")
                     }.background(Color.gray).cornerRadius(15).opacity(0.9)
                 }.frame(width: 40, height: 250)
             }.position(x: 360, y: -300)
