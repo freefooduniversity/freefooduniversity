@@ -29,7 +29,7 @@ struct addFoodToMapView: View {
     @State var capacitySelection = "Capacity"
     
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
-    let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 2 hrs ", " 3 hrs ", "4 hrs"]
+    let durations = [" Select Duration ", " 30 min ", " 1 Hour ", " 2 Hours ", " 3 Hours ", " 4 Hours "]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
@@ -190,7 +190,7 @@ func getEndTime(duration : String) -> Int {
     let split = duration.split(separator: " ")
     
     var add = Int(split[0])!
-    if (split[1] == "hr" || split[1] == "hrs") {
+    if (split[1] == "Hour" || split[1] == "Hours") {
        
         return startTime + (add * 100) + 400
         
@@ -233,8 +233,8 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "time_zone": getTimeZone(),
         "capacity": capacity,
         "dibs": 0,
-        "likes": 41,
-        "dislikes": 11,
+        "likes": 0,
+        "dislikes": 0,
         "creator_email": "free@gmail.com",
         "pic_url": "place_holder",
         "event": event,
