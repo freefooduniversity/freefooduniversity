@@ -97,9 +97,9 @@ struct MarkerView: View {
                 Text("")
                 Text("")
             }
-            VStack {
+            VStack (alignment: .leading){
                 HStack {
-                    VStack{
+                    VStack (alignment: .leading){
                         HStack {
                             Text("Time:")
                                 .bold()
@@ -123,7 +123,7 @@ struct MarkerView: View {
                                       //      .font(.custom("Helvetica Neue", size: 2))
                                         HStack {
                                            Text("")
-                                            Text("Reserve A Spot!")
+                                            Text("Sign Up!")
                                                 .font(.custom("Helvetica Neue", size: 16))
                                                 .foregroundColor(.white)
                                             Text("")
@@ -131,7 +131,7 @@ struct MarkerView: View {
                                       //  Text("")
                                       //      .font(.custom("Helvetica Neue", size: 2))
                                     }
-                                }.background(Color.purple).cornerRadius(15)
+                                }.background(Color.orange).cornerRadius(15)
                             }
                         }
                         Text(" ")
@@ -140,21 +140,30 @@ struct MarkerView: View {
                             Text(marker.event)
                         }
                         Text("")
-                        if (marker.additional_info.count >= 10) {
+                   //     if (marker.additional_info.count >= 10) {
                             HStack {
                                 Text("Info:").bold()
-                            Text(marker.additional_info)
+                                Text(marker.additional_info)
                             }
-                        }
-                    }.position(x: 185, y: 25)
-                    /*
-                        Image("Headshot")
-                        .resizable()
-                            .frame(width: 50, height: 100)
-                            .position(x: 185, y: 50)
+                     //   }
+                        ZStack {
+                            Image("Headshot")
+                               .resizable()
+                                .frame(width: 65, height: 100)
+                            Button(action: {
+                                
+                            }) {
+                                    Image("enlarge")
+                                        .resizable()
+                                        .frame(width: 35, height: 35)
+                                        .position(x: 220, y: 5)
+                            }
+                        }.position(x: 285, y: -25)
+                    }.position(x: 220, y: 45)
                     
-                     */
-                }.position(x: 180, y: 35)
+                        
+                     
+                }.position(x: 190, y: 35)
                 
                 Button(action: {
                     showMarkerView = false
@@ -163,17 +172,15 @@ struct MarkerView: View {
                 }) {
                     HStack {
                         Text("")
-                        Text(" Close     ")
+                        Text(" Close  ")
                             .font(.custom("Helvetica Neue", size: 16))
                             .foregroundColor(.white)
                         Text("")
-                    }
-                }.background(Color.purple).cornerRadius(15)
-                 
-            }
-        }.position(x: 200, y: 135)
+                    }.background(Color.purple).cornerRadius(15)
+                }.position(x: 195, y:80)
+        }.position(x: 195, y: 32)
     }
-
+}
 }
 
 func formatTime(time: Int, delay: Int) -> String {

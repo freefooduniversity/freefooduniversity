@@ -11,6 +11,7 @@
 		C50DFD7428A6D59500F57948 /* renameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7328A6D59500F57948 /* renameFunctions.swift */; };
 		C50DFD7828A7398000F57948 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7728A7398000F57948 /* ImagePicker.swift */; };
 		C592537228AC3FA60041F1FC /* GoogleAddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */; };
+		C592537428AD9C200041F1FC /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537328AD9C1F0041F1FC /* PictureView.swift */; };
 		C5B44DA4287B68A500A78E94 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA3287B68A300A78E94 /* AboutUsView.swift */; };
 		C5B44DA6287B723800A78E94 /* NavButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA5287B723800A78E94 /* NavButtonsView.swift */; };
 		C5B44DA8287B742800A78E94 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA7287B742800A78E94 /* StatsView.swift */; };
@@ -77,6 +78,7 @@
 		C50DFD7728A7398000F57948 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C592537028ABFAD50041F1FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAddFoodView.swift; sourceTree = "<group>"; };
+		C592537328AD9C1F0041F1FC /* PictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
 		C5B44DA3287B68A300A78E94 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
 		C5B44DA5287B723800A78E94 /* NavButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButtonsView.swift; sourceTree = "<group>"; };
 		C5B44DA7287B742800A78E94 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				D8ACEF9528A6F4770027F88B /* MainContentView.swift */,
 				C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */,
 				D83CA18628AC62CC00636568 /* ListView.swift */,
+				C592537328AD9C1F0041F1FC /* PictureView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				C5B44DAA287B749C00A78E94 /* pickCollegeView.swift in Sources */,
 				C50DFD7828A7398000F57948 /* ImagePicker.swift in Sources */,
 				D8ACEF8F28A6F3850027F88B /* Stats.swift in Sources */,
+				C592537428AD9C200041F1FC /* PictureView.swift in Sources */,
 				C5B44DB1287D20D700A78E94 /* CollegeView.swift in Sources */,
 				C5C0111A2889071A00520DCA /* MarkerView.swift in Sources */,
 				C5F3C8162898D58700293545 /* TechStackView.swift in Sources */,
@@ -732,6 +736,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreeFoodUniversity/Preview Content\"";
+				DEVELOPMENT_TEAM = A392TF3NL6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreeFoodUniversity/Info.plist;
