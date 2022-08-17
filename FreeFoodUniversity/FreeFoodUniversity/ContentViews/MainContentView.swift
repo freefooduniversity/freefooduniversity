@@ -16,6 +16,7 @@ struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
     
+    @State var isSignedIntoGoogle: Bool = false
     @State var navButton: String = ""
     @State var markerClicked: String = ""
     @State var reload: Int = 0
@@ -34,9 +35,13 @@ struct MainContentView: View {
     
     @State var returnMarkers: [Marker] = []
     @State var Markers: [Marker] = []
+    @State var MarkersForTitleAndCollege: [Marker] = []
     @State var markers: [Marker] = []
     @State var GMSMarkers: [GMSMarker] = []
     @State var stats: Stats = Stats(id: 0, food_events: 0, fed_today: 0, fed_all_time: 0)
+    
+    @State var showListView : Bool = false
+    @State var showMarkerView : Bool = false
     
     func setMarkers(doExecute: Bool) ->  [ GMSMarker ] {
         var userMarker: GMSMarker = GMSMarker()
@@ -80,8 +85,13 @@ struct MainContentView: View {
                 var marker: GMSMarker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
                 var foodDisplayName = getFoodDisplayName(food: Markers[i].food)
-                marker.title = makeMarkerTitle(food: Markers[i].food, building: "Brumby")
-                marker.snippet = "See Details Below"
+                marker.title = makeMarkerTitle(food: Markers[i].food, building: Markers[i].building)
+                if (college != "all" && college != "pickCollege") {
+                    var str = /*"Time: " + String(Markers[i].start_time) + " - " + String(Markers[i].end_time) + "\n" +*/ "Click the " + getFoodDisplayName(food: Markers[i].food) + " Icon on the Right for Details"
+                    marker.snippet = str
+                } else {
+                    marker.snippet = "Find Your College Below To See Details"
+                }
                 marker.userData = Markers[i]
                 if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }
                 else if (Markers[i].food == "burger") { marker.icon = UIImage(named: "burger")!.withRenderingMode(.alwaysTemplate)}
@@ -125,12 +135,12 @@ struct MainContentView: View {
         if (doExecute) {
             executeForCollege = false
             getMarkerFromTitleAndCollege (completion: { (marks) in
-                Markers = marks
+                MarkersForTitleAndCollege = marks
             }, college: college, food: food)
         } else {
             executeForCollege = true
         }
-        return Markers[0]
+        return MarkersForTitleAndCollege[0]
     }
     
     func setStats(college: String, selectedState: String, doExecuteStats: Bool) -> Stats  {
@@ -161,7 +171,7 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     
     func getGoogleMapsViewHeight() -> CGFloat {
-        if (addFood) {
+        if (addFood && isSignedIntoGoogle) {
             return 240
         } else {
             return 450
@@ -216,23 +226,42 @@ struct MainContentView: View {
         if (navButton == "") {
             //College Not Yet Picked
             if (self.college == "all") { MainPageContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked, latitude: $latitude, longitude: $longitude, locationPermissions: $locationPermissions) }
-            else if (self.college == "pickCollege") { pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,
-                                                                             latitude: $latitude, longitude: $longitude, selectedState: $selectedState) }
-            else if (!addFood) {
-                if (markerClicked == "") { CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked, reload: $reload) }
-                else {MarkerView(markerData: getMarkersFromFoodAndCollege(food: markerClicked, doExecute: executeForCollege), markerClicked: $markerClicked)}
+            else if (self.college == "pickCollege") {
+                pickCollegeContentView(buttonClick: $college, locationButtonClicked: $locationButtonClicked,latitude: $latitude, longitude: $longitude, selectedState: $selectedState)
             }
-            else { addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude) }
+            else if (!addFood) {
+                if (markerClicked == "") {
+                    CollegeContentView(college: $college, addFood: $addFood, locationButtonClicked: $locationButtonClicked, markerClicked: $markerClicked, reload: $reload, showListView: $showListView)
+                }
+                else {
+                    if (showListView) {
+                        ListView(markers: Markers, showMarkerView: $showMarkerView, showListView: $showListView, markerClicked: $markerClicked)
+                    } else if (showMarkerView) {
+                        MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView)
+                    }
+                }
+            }
+            else {
+                if (isSignedIntoGoogle) {
+                    addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude)
+                } else {
+                    GoogleAddFoodView(isSignedIntoGoogle: $isSignedIntoGoogle, addFood: $addFood)
+                }
+            }
         } else {
-            if (navButton == "profile") { ProfileView(navButton: $navButton) }
-            else if  (navButton == "aboutUs") { AboutUsView(navButton: $navButton) }
-          else if (navButton == "feedback") { FeedbackView(navButton: $navButton) }
-           //else if (navButton == "tech-stack") { TechStackView(navButton: $navButton) }
+            if (navButton == "profile") {
+                ProfileView(navButton: $navButton)
+            }
+            else if  (navButton == "aboutUs") {
+                AboutUsView(navButton: $navButton)
+            }
+            else if (navButton == "feedback") {
+                FeedbackView(navButton: $navButton)
+            }
             else if (navButton == "tech-stack") {
                 TechStackView(navButton: $navButton)
             }
         }
-        
         // Nav Button Views Always Present At Bottom
         NavButtonsView(navButton: $navButton)
     }

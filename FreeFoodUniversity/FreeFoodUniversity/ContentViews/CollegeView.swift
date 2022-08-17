@@ -15,91 +15,141 @@ struct CollegeContentView: View {
     @Binding var locationButtonClicked: Bool
     @Binding var markerClicked: String
     @Binding var reload: Int
+    @Binding var showListView : Bool
     
     @State var Markers : [Marker] = []
-    @State var selectionOne : String = "Select an Event"
-    @State var selectionTwo : String = "Select an Event"
-    @State var selectionThree : String = "Select an Event"
-    @State var selectionFour : String = "Select an Event"
-    @State var selectionFive : String = "Select an Event"
     
     let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
         
                 
-        var foods = getFoodSortedByExistence(college: college)
-        var markers = getAllMarkersForCollege(completion: {(marks) in Markers = marks}, college: college)
-                
-        let selectionOneOptions = setSelectionOne(foods: foods, markers: Markers)
-        let selectionTwoOptions = setSelectionTwo(foods: foods, markers: Markers)
-        let selectionThreeOptions = setSelectionThree(foods: foods, markers: Markers)
-        let selectionFourOptions = setSelectionFour(foods: foods, markers: Markers)
-        let selectionFiveOptions = setSelectionFive(foods: foods, markers: Markers)
-        
-        var picker1 = Picker("Food1", selection : $selectionOne) {
-            ForEach(selectionOneOptions, id :\.self) {
-                Text($0)
-            }
-        }
+        let foods = getFoodSortedByExistence(college: college)
+        //var markers = getAllMarkersForCollege(completion: {(marks) in Markers = marks}, college: college)
         
         VStack {
-            picker1
             ZStack {
                 ScrollView {
                     VStack {
                         Text("⌃")
-                        Button(action: {
+                        Group {
+                            Button(action: {
+                                if (foods[0].1 != 0) {
+                                    markerClicked = foods[0].0
+                                    showListView = true
+                                }
+                                }) {
+                                    Image(foods[0].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[1].1 != 0) {
+                                        markerClicked = foods[1].0
+                                        showListView = true
+                                    }
+                                }
                             }) {
-                                Image(foods[0].0)
+                                Image(foods[1].0)
                                 .resizable()
                                 .frame(width: 40, height: 40)
                             }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[1].1 != 0) {
-                                    markerClicked = foods[1].0
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[2].1 != 0) {
+                                        markerClicked = foods[2].0
+                                        showListView = true
+                                    }
                                 }
+                            }) {
+                                Image(foods[2].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[1].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                        }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[2].1 != 0) {
-                                    markerClicked = foods[2].0
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[3].1 != 0) {
+                                        markerClicked = foods[3].0
+                                        showListView = true
+                                    }
                                 }
+                            }) {
+                                Image(foods[3].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[2].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                        }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[3].1 != 0) {
-                                    markerClicked = foods[3].0
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[4].1 != 0) {
+                                        markerClicked = foods[4].0
+                                        showListView = true
+                                    }
                                 }
+                            }) {
+                                Image(foods[4].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[3].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                        }
-                        Button(action: {
-                            withAnimation {
-                                if (foods[4].1 != 0) {
-                                    markerClicked = foods[4].0
+                            Button(action: {
+                                if (foods[5].1 != 0) {
+                                    markerClicked = foods[5].0
+                                    showListView = true
                                 }
+                                }) {
+                                    Image(foods[5].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[6].1 != 0) {
+                                        markerClicked = foods[6].0
+                                        showListView = true
+                                    }
+                                }
+                            }) {
+                                Image(foods[6].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
                             }
-                        }) {
-                            Image(foods[4].0)
-                            .resizable()
-                            .frame(width: 40, height: 40)
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[7].1 != 0) {
+                                        markerClicked = foods[7].0
+                                        showListView = true
+                                    }
+                                }
+                            }) {
+                                Image(foods[7].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[8].1 != 0) {
+                                        markerClicked = foods[8].0
+                                        showListView = true
+                                    }
+                                }
+                            }) {
+                                Image(foods[8].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            }
+                            Button(action: {
+                                withAnimation {
+                                    if (foods[9].1 != 0) {
+                                        markerClicked = foods[9].0
+                                        showListView = true
+                                    }
+                                }
+                            }) {
+                                Image(foods[9].0)
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                            }
                         }
-                        Text("⌄")
                     }.background(Color.gray).cornerRadius(15).opacity(0.9)
                 }.frame(width: 40, height: 250)
             }.position(x: 360, y: -300)
@@ -135,7 +185,7 @@ struct CollegeContentView: View {
                         }
                     }) {
                         HStack {
-                            Image(getImage(college: college))
+                            Image(college)
                                 .renderingMode(Image.TemplateRenderingMode?
                                 .init(Image.TemplateRenderingMode.original))
                                 .resizable()
@@ -143,15 +193,33 @@ struct CollegeContentView: View {
                             Image("down-arrow")
                         }
                     }
-                }.position(x:195, y: -60)
-                HStack {
+                }.position(x:195, y: -40)
+                Button  {
+                    showListView = true
+                    markerClicked = "all"
+                } label: {
+                    VStack{
+                        Text("                                                                                                                                                  ")
+                            .font(.custom("Helvetica Neue", size: 8))
+                        HStack {
+            
+                            Text("Show All Events at " + (getName(college: college)))
+                                .foregroundColor(Color.white)
+
+                    }
+                        Text("                                                                        ")
+                            .font(.custom("Helvetica Neue", size: 8))
+                            .foregroundColor(Color.white)
+                    }.background(Color.blue).cornerRadius(15)
+                }
+                /*HStack {
                     Button("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
                         print("Hello")
                     }.border(Color.black)
                     Button ("⚠️ Set " + getName(college: college) + " as Your Default College") {
                         print("Hello")
                     }.border(Color.black)
-                }.position(x: 195, y: -20)
+                }.position(x: 195, y: -20)*/
             }
         }.position(x:195, y:100).onReceive(timer, perform: { _ in
             print("updating")
@@ -268,7 +336,7 @@ func getTitle(college: String) -> String {
     
     return title
 }
-
+/*
 func getImage(college: String) -> String {
     if (college == "uga") { return "uga" }
     if (college == "clemson") { return "clemson" }
@@ -310,22 +378,11 @@ func getImage(college: String) -> String {
     
     return ""
 }
+*/
 
 func getName(college: String) -> String {
-    var title = ""
-    
-    if (college == "uga") { title += "UGA" }
-    if (college == "clemson") { title += "Clemson" }
-    if (college == "gt") { title += "Georgia Tech" }
-    if (college == "bama") { title += "Bama" }
-    if (college == "florida") { title += "UF" }
-    if (college == "gastate") { return "GA State" }
-    if (college == "ksu") { return "KSU" }
-    if (college == "michigan") { return "Michigan" }
-    if (college == "usc") { return "USC" }
-    if (college == "harvard") { title += "Harvard" }
-    
-    return title
+    var arr = Array(getTitle(college: college))
+    return String(arr[13...])
 }
 
 

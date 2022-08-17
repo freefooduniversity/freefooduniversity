@@ -92,7 +92,17 @@ struct addFoodToMapView: View {
                 }
                 HStack {
                     Button(action: {
-                        addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection)
+                        print(555)
+                        print(getStartTime())
+                        print(getStartTime() > 500)
+                        print(getStartTime() < 2000)
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500) {
+                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: capacitySelection,
+                                      building: building, event: event, additional_info: details)
+                            
+                        } else {
+                            // alert user
+                        }
                         addFood = false
                     }) {
                         HStack {
@@ -110,24 +120,12 @@ struct addFoodToMapView: View {
         }.sheet(isPresented: $openCameraRoll) {
             ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
         }
-        HStack {
-            Image("google")
-            Button(action: {
-                
-            }) {
-                HStack {
-                    Image("blue")
-                    Text("Sign in with Google To Add Food      ")
-                        .font(.custom("Helvetica Neue", size: 16))
-                        .foregroundColor(.white)
-                }
-            }.background(Color.green).cornerRadius(15)
-        }
-        Text("")
-        Text("Once logged into Google, remove view of above sign in button and instead display below messages")
-        Text(" ")
         Text("*Remember*: You're logged into Google.")
-        Text("*Don't* post false or inappropriate info")
+            .font(.custom("Helvetica Neue", size: 22))
+            .foregroundColor(.black)
+        Text("*Don't* post inappropriate info")
+            .font(.custom("Helvetica Neue", size: 22))
+            .foregroundColor(.black)
     }
     
     
@@ -178,7 +176,7 @@ func getEndTime(duration : String) -> Int {
 
 }
 
-func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String) {
+func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: String, building: String, event: String, additional_info: String) {
     getTimeZone()
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
@@ -195,7 +193,7 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     var food = getFoodFromDropDownName(food: foodSelection)
-    
+    print("capacity: " + capacity)
     let body: [String: AnyHashable] = [
         "id": id,
         "food": food,
@@ -211,9 +209,9 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "dislikes": 11,
         "creator_email": "free@gmail.com",
         "pic_url": "place_holder",
-        "event": "Burger Club",
-        "building": "Brumby hall",
-        "additional_info": "info"
+        "event": event,
+        "building": building,
+        "additional_info": additional_info
     ]
      
    request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)

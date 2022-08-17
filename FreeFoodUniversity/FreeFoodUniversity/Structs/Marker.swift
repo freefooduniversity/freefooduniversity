@@ -14,6 +14,7 @@ struct Marker: Codable, Identifiable {
     var long: Double
     var end_time: Int32
     var start_time : String
+    var time_zone: Int
     var college : String
     var capacity : Int32
     var dibs : Int32
@@ -22,4 +23,6 @@ struct Marker: Codable, Identifiable {
     var creator_email : String
     var pic_url : String
     var building : String
+    var event: String
+    var additional_info: String
 }
