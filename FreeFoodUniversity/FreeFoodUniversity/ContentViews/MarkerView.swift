@@ -37,6 +37,7 @@ struct MarkerView: View {
                 HStack {
                     Text(makeMarkerTitle(food: marker.food, building: marker.building))
                         .bold()
+                        .underline()
                         .font(.custom("Helvetica Neue", size: 20))
                         .foregroundColor(.black)
                         .position(x:180, y: 25)
@@ -44,24 +45,55 @@ struct MarkerView: View {
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(formatTime(time: Int(marker.start_time)!, delay: 0) + " - " + formatTime(time: Int(marker.end_time), delay: 4))
-                        Text("Active Now!")
-                            .foregroundColor(Color.green)
+                        HStack {
+                            Text("Time:")
+                                .bold()
+                            Text(formatTime(time: Int(marker.start_time)!, delay: 0) + " - " + formatTime(time: Int(marker.end_time), delay: 4))
+                            Text(" ")
+                            Text("Active Now!")
+                                .foregroundColor(Color.green)
+                                .bold()
+                        }
                         Text(" ")
-                        Text("Signed Up: ").bold().underline()
-                        Text(String(marker.dibs) + " / " + String(marker.capacity))
+                        HStack {
+                            Text("Signed Up:").bold()
+                            Text(String(marker.dibs) + " / " + String(marker.capacity) + "🧑🏻‍💼")
+                            Text(" ")
+                            VStack(alignment: .leading) {
+                                Button(action: {
+                                    
+                                }) {
+                                    VStack {
+                                        Text("")
+                                            .font(.custom("Helvetica Neue", size: 2))
+                                        HStack {
+                                            Text("")
+                                            Text("Reserve A Spot!")
+                                                .font(.custom("Helvetica Neue", size: 16))
+                                                .foregroundColor(.white)
+                                            Text("")
+                                        }
+                                        Text("")
+                                            .font(.custom("Helvetica Neue", size: 2))
+                                    }
+                                }.background(Color.blue).cornerRadius(15)
+                            }
+                        }
                         Text(" ")
-                        Text("Event: ").bold().underline()
-                        Text(marker.event)
+                        HStack {
+                            Text("Event: ").bold()
+                            Text(marker.event)
+                        }
                         Text(" ")
-                        Text(marker.additional_info)
-                    }.position(x: 95, y: 50)
-                    
+                      //  Text(marker.additional_info)
+                    }.position(x: 185, y: 50)
+                    /*
                         Image("Headshot")
+                        .resizable()
                             .frame(width: 50, height: 100)
-                            .position(x: 125, y: 50)
+                            .position(x: 185, y: 50)
                     
-                     
+                     */
                 }.position(x: 180, y: 15)
                 
                 Button(action: {
@@ -94,7 +126,9 @@ func formatTime(time: Int, delay: Int) -> String {
     hours -= Int(delay)
     if (time < 1200) { amorpm = "AM"} else {
         amorpm = "PM"
-        hours -= 12
+        if (hours >= 13) {
+            hours -= 12
+        }
     }
     
     if (Int(minutes)! < 10) {
