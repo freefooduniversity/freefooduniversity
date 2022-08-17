@@ -7,6 +7,7 @@
 
 import GoogleMaps
 import SwiftUI
+import FirebaseAuthUI
 
 //Can't leave credentials open like this, will change APIKey and fix later
 var APIKey: String = "AIzaSyCgBb4hG2hijjScdCmZy6jKm2K8_VAgq3Q"
@@ -31,9 +32,13 @@ struct FreeFoodUniversityApp: App {
     }
 }
 
-class AppDelegate: NSObject, UIApplicationDelegate, GMSMapViewDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, GMSMapViewDelegate{
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
          GMSServices.provideAPIKey(APIKey)
+         FirebaseApp.configure()
+         let authUI = FUIAuth.defaultAuthUI()
+         // You need to adopt a FUIAuthDelegate protocol to receive callback
+         authUI?.delegate = self
          return true
      }
     

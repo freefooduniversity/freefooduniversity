@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DBF66E528AD79F100B328FB /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */; };
+		4DBF66E628AD79F100B328FB /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */; };
+		4DBF66E728AD79F100B328FB /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */; };
 		6AE7B6E373DDE5A7A63FA4DF /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10137A5F53F9B9A7BB779CFB /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */; };
 		C50DFD7428A6D59500F57948 /* renameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7328A6D59500F57948 /* renameFunctions.swift */; };
 		C50DFD7828A7398000F57948 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7728A7398000F57948 /* ImagePicker.swift */; };
@@ -68,6 +71,7 @@
 		10137A5F53F9B9A7BB779CFB /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3B963C5CE36F0ADBD36E78 /* Pods-FreeFoodUniversity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.debug.xcconfig"; sourceTree = "<group>"; };
 		416DEAA11E3C7D2E7D91D506 /* Pods-FreeFoodUniversity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.release.xcconfig"; sourceTree = "<group>"; };
+		4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		6E4E42C6496FF35BAA35930F /* Pods-FreeFoodUniversityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F0CEA15D85FC9072766348F /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7A85CBCD12E992CE7B3D84F4 /* Pods_FreeFoodUniversityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +222,7 @@
 		D858D09D284D605000F5D4A1 /* FreeFoodUniversity */ = {
 			isa = PBXGroup;
 			children = (
+				4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */,
 				C592537028ABFAD50041F1FC /* Info.plist */,
 				D8ACEF8A28A6F3250027F88B /* Structs */,
 				C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */,
@@ -382,6 +387,7 @@
 			files = (
 				D858D0A6284D605100F5D4A1 /* Preview Assets.xcassets in Resources */,
 				D858D0A3284D605100F5D4A1 /* Assets.xcassets in Resources */,
+				4DBF66E528AD79F100B328FB /* GoogleService-Info-2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBF66E628AD79F100B328FB /* GoogleService-Info-2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DBF66E728AD79F100B328FB /* GoogleService-Info-2.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,7 +740,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreeFoodUniversity/Preview Content\"";
-				DEVELOPMENT_TEAM = A392TF3NL6;
+				DEVELOPMENT_TEAM = H29D4M5X32;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreeFoodUniversity/Info.plist;
