@@ -92,7 +92,7 @@ struct MarkerView: View {
                     }.background(Color.blue).cornerRadius(15)
                     
                 }
-            } .position(x:180, y: 45)
+            } .position(x:200, y: 45)
             VStack {
                 Text("")
                 Text("")
@@ -178,7 +178,7 @@ struct MarkerView: View {
                         Text("")
                     }.background(Color.purple).cornerRadius(15)
                 }.position(x: 195, y:80)
-        }.position(x: 195, y: 32)
+        }.position(x: 200, y: 32)
     }
 }
 }

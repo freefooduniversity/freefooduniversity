@@ -147,8 +147,11 @@ func getTimeZone() -> Int {
 func getStartTime() -> Int {
     let today = Date()
     let hour = Calendar.current.component(.hour, from: today)
-    let minute = Calendar.current.component(.minute, from: today)
-    
+    var minute = Calendar.current.component(.minute, from: today)
+    if (minute % 15 != 0) {
+        minute -= minute % 15
+        minute += 15
+    }
     var time = 0
     
     time = hour * 100
