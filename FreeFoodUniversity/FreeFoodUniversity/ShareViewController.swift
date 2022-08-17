@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let authViewController = authUI.authViewController()
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+      // handle user and error as necessary
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
