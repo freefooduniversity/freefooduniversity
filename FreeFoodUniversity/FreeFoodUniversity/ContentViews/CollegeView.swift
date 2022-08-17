@@ -15,6 +15,7 @@ struct CollegeContentView: View {
     @Binding var locationButtonClicked: Bool
     @Binding var markerClicked: String
     @Binding var reload: Int
+    @Binding var showListView : Bool
     
     @State var Markers : [Marker] = []
     
@@ -35,6 +36,7 @@ struct CollegeContentView: View {
                             Button(action: {
                                 if (foods[0].1 != 0) {
                                     markerClicked = foods[0].0
+                                    showListView = true
                                 }
                                 }) {
                                     Image(foods[0].0)
@@ -45,6 +47,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[1].1 != 0) {
                                         markerClicked = foods[1].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -56,6 +59,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[2].1 != 0) {
                                         markerClicked = foods[2].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -67,6 +71,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[3].1 != 0) {
                                         markerClicked = foods[3].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -78,6 +83,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[4].1 != 0) {
                                         markerClicked = foods[4].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -88,6 +94,7 @@ struct CollegeContentView: View {
                             Button(action: {
                                 if (foods[5].1 != 0) {
                                     markerClicked = foods[5].0
+                                    showListView = true
                                 }
                                 }) {
                                     Image(foods[5].0)
@@ -98,6 +105,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[6].1 != 0) {
                                         markerClicked = foods[6].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -109,6 +117,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[7].1 != 0) {
                                         markerClicked = foods[7].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -120,6 +129,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[8].1 != 0) {
                                         markerClicked = foods[8].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -131,6 +141,7 @@ struct CollegeContentView: View {
                                 withAnimation {
                                     if (foods[9].1 != 0) {
                                         markerClicked = foods[9].0
+                                        showListView = true
                                     }
                                 }
                             }) {
@@ -183,14 +194,20 @@ struct CollegeContentView: View {
                         }
                     }
                 }.position(x:195, y: -60)
-                HStack {
+                Button  {
+                    showListView = true
+                    markerClicked = "all"
+                } label: {
+                    Text("Show all markers at \(college)")
+                }
+                /*HStack {
                     Button("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
                         print("Hello")
                     }.border(Color.black)
                     Button ("⚠️ Set " + getName(college: college) + " as Your Default College") {
                         print("Hello")
                     }.border(Color.black)
-                }.position(x: 195, y: -20)
+                }.position(x: 195, y: -20)*/
             }
         }.position(x:195, y:100).onReceive(timer, perform: { _ in
             print("updating")

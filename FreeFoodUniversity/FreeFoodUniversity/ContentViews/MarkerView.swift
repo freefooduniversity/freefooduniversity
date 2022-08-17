@@ -13,7 +13,6 @@ import UIKit
 struct MarkerView: View {
     
     var markerData : Marker
-    @Binding var markerClicked: String
     
     var body: some View {
         VStack {
@@ -24,7 +23,7 @@ struct MarkerView: View {
                         .foregroundColor(.black)
                         .position(x:180, y: 15)
                     Button(action: {
-                        markerClicked = ""
+        
                     }) {
                         HStack {
                             Text("")
