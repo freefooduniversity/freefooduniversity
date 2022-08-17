@@ -244,7 +244,7 @@ struct MainContentView: View {
                 if (isSignedIntoGoogle) {
                     addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude)
                 } else {
-                    GoogleAddFoodView(isSignedIntoGoogle: $isSignedIntoGoogle)
+                    GoogleAddFoodView(isSignedIntoGoogle: $isSignedIntoGoogle, addFood: $addFood)
                 }
             }
         } else {

@@ -193,12 +193,24 @@ struct CollegeContentView: View {
                             Image("down-arrow")
                         }
                     }
-                }.position(x:195, y: -60)
+                }.position(x:195, y: -40)
                 Button  {
                     showListView = true
                     markerClicked = "all"
                 } label: {
-                    Text("Show all markers at \(college)")
+                    VStack{
+                        Text("                                                                                                                                                  ")
+                            .font(.custom("Helvetica Neue", size: 8))
+                        HStack {
+            
+                            Text("Show All Events at " + (getName(college: college)))
+                                .foregroundColor(Color.white)
+
+                    }
+                        Text("                                                                        ")
+                            .font(.custom("Helvetica Neue", size: 8))
+                            .foregroundColor(Color.white)
+                    }.background(Color.blue).cornerRadius(15)
                 }
                 /*HStack {
                     Button("⚠️ Allow Notifications\n For Food at " + getName(college: college)) {
@@ -353,20 +365,8 @@ func getImage(college: String) -> String {
 */
 
 func getName(college: String) -> String {
-    var title = ""
-    
-    if (college == "uga") { title += "UGA" }
-    if (college == "clemson") { title += "Clemson" }
-    if (college == "gt") { title += "Georgia Tech" }
-    if (college == "bama") { title += "Bama" }
-    if (college == "florida") { title += "UF" }
-    if (college == "gastate") { return "GA State" }
-    if (college == "ksu") { return "KSU" }
-    if (college == "michigan") { return "Michigan" }
-    if (college == "usc") { return "USC" }
-    if (college == "harvard") { title += "Harvard" }
-    
-    return title
+    var arr = Array(getTitle(college: college))
+    return String(arr[13...])
 }
 
 

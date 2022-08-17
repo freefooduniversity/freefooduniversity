@@ -10,6 +10,7 @@ import SwiftUI
 
 struct GoogleAddFoodView: View {
     @Binding var isSignedIntoGoogle: Bool
+    @Binding var addFood: Bool
     var body: some View {
         VStack {
             Image("google")
@@ -23,6 +24,11 @@ struct GoogleAddFoodView: View {
                         .foregroundColor(.white)
                 }
             }.background(Color.green).cornerRadius(15)
+            Text(" ")
+            Text(" ")
+            Button("Cancel") {
+                addFood = false
+            }
         }.position(x: 195, y: 115)
     }
 }

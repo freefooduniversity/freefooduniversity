@@ -30,7 +30,7 @@ struct ListView : View {
                         Button {
                             showMarkerView = true
                         } label: {
-                            Text("Free \(markers[i - 1].food) at \(markers[i - 1].building)")
+                            Text("Free \(getFoodDisplayName(food: markers[i - 1].food)) at \(markers[i - 1].building)")
                         }.padding(10.0)
                     }
                 }
@@ -41,7 +41,7 @@ struct ListView : View {
                             Button {
                                 showMarkerView = true
                             } label: {
-                                Text("Free \(markers[i - 1].food) at \(markers[i - 1].building)")
+                                Text("Free \(getFoodDisplayName(food: markers[i - 1].food)) at \(markers[i - 1].building)")
                             }.padding(10.0)
                         }
                     }
