@@ -35,6 +35,7 @@ struct MainContentView: View {
     
     @State var returnMarkers: [Marker] = []
     @State var Markers: [Marker] = []
+    @State var MarkersForTitleAndCollege: [Marker] = []
     @State var markers: [Marker] = []
     @State var GMSMarkers: [GMSMarker] = []
     @State var stats: Stats = Stats(id: 0, food_events: 0, fed_today: 0, fed_all_time: 0)
@@ -134,12 +135,12 @@ struct MainContentView: View {
         if (doExecute) {
             executeForCollege = false
             getMarkerFromTitleAndCollege (completion: { (marks) in
-                Markers = marks
+                MarkersForTitleAndCollege = marks
             }, college: college, food: food)
         } else {
             executeForCollege = true
         }
-        return Markers[0]
+        return MarkersForTitleAndCollege[0]
     }
     
     func setStats(college: String, selectedState: String, doExecuteStats: Bool) -> Stats  {
@@ -236,7 +237,7 @@ struct MainContentView: View {
                     if (showListView) {
                         ListView(markers: Markers, showMarkerView: $showMarkerView, showListView: $showListView, markerClicked: $markerClicked)
                     } else if (showMarkerView) {
-                        MarkerView(markerData: getMarkersFromFoodAndCollege(food: markerClicked, doExecute: executeForCollege))
+                        MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView)
                     }
                 }
             }

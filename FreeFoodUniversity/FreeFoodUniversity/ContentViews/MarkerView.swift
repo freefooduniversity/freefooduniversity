@@ -12,18 +12,35 @@ import UIKit
 
 struct MarkerView: View {
     
-    var markerData : Marker
+    var markerData : [Marker]
+    @Binding var title: String
+    var college: String
+    @Binding var showMarkerView: Bool
+    @Binding var showListView: Bool
+    
+    
+    func getMarkerFromTitleAndCollege(title: String, college: String) -> Marker {
+        for marker in markerData {
+            if (marker.food == title && marker.college == college) {
+                return marker
+            }
+        }
+        return markerData[0]
+    }
     
     var body: some View {
         VStack {
                 HStack {
-                    Text(makeMarkerTitle(food: markerData.food, building: markerData.building))
+                    Text(makeMarkerTitle(food: getMarkerFromTitleAndCollege(title: title, college: college).food, building: getMarkerFromTitleAndCollege(title: title, college: college).building))
                         .bold()
                         .font(.custom("Helvetica Neue", size: 20))
                         .foregroundColor(.black)
                         .position(x:180, y: 15)
                     Button(action: {
-        
+                        title = ""
+                        showMarkerView = false
+                        showListView = false
+                        
                     }) {
                         HStack {
                             Text("")
@@ -37,15 +54,15 @@ struct MarkerView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Time: ").bold().underline()
-                        Text(String(markerData.start_time) + " - " + String(markerData.end_time))
+                        Text(String(getMarkerFromTitleAndCollege(title: title, college: college).start_time) + " - " + String(getMarkerFromTitleAndCollege(title: title, college: college).end_time))
                         Text(" ")
                         Text("Signed Up: ").bold().underline()
-                        Text(String(markerData.dibs) + " / " + String(markerData.capacity))
+                        Text(String(getMarkerFromTitleAndCollege(title: title, college: college).dibs) + " / " + String(getMarkerFromTitleAndCollege(title: title, college: college).capacity))
                         Text(" ")
                         Text("Event: ").bold().underline()
-                        Text(markerData.event)
+                        Text(getMarkerFromTitleAndCollege(title: title, college: college).event)
                         Text(" ")
-                        Text(markerData.additional_info)
+                        Text(getMarkerFromTitleAndCollege(title: title, college: college).additional_info)
                     }.position(x: 70, y: 50)
                     VStack {
                         Image("Headshot")

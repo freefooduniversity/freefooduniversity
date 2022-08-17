@@ -29,6 +29,8 @@ struct ListView : View {
                     ForEach(1...markers.count, id: \.self) { i in
                         Button {
                             showMarkerView = true
+                            showListView = false
+                            markerClicked = markers[i - 1].food
                         } label: {
                             Text("Free \(getFoodDisplayName(food: markers[i - 1].food)) at \(markers[i - 1].building)")
                         }.padding(10.0)
@@ -40,6 +42,8 @@ struct ListView : View {
                         if (markers[i - 1].food == markerClicked) {
                             Button {
                                 showMarkerView = true
+                                showListView = false
+                                markerClicked = markers[i - 1].food
                             } label: {
                                 Text("Free \(getFoodDisplayName(food: markers[i - 1].food)) at \(markers[i - 1].building)")
                             }.padding(10.0)
