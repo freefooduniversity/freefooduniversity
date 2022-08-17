@@ -8,7 +8,7 @@
 import GoogleMaps
 import SwiftUI
 import FirebaseAuthUI
-import FirebaseUI
+import FirebaseGoogleAuthUI
 import FirebaseCore
 import FirebaseOAuthUI
 
@@ -35,18 +35,23 @@ struct FreeFoodUniversityApp: App {
     }
 }
 
-class AppDelegate: UIResponder, UIApplicationDelegate, GMSMapViewDelegate, FUIAuthDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, GMSMapViewDelegate, FUIAuthDelegate, ObservableObject {
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
          GMSServices.provideAPIKey(APIKey)
-         FirebaseApp.configure()
+        FirebaseApp.configure()
          let authUI = FUIAuth.defaultAuthUI()
          // You need to adopt a FUIAuthDelegate protocol to receive callback
          authUI?.delegate = self
          let providers: [FUIAuthProvider] = [
            FUIGoogleAuth(),
          ]
-         self.authUI?.providers = providers
+         let authViewController = authUI?.authViewController()
+         authUI?.providers = providers
          return true
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+      // handle user and error as necessary
     }
     
     func application(_ app: UIApplication, open url: URL,
@@ -62,6 +67,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GMSMapViewDelegate, FUIAu
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         print("you tapped something")
         return true
+    }
+    
+    func getGoogle(didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) {
+        GMSServices.provideAPIKey(APIKey)
+      //  FirebaseApp.configure()
+        let authUI = FUIAuth.defaultAuthUI()
+        // You need to adopt a FUIAuthDelegate protocol to receive callback
+        authUI?.delegate = self
+        let providers: [FUIAuthProvider] = [
+          FUIGoogleAuth(),
+        ]
+        let authViewController = authUI?.authViewController()
+        authUI?.providers = providers
     }
  }
  

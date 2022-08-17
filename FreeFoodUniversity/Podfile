@@ -6,7 +6,9 @@ target 'FreeFoodUniversity' do
   use_frameworks!
   pod 'GoogleMaps'
   pod 'DropDown'
-  pod 'FirebaseUI'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Google'
+  pod 'FirebaseUI/OAuth'
   # Pods for FreeFoodUniversity
 
   target 'FreeFoodUniversityTests' do

@@ -10,6 +10,8 @@ import SwiftUI
 import UIKit
 
 struct ProfileView: View {
+    
+    @ObservedObject var signInManager = AppDelegate()
     @Binding var navButton: String
     
     var body: some View {
@@ -49,7 +51,7 @@ struct ProfileView: View {
             HStack {
                 Image("google")
                 Button(action: {
-                    
+                    signInManager.getGoogle()
                 }) {
                     HStack {
                         Image("blue")
@@ -58,6 +60,7 @@ struct ProfileView: View {
                             .foregroundColor(.white)
                     }
                 }.background(Color.blue).cornerRadius(15)
+                
             }
         }.position(x:200, y:120)
     }

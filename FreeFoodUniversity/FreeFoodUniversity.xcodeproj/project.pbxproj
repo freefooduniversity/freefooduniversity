@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		038B17429E0030A5E50B7D77 /* Pods_FreeFoodUniversity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3B828B6B51BEA9CB2B25AB /* Pods_FreeFoodUniversity.framework */; };
-		4AF52C54831E7FCCE878DA9F /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4BBDE8F1B7F4B1A8A3D0AF /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */; };
-		4DBF66E528AD79F100B328FB /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */; };
-		4DBF66E628AD79F100B328FB /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */; };
-		4DBF66E728AD79F100B328FB /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */; };
-		ADBBB8B6C32BDB16F8B59AAC /* Pods_FreeFoodUniversityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32144A1D764FF681D701B176 /* Pods_FreeFoodUniversityTests.framework */; };
+		37C630A5FDE29F8438B94F98 /* Pods_FreeFoodUniversity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CFAA92C0697290D5907E40C /* Pods_FreeFoodUniversity.framework */; };
+		4DBF66E528AD79F100B328FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info.plist */; };
+		4DBF66E628AD79F100B328FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info.plist */; };
+		4DBF66E728AD79F100B328FB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DBF66E428AD79F100B328FB /* GoogleService-Info.plist */; };
+		74D8350D145B1E4C86F84D1E /* Pods_FreeFoodUniversityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDFA15130B14A47F2F90F6E /* Pods_FreeFoodUniversityTests.framework */; };
+		B17ED0355704C02F59ED49C4 /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B92C8AC6AFAB2D281B44CC /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */; };
 		C50DFD7428A6D59500F57948 /* renameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7328A6D59500F57948 /* renameFunctions.swift */; };
 		C50DFD7828A7398000F57948 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7728A7398000F57948 /* ImagePicker.swift */; };
 		C592537228AC3FA60041F1FC /* GoogleAddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */; };
@@ -68,16 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		189D653FC7A0BB7F9AA028CB /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		1C3B828B6B51BEA9CB2B25AB /* Pods_FreeFoodUniversity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		32144A1D764FF681D701B176 /* Pods_FreeFoodUniversityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A45DE7D122E1D568EC2F424 /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; sourceTree = "<group>"; };
-		450E575712BF8745BD56B8EF /* Pods-FreeFoodUniversityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.release.xcconfig"; sourceTree = "<group>"; };
-		4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
-		5A4BBDE8F1B7F4B1A8A3D0AF /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		88435FF1BE557C987631E581 /* Pods-FreeFoodUniversityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8F40FB8DE61610E74DEFB344 /* Pods-FreeFoodUniversity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.debug.xcconfig"; sourceTree = "<group>"; };
-		BD23AD352D880FBB8697A50F /* Pods-FreeFoodUniversity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.release.xcconfig"; sourceTree = "<group>"; };
+		3D3607FC4D73D02850F3155C /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3DDBBF91C7588E06D58A8E3F /* Pods-FreeFoodUniversity.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.release.xcconfig"; sourceTree = "<group>"; };
+		40B92C8AC6AFAB2D281B44CC /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CFAA92C0697290D5907E40C /* Pods_FreeFoodUniversity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DBF66E428AD79F100B328FB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7ADFC510871442A44FF44406 /* Pods-FreeFoodUniversityTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.release.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.release.xcconfig"; sourceTree = "<group>"; };
+		BDC6788E203C4891ECBEA3CF /* Pods-FreeFoodUniversityTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversityTests.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversityTests/Pods-FreeFoodUniversityTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C50DFD7328A6D59500F57948 /* renameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = renameFunctions.swift; sourceTree = "<group>"; };
 		C50DFD7728A7398000F57948 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C592537028ABFAD50041F1FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +93,7 @@
 		C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		C5F3C8132895F2AA00293545 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		C5F3C8152898D58500293545 /* TechStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechStackView.swift; sourceTree = "<group>"; };
+		CDDFA15130B14A47F2F90F6E /* Pods_FreeFoodUniversityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreeFoodUniversityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D83CA18628AC62CC00636568 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		D858D09B284D605000F5D4A1 /* Free Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Free Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D09E284D605000F5D4A1 /* FreeFoodUniversityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityApp.swift; sourceTree = "<group>"; };
@@ -109,6 +107,7 @@
 		D858D0BA284D605100F5D4A1 /* FreeFoodUniversityUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FreeFoodUniversityUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D858D0BE284D605100F5D4A1 /* FreeFoodUniversityUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityUITests.swift; sourceTree = "<group>"; };
 		D858D0C0284D605100F5D4A1 /* FreeFoodUniversityUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeFoodUniversityUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D88E892F004E5B40F623EE8F /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8ACEF8728A6EB170027F88B /* BamaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BamaView.swift; sourceTree = "<group>"; };
 		D8ACEF8B28A6F3440027F88B /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
 		D8ACEF8E28A6F3850027F88B /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		D8ACEF9528A6F4770027F88B /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		D8ACEF9728A6F4B60027F88B /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		D8E24B4128A5A21D00529875 /* SelectCollegeDropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCollegeDropDownView.swift; sourceTree = "<group>"; };
+		E108E65CD6324B117F277B6D /* Pods-FreeFoodUniversity.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeFoodUniversity.debug.xcconfig"; path = "Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				038B17429E0030A5E50B7D77 /* Pods_FreeFoodUniversity.framework in Frameworks */,
+				37C630A5FDE29F8438B94F98 /* Pods_FreeFoodUniversity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADBBB8B6C32BDB16F8B59AAC /* Pods_FreeFoodUniversityTests.framework in Frameworks */,
+				74D8350D145B1E4C86F84D1E /* Pods_FreeFoodUniversityTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF52C54831E7FCCE878DA9F /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework in Frameworks */,
+				B17ED0355704C02F59ED49C4 /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,22 +150,22 @@
 		02B6961C62DE3EE57BEF1C59 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8F40FB8DE61610E74DEFB344 /* Pods-FreeFoodUniversity.debug.xcconfig */,
-				BD23AD352D880FBB8697A50F /* Pods-FreeFoodUniversity.release.xcconfig */,
-				189D653FC7A0BB7F9AA028CB /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig */,
-				3A45DE7D122E1D568EC2F424 /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */,
-				88435FF1BE557C987631E581 /* Pods-FreeFoodUniversityTests.debug.xcconfig */,
-				450E575712BF8745BD56B8EF /* Pods-FreeFoodUniversityTests.release.xcconfig */,
+				E108E65CD6324B117F277B6D /* Pods-FreeFoodUniversity.debug.xcconfig */,
+				3DDBBF91C7588E06D58A8E3F /* Pods-FreeFoodUniversity.release.xcconfig */,
+				D88E892F004E5B40F623EE8F /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig */,
+				3D3607FC4D73D02850F3155C /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */,
+				BDC6788E203C4891ECBEA3CF /* Pods-FreeFoodUniversityTests.debug.xcconfig */,
+				7ADFC510871442A44FF44406 /* Pods-FreeFoodUniversityTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		56D641A74FFCD962B96F7931 /* Frameworks */ = {
+		87C6AA06FFE3A78CCC647C7F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1C3B828B6B51BEA9CB2B25AB /* Pods_FreeFoodUniversity.framework */,
-				5A4BBDE8F1B7F4B1A8A3D0AF /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */,
-				32144A1D764FF681D701B176 /* Pods_FreeFoodUniversityTests.framework */,
+				4CFAA92C0697290D5907E40C /* Pods_FreeFoodUniversity.framework */,
+				40B92C8AC6AFAB2D281B44CC /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */,
+				CDDFA15130B14A47F2F90F6E /* Pods_FreeFoodUniversityTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -205,7 +205,7 @@
 				D858D0BD284D605100F5D4A1 /* FreeFoodUniversityUITests */,
 				D858D09C284D605000F5D4A1 /* Products */,
 				02B6961C62DE3EE57BEF1C59 /* Pods */,
-				56D641A74FFCD962B96F7931 /* Frameworks */,
+				87C6AA06FFE3A78CCC647C7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,7 +222,7 @@
 		D858D09D284D605000F5D4A1 /* FreeFoodUniversity */ = {
 			isa = PBXGroup;
 			children = (
-				4DBF66E428AD79F100B328FB /* GoogleService-Info-2.plist */,
+				4DBF66E428AD79F100B328FB /* GoogleService-Info.plist */,
 				C592537028ABFAD50041F1FC /* Info.plist */,
 				D8ACEF8A28A6F3250027F88B /* Structs */,
 				C5CD8E5A2883ACB600434E50 /* ShareViewController.swift */,
@@ -281,12 +281,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D858D0C4284D605100F5D4A1 /* Build configuration list for PBXNativeTarget "FreeFoodUniversity" */;
 			buildPhases = (
-				C59F2EA06505CA76DD0FBF88 /* [CP] Check Pods Manifest.lock */,
+				7BD2D4524873418FCA169040 /* [CP] Check Pods Manifest.lock */,
 				D858D097284D605000F5D4A1 /* Sources */,
 				D858D098284D605000F5D4A1 /* Frameworks */,
 				D858D099284D605000F5D4A1 /* Resources */,
-				734270BE713B17A48A994F19 /* [CP] Embed Pods Frameworks */,
-				FC2C1576533E56229230C0C6 /* [CP] Copy Pods Resources */,
+				3F6F0D0ABF7FA68B6F7A6505 /* [CP] Embed Pods Frameworks */,
+				422BE401D956627D33E43839 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,7 +301,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D858D0C7284D605100F5D4A1 /* Build configuration list for PBXNativeTarget "FreeFoodUniversityTests" */;
 			buildPhases = (
-				05A16729FE286A094846DDEF /* [CP] Check Pods Manifest.lock */,
+				7142FEEE87956BF6494534F0 /* [CP] Check Pods Manifest.lock */,
 				D858D0AC284D605100F5D4A1 /* Sources */,
 				D858D0AD284D605100F5D4A1 /* Frameworks */,
 				D858D0AE284D605100F5D4A1 /* Resources */,
@@ -320,12 +320,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D858D0CA284D605100F5D4A1 /* Build configuration list for PBXNativeTarget "FreeFoodUniversityUITests" */;
 			buildPhases = (
-				EE16E7B30489279EF8AF264C /* [CP] Check Pods Manifest.lock */,
+				1DCEC94DD653AC20E90A5F74 /* [CP] Check Pods Manifest.lock */,
 				D858D0B6284D605100F5D4A1 /* Sources */,
 				D858D0B7284D605100F5D4A1 /* Frameworks */,
 				D858D0B8284D605100F5D4A1 /* Resources */,
-				C3B1DB1DBC3B3E22E5A88BBD /* [CP] Embed Pods Frameworks */,
-				10C11526C64F2DC780A92B93 /* [CP] Copy Pods Resources */,
+				D2AECBE7C9E8434B5701006E /* [CP] Embed Pods Frameworks */,
+				9F15B5C27E9D0A2D37822690 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,7 +387,7 @@
 			files = (
 				D858D0A6284D605100F5D4A1 /* Preview Assets.xcassets in Resources */,
 				D858D0A3284D605100F5D4A1 /* Assets.xcassets in Resources */,
-				4DBF66E528AD79F100B328FB /* GoogleService-Info-2.plist in Resources */,
+				4DBF66E528AD79F100B328FB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +395,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DBF66E628AD79F100B328FB /* GoogleService-Info-2.plist in Resources */,
+				4DBF66E628AD79F100B328FB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,109 +403,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DBF66E728AD79F100B328FB /* GoogleService-Info-2.plist in Resources */,
+				4DBF66E728AD79F100B328FB /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		05A16729FE286A094846DDEF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FreeFoodUniversityTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		10C11526C64F2DC780A92B93 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		734270BE713B17A48A994F19 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C3B1DB1DBC3B3E22E5A88BBD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59F2EA06505CA76DD0FBF88 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FreeFoodUniversity-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE16E7B30489279EF8AF264C /* [CP] Check Pods Manifest.lock */ = {
+		1DCEC94DD653AC20E90A5F74 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -527,7 +432,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FC2C1576533E56229230C0C6 /* [CP] Copy Pods Resources */ = {
+		3F6F0D0ABF7FA68B6F7A6505 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		422BE401D956627D33E43839 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -542,6 +464,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity/Pods-FreeFoodUniversity-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7142FEEE87956BF6494534F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FreeFoodUniversityTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BD2D4524873418FCA169040 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FreeFoodUniversity-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F15B5C27E9D0A2D37822690 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2AECBE7C9E8434B5701006E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreeFoodUniversity-FreeFoodUniversityUITests/Pods-FreeFoodUniversity-FreeFoodUniversityUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -733,7 +733,7 @@
 		};
 		D858D0C5284D605100F5D4A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F40FB8DE61610E74DEFB344 /* Pods-FreeFoodUniversity.debug.xcconfig */;
+			baseConfigurationReference = E108E65CD6324B117F277B6D /* Pods-FreeFoodUniversity.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -769,7 +769,7 @@
 		};
 		D858D0C6284D605100F5D4A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD23AD352D880FBB8697A50F /* Pods-FreeFoodUniversity.release.xcconfig */;
+			baseConfigurationReference = 3DDBBF91C7588E06D58A8E3F /* Pods-FreeFoodUniversity.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -804,7 +804,7 @@
 		};
 		D858D0C8284D605100F5D4A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88435FF1BE557C987631E581 /* Pods-FreeFoodUniversityTests.debug.xcconfig */;
+			baseConfigurationReference = BDC6788E203C4891ECBEA3CF /* Pods-FreeFoodUniversityTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -824,7 +824,7 @@
 		};
 		D858D0C9284D605100F5D4A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 450E575712BF8745BD56B8EF /* Pods-FreeFoodUniversityTests.release.xcconfig */;
+			baseConfigurationReference = 7ADFC510871442A44FF44406 /* Pods-FreeFoodUniversityTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -844,7 +844,7 @@
 		};
 		D858D0CB284D605100F5D4A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 189D653FC7A0BB7F9AA028CB /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig */;
+			baseConfigurationReference = D88E892F004E5B40F623EE8F /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -862,7 +862,7 @@
 		};
 		D858D0CC284D605100F5D4A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A45DE7D122E1D568EC2F424 /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */;
+			baseConfigurationReference = 3D3607FC4D73D02850F3155C /* Pods-FreeFoodUniversity-FreeFoodUniversityUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
