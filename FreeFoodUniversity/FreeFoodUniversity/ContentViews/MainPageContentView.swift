@@ -64,11 +64,11 @@ struct MainPageContentView: View {
                             .resizable()
                             .frame(width: 100, height: 100)
                     }
-                    Text("   Use Current Location   ")
+                    Text("   Use Current Location   ").bold()
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                     Text("   (Recommended)   ")
-                        .font(.custom("Helvetica Neue", size: 12))
+                        .font(.custom("Helvetica Neue", size: 11))
                         .foregroundColor(.black)
                 }.border(Color.black)
                 
@@ -86,11 +86,11 @@ struct MainPageContentView: View {
                             .resizable()
                             .frame(width: 100, height: 100)
                     }
-                    Text("        Pick Your College           ")
+                    Text("        Pick Your College           ").bold()
                         .font(.custom("Helvetica Neue", size: 12))
                         .foregroundColor(.black)
                     Text("        (From 100+)           ")
-                        .font(.custom("Helvetica Neue", size: 12))
+                        .font(.custom("Helvetica Neue", size: 11))
                         .foregroundColor(.black)
                 }.border(Color.black)
             }.position(x:200, y:-10)

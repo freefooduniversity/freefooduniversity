@@ -34,17 +34,72 @@ struct MarkerView: View {
     var body: some View {
         let marker = getMarkerFromTitleAndCollege(title: title, college: college)
         VStack {
+            VStack {
                 HStack {
                     Text(makeMarkerTitle(food: marker.food, building: marker.building))
                         .bold()
-                        .underline()
                         .font(.custom("Helvetica Neue", size: 20))
                         .foregroundColor(.black)
-                        .position(x:180, y: 25)
                 }
+                Text("")
+                HStack {
+                    Text(String(marker.likes))
+                        .foregroundColor(Color.blue)
+                    Button(action: {
+                        
+                    }) {
+                        VStack {
+                            Text("")
+                            HStack {
+                                Text(" 👍     ")
+                                    .font(.custom("Helvetica Neue", size: 16))
+                                    .foregroundColor(.white)
+
+                            }
+                            Text("")
+                        }
+                    }.background(Color.green).cornerRadius(15)
+                    Text(" ")
+                    Text(String(marker.dislikes))
+                        .foregroundColor(Color.blue)
+                    Button(action: {
+                        
+                    }) {
+                        VStack {
+                           Text("")
+                            HStack {
+                                Text(" 👎     ")
+                                    .font(.custom("Helvetica Neue", size: 16))
+                                    .foregroundColor(.white)
+                            }
+                            Text("")
+                        }
+                    }.background(Color.red).cornerRadius(15)
+                    Text("  ")
+                    Button(action: {
+                        
+                    }) {
+                        VStack {
+                           Text("")
+                            HStack {
+                                Text("Directions →   ")
+                                    .font(.custom("Helvetica Neue", size: 16))
+                                    .foregroundColor(.white)
+                                Image("")
+                            }
+                            Text("")
+                        }
+                    }.background(Color.blue).cornerRadius(15)
+                    
+                }
+            } .position(x:180, y: 45)
+            VStack {
+                Text("")
+                Text("")
+            }
             VStack {
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack{
                         HStack {
                             Text("Time:")
                                 .bold()
@@ -59,24 +114,24 @@ struct MarkerView: View {
                             Text("Signed Up:").bold()
                             Text(String(marker.dibs) + " / " + String(marker.capacity) + "🧑🏻‍💼")
                             Text(" ")
-                            VStack(alignment: .leading) {
+                            VStack{
                                 Button(action: {
                                     
                                 }) {
                                     VStack {
-                                        Text("")
-                                            .font(.custom("Helvetica Neue", size: 2))
+                                     //   Text("")//
+                                      //      .font(.custom("Helvetica Neue", size: 2))
                                         HStack {
-                                            Text("")
+                                           Text("")
                                             Text("Reserve A Spot!")
                                                 .font(.custom("Helvetica Neue", size: 16))
                                                 .foregroundColor(.white)
                                             Text("")
                                         }
-                                        Text("")
-                                            .font(.custom("Helvetica Neue", size: 2))
+                                      //  Text("")
+                                      //      .font(.custom("Helvetica Neue", size: 2))
                                     }
-                                }.background(Color.blue).cornerRadius(15)
+                                }.background(Color.purple).cornerRadius(15)
                             }
                         }
                         Text(" ")
@@ -84,9 +139,14 @@ struct MarkerView: View {
                             Text("Event: ").bold()
                             Text(marker.event)
                         }
-                        Text(" ")
-                      //  Text(marker.additional_info)
-                    }.position(x: 185, y: 50)
+                        Text("")
+                        if (marker.additional_info.count >= 10) {
+                            HStack {
+                                Text("Info:").bold()
+                            Text(marker.additional_info)
+                            }
+                        }
+                    }.position(x: 185, y: 25)
                     /*
                         Image("Headshot")
                         .resizable()
@@ -94,7 +154,7 @@ struct MarkerView: View {
                             .position(x: 185, y: 50)
                     
                      */
-                }.position(x: 180, y: 15)
+                }.position(x: 180, y: 35)
                 
                 Button(action: {
                     showMarkerView = false
@@ -103,14 +163,15 @@ struct MarkerView: View {
                 }) {
                     HStack {
                         Text("")
-                        Text("Go Back")
+                        Text(" Close     ")
                             .font(.custom("Helvetica Neue", size: 16))
                             .foregroundColor(.white)
+                        Text("")
                     }
                 }.background(Color.purple).cornerRadius(15)
                  
             }
-        }.position(x: 200, y: 95)
+        }.position(x: 200, y: 135)
     }
 
 }
