@@ -24,7 +24,7 @@ struct ListView : View {
             } label: {
                 Text("Go Back")
             }
-            if (markerClicked == "all") {
+            if (markerClicked == "all" && markers.count > 0) {
                 Group {
                     ForEach(1...markers.count, id: \.self) { i in
                         Button {
@@ -36,7 +36,7 @@ struct ListView : View {
                         }.padding(10.0)
                     }
                 }
-            } else {
+            } else if (markers.count > 0){
                 Group  {
                     ForEach(1...markers.count, id: \.self) { i in
                         if (markers[i - 1].food == markerClicked) {

@@ -97,6 +97,9 @@ func formatTime(time: Int, delay: Int) -> String {
         hours -= 12
     }
     
+    if (Int(minutes)! < 10) {
+        minutes = "0" + minutes
+    }
     formatTime = String(hours) + ":" + minutes + " " + amorpm
     
     return formatTime
