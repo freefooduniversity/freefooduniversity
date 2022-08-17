@@ -97,7 +97,7 @@ struct addFoodToMapView: View {
                         print(getStartTime() > 500)
                         print(getStartTime() < 2000)
                         if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 1300) {
-                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: capacitySelection,
+                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
                                       building: building, event: event, additional_info: details)
                             
                         } else {
@@ -129,6 +129,31 @@ struct addFoodToMapView: View {
     }
     
     
+}
+
+func getCapacity(capacity: String) -> Int {
+    var ret = 0
+    if (capacity.count == 5) {
+        ret = Int(substring(string: capacity, fromIndex: 1, toIndex: 2)!)!
+    }
+    if (capacity.count == 6) {
+        ret = Int(substring(string: capacity, fromIndex: 1, toIndex: 3)!)!
+    }
+    if (capacity.count == 7) {
+        ret = Int(substring(string: capacity, fromIndex: 1, toIndex: 4)!)!
+    }
+    
+    return ret
+}
+
+func substring(string: String, fromIndex: Int, toIndex: Int) -> String? {
+    if fromIndex < toIndex && toIndex < string.count /*use string.characters.count for swift3*/{
+        let startIndex = string.index(string.startIndex, offsetBy: fromIndex)
+        let endIndex = string.index(string.startIndex, offsetBy: toIndex)
+        return String(string[startIndex..<endIndex])
+    }else{
+        return nil
+    }
 }
 
 func getTimeZone() -> Int {
@@ -179,7 +204,8 @@ func getEndTime(duration : String) -> Int {
 
 }
 
-func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: String, building: String, event: String, additional_info: String) {
+
+func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: Int, building: String, event: String, additional_info: String) {
     getTimeZone()
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
@@ -196,7 +222,6 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     var food = getFoodFromDropDownName(food: foodSelection)
-    print("capacity: " + capacity)
     let body: [String: AnyHashable] = [
         "id": id,
         "food": food,
@@ -206,8 +231,8 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "start_time": getStartTime(),
         "end_time": getEndTime(duration: duration),
         "time_zone": getTimeZone(),
-        "capacity": 200,
-        "dibs": 134,
+        "capacity": capacity,
+        "dibs": 0,
         "likes": 41,
         "dislikes": 11,
         "creator_email": "free@gmail.com",
