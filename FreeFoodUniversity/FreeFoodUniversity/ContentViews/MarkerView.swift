@@ -26,7 +26,7 @@ struct MarkerView: View {
                 if (marker.food == title.prefix(upTo: index!) && marker.building == title.substring(from: fromIndex) && marker.college == college) {
                     return marker
                 }
-            } 
+            }
         }
         return markerData[0]
     }
@@ -39,25 +39,14 @@ struct MarkerView: View {
                         .bold()
                         .font(.custom("Helvetica Neue", size: 20))
                         .foregroundColor(.black)
-                        .position(x:180, y: 15)
-                    Button(action: {
-                        showMarkerView = false
-                        showListView = false
-                        title = ""
-                    }) {
-                        HStack {
-                            Text("")
-                            Text("Back    ")
-                                .font(.custom("Helvetica Neue", size: 16))
-                                .foregroundColor(.white)
-                        }
-                    }.background(Color.purple).cornerRadius(15).position(x: 140, y: 25)
+                        .position(x:180, y: 25)
                 }
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Time: ").bold().underline()
-                        Text(String(marker.start_time) + " - " + String(marker.end_time))
+                        Text(formatTime(time: Int(marker.start_time)!, delay: 0) + " - " + formatTime(time: Int(marker.end_time), delay: 4))
+                        Text("Active Now!")
+                            .foregroundColor(Color.green)
                         Text(" ")
                         Text("Signed Up: ").bold().underline()
                         Text(String(marker.dibs) + " / " + String(marker.capacity))
@@ -66,16 +55,73 @@ struct MarkerView: View {
                         Text(marker.event)
                         Text(" ")
                         Text(marker.additional_info)
-                    }.position(x: 70, y: 50)
-                    VStack {
+                    }.position(x: 95, y: 50)
+                    
                         Image("Headshot")
                             .frame(width: 50, height: 100)
-                    }.position(x: 125, y: 55)
-                }.position(x: 180, y: 35)
+                            .position(x: 125, y: 50)
+                    
+                     
+                }.position(x: 180, y: 15)
+                
+                Button(action: {
+                    showMarkerView = false
+                    showListView = false
+                    title = ""
+                }) {
+                    HStack {
+                        Text("")
+                        Text("Go Back")
+                            .font(.custom("Helvetica Neue", size: 16))
+                            .foregroundColor(.white)
+                    }
+                }.background(Color.purple).cornerRadius(15)
+                 
             }
         }.position(x: 200, y: 95)
     }
 
 }
+
+func formatTime(time: Int, delay: Int) -> String {
+    var formatTime = ""
+    var amorpm = ""
+    
+    
+    var hours: Int = ((time - time % 100) / 100)
+    var minutes = String(time % 100)
+    
+    hours -= Int(delay)
+    if (time < 1200) { amorpm = "AM"} else {
+        amorpm = "PM"
+        hours -= 12
+    }
+    
+    formatTime = String(hours) + ":" + minutes + " " + amorpm
+    
+    return formatTime
+}
+/*
+func formatTimeInt(time: String, delay: Int) -> String {
+    var timeInt: Int = Int(time)!
+    var formatTime = ""
+    var amorpm = ""
+    
+    var hours: Int = ((timeInt - timeInt % 100) / 100)
+    var minutes = String(timeInt % 100)
+    
+    hours -= delay
+    if (timeInt < 1200) {
+            amorpm = "AM"
+    } else {
+        amorpm = "PM"
+        hours -= 12
+    }
+    
+    formatTime = String(hours) + ":" + minutes + " " + amorpm
+    
+    return formatTime
+}
+ */
 
 
