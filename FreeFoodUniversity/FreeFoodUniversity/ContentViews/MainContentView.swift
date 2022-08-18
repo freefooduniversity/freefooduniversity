@@ -34,6 +34,10 @@ struct MainContentView: View {
     
     @State var selectedState = ""
     
+    @State var hasLiked: Bool = false
+    @State var hasSignedUp: Bool = false
+    @State var hasReported: Bool = false
+    
     @State var returnMarkers: [Marker] = []
     @State var Markers: [Marker] = []
     @State var MarkersForTitleAndCollege: [Marker] = []
@@ -242,7 +246,7 @@ struct MainContentView: View {
                     if (showListView) {
                         ListView(markers: Markers, showMarkerView: $showMarkerView, showListView: $showListView, markerClicked: $markerClicked)
                     } else if (showMarkerView) {
-                        MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView)
+                        MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported)
                     }
                 }
             }

@@ -121,3 +121,16 @@ func getFoodSortedByExistence(college: String) -> [(String, Int)] {
 func makeMarkerTitle(food: String, building: String)  -> String{
     return "Free " + getFoodDisplayName(food: food) +  " at " + building + "!"
 }
+
+
+
+func updateMarkerButton(id: Int, button: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/button/" + String(id) + "/" + button) else {
+        return
+    }
+    
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+     //   let stats = try!JSONDecoder().decode([String].self, from: data!)
+    }.resume()
+   
+}
