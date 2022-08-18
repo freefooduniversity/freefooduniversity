@@ -18,11 +18,16 @@ struct ListView : View {
     
     var body : some View {
         ScrollView {
+            HStack {
             Button {
                 showListView = false
                 markerClicked = ""
             } label: {
-                Text("Go Back")
+                Text("<- Go Back")
+                    .position(x:70, y: 10)
+            }
+                Text("")
+                    .position(x:5, y:10)
             }
             if (markerClicked == "all" && markers.count > 0) {
                 Group {
