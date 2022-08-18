@@ -129,8 +129,17 @@ struct MarkerView: View {
             VStack (alignment: .leading){
                 HStack {
                     VStack (alignment: .leading){
+                        VStack  (alignment: .leading) {
+                            Text(" ")
+                            Text(" ")
+                            HStack {
+                                Text("🗓:")
+                                Text("Thursday, Dec 31, 2022")
+                            }
+                            Text(" ")
+                        }
                         HStack {
-                            Text("Time:")
+                            Text("⏱:")
                                 .bold()
                             Text(formatTime(time: Int(marker.start_time)!, delay: 0) + " - " + formatTime(time: Int(marker.end_time), delay: 4))
                                 .underline()
@@ -141,14 +150,13 @@ struct MarkerView: View {
                         }
                         Text(" ")
                         HStack {
-                            Text("Signed Up:").bold()
+                            Text("🧑🏻‍💼:").bold()
                             HStack {
                                 Text(String(marker.dibs))
                                     .foregroundColor(Color.blue)
                                 Text("/")
                                 Text(String(marker.capacity))
                                     .foregroundColor(Color.blue)
-                                Text("🧑🏻‍💼")
                             }
                             Text(" ")
                             VStack{
@@ -180,13 +188,13 @@ struct MarkerView: View {
                         }
                         Text(" ")
                         HStack {
-                            Text("Event: ").bold()
+                            Text("🎈: ").bold()
                             Text(marker.event)
                         }
                         Text("")
                    //     if (marker.additional_info.count >= 10) {
                             HStack {
-                                Text("Info:").bold()
+                                Text("📝:").bold()
                                 Text(marker.additional_info)
                             }
                      //   }
@@ -202,7 +210,7 @@ struct MarkerView: View {
                                         .frame(width: 35, height: 35)
                                         .position(x: 220, y: 5)
                             }
-                        }.position(x: 285, y: -25)
+                        }.position(x: 285, y: -60)
                     }.position(x: 220, y: 45)
                     
                         

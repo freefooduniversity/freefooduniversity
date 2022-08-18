@@ -165,8 +165,8 @@ struct CollegeContentView: View {
                             }
                         }
                     }.background(Color.gray).cornerRadius(15).opacity(0.9)
-                }.frame(width: 40, height: 250)
-            }.position(x: 360, y: -300)
+                }.frame(width: 40, height: 350)
+            }.position(x: 360, y: -280)
          
             VStack {
                 Text(getTitle(college: college))
