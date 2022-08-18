@@ -56,33 +56,20 @@ struct MarkerView: View {
                     Button(action: {
                         
                     }) {
-                        VStack {
-                            Text("")
-                            HStack {
-                                Text(" 👍     ")
-                                    .font(.custom("Helvetica Neue", size: 16))
-                                    .foregroundColor(.white)
-
-                            }
-                            Text("")
-                        }
-                    }.background(Color.green).cornerRadius(15)
+                       Image("like")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                    }
                     Text(" ")
                     Text(String(marker.dislikes))
                         .foregroundColor(Color.blue)
                     Button(action: {
                         
                     }) {
-                        VStack {
-                           Text("")
-                            HStack {
-                                Text(" 👎     ")
-                                    .font(.custom("Helvetica Neue", size: 16))
-                                    .foregroundColor(.white)
-                            }
-                            Text("")
-                        }
-                    }.background(Color.red).cornerRadius(15)
+                        Image("dislike")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                    }
                     Text("  ")
                     Button(action: {
                         
@@ -139,7 +126,7 @@ struct MarkerView: View {
                                       //  Text("")
                                       //      .font(.custom("Helvetica Neue", size: 2))
                                     }
-                                }.background(Color.orange).cornerRadius(15)
+                                }.background(Color.purple).cornerRadius(15)
                             }
                         }
                         Text(" ")
@@ -180,11 +167,13 @@ struct MarkerView: View {
                 }) {
                     HStack {
                         Text("")
-                        Text(" Close  ")
-                            .font(.custom("Helvetica Neue", size: 16))
-                            .foregroundColor(.white)
+                        Text(" Close ")
+                            .bold()
+                            .underline()
+                            .font(.custom("Helvetica Neue", size: 18))
+                            .foregroundColor(.black)
                         Text("")
-                    }.background(Color.purple).cornerRadius(15)
+                    }
                 }.position(x: 195, y:80)
         }.position(x: 200, y: 32)
     }
