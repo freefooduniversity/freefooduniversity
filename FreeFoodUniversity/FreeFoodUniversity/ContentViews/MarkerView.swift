@@ -17,6 +17,9 @@ struct MarkerView: View {
     var college: String
     @Binding var showMarkerView: Bool
     @Binding var showListView: Bool
+    @Binding var hasLiked: Bool
+    @Binding var hasSignedUp: Bool
+    @Binding var hasReported: Bool
     
     func getMarkerFromTitleAndCollege(title: String, college: String) -> Marker {
         for marker in markerData {
@@ -44,7 +47,10 @@ struct MarkerView: View {
                 Text("")
                 HStack {
                     Button(action: {
-                        
+                        if (!hasReported) {
+                            hasReported = true
+                            updateMarkerButton(id: marker.id, button: "reports")
+                        }
                     }) {
                         Image("report")
                             .resizable()
@@ -54,7 +60,10 @@ struct MarkerView: View {
                     Text(String(marker.likes))
                         .foregroundColor(Color.blue)
                     Button(action: {
-                        
+                        if (!hasLiked) {
+                            hasLiked = true
+                            updateMarkerButton(id: marker.id, button: "likes")
+                        }
                     }) {
                        Image("like")
                             .resizable()
@@ -64,7 +73,10 @@ struct MarkerView: View {
                     Text(String(marker.dislikes))
                         .foregroundColor(Color.blue)
                     Button(action: {
-                        
+                        if (!hasLiked) {
+                            hasLiked = true
+                            updateMarkerButton(id: marker.id, button: "dislikes")
+                        }
                     }) {
                         Image("dislike")
                             .resizable()
@@ -118,7 +130,10 @@ struct MarkerView: View {
                             Text(" ")
                             VStack{
                                 Button(action: {
-                                    
+                                    if (!hasSignedUp) {
+                                        hasSignedUp = true
+                                        updateMarkerButton(id: marker.id, button: "dibs")
+                                    }
                                 }) {
                                     VStack {
                                      //   Text("")//
@@ -232,5 +247,7 @@ func formatTimeInt(time: String, delay: Int) -> String {
     return formatTime
 }
  */
+
+
 
 
