@@ -32,22 +32,62 @@ struct ListView : View {
                             showListView = false
                             markerClicked = markers[i - 1].food + "|" + markers[i - 1].building
                         } label: {
-                            Text("Free \(getFoodDisplayName(food: markers[i - 1].food)) at \(markers[i - 1].building)")
+                            VStack {
+                                Text("Free \(getFoodDisplayName(food: markers[i - 1].food)) at \(markers[i - 1].building)")
+                                    .bold()
+                                    .font(.custom("Helvetica Neue", size: 16))
+                                    .foregroundColor(Color.black)
+                                HStack {
+                                    Image(markers[i - 1].food)
+                                        .resizable()
+                                        .frame(width: 35, height: 35)
+                                    Text(formatTime(time: Int(markers[i-1].start_time)!, delay: 0) + " - " + formatTime(time: Int(markers[i-1].end_time), delay: 4))
+                                        .underline()
+                                        .foregroundColor(Color.black)
+                                    Text(" ")
+                                    Image("right-arrow")
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                }
+                                HStack {
+                                    Text("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ")
+                                        .font(.system(size:1))
+                                }.background(Color.gray)
+                            }
                         }.padding(10.0)
                     }
                 }
             } else if (markers.count > 0){
                 Group  {
                     ForEach(1...markers.count, id: \.self) { i in
-                        if (markers[i - 1].food == markerClicked) {
-                            Button {
-                                showMarkerView = true
-                                showListView = false
-                                markerClicked = markers[i - 1].food + "|" + markers[i - 1].building
-                            } label: {
+                        Button {
+                            showMarkerView = true
+                            showListView = false
+                            markerClicked = markers[i - 1].food + "|" + markers[i - 1].building
+                        } label: {
+                            VStack {
                                 Text("Free \(getFoodDisplayName(food: markers[i - 1].food)) at \(markers[i - 1].building)")
-                            }.padding(10.0)
-                        }
+                                    .bold()
+                                    .font(.custom("Helvetica Neue", size: 16))
+                                    .foregroundColor(Color.black)
+                                HStack {
+                                    Image(markers[i - 1].food)
+                                        .resizable()
+                                        .frame(width: 35, height: 35)
+                                    Text(formatTime(time: Int(markers[i-1].start_time)!, delay: 0) + " - " + formatTime(time: Int(markers[i-1].end_time), delay: 4))
+                                        .underline()
+                                        .foregroundColor(Color.black)
+                                    Text(" ")
+                                    Image("right-arrow")
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                }
+                                HStack {
+                                    Text("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ")
+                                        .font(.system(size:1))
+                                }.background(Color.gray)
+                            }
+                        }.padding(10.0)
                     }
                 }
             }
