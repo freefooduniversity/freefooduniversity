@@ -173,9 +173,10 @@ struct MainContentView: View {
     func getGoogleMapsViewHeight() -> CGFloat {
         if (addFood && isSignedIntoGoogle) {
             return 240
-        } else {
-            return 450
+        } else if (showMarkerView) {
+            return 400
         }
+        return 450
     }
     
     var body: some View {
