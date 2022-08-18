@@ -40,6 +40,19 @@ struct MarkerView: View {
         let marker = getMarkerFromTitleAndCollege(title: title, college: college)
         VStack {
             VStack {
+                ZStack {
+                    Button(action: {
+                        showMarkerView = false
+                        showListView = false
+                        title = ""
+                    }) {
+                        HStack {
+                            Image("x")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                        }
+                    }
+                }.position(x: 360, y:65)
                 HStack {
                     Text(makeMarkerTitle(food: marker.food, building: marker.building))
                         .bold()
@@ -118,7 +131,7 @@ struct MarkerView: View {
                     }
                     
                 }
-            } .position(x:200, y: 35)
+            } .position(x:200, y: 15)
             VStack {
                 Text("")
                 Text("")
@@ -180,7 +193,7 @@ struct MarkerView: View {
                                       //  Text("")
                                       //      .font(.custom("Helvetica Neue", size: 2))
                                     }
-                                }.background(Color.purple).cornerRadius(15)
+                                }.background(Color.blue).cornerRadius(15)
                             }
                         }
                         Text(" ")
@@ -207,29 +220,13 @@ struct MarkerView: View {
                                         .frame(width: 35, height: 35)
                                         .position(x: 220, y: 5)
                             }
-                        }.position(x: 285, y: -55)
-                    }.position(x: 220, y: 30)
+                        }.position(x: 300, y: -55)
+                    }.position(x: 220, y: 60)
                     
                         
                      
-                }.position(x: 190, y: 35)
-                
-                Button(action: {
-                    showMarkerView = false
-                    showListView = false
-                    title = ""
-                }) {
-                    HStack {
-                        Text("")
-                        Text(" Close ")
-                            .bold()
-                            .underline()
-                            .font(.custom("Helvetica Neue", size: 18))
-                            .foregroundColor(.black)
-                        Text("")
-                    }
-                }.position(x: 195, y:80)
-        }.position(x: 200, y: 32)
+                }.position(x: 190, y: 60)
+        }.position(x: 200, y: 22)
     }
 }
 }
