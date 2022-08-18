@@ -118,6 +118,9 @@ struct MainContentView: View {
             }
         }
         updateFoodEvents(college: college, food_events: Markers.count)
+        if (getStartTime() >= 2200 && getTimeZone() == 0) {
+            deleteFedToday()
+        }
         
         // Don't show user location if it isnt on (When lat is default value)
         if (latitude != 37.0902) {

@@ -153,7 +153,7 @@ struct MarkerView: View {
                             Text(" ")
                             VStack{
                                 Button(action: {
-                                    if (!hasSignedUp) {
+                                    if (!hasSignedUp && marker.dibs < marker.capacity) {
                                         updateMarkerButton(id: marker.id, button: "dibs", college: marker.college)
                                         DispatchQueue.main.async {
                                             usleep(300000)

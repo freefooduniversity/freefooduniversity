@@ -134,3 +134,13 @@ func updateMarkerButton(id: Int, button: String, college: String) {
     }.resume()
    
 }
+
+func deleteFedToday() {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/stats/fed_today/reset") else {
+        return
+    }
+    
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+     //   let stats = try!JSONDecoder().decode([String].self, from: data!)
+    }.resume()
+}
