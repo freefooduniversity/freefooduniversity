@@ -21,6 +21,7 @@ struct MarkerView: View {
     @Binding var hasSignedUp: Bool
     @Binding var hasReported: Bool
     @Binding var reload: Bool
+    @Binding var enlargeImage: Bool
     
     func getMarkerFromTitleAndCollege(title: String, college: String) -> Marker {
         for marker in markerData {
@@ -132,6 +133,7 @@ struct MarkerView: View {
                             Text("Time:")
                                 .bold()
                             Text(formatTime(time: Int(marker.start_time)!, delay: 0) + " - " + formatTime(time: Int(marker.end_time), delay: 4))
+                                .underline()
                             Text(" ")
                             Text("Active Now!")
                                 .foregroundColor(Color.green)
@@ -193,7 +195,7 @@ struct MarkerView: View {
                                .resizable()
                                 .frame(width: 65, height: 100)
                             Button(action: {
-                                
+                                enlargeImage = true
                             }) {
                                     Image("enlarge")
                                         .resizable()
