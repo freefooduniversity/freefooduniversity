@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24733894AB7659F60A78B84F /* Pods_FreeFoodUniversity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE1806A9253F5FBACA57420F /* Pods_FreeFoodUniversity.framework */; };
 		2CC1E230E403CF2863DC5DD9 /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 192765A7467C678F83AFEC40 /* Pods_FreeFoodUniversity_FreeFoodUniversityUITests.framework */; };
 		A3F21AEFB6227CF105739394 /* Pods_FreeFoodUniversityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9C078EC8CD742CD1E50443E /* Pods_FreeFoodUniversityTests.framework */; };
 		C50DFD7428A6D59500F57948 /* renameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50DFD7328A6D59500F57948 /* renameFunctions.swift */; };
@@ -122,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24733894AB7659F60A78B84F /* Pods_FreeFoodUniversity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +734,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FreeFoodUniversity/Preview Content\"";
+				DEVELOPMENT_TEAM = A392TF3NL6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreeFoodUniversity/Info.plist;
