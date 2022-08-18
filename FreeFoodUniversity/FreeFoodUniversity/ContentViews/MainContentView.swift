@@ -175,7 +175,7 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     
     func getGoogleMapsViewHeight() -> CGFloat {
-        if (addFood && isSignedIntoGoogle) {
+        if (addFood) {
             return 240
         } else if (showMarkerView) {
             return 400
@@ -247,11 +247,7 @@ struct MainContentView: View {
                 }
             }
             else {
-                if (isSignedIntoGoogle) {
                     addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude)
-                } else {
-                    GoogleAddFoodView(isSignedIntoGoogle: $isSignedIntoGoogle, addFood: $addFood)
-                }
             }
         } else {
             if (navButton == "profile") {

@@ -120,12 +120,14 @@ struct addFoodToMapView: View {
         }.sheet(isPresented: $openCameraRoll) {
             ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
         }
-        Text("*Remember*: You're logged into Google.")
-            .font(.custom("Helvetica Neue", size: 22))
+        VStack {
+            Text(" ")
+        Text("*All Above Fields Are Required**")
+        Text(" ")
+        Text("Inappropriate posts will result in an immediate ban.")
+            .font(.custom("Helvetica Neue", size: 16))
             .foregroundColor(.black)
-        Text("*Don't* post inappropriate info")
-            .font(.custom("Helvetica Neue", size: 22))
-            .foregroundColor(.black)
+        }.position(x: 195, y: 50)
     }
     
     
