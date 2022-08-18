@@ -60,16 +60,26 @@ struct MainContentView: View {
         if (doExecute) {
             execute = false
             if (selectedState == "" || selectedState == "Select Your State") {
-                if (college != "pickCollege") {
-                    getAllMarkersForCollege (completion: { (marks) in
+                if (markerClicked == "" || markerClicked == "all") {
+                    if (college != "pickCollege") {
+                        getAllMarkersForCollege (completion: { (marks) in
+                            Markers = marks
+                        }, college: college)
+                        saveMarkersForCollege(markers: Markers)
+                    } else {
+                        getAllMarkersForCollege (completion: { (marks) in
+                            Markers = marks
+                        }, college: "all")
+                    
+                    }
+                } else if (!markerClicked.contains("|")){
+                    getMarkerFromTitleAndCollege(completion: { (marks) in
                         Markers = marks
-                    }, college: college)
-                    saveMarkersForCollege(markers: Markers)
+                    }, college: college, food: markerClicked)
                 } else {
-                    getAllMarkersForCollege (completion: { (marks) in
+                    getMarkerFromTitleAndCollege(completion: { (marks) in
                         Markers = marks
-                    }, college: "all")
-                
+                    }, college: college, title: markerClicked)
                 }
             } else {
                 /*
