@@ -280,7 +280,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "delaware") { return ["delaware", "wilmington", "delawaretech", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "florida") { return ["florida", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach"] }
     if (state == "georgia") { return ["uga", "gt", "ksu", "gastate", "gasouthern", "emory", "uwg", " ", " ", " "] }
-    if (state == "hawaii") { return ["hawaii", " ", " ", " ", " ", " ", " "] }
+    if (state == "hawaii") { return ["hawaii", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "idaho") { return ["byu", "boise", "idahostate", "idaho", " ", " ", " ", " ", " ", " "] }
     if (state == "illinois") { return ["urbana", "uic", "devry", "northwestern", " ", " ", " ", " ", " ", " "] }
     if (state == "indiana") { return ["ivytech", "purdue", "notredame", " ", " ", " ", " ", " ", " ", " "] }
