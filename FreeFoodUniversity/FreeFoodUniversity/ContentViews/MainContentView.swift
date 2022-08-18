@@ -12,6 +12,7 @@ import GoogleMaps
 var execute: Bool = true
 var executeStats: Bool = true
 var executeForCollege: Bool = true
+var emailSet: [String] = []
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
@@ -82,6 +83,9 @@ struct MainContentView: View {
         
         if (Markers.count > 0) {
             for i in 0 ... Markers.count - 1 {
+                if (!emailSet.contains(Markers[i].creator_email)) {
+                    emailSet.append(Markers[i].creator_email)
+                }
                 var marker: GMSMarker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
                 var foodDisplayName = getFoodDisplayName(food: Markers[i].food)
@@ -171,7 +175,7 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     
     func getGoogleMapsViewHeight() -> CGFloat {
-        if (addFood && isSignedIntoGoogle) {
+        if (addFood) {
             return 240
         } else if (showMarkerView) {
             return 400
@@ -243,11 +247,7 @@ struct MainContentView: View {
                 }
             }
             else {
-                if (isSignedIntoGoogle) {
                     addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude)
-                } else {
-                    GoogleAddFoodView(isSignedIntoGoogle: $isSignedIntoGoogle, addFood: $addFood)
-                }
             }
         } else {
             if (navButton == "profile") {
