@@ -98,7 +98,7 @@ struct addFoodToMapView: View {
                         print(getStartTime() < 2000)
                         if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500) {
                             addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
-                                      building: building, event: event, additional_info: details)
+                                      building: building, event: event, additional_info: details, email: UIDevice.current.identifierForVendor!.uuidString)
                             
                         } else {
                             // alert user
@@ -205,10 +205,15 @@ func getEndTime(duration : String) -> Int {
 }
 
 
-func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: Int, building: String, event: String, additional_info: String) {
+func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: Int, building: String, event: String, additional_info: String, email: String) {
     getTimeZone()
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
+        return
+    }
+    
+    if (emailSet.contains(email) && email != "6B9D47FA-DF0A-4598-9E55-51550A3F4974") {
+        print("You've already placed a marker")
         return
     }
     
@@ -235,7 +240,7 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "dibs": 0,
         "likes": 0,
         "dislikes": 0,
-        "creator_email": "free@gmail.com",
+        "creator_email": email,
         "pic_url": "place_holder",
         "event": event,
         "building": building,
