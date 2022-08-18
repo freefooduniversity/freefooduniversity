@@ -72,7 +72,7 @@ func getMarkerFromTitleAndCollege(completion: @escaping ([Marker]) -> (), colleg
         }
     }.resume()
 }
-
+/*
 func getMarkerFromTitleAndCollege(college: String, food: String) -> [Marker] {
     var Markers: [Marker] = []
     
@@ -81,6 +81,31 @@ func getMarkerFromTitleAndCollege(college: String, food: String) -> [Marker] {
     }, college: college, food: food)
     
     return Markers
+}
+*/
+
+func getMarkerFromTitleAndCollege(completion: @escaping ([Marker]) -> (), college: String, title: String) {
+    var food = ""
+    var building = ""
+    
+    let index = title.firstIndex(of: "|")
+    let fromIndex = title.index(title.startIndex, offsetBy: title.distance(from: title.startIndex, to: index!) + 1)
+    food = String(title.prefix(upTo: index!))
+    building = String(title.substring(from: fromIndex))
+
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/title/college/" + food + "/" + building + "/" + college) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+        DispatchQueue.main.async {
+            print("1")
+            print(markers)
+            print("2")
+            completion(markers)
+        }
+    }.resume()
 }
 
 func saveMarkersForCollege(markers: [Marker]) {
