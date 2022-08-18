@@ -124,9 +124,9 @@ struct addFoodToMapView: View {
             Text(" ")
         Text("*All Above Fields Are Required**")
         Text(" ")
-        Text("Inappropriate posts will result in an immediate ban.")
-            .font(.custom("Helvetica Neue", size: 16))
-            .foregroundColor(.black)
+      //  Text("Inappropriate posts will result in an immediate ban.")
+     //       .font(.custom("Helvetica Neue", size: 16))
+      //      .foregroundColor(.black)
         }.position(x: 195, y: 50)
     }
     

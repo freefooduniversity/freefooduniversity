@@ -43,6 +43,14 @@ struct MarkerView: View {
                 }
                 Text("")
                 HStack {
+                    Button(action: {
+                        
+                    }) {
+                        Image("report")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                    }
+                    Text(" ")
                     Text(String(marker.likes))
                         .foregroundColor(Color.blue)
                     Button(action: {
