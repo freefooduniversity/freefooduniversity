@@ -124,8 +124,8 @@ func makeMarkerTitle(food: String, building: String)  -> String{
 
 
 
-func updateMarkerButton(id: Int, button: String) {
-    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/button/" + String(id) + "/" + button) else {
+func updateMarkerButton(id: Int, button: String, college: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/marker/button/" + String(id) + "/" + button + "/" + college) else {
         return
     }
     

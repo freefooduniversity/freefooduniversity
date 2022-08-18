@@ -37,15 +37,13 @@ struct ProfileView: View {
             HStack {
                 Text("# People You've Fed: 45🧑🏻‍💼")
             }
-            HStack {
-                Text("Your College: UGA")
-            }
+            Text(" ")
             HStack {
                 Text("Overall Rating of Your Food:")
                 Text("86% Positive")
                     .font(.custom("Helvetica Neue", size: 18))
                     .foregroundColor(.green)
             }
-        }.position(x:200, y:120)
+        }.position(x:200, y:90)
     }
 }

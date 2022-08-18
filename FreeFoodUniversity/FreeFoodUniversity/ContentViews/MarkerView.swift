@@ -50,7 +50,7 @@ struct MarkerView: View {
                 HStack {
                     Button(action: {
                         if (!hasReported) {
-                            updateMarkerButton(id: marker.id, button: "reports")
+                            updateMarkerButton(id: marker.id, button: "reports", college: marker.college)
                             
                             DispatchQueue.main.async {
                                 usleep(300000)
@@ -68,7 +68,7 @@ struct MarkerView: View {
                         .foregroundColor(Color.blue)
                     Button(action: {
                         if (!hasLiked) {
-                            updateMarkerButton(id: marker.id, button: "likes")
+                            updateMarkerButton(id: marker.id, button: "likes", college: marker.college)
                             DispatchQueue.main.async {
                                 usleep(300000)
                                 hasLiked = true
@@ -85,7 +85,7 @@ struct MarkerView: View {
                         .foregroundColor(Color.blue)
                     Button(action: {
                         if (!hasLiked) {
-                            updateMarkerButton(id: marker.id, button: "dislikes")
+                            updateMarkerButton(id: marker.id, button: "dislikes", college: marker.college)
                             DispatchQueue.main.async {
                                 usleep(300000)
                                 hasLiked = true
@@ -154,7 +154,7 @@ struct MarkerView: View {
                             VStack{
                                 Button(action: {
                                     if (!hasSignedUp) {
-                                        updateMarkerButton(id: marker.id, button: "dibs")
+                                        updateMarkerButton(id: marker.id, button: "dibs", college: marker.college)
                                         DispatchQueue.main.async {
                                             usleep(300000)
                                             hasSignedUp = true
