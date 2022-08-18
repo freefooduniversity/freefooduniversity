@@ -8,6 +8,10 @@
 import Foundation
 import SwiftUI
 import UIKit
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
+import FirebaseCore
+import FirebaseOAuthUI
 
 struct ProfileView: View {
     

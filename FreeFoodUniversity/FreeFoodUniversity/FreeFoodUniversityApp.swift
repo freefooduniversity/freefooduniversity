@@ -36,16 +36,15 @@ struct FreeFoodUniversityApp: App {
 }
 
 class AppDelegate: UIResponder, UIApplicationDelegate, GMSMapViewDelegate, FUIAuthDelegate, ObservableObject {
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
          GMSServices.provideAPIKey(APIKey)
-        FirebaseApp.configure()
+         FirebaseApp.configure()
          let authUI = FUIAuth.defaultAuthUI()
          // You need to adopt a FUIAuthDelegate protocol to receive callback
          authUI?.delegate = self
          let providers: [FUIAuthProvider] = [
            FUIGoogleAuth(),
          ]
-         let authViewController = authUI?.authViewController()
          authUI?.providers = providers
          return true
     }
@@ -80,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GMSMapViewDelegate, FUIAu
         ]
         let authViewController = authUI?.authViewController()
         authUI?.providers = providers
+        authUI?.signIn(withProviderUI: <#T##FUIAuthProvider#>, presenting: <#T##UIViewController#>, defaultValue: <#T##String?#>)
     }
  }
  
