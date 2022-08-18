@@ -75,6 +75,8 @@ struct AboutUsView: View {
                   Text("   ")
                   Button(action: {
                       navButton = "tech-stack"
+                      print(44343)
+                      print(UIDevice.current.identifierForVendor!.uuidString)
                   }) {
                       Text("Tech Stack    ")
                   }

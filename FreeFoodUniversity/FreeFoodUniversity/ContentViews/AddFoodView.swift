@@ -96,7 +96,7 @@ struct addFoodToMapView: View {
                         print(getStartTime())
                         print(getStartTime() > 500)
                         print(getStartTime() < 2000)
-                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 1300) {
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500) {
                             addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
                                       building: building, event: event, additional_info: details)
                             
