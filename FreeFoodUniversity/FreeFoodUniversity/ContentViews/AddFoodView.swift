@@ -29,7 +29,7 @@ struct addFoodToMapView: View {
     @State var capacitySelection = "Capacity"
     
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
-    let durations = [" Select Duration ", " 30 min ", " 1 hr ", " 2 hrs ", " 3 hrs ", "4 hrs"]
+    let durations = [" Select Duration ", " 30 min ", " 1 Hour ", " 2 Hours ", " 3 Hours ", " 4 Hours "]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
@@ -97,7 +97,7 @@ struct addFoodToMapView: View {
                         print(getStartTime() > 500)
                         print(getStartTime() < 2000)
                         if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500) {
-                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: capacitySelection,
+                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
                                       building: building, event: event, additional_info: details)
                             
                         } else {
@@ -131,6 +131,31 @@ struct addFoodToMapView: View {
     
 }
 
+func getCapacity(capacity: String) -> Int {
+    var ret = 0
+    if (capacity.count == 5) {
+        ret = Int(substring(string: capacity, fromIndex: 1, toIndex: 2)!)!
+    }
+    if (capacity.count == 6) {
+        ret = Int(substring(string: capacity, fromIndex: 1, toIndex: 3)!)!
+    }
+    if (capacity.count == 7) {
+        ret = Int(substring(string: capacity, fromIndex: 1, toIndex: 4)!)!
+    }
+    
+    return ret
+}
+
+func substring(string: String, fromIndex: Int, toIndex: Int) -> String? {
+    if fromIndex < toIndex && toIndex < string.count /*use string.characters.count for swift3*/{
+        let startIndex = string.index(string.startIndex, offsetBy: fromIndex)
+        let endIndex = string.index(string.startIndex, offsetBy: toIndex)
+        return String(string[startIndex..<endIndex])
+    }else{
+        return nil
+    }
+}
+
 func getTimeZone() -> Int {
     let timeZone = TimeZone.current.abbreviation()!
     if (Array(timeZone)[0] == "P") {
@@ -147,8 +172,11 @@ func getTimeZone() -> Int {
 func getStartTime() -> Int {
     let today = Date()
     let hour = Calendar.current.component(.hour, from: today)
-    let minute = Calendar.current.component(.minute, from: today)
-    
+    var minute = Calendar.current.component(.minute, from: today)
+    if (minute % 15 != 0) {
+        minute -= minute % 15
+        minute += 15
+    }
     var time = 0
     
     time = hour * 100
@@ -162,7 +190,7 @@ func getEndTime(duration : String) -> Int {
     let split = duration.split(separator: " ")
     
     var add = Int(split[0])!
-    if (split[1] == "hr" || split[1] == "hrs") {
+    if (split[1] == "Hour" || split[1] == "Hours") {
        
         return startTime + (add * 100) + 400
         
@@ -176,7 +204,8 @@ func getEndTime(duration : String) -> Int {
 
 }
 
-func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: String, building: String, event: String, additional_info: String) {
+
+func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: Int, building: String, event: String, additional_info: String) {
     getTimeZone()
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
@@ -193,7 +222,6 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     var food = getFoodFromDropDownName(food: foodSelection)
-    print("capacity: " + capacity)
     let body: [String: AnyHashable] = [
         "id": id,
         "food": food,
@@ -203,10 +231,10 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "start_time": getStartTime(),
         "end_time": getEndTime(duration: duration),
         "time_zone": getTimeZone(),
-        "capacity": 200,
-        "dibs": 134,
-        "likes": 41,
-        "dislikes": 11,
+        "capacity": capacity,
+        "dibs": 0,
+        "likes": 0,
+        "dislikes": 0,
         "creator_email": "free@gmail.com",
         "pic_url": "place_holder",
         "event": event,

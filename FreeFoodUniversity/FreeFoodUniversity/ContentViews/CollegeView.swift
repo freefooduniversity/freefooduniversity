@@ -113,41 +113,55 @@ struct CollegeContentView: View {
                                 .resizable()
                                 .frame(width: 40, height: 40)
                             }
-                            Button(action: {
-                                withAnimation {
-                                    if (foods[7].1 != 0) {
-                                        markerClicked = foods[7].0
-                                        showListView = true
+                            VStack {
+                                Button(action: {
+                                    withAnimation {
+                                        if (foods[7].1 != 0) {
+                                            markerClicked = foods[7].0
+                                            showListView = true
+                                        }
                                     }
+                                }) {
+                                    Image(foods[7].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
                                 }
-                            }) {
-                                Image(foods[7].0)
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                            }
-                            Button(action: {
-                                withAnimation {
-                                    if (foods[8].1 != 0) {
-                                        markerClicked = foods[8].0
-                                        showListView = true
+                                Button(action: {
+                                    withAnimation {
+                                        if (foods[8].1 != 0) {
+                                            markerClicked = foods[8].0
+                                            showListView = true
+                                        }
                                     }
+                                }) {
+                                    Image(foods[8].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
                                 }
-                            }) {
-                                Image(foods[8].0)
-                                .resizable()
-                                .frame(width: 40, height: 40)
-                            }
-                            Button(action: {
-                                withAnimation {
-                                    if (foods[9].1 != 0) {
-                                        markerClicked = foods[9].0
-                                        showListView = true
+                                Button(action: {
+                                    withAnimation {
+                                        if (foods[9].1 != 0) {
+                                            markerClicked = foods[9].0
+                                            showListView = true
+                                        }
                                     }
+                                }) {
+                                    Image(foods[9].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
                                 }
-                            }) {
-                                Image(foods[9].0)
-                                .resizable()
-                                .frame(width: 40, height: 40)
+                                Button(action: {
+                                    withAnimation {
+                                        if (foods[10].1 != 0) {
+                                            markerClicked = foods[10].0
+                                            showListView = true
+                                        }
+                                    }
+                                }) {
+                                    Image(foods[10].0)
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                }
                             }
                         }
                     }.background(Color.gray).cornerRadius(15).opacity(0.9)
@@ -158,7 +172,7 @@ struct CollegeContentView: View {
                 Text(getTitle(college: college))
                     .font(.custom("Helvetica Neue", size: 25))
                     .foregroundColor(.black)
-                    .position(x: 195, y: -95)
+                    .position(x: 195, y: -87)
                 HStack {
                     Button(action: {
                         withAnimation {
