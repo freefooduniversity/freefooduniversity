@@ -20,6 +20,7 @@ struct MarkerView: View {
     @Binding var hasLiked: Bool
     @Binding var hasSignedUp: Bool
     @Binding var hasReported: Bool
+    @Binding var reload: Bool
     
     func getMarkerFromTitleAndCollege(title: String, college: String) -> Marker {
         for marker in markerData {
@@ -48,8 +49,13 @@ struct MarkerView: View {
                 HStack {
                     Button(action: {
                         if (!hasReported) {
-                            hasReported = true
                             updateMarkerButton(id: marker.id, button: "reports")
+                            
+                            DispatchQueue.main.async {
+                                usleep(300000)
+                                hasReported = true
+                                reload = !reload
+                            }
                         }
                     }) {
                         Image("report")
@@ -61,8 +67,12 @@ struct MarkerView: View {
                         .foregroundColor(Color.blue)
                     Button(action: {
                         if (!hasLiked) {
-                            hasLiked = true
                             updateMarkerButton(id: marker.id, button: "likes")
+                            DispatchQueue.main.async {
+                                usleep(300000)
+                                hasLiked = true
+                                reload = !reload
+                            }
                         }
                     }) {
                        Image("like")
@@ -74,8 +84,12 @@ struct MarkerView: View {
                         .foregroundColor(Color.blue)
                     Button(action: {
                         if (!hasLiked) {
-                            hasLiked = true
                             updateMarkerButton(id: marker.id, button: "dislikes")
+                            DispatchQueue.main.async {
+                                usleep(300000)
+                                hasLiked = true
+                                reload = !reload
+                            }
                         }
                     }) {
                         Image("dislike")
@@ -126,13 +140,24 @@ struct MarkerView: View {
                         Text(" ")
                         HStack {
                             Text("Signed Up:").bold()
-                            Text(String(marker.dibs) + " / " + String(marker.capacity) + "🧑🏻‍💼")
+                            HStack {
+                                Text(String(marker.dibs))
+                                    .foregroundColor(Color.blue)
+                                Text("/")
+                                Text(String(marker.capacity))
+                                    .foregroundColor(Color.blue)
+                                Text("🧑🏻‍💼")
+                            }
                             Text(" ")
                             VStack{
                                 Button(action: {
                                     if (!hasSignedUp) {
-                                        hasSignedUp = true
                                         updateMarkerButton(id: marker.id, button: "dibs")
+                                        DispatchQueue.main.async {
+                                            usleep(300000)
+                                            hasSignedUp = true
+                                            reload = !reload
+                                        }
                                     }
                                 }) {
                                     VStack {
