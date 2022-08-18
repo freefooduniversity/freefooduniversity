@@ -246,6 +246,7 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         "dibs": 0,
         "likes": 0,
         "dislikes": 0,
+        "reports": 0,
         "creator_email": email,
         "pic_url": "place_holder",
         "event": event,
