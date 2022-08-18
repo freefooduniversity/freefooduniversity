@@ -376,6 +376,11 @@ func getTitle(college: String) -> String {
     if (college == "uic") { title += "University of Illinois" }
     if (college == "devry") { title += "DeVry University" }
     if (college == "northwestern") { title += "Northwestern" }
+    if (college == "ivytech") { title += "Ivy Tech" }
+    if (college == "purdue") { title += "Purdue" }
+    if (college == "notredame") { title += "Notre Dame" }
+    if (college == "iowastate") { title += "Iowa State" }
+    if (college == "iowa") { title += "University of Iowa" }
     return title
 }
 /*
