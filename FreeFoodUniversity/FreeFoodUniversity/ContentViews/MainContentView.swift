@@ -38,6 +38,7 @@ struct MainContentView: View {
     @State var hasSignedUp: Bool = false
     @State var hasReported: Bool = false
     @State var reloadMarkerView: Bool = false
+    @State var enlargeImage: Bool = false
     
     @State var returnMarkers: [Marker] = []
     @State var Markers: [Marker] = []
@@ -247,10 +248,14 @@ struct MainContentView: View {
                     if (showListView) {
                         ListView(markers: Markers, showMarkerView: $showMarkerView, showListView: $showListView, markerClicked: $markerClicked)
                     } else if (showMarkerView) {
-                        if (reloadMarkerView) {
-                            MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView)
+                        if (!enlargeImage) {
+                            if (reloadMarkerView) {
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage)
+                            } else {
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage)
+                            }
                         } else {
-                            MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView)
+                            PictureView(enlargeImage: $enlargeImage, image: "placeholder")
                         }
                     }
                 }
