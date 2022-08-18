@@ -43,41 +43,43 @@ struct MarkerView: View {
                 }
                 Text("")
                 HStack {
+                    Button(action: {
+                        
+                    }) {
+                        Image("report")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                    }
+                    Text(" ")
                     Text(String(marker.likes))
                         .foregroundColor(Color.blue)
                     Button(action: {
                         
                     }) {
-                        VStack {
-                            Text("")
-                            HStack {
-                                Text(" 👍     ")
-                                    .font(.custom("Helvetica Neue", size: 16))
-                                    .foregroundColor(.white)
-
-                            }
-                            Text("")
-                        }
-                    }.background(Color.green).cornerRadius(15)
+                       Image("like")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                    }
                     Text(" ")
                     Text(String(marker.dislikes))
                         .foregroundColor(Color.blue)
                     Button(action: {
                         
                     }) {
-                        VStack {
-                           Text("")
-                            HStack {
-                                Text(" 👎     ")
-                                    .font(.custom("Helvetica Neue", size: 16))
-                                    .foregroundColor(.white)
-                            }
-                            Text("")
-                        }
-                    }.background(Color.red).cornerRadius(15)
+                        Image("dislike")
+                            .resizable()
+                            .frame(width: 40, height: 40)
+                    }
                     Text("  ")
                     Button(action: {
-                        
+                        let url = URL(string: "https://google.com/maps/dir/?api=1&destination=" + String(marker.lat) + "," + String(marker.long) + "&travelmode=walking")!
+                        if UIApplication.shared.canOpenURL(url) {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                            //If you want handle the completion block than
+                            UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                                 print("Open url : \(success)")
+                            })
+                        }
                     }) {
                         VStack {
                            Text("")
@@ -131,7 +133,7 @@ struct MarkerView: View {
                                       //  Text("")
                                       //      .font(.custom("Helvetica Neue", size: 2))
                                     }
-                                }.background(Color.orange).cornerRadius(15)
+                                }.background(Color.purple).cornerRadius(15)
                             }
                         }
                         Text(" ")
@@ -172,11 +174,13 @@ struct MarkerView: View {
                 }) {
                     HStack {
                         Text("")
-                        Text(" Close  ")
-                            .font(.custom("Helvetica Neue", size: 16))
-                            .foregroundColor(.white)
+                        Text(" Close ")
+                            .bold()
+                            .underline()
+                            .font(.custom("Helvetica Neue", size: 18))
+                            .foregroundColor(.black)
                         Text("")
-                    }.background(Color.purple).cornerRadius(15)
+                    }
                 }.position(x: 195, y:80)
         }.position(x: 200, y: 32)
     }
