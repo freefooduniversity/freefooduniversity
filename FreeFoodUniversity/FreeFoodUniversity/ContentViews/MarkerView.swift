@@ -66,7 +66,7 @@ struct MarkerView: View {
                             updateMarkerButton(id: marker.id, button: "reports", college: marker.college)
                             
                             DispatchQueue.main.async {
-                                usleep(300000)
+                                usleep(400000)
                                 hasReported = true
                                 reload = !reload
                             }
@@ -83,7 +83,7 @@ struct MarkerView: View {
                         if (!hasLiked) {
                             updateMarkerButton(id: marker.id, button: "likes", college: marker.college)
                             DispatchQueue.main.async {
-                                usleep(300000)
+                                usleep(400000)
                                 hasLiked = true
                                 reload = !reload
                             }
@@ -100,7 +100,7 @@ struct MarkerView: View {
                         if (!hasLiked) {
                             updateMarkerButton(id: marker.id, button: "dislikes", college: marker.college)
                             DispatchQueue.main.async {
-                                usleep(300000)
+                                usleep(400000)
                                 hasLiked = true
                                 reload = !reload
                             }
@@ -174,7 +174,7 @@ struct MarkerView: View {
                                     if (!hasSignedUp && marker.dibs < marker.capacity) {
                                         updateMarkerButton(id: marker.id, button: "dibs", college: marker.college)
                                         DispatchQueue.main.async {
-                                            usleep(300000)
+                                            usleep(400000)
                                             hasSignedUp = true
                                             reload = !reload
                                         }
@@ -184,11 +184,15 @@ struct MarkerView: View {
                                      //   Text("")//
                                       //      .font(.custom("Helvetica Neue", size: 2))
                                         HStack {
-                                           Text("")
-                                            Text("Sign Up!")
-                                                .font(.custom("Helvetica Neue", size: 16))
-                                                .foregroundColor(.white)
-                                            Text("")
+                                            Text(" ")
+                                            ZStack {
+                                       //       Text(" ")
+                                                Text("Sign Up!")
+                                                    .font(.custom("Helvetica Neue", size: 16))
+                                                    .foregroundColor(.white)
+                                          //      Text(" ")
+                                            }
+                                            Text(" ")
                                         }
                                       //  Text("")
                                       //      .font(.custom("Helvetica Neue", size: 2))
@@ -217,9 +221,8 @@ struct MarkerView: View {
                             }) {
                                     Image("enlarge")
                                         .resizable()
-                                        .frame(width: 35, height: 35)
-                                        .position(x: 220, y: 5)
-                            }
+                                        .frame(width: 40, height: 40)
+                            } .position(x: 220, y: 5)
                         }.position(x: 300, y: -55)
                     }.position(x: 220, y: 60)
                     
