@@ -63,9 +63,9 @@ struct MainPageContentView: View {
                             .init(Image.TemplateRenderingMode.original))
                             .resizable()
                             .frame(width: 100, height: 100)
-                    }
-                    Text("   Use Current Location   ").bold()
-                        .font(.custom("Helvetica Neue", size: 12))
+                    }    
+                    Text("  Use Current Location  ").bold()
+                        .font(.custom("Helvetica Neue", size: 13))
                         .foregroundColor(.black)
                     Text("   (Recommended)   ")
                         .font(.custom("Helvetica Neue", size: 11))
@@ -86,14 +86,14 @@ struct MainPageContentView: View {
                             .resizable()
                             .frame(width: 100, height: 100)
                     }
-                    Text("        Pick Your College           ").bold()
-                        .font(.custom("Helvetica Neue", size: 12))
+                    Text("      Pick Your College       ").bold()
+                        .font(.custom("Helvetica Neue", size: 13))
                         .foregroundColor(.black)
                     Text("        (From 100+)           ")
                         .font(.custom("Helvetica Neue", size: 11))
                         .foregroundColor(.black)
                 }.border(Color.black)
-            }.position(x:200, y:-10)
+            }.position(x:195, y:-10)
            
         }.background(Color.white)
     }
