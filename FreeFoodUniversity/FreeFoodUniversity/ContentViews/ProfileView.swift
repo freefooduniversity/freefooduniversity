@@ -46,19 +46,6 @@ struct ProfileView: View {
                     .font(.custom("Helvetica Neue", size: 18))
                     .foregroundColor(.green)
             }
-            HStack {
-                Image("google")
-                Button(action: {
-                    
-                }) {
-                    HStack {
-                        Image("blue")
-                        Text("Sign in with Google       ")
-                            .font(.custom("Helvetica Neue", size: 16))
-                            .foregroundColor(.white)
-                    }
-                }.background(Color.blue).cornerRadius(15)
-            }
         }.position(x:200, y:120)
     }
 }
