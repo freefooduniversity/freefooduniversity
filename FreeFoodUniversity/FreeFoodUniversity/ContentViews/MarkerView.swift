@@ -61,7 +61,7 @@ struct MarkerView: View {
                     }) {
                         Image("report")
                             .resizable()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 35, height: 35)
                     }
                     Text(" ")
                     Text(String(marker.likes))
@@ -78,7 +78,7 @@ struct MarkerView: View {
                     }) {
                        Image("like")
                             .resizable()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 35, height: 35)
                     }
                     Text(" ")
                     Text(String(marker.dislikes))
@@ -95,7 +95,7 @@ struct MarkerView: View {
                     }) {
                         Image("dislike")
                             .resizable()
-                            .frame(width: 40, height: 40)
+                            .frame(width: 35, height: 35)
                     }
                     Text("  ")
                     Button(action: {
@@ -109,19 +109,16 @@ struct MarkerView: View {
                         }
                     }) {
                         VStack {
-                           Text("")
                             HStack {
-                                Text("Directions →   ")
-                                    .font(.custom("Helvetica Neue", size: 16))
-                                    .foregroundColor(.white)
-                                Image("")
+                                Image("google-maps")
+                                    .resizable()
+                                    .frame(width: 35, height: 35)
                             }
-                            Text("")
                         }
-                    }.background(Color.blue).cornerRadius(15)
+                    }
                     
                 }
-            } .position(x:200, y: 45)
+            } .position(x:200, y: 35)
             VStack {
                 Text("")
                 Text("")
@@ -188,7 +185,7 @@ struct MarkerView: View {
                         }
                         Text(" ")
                         HStack {
-                            Text("🎈: ").bold()
+                            Text("🎉: ").bold()
                             Text(marker.event)
                         }
                         Text("")
@@ -210,8 +207,8 @@ struct MarkerView: View {
                                         .frame(width: 35, height: 35)
                                         .position(x: 220, y: 5)
                             }
-                        }.position(x: 285, y: -60)
-                    }.position(x: 220, y: 45)
+                        }.position(x: 285, y: -55)
+                    }.position(x: 220, y: 30)
                     
                         
                      
