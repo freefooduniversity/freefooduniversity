@@ -20,9 +20,16 @@ struct PictureView: View {
                enlargeImage = false
             }) {
                 HStack {
-                    Image("Headshot")
-                        .resizable()
-                        .frame(width: 200, height: 289)
+                    AsyncImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/free-food-university.appspot.com/o/food-images%2FHeadshot.jpg?alt=media&token=c38c2460-f5eb-4256-a82f-d2d894516a5b"), scale: 2) { image in
+                                image
+                                  .resizable()
+                          //        .aspectRatio(contentMode: .fill)
+                                  .frame(width: 200, height: 289)
+                            } placeholder: {
+                                ProgressView()
+                                        .progressViewStyle(.circular)
+                            }
+                            .frame(width: 200, height:289)
                 }
             }.position(x:195, y: 137)
             ZStack {
