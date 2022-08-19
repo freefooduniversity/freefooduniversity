@@ -22,7 +22,15 @@ struct MarkerView: View {
     @Binding var hasReported: Bool
     @Binding var reload: Bool
     @Binding var enlargeImage: Bool
+  /*
+    @ObservedObject var imageLoader:ImageLoader
+    @State var image:UIImage = UIImage()
     
+    var pictureURL = "https://firebasestorage.googleapis.com/v0/b/free-food-university.appspot.com/o/food-images%2FScreen%20Shot%202022-08-12%20at%2011.27.56%20PM/.png?alt=media&token=2dea7ee0-864e-4914-b3dd-0c17365595f1"
+    init(withURL url:String) {
+           imageLoader = ImageLoader(urlString: url)
+       }
+   */
     func getMarkerFromTitleAndCollege(title: String, college: String) -> Marker {
         for marker in markerData {
             let index = title.firstIndex(of: "|")
@@ -131,7 +139,7 @@ struct MarkerView: View {
                     }
                     
                 }
-            } .position(x:200, y: 15)
+            } .position(x:185, y: 15)
             VStack {
                 Text("")
                 Text("")
@@ -210,29 +218,69 @@ struct MarkerView: View {
                             HStack {
                                 Text("📝:").bold()
                                 Text(marker.additional_info)
-                            }
-                     //   }
+                        }
+                    // }
                         ZStack {
-                            Image("Headshot")
-                               .resizable()
+                            
+                            AsyncImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/free-food-university.appspot.com/o/food-images%2Funnamed.jpg?alt=media&token=058d4e93-e7de-43e7-b8da-27b741d9ef16"), scale: 2) { image in
+                                        image
+                                          .resizable()
+                                  //        .aspectRatio(contentMode: .fill)
+                                          .frame(width: 65, height: 100)
+                                    } placeholder: {
+                                        ProgressView()
+                                                .progressViewStyle(.circular)
+                                    }
+                                    .frame(width: 65, height:100)
+                            /*
+                            AsyncImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/free-food-university.appspot.com/o/food-images%2FScreen%20Shot%202022-08-12%20at%2011.27.56%20PM.png?alt=media&token=2dea7ee0-864e-4914-b3dd-0c17365595f1"))
+                              //  var imageView: UIImage = UIImage(url: URL(string: ""))
+                                      //  .frame(width: 65, height: 100)
+                                         //    .resizable()
+                                             .frame(height: 100)
+                              
+                          //  Image(uiImage: imageView)
+                          //     .resizable()
                                 .frame(width: 65, height: 100)
+                             */
                             Button(action: {
                                 enlargeImage = true
                             }) {
                                     Image("enlarge")
                                         .resizable()
                                         .frame(width: 40, height: 40)
-                            } .position(x: 220, y: 5)
+                                        .position(x: 225, y: 5)
+                            }
+                        }.position(x: 265, y :-55)
                         }.position(x: 300, y: -55)
                     }.position(x: 220, y: 60)
-                    
-                        
-                     
-                }.position(x: 190, y: 60)
-        }.position(x: 200, y: 22)
+                }.position(x: 100, y: 140)
+        }.position(x: 200, y: 132)
     }
 }
+
+/*
+class ImageLoader: ObservableObject {
+    var didChange = PassthroughSubject<Data, Never>()
+    var data = Data() {
+        didSet {
+            didChange.send(data)
+        }
+    }
+
+    init(urlString:String) {
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                self.data = data
+            }
+        }
+        task.resume()
+    }
 }
+*/
+
 
 func formatTime(time: Int, delay: Int) -> String {
     var formatTime = ""
