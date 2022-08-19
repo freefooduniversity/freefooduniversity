@@ -736,9 +736,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FreeFoodUniversity/Preview Content\"";
 				DEVELOPMENT_TEAM = A392TF3NL6;
 				ENABLE_PREVIEWS = YES;
+				FOOD = fakeKey;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FreeFoodUniversity/Info.plist;
-				"INFOPLIST_FILE[sdk=*]" = "";
+				"INFOPLIST_FILE[sdk=*]" = FreeFoodUniversity/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Free Food University to access the camera";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To allow user to easily find food near them";
@@ -772,9 +773,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"FreeFoodUniversity/Preview Content\"";
 				DEVELOPMENT_TEAM = H29D4M5X32;
 				ENABLE_PREVIEWS = YES;
+				FOOD = fakeKey;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "<key>NSLocationWhenInUseUsageDescription</key><string>Description</string>";
-				"INFOPLIST_FILE[sdk=*]" = "";
+				INFOPLIST_FILE = FreeFoodUniversity/Info.plist;
+				"INFOPLIST_FILE[sdk=*]" = FreeFoodUniversity/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow Free Food University to access the camera";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "To allow user to easily find food near them";
