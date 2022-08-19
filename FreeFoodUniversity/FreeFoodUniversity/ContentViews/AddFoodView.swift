@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import UIKit
+import FirebaseCore
+import FirebaseStorage
 
 struct addFoodToMapView: View {
     @Binding var college: String
@@ -28,11 +30,13 @@ struct addFoodToMapView: View {
     @State var durationSelection = "Duration"
     @State var capacitySelection = "Capacity"
     
+    
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
     let durations = [" Select Duration ", " 30 min ", " 1 Hour ", " 2 Hours ", " 3 Hours ", " 4 Hours "]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
+        var data = Data()
         ZStack {
             VStack {
                 Text("Add Food To " + getName(college: college))
@@ -96,14 +100,40 @@ struct addFoodToMapView: View {
                         print(getStartTime())
                         print(getStartTime() > 500)
                         print(getStartTime() < 2000)
-                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500) {
-                            addMarker(id: Int.random(in: 1..<10000000), foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage()) {
+                            var id = Int.random(in: 1..<10000000)
+                            FirebaseApp.configure()
+                            let storage = Storage.storage()
+                            data = imageSelected.jpegData(compressionQuality: 0.3)!
+                            let storageRef = storage.reference()
+                            let imagesRef = storageRef.child("food-images")
+                            var newRef = storageRef.child("food-images/" + String(id))
+                            let metadata = StorageMetadata()
+                            let localFile = URL(string: "uga")!
+                            metadata.contentType = "image/jpeg"
+                            // Upload the file to the path "images/rivers.jpg"
+                            let uploadTask = newRef.putData(data, metadata: nil) { (metadata, error) in
+                              guard let metadata = metadata else {
+                                // Uh-oh, an error occurred!
+                                return
+                              }
+                              // Metadata contains file metadata such as size, content-type.
+                              let size = metadata.size
+                              // You can also access to download URL after upload.
+                              newRef.downloadURL { (url, error) in
+                                guard let downloadURL = url else {
+                                  // Uh-oh, an error occurred!
+                                  return
+                                }
+                              }
+                            }
+                                 
+                            addMarker(id: id, foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
                                       building: building, event: event, additional_info: details, email: UIDevice.current.identifierForVendor!.uuidString)
-                            
+                            addFood = false
                         } else {
                             // alert user
                         }
-                        addFood = false
                     }) {
                         HStack {
                             Image("blue")
