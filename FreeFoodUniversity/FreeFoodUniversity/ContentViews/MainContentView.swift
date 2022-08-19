@@ -41,6 +41,7 @@ struct MainContentView: View {
     @State var enlargeImage: Bool = false
     
     @State var imageId: String = ""
+    @State var enlargeImageTimes: Int = 0 // prevent users from spamming enlarge and minimize image
     
     @State var returnMarkers: [Marker] = []
     @State var Markers: [Marker] = []
@@ -265,9 +266,9 @@ struct MainContentView: View {
                     } else if (showMarkerView) {
                         if (!enlargeImage) {
                             if (reloadMarkerView) {
-                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId)
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId, enlargeImageTimes: $enlargeImageTimes)
                             } else {
-                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId)
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId, enlargeImageTimes: $enlargeImageTimes)
                             }
                         } else {
                             PictureView(enlargeImage: $enlargeImage, imageId: $imageId)
