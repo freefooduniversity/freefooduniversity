@@ -127,12 +127,28 @@ struct addFoodToMapView: View {
                                 }
                               }
                             }
+                            
                                  
                             addMarker(id: id, foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
                                       building: building, event: event, additional_info: details, email: UIDevice.current.identifierForVendor!.uuidString)
                             addFood = false
                         } else {
+                            /*
+                            print("deleted")
                             // alert user
+                            FirebaseApp.configure()
+                            let storage = Storage.storage()
+                            let storageRef = storage.reference()
+                            let imagesRef = storageRef.child("food-images")
+                            let newRef  = imagesRef.child("")
+                            newRef.delete { error in
+                              if let error = error {
+                                // Uh-oh, an error occurred!
+                              } else {
+                                // File deleted successfully
+                              }
+                            }
+                            */
                         }
                     }) {
                         HStack {
