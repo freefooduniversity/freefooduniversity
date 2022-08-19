@@ -23,6 +23,7 @@ struct MarkerView: View {
     @Binding var reload: Bool
     @Binding var enlargeImage: Bool
     @Binding var imageId: String
+    @Binding var enlargeImageTimes: Int
   /*
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
@@ -246,6 +247,10 @@ struct MarkerView: View {
                                 .frame(width: 65, height: 100)
                              */
                             Button(action: {
+                                if (enlargeImageTimes >= 10) {
+                                    return
+                                }
+                                enlargeImageTimes += 1
                                 imageId = String(marker.id)
                                 enlargeImage = true
                             }) {
