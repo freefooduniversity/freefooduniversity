@@ -40,6 +40,8 @@ struct MainContentView: View {
     @State var reloadMarkerView: Bool = false
     @State var enlargeImage: Bool = false
     
+    @State var imageId: String = ""
+    
     @State var returnMarkers: [Marker] = []
     @State var Markers: [Marker] = []
     @State var MarkersForTitleAndCollege: [Marker] = []
@@ -263,12 +265,12 @@ struct MainContentView: View {
                     } else if (showMarkerView) {
                         if (!enlargeImage) {
                             if (reloadMarkerView) {
-                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage)
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId)
                             } else {
-                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage)
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId)
                             }
                         } else {
-                            PictureView(enlargeImage: $enlargeImage, image: "placeholder")
+                            PictureView(enlargeImage: $enlargeImage, imageId: $imageId)
                         }
                     }
                 }

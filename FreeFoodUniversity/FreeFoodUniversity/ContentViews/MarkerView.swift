@@ -22,6 +22,7 @@ struct MarkerView: View {
     @Binding var hasReported: Bool
     @Binding var reload: Bool
     @Binding var enlargeImage: Bool
+    @Binding var imageId: String
   /*
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
@@ -222,16 +223,17 @@ struct MarkerView: View {
                     // }
                         ZStack {
                             
-                            AsyncImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/free-food-university.appspot.com/o/food-images%2Funnamed.jpg?alt=media&token=058d4e93-e7de-43e7-b8da-27b741d9ef16"), scale: 2) { image in
+                            AsyncImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/free-food-university.appspot.com/o/food-images%2F" + String(marker.id) + "?alt=media&token=443b7066-9c00-477a-875c-efe7b2db19df"), scale: 2) { image in
                                         image
                                           .resizable()
                                   //        .aspectRatio(contentMode: .fill)
-                                          .frame(width: 65, height: 100)
+                                          .frame(width: 100, height: 65)
                                     } placeholder: {
                                         ProgressView()
                                                 .progressViewStyle(.circular)
                                     }
-                                    .frame(width: 65, height:100)
+                                    .rotationEffect(Angle(degrees: 90))
+                                    .frame(width: 100, height:65)
                             /*
                             AsyncImage(url: URL(string: "https://firebasestorage.googleapis.com/v0/b/free-food-university.appspot.com/o/food-images%2FScreen%20Shot%202022-08-12%20at%2011.27.56%20PM.png?alt=media&token=2dea7ee0-864e-4914-b3dd-0c17365595f1"))
                               //  var imageView: UIImage = UIImage(url: URL(string: ""))
@@ -244,12 +246,13 @@ struct MarkerView: View {
                                 .frame(width: 65, height: 100)
                              */
                             Button(action: {
+                                imageId = String(marker.id)
                                 enlargeImage = true
                             }) {
                                     Image("enlarge")
                                         .resizable()
                                         .frame(width: 40, height: 40)
-                                        .position(x: 225, y: 5)
+                                        .position(x: 225, y: -5)
                             }
                         }.position(x: 265, y :-55)
                         }.position(x: 300, y: -55)
