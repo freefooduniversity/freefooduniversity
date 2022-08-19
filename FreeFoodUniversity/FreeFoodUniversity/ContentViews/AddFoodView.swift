@@ -180,8 +180,9 @@ func getStartTime() -> Int {
         if (minute == 45) {
             minute = 0
             hour += 1
+        } else {
+            minute += 15
         }
-        minute += 15
     }
     var time = 0
     

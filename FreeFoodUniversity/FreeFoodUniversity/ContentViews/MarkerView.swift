@@ -291,7 +291,7 @@ func formatTime(time: Int, delay: Int) -> String {
     var minutes = String(time % 100)
     
     hours -= Int(delay)
-    if (time < 1200) { amorpm = "AM"} else {
+    if (hours < 12) { amorpm = "AM"} else {
         amorpm = "PM"
         if (hours >= 13) {
             hours -= 12
