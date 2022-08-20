@@ -101,7 +101,7 @@ struct addFoodToMapView: View {
                         print(getStartTime())
                         print(getStartTime() > 500)
                         print(getStartTime() < 2000)
-                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage()) {
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 15 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage()) {
                             var id = Int.random(in: 1..<10000000)
                             FirebaseApp.configure()
                             let storage = Storage.storage()

@@ -275,8 +275,8 @@ struct MarkerView: View {
                                         .frame(width: 40, height: 40)
                                         .position(x: 225, y: -5)
                             }
-                        }.position(x: 265, y :-55)
-                        }.position(x: 300, y: -55)
+                        }.position(x: 285, y :-55)
+                        }.position(x: 290, y: -55)
                     }.position(x: 220, y: 60)
                 }.position(x: 100, y: 140)
         }.position(x: 200, y: 132)
