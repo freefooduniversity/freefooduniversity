@@ -129,7 +129,10 @@ struct addFoodToMapView: View {
                               }
                             }
                             
-                                 
+                            let index = building.index(building.endIndex, offsetBy: -1)
+                            if (building.suffix(from: index) == " ") {
+                                building = String(building.prefix(upTo: index))
+                            }
                             addMarker(id: id, foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
                                       building: building, event: event, additional_info: details, email: UIDevice.current.identifierForVendor!.uuidString)
                             addFood = false
