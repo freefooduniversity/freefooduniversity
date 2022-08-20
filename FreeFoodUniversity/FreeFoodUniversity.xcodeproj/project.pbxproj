@@ -15,6 +15,7 @@
 		C54DF44D28AFFF00003FC015 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = C54DF44C28AFFF00003FC015 /* FirebaseAuth */; };
 		C54DF44F28AFFF00003FC015 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = C54DF44E28AFFF00003FC015 /* FirebaseStorage */; };
 		C54DF45328B00070003FC015 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C54DF45228AFFF7D003FC015 /* GoogleService-Info.plist */; };
+		C54DF45828B11609003FC015 /* TurnOnLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54DF45728B11609003FC015 /* TurnOnLocationView.swift */; };
 		C592537228AC3FA60041F1FC /* GoogleAddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */; };
 		C592537428AD9C200041F1FC /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537328AD9C1F0041F1FC /* PictureView.swift */; };
 		C5B44DA4287B68A500A78E94 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA3287B68A300A78E94 /* AboutUsView.swift */; };
@@ -78,6 +79,7 @@
 		C50DFD7328A6D59500F57948 /* renameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = renameFunctions.swift; sourceTree = "<group>"; };
 		C50DFD7728A7398000F57948 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C54DF45228AFFF7D003FC015 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C54DF45728B11609003FC015 /* TurnOnLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOnLocationView.swift; sourceTree = "<group>"; };
 		C592537028ABFAD50041F1FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAddFoodView.swift; sourceTree = "<group>"; };
 		C592537328AD9C1F0041F1FC /* PictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */,
 				D83CA18628AC62CC00636568 /* ListView.swift */,
 				C592537328AD9C1F0041F1FC /* PictureView.swift */,
+				C54DF45728B11609003FC015 /* TurnOnLocationView.swift */,
 			);
 			path = ContentViews;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				D8ACEF8828A6EB170027F88B /* BamaView.swift in Sources */,
 				C5B44DB5287D350F00A78E94 /* CollegeLocations.swift in Sources */,
 				C5CD8E5B2883ACB600434E50 /* ShareViewController.swift in Sources */,
+				C54DF45828B11609003FC015 /* TurnOnLocationView.swift in Sources */,
 				D858D0AB284D605100F5D4A1 /* FreeFoodUniversity.xcdatamodeld in Sources */,
 				C5CD8E53287FD2CC00434E50 /* SettingsView.swift in Sources */,
 				D8ACEF9128A6F3C60027F88B /* MainPageContentView.swift in Sources */,

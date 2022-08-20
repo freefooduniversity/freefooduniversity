@@ -198,7 +198,7 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     
     func getGoogleMapsViewHeight() -> CGFloat {
-        if (addFood) {
+        if (addFood && latitude != 37.0902) {
             return 240
         } else if (showMarkerView) {
             return 400
@@ -278,7 +278,11 @@ struct MainContentView: View {
                 }
             }
             else {
+                if (latitude != 37.0902) {
                     addFoodToMapView(college: $college, addFood: $addFood, lat: $latitude, long: $longitude)
+                } else {
+                    TurnOnLocationView(lat: $latitude, long: $longitude, addFood: $addFood)
+                }
             }
         } else {
             if (navButton == "profile") {

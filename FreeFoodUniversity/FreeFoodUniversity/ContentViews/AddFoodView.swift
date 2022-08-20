@@ -39,7 +39,8 @@ struct addFoodToMapView: View {
         var data = Data()
         ZStack {
             VStack {
-                Text("Add Food To " + getName(college: college))
+                Text("Add A Food Event To " + getName(college: college))
+                    .underline()
                     .font(.custom("Helvetica Neue", size: 20))
                     .foregroundColor(.black)
                 HStack(spacing: 30) {
@@ -170,6 +171,12 @@ struct addFoodToMapView: View {
             Text(" ")
         Text("*All Above Fields Are Required**")
         Text(" ")
+        Text("25 Character Max On Each Above Field")
+        Text(" ")
+        Text("Your current location is used for event location.")
+            if (lat == 37.0902) {
+                
+            }
       //  Text("Inappropriate posts will result in an immediate ban.")
      //       .font(.custom("Helvetica Neue", size: 16))
       //      .foregroundColor(.black)
