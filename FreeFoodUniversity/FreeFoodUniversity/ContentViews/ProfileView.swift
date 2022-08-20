@@ -14,6 +14,8 @@ struct ProfileView: View {
     var userData: [User]
     
     var body: some View {
+        var likes = Double(userData[0].likes)
+        var dislikes = Double(userData[0].dislikes)
         VStack {
                 Button(action: {
                     navButton = ""
@@ -39,10 +41,24 @@ struct ProfileView: View {
             }
             Text(" ")
             HStack {
+                
                 Text("Overall Rating of Your Food:")
-                Text("86% Positive")
-                    .font(.custom("Helvetica Neue", size: 18))
-                    .foregroundColor(.green)
+                if (likes > dislikes) {
+                    var likesPercent = round((likes / (likes + dislikes)) * 100)
+                    Text(String(likesPercent) + "% Positive")
+                        .font(.custom("Helvetica Neue", size: 18))
+                        .foregroundColor(.green)
+                } else if (likes < dislikes) {
+                        var dislikesPercent = round((dislikes / (likes + dislikes)) * 100)
+                        Text(String(dislikesPercent) + "% Negative")
+                            .font(.custom("Helvetica Neue", size: 18))
+                            .foregroundColor(.red)
+                } else  {
+                    Text("Neutral")
+                        .font(.custom("Helvetica Neue", size: 18))
+                        .foregroundColor(.red)
+                }
+                 
             }
         }.position(x:200, y:90)
     }
