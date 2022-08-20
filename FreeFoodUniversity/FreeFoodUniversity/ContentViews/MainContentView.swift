@@ -35,6 +35,7 @@ struct MainContentView: View {
     @State var selectedState = ""
     
     @State var hasLiked: Bool = false
+    @State var hasDisliked: Bool  = false
     @State var hasSignedUp: Bool = false
     @State var hasReported: Bool = false
     @State var reloadMarkerView: Bool = false
@@ -266,9 +267,9 @@ struct MainContentView: View {
                     } else if (showMarkerView) {
                         if (!enlargeImage) {
                             if (reloadMarkerView) {
-                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId, enlargeImageTimes: $enlargeImageTimes)
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasDisliked: $hasDisliked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId, enlargeImageTimes: $enlargeImageTimes)
                             } else {
-                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId, enlargeImageTimes: $enlargeImageTimes)
+                                MarkerView(markerData: Markers, title: $markerClicked, college: college, showMarkerView: $showMarkerView, showListView: $showListView, hasLiked: $hasLiked, hasDisliked: $hasDisliked, hasSignedUp: $hasSignedUp, hasReported: $hasReported, reload: $reloadMarkerView, enlargeImage: $enlargeImage, imageId: $imageId, enlargeImageTimes: $enlargeImageTimes)
                             }
                         } else {
                             PictureView(enlargeImage: $enlargeImage, imageId: $imageId)

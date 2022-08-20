@@ -18,6 +18,7 @@ struct MarkerView: View {
     @Binding var showMarkerView: Bool
     @Binding var showListView: Bool
     @Binding var hasLiked: Bool
+    @Binding var hasDisliked: Bool
     @Binding var hasSignedUp: Bool
     @Binding var hasReported: Bool
     @Binding var reload: Bool
@@ -87,10 +88,15 @@ struct MarkerView: View {
                             .frame(width: 35, height: 35)
                     }
                     Text(" ")
-                    Text(String(marker.likes))
-                        .foregroundColor(Color.blue)
+                    if (!hasLiked) {
+                        Text(String(marker.likes))
+                            .foregroundColor(Color.blue)
+                    } else {
+                        Text(String(marker.likes + 1))
+                            .foregroundColor(Color.blue)
+                    }
                     Button(action: {
-                        if (!hasLiked) {
+                        if (!hasLiked && !hasDisliked) {
                             updateMarkerButton(id: marker.id, button: "likes", college: marker.college)
                             DispatchQueue.main.async {
                                 usleep(400000)
@@ -104,14 +110,19 @@ struct MarkerView: View {
                             .frame(width: 35, height: 35)
                     }
                     Text(" ")
+                    if (!hasDisliked) {
                     Text(String(marker.dislikes))
                         .foregroundColor(Color.blue)
+                    } else {
+                        Text(String(marker.dislikes + 1))
+                            .foregroundColor(Color.blue)
+                    }
                     Button(action: {
-                        if (!hasLiked) {
+                        if (!hasDisliked && !hasLiked) {
                             updateMarkerButton(id: marker.id, button: "dislikes", college: marker.college)
                             DispatchQueue.main.async {
                                 usleep(400000)
-                                hasLiked = true
+                                hasDisliked = true
                                 reload = !reload
                             }
                         }
@@ -172,8 +183,13 @@ struct MarkerView: View {
                         HStack {
                             Text("🧑🏻‍💼:").bold()
                             HStack {
-                                Text(String(marker.dibs))
-                                    .foregroundColor(Color.blue)
+                                if (!hasSignedUp) {
+                                    Text(String(marker.dibs))
+                                        .foregroundColor(Color.blue)
+                                } else {
+                                    Text(String(marker.dibs + 1))
+                                        .foregroundColor(Color.blue)
+                                }
                                 Text("/")
                                 Text(String(marker.capacity))
                                     .foregroundColor(Color.blue)
