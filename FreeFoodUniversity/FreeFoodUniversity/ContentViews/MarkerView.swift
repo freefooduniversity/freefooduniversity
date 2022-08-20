@@ -154,7 +154,7 @@ struct MarkerView: View {
                             Text(" ")
                             HStack {
                                 Text("🗓:")
-                                Text("Thursday, Dec 31, 2022")
+                                Text(formatDateToday())
                             }
                             Text(" ")
                         }
@@ -288,7 +288,49 @@ class ImageLoader: ObservableObject {
     }
 }
 */
+func formatDateToday() -> String {
+    // get the current date and time
+    let currentDateTime = Date()
 
+    // get the user's calendar
+    let userCalendar = Calendar.current
+
+    // choose which date and time components are needed
+    let requestedComponents: Set<Calendar.Component> = [
+        .year,
+        .month,
+        .day,
+    ]
+
+    // get the components
+    let dateTimeComponents = userCalendar.dateComponents(requestedComponents, from: currentDateTime)
+
+    // now the components are available
+    var year: Int = dateTimeComponents.year!   // 2016
+    var month: Int = dateTimeComponents.month!  // 10
+    var day: Int = dateTimeComponents.day!   // 8
+    
+    var formattedDate = ""
+    
+    if (month == 1) { formattedDate += "January " }
+    if (month == 2) { formattedDate += "February " }
+    if (month == 3) { formattedDate += "March " }
+    if (month == 4) { formattedDate += "April " }
+    if (month == 5) { formattedDate += "May " }
+    if (month == 6) { formattedDate += "June " }
+    if (month == 7) { formattedDate += "July " }
+    if (month == 8) { formattedDate += "August " }
+    if (month == 9) { formattedDate += "September " }
+    if (month == 10) { formattedDate += "October " }
+    if (month == 11) { formattedDate += "November " }
+    if (month == 12) { formattedDate += "December " }
+    
+    formattedDate += String(day)
+    formattedDate += ", "
+    formattedDate += String(year)
+    
+    return formattedDate
+}
 
 func formatTime(time: Int, delay: Int) -> String {
     var formatTime = ""
