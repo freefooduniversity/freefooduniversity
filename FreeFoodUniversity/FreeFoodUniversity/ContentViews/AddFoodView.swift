@@ -80,7 +80,7 @@ struct addFoodToMapView: View {
                             VStack {
                                 Image(uiImage: imageSelected)
                                     .resizable()
-                                    .frame(width: 120, height: 120)
+                                    .frame(width: 40, height: 50)
                                 Text(" Done!     ")
                                     .font(.custom("Helvetica Neue", size: 11))
                                     .foregroundColor(.white)
@@ -93,7 +93,7 @@ struct addFoodToMapView: View {
                                     .foregroundColor(.white)
                             }
                         }
-                    }.background(Color.purple).cornerRadius(15)
+                    }.background(Color.purple).cornerRadius(10)
                 }
                 HStack {
                     Button(action: {
@@ -129,9 +129,11 @@ struct addFoodToMapView: View {
                               }
                             }
                             
-                            let index = building.index(building.endIndex, offsetBy: -1)
-                            if (building.suffix(from: index) == " ") {
-                                building = String(building.prefix(upTo: index))
+                            if (building.count > 1) {
+                                let index = building.index(building.endIndex, offsetBy: -1)
+                                if (building.suffix(from: index) == " ") {
+                                    building = String(building.prefix(upTo: index))
+                                }
                             }
                             addMarker(id: id, foodSelection: foodSelection, lat: lat, long: long, college: college, duration: durationSelection, capacity: getCapacity(capacity: capacitySelection),
                                       building: building, event: event, additional_info: details, email: UIDevice.current.identifierForVendor!.uuidString)
