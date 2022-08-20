@@ -363,4 +363,53 @@ func updateFoodEvents(college: String, food_events: Int) {
     task.resume()
     
 }
+
+func getUser(completion: @escaping ([User]) -> (), email: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/" + email) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let users = try!JSONDecoder().decode([User].self, from: data!)
+        DispatchQueue.main.async {
+            completion(users)
+        }
+    }.resume()
+}
+
+func addUser(email: String) {
+        guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/add/" + email) else {
+            return
+        }
+       
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body: [String: AnyHashable] = [
+            "email": email,
+        ]
+         
+       request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        
+        
+        // Make the Request
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let response = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print("SUCESSS")
+                print(response)
+            } catch {
+                print("An error occured: ")
+                print(error)
+            }
+             
+        }
+        task.resume()
+}
  

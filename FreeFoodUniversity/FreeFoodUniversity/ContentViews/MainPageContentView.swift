@@ -56,6 +56,7 @@ struct MainPageContentView: View {
                         withAnimation {
                                 self.locationButtonClicked = true
                                 getUserLocation()
+                                addUser(email: UIDevice.current.identifierForVendor!.uuidString)
                         }
                     }) {
                         Image("location")
@@ -78,6 +79,7 @@ struct MainPageContentView: View {
                     Button(action: {
                         withAnimation {
                             self.buttonClick = "pickCollege"
+                            addUser(email: UIDevice.current.identifierForVendor!.uuidString)
                         }
                     }) {
                         Image("graduation-hat")

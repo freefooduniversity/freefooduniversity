@@ -208,7 +208,7 @@ struct MainContentView: View {
     
     var body: some View {
         var m = setMarkers(doExecute: execute)
-        var s = setStats(college: college, selectedState: selectedState, doExecuteStats: executeStats)
+        var s = setStats(college: "all", selectedState: selectedState, doExecuteStats: executeStats)
         /* Map Views */
         if (self.college == "all" || self.college == "pickCollege") {
             if (selectedState == "" || selectedState == "Select Your State") {

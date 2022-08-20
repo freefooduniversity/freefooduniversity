@@ -17,24 +17,24 @@ struct StatsView: View {
     
     var body: some View {
         HStack {
-            Text("Food Events:")
+            Text("Events:")
                 .foregroundColor(.black)
-                .font(.custom("Helvetica Neue", size: 14))
+                .font(.custom("Helvetica Neue", size: 13))
             Text(String(active) + "🍔  ")
                 .foregroundColor(.blue)
-                .font(.custom("Helvetica Neue", size: 14))
-            Text("Today:")
+                .font(.custom("Helvetica Neue", size: 13))
+            Text("People Fed:")
                 .foregroundColor(.black)
-                .font(.custom("Helvetica Neue", size: 14))
+                .font(.custom("Helvetica Neue", size: 13))
             Text(String(fedToday) + "🧑🏻‍💼  ")
                 .foregroundColor(.blue)
-                .font(.custom("Helvetica Neue", size: 14))
-            Text("All Time:")
+                .font(.custom("Helvetica Neue", size: 13))
+            Text("Users:")
                 .foregroundColor(.black)
-                .font(.custom("Helvetica Neue", size: 14))
+                .font(.custom("Helvetica Neue", size: 13))
             Text(String(fedAllTime) + "🧑🏻‍💼  ")
                 .foregroundColor(.blue)
-                .font(.custom("Helvetica Neue", size: 14))
+                .font(.custom("Helvetica Neue", size: 13))
         }
     }
 }
