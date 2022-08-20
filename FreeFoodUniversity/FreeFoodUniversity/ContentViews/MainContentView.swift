@@ -178,9 +178,9 @@ struct MainContentView: View {
                     stats = stat
                 }, college: college)
             } else {
-                getStatsForState (completion: { (stat) in
+                getStats (completion: { (stat) in
                     stats = stat
-                }, state: selectedState)
+                }, college: college)
             }
         } else {
             executeStats = true
