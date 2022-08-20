@@ -198,9 +198,9 @@ struct MainContentView: View {
     @State var locationPermissions: Bool = false
     
     func getGoogleMapsViewHeight() -> CGFloat {
-        if (addFood && latitude != 37.0902) {
+        if (addFood && latitude != 37.0902 && navButton == "") {
             return 240
-        } else if (showMarkerView) {
+        } else if (showMarkerView && navButton == "") {
             return 400
         }
         return 450

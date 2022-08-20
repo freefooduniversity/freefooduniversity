@@ -179,7 +179,7 @@ struct addFoodToMapView: View {
         Text(" ")
         Text("⚫️ 25 Character Max On Each Above Field")
         Text(" ")
-        Text("⚫️ Your current location is used for event location")
+        Text("⚫️ Your Current Location is Used for Event Location And Is On ✅")
       //  Text("Inappropriate posts will result in an immediate ban.")
      //       .font(.custom("Helvetica Neue", size: 16))
       //      .foregroundColor(.black)
