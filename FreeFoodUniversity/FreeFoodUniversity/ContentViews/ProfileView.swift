@@ -29,13 +29,10 @@ struct ProfileView: View {
                     }
                 }.background(Color.purple).cornerRadius(15)
             Text("Your Profile")
+                .underline()
                 .font(.custom("Helvetica Neue", size: 25))
                 .foregroundColor(.black)
-            
-            HStack {
-                Text("Current Favorite Free Food:")
-                Image("ice-cream")
-            }
+            Text(" ")
             HStack {
                 Text("# People You've Fed: " + String(userData[0].num_ppl_fed) + "🧑🏻‍💼")
             }
