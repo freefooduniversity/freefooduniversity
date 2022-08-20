@@ -167,16 +167,14 @@ struct addFoodToMapView: View {
         }.sheet(isPresented: $openCameraRoll) {
             ImagePicker(selectedImage: $imageSelected, sourceType: .camera)
         }
-        VStack {
-            Text(" ")
-        Text("*All Above Fields Are Required**")
+        VStack (alignment: .leading){
         Text(" ")
-        Text("25 Character Max On Each Above Field")
         Text(" ")
-        Text("Your current location is used for event location.")
-            if (lat == 37.0902) {
-                
-            }
+        Text("⚫️ All Above Fields Are Required")
+        Text(" ")
+        Text("⚫️ 25 Character Max On Each Above Field")
+        Text(" ")
+        Text("⚫️ Your current location is used for event location")
       //  Text("Inappropriate posts will result in an immediate ban.")
      //       .font(.custom("Helvetica Neue", size: 16))
       //      .foregroundColor(.black)
