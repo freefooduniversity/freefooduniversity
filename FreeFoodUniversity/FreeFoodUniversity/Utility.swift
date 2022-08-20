@@ -179,7 +179,7 @@ func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, colleg
         return
     }
     
-    if (emailSet.contains(email) && email != "6B9D47FA-DF0A-4598-9E55-51550A3F4974") {
+    if (emailSet.contains(email) && email != "BB3228D8-50BB-4E83-A7B7-E468E34B59DE") {
         print("You've already placed a marker")
         return
     }
@@ -378,7 +378,7 @@ func getUser(completion: @escaping ([User]) -> (), email: String) {
 }
 
 func addUser(email: String) {
-        guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/add/" + email) else {
+        guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/add") else {
             return
         }
        

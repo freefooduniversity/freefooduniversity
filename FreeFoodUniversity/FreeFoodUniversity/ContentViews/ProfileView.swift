@@ -11,10 +11,10 @@ import UIKit
 
 struct ProfileView: View {
     @Binding var navButton: String
+    var userData: [User]
     
     var body: some View {
         VStack {
-            HStack {
                 Button(action: {
                     navButton = ""
                 }) {
@@ -29,13 +29,13 @@ struct ProfileView: View {
             Text("Your Profile")
                 .font(.custom("Helvetica Neue", size: 25))
                 .foregroundColor(.black)
-            }
+            
             HStack {
                 Text("Current Favorite Free Food:")
                 Image("ice-cream")
             }
             HStack {
-                Text("# People You've Fed: 45🧑🏻‍💼")
+                Text("# People You've Fed: " + String(userData[0].num_ppl_fed) + "🧑🏻‍💼")
             }
             Text(" ")
             HStack {

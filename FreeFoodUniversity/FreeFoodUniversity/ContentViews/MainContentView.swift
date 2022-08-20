@@ -12,7 +12,9 @@ import GoogleMaps
 var execute: Bool = true
 var executeStats: Bool = true
 var executeForCollege: Bool = true
+var executeUserData: Bool = true
 var emailSet: [String] = []
+var userData: [User] =  []
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
@@ -170,6 +172,19 @@ struct MainContentView: View {
         return MarkersForTitleAndCollege[0]
     }
     
+    func setUserData(doExecuteUserData: Bool) -> Int {
+        if (doExecuteUserData) {
+            executeUserData = false
+            getUser (completion: { (marks) in
+                userData = marks
+            }, email: UIDevice.current.identifierForVendor!.uuidString)
+        } else {
+            executeUserData = true
+        }
+        return  0
+            
+    }
+    
     func setStats(college: String, selectedState: String, doExecuteStats: Bool) -> Stats  {
         if (doExecuteStats) {
             executeStats = false
@@ -209,6 +224,7 @@ struct MainContentView: View {
     var body: some View {
         var m = setMarkers(doExecute: execute)
         var s = setStats(college: "all", selectedState: selectedState, doExecuteStats: executeStats)
+        var u = setUserData(doExecuteUserData: executeUserData)
         /* Map Views */
         if (self.college == "all" || self.college == "pickCollege") {
             if (selectedState == "" || selectedState == "Select Your State") {
@@ -286,7 +302,7 @@ struct MainContentView: View {
             }
         } else {
             if (navButton == "profile") {
-                ProfileView(navButton: $navButton)
+                ProfileView(navButton: $navButton, userData: userData)
             }
             else if  (navButton == "aboutUs") {
                 AboutUsView(navButton: $navButton)
