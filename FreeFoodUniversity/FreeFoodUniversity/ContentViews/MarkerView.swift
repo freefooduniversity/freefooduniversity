@@ -74,13 +74,12 @@ struct MarkerView: View {
                 HStack {
                     Button(action: {
                         if (!hasReported) {
-                            updateMarkerButton(id: marker.id, button: "reports", college: marker.college)
-                            
                             DispatchQueue.main.async {
                                 usleep(400000)
                                 hasReported = true
                                 reload = !reload
                             }
+                            updateMarkerButton(id: marker.id, button: "reports", college: marker.college)
                         }
                     }) {
                         Image("report")
@@ -97,12 +96,12 @@ struct MarkerView: View {
                     }
                     Button(action: {
                         if (!hasLiked && !hasDisliked) {
-                            updateMarkerButton(id: marker.id, button: "likes", college: marker.college)
                             DispatchQueue.main.async {
                                 usleep(400000)
                                 hasLiked = true
                                 reload = !reload
                             }
+                            updateMarkerButton(id: marker.id, button: "likes", college: marker.college)
                         }
                     }) {
                        Image("like")
@@ -119,12 +118,12 @@ struct MarkerView: View {
                     }
                     Button(action: {
                         if (!hasDisliked && !hasLiked) {
-                            updateMarkerButton(id: marker.id, button: "dislikes", college: marker.college)
                             DispatchQueue.main.async {
                                 usleep(400000)
                                 hasDisliked = true
                                 reload = !reload
                             }
+                            updateMarkerButton(id: marker.id, button: "dislikes", college: marker.college)
                         }
                     }) {
                         Image("dislike")
@@ -198,12 +197,12 @@ struct MarkerView: View {
                             VStack{
                                 Button(action: {
                                     if (!hasSignedUp && marker.dibs < marker.capacity) {
-                                        updateMarkerButton(id: marker.id, button: "dibs", college: marker.college)
                                         DispatchQueue.main.async {
                                             usleep(400000)
                                             hasSignedUp = true
                                             reload = !reload
                                         }
+                                        updateMarkerButton(id: marker.id, button: "dibs", college: marker.college)
                                     }
                                 }) {
                                     VStack {
