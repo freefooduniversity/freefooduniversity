@@ -65,8 +65,8 @@ struct NavButtonsView: View {
 
             Button(action: {
                 withAnimation {
-                    var vc = ViewController()
-                    vc.share()
+                    //  var vc = ViewController()
+                  //  vc.share()
                 }
             }) {
                 VStack {

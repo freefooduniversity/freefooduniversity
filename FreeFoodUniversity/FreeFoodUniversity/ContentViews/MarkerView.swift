@@ -25,6 +25,7 @@ struct MarkerView: View {
     @Binding var enlargeImage: Bool
     @Binding var imageId: String
     @Binding var enlargeImageTimes: Int
+
   /*
     @ObservedObject var imageLoader:ImageLoader
     @State var image:UIImage = UIImage()
@@ -63,7 +64,7 @@ struct MarkerView: View {
                                 .frame(width: 30, height: 30)
                         }
                     }
-                }.position(x: 360, y:65)
+                }.position(x: 370, y:65)
                 HStack {
                     Text(makeMarkerTitle(food: marker.food, building: marker.building))
                         .bold()
@@ -100,6 +101,7 @@ struct MarkerView: View {
                                 usleep(400000)
                                 hasLiked = true
                                 reload = !reload
+                                incrementUser(email: marker.creator_email, action: "likes")
                             }
                             updateMarkerButton(id: marker.id, button: "likes", college: marker.college)
                         }
@@ -122,6 +124,7 @@ struct MarkerView: View {
                                 usleep(400000)
                                 hasDisliked = true
                                 reload = !reload
+                                incrementUser(email: marker.creator_email, action: "dislikes")
                             }
                             updateMarkerButton(id: marker.id, button: "dislikes", college: marker.college)
                         }
@@ -201,6 +204,7 @@ struct MarkerView: View {
                                             usleep(400000)
                                             hasSignedUp = true
                                             reload = !reload
+                                            incrementUser(email: marker.creator_email, action: "likes")
                                         }
                                         updateMarkerButton(id: marker.id, button: "dibs", college: marker.college)
                                     }

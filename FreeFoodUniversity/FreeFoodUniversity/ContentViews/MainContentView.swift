@@ -111,12 +111,13 @@ struct MainContentView: View {
                 var marker: GMSMarker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: Markers[i].lat, longitude: Markers[i].long)
                 var foodDisplayName = getFoodDisplayName(food: Markers[i].food)
-                marker.title = makeMarkerTitle(food: Markers[i].food, building: Markers[i].building)
                 if (college != "all" && college != "pickCollege") {
                     var str = /*"Time: " + String(Markers[i].start_time) + " - " + String(Markers[i].end_time) + "\n" +*/ "Click the " + getFoodDisplayName(food: Markers[i].food) + " Icon on the Right for Details"
+                    marker.title = makeMarkerTitle(food: Markers[i].food, building: Markers[i].building)
                     marker.snippet = str
                 } else {
                     marker.snippet = "Find Your College Below To See Details"
+                    marker.title = makeMarkerTitle(food: Markers[i].food, building: getName(college: Markers[i].college))
                 }
                 marker.userData = Markers[i]
                 if (Markers[i].food == "pizza") { marker.icon = UIImage(named: "pizza")!.withRenderingMode(.alwaysTemplate) }

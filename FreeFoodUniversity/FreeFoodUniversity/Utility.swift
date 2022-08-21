@@ -412,4 +412,13 @@ func addUser(email: String) {
         }
         task.resume()
 }
- 
+
+func incrementUser(email: String, action: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/" + action + "/increment/" + email) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+     //   let users = try!JSONDecoder().decode([User].self, from: data!)
+    }.resume()
+}
