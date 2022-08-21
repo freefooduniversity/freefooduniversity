@@ -40,7 +40,7 @@ struct ProfileView: View {
                             .font(.custom("Helvetica Neue", size: 16))
                             .foregroundColor(.white)
                     }
-                }.background(Color.purple).cornerRadius(15)
+                }.background(Color.purple).cornerRadius(15).position(x: 80, y:20)
             Text("Your Profile")
                 .underline()
                 .font(.custom("Helvetica Neue", size: 25))
@@ -85,11 +85,11 @@ struct ProfileView: View {
                     }) {
                     HStack {
                         Image("blue")
-                        Text(" Find My Marker    ")
+                        Text(" Find My Marker      ")
                             .font(.custom("Helvetica Neue", size: 16))
                             .foregroundColor(.white)
                     }
-                    }.background(Color.blue)
+                    }.background(Color.blue).cornerRadius(15)
             }
         }.position(x:200, y:110)
     }

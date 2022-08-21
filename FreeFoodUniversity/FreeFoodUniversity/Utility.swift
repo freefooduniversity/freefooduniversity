@@ -456,3 +456,16 @@ func removeUserActiveMarkerId(email: String, id: Int) {
    //     let markers = try!JSONDecoder().decode([Marker].self, from: data!)
     }.resume()
 }
+
+func getBannedPhrases(completion: @escaping ([Phrase]) -> ()) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/banned/phrases") else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let phrases = try!JSONDecoder().decode([Phrase].self, from: data!)
+        DispatchQueue.main.async {
+            completion(phrases)
+        }
+    }.resume()
+}

@@ -11,6 +11,7 @@ import UIKit
 import FirebaseCore
 import FirebaseStorage
 
+var bannedPhrases: [Phrase] = []
 struct addFoodToMapView: View {
     @Binding var college: String
     @Binding var addFood: Bool
@@ -30,13 +31,16 @@ struct addFoodToMapView: View {
     @State var durationSelection = "Duration"
     @State var capacitySelection = "Capacity"
     
-    
+
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
     let durations = [" Select Duration ", " 30 min ", " 1 Hour ", " 2 Hours ", " 3 Hours ", " 4 Hours "]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
     
     var body: some View {
         var data = Data()
+        var p =  getBannedPhrases(completion: { (marks) in
+            bannedPhrases = marks
+        })
         ZStack {
             VStack {
                 Text("Add A Food Event To " + getName(college: college))
@@ -179,7 +183,7 @@ struct addFoodToMapView: View {
         Text(" ")
         Text("⚫️ 25 Character Max On Each Above Field")
         Text(" ")
-        Text("⚫️ Food Events Start Once You Add Them To The Map")
+        Text("⚫️ Food Events Start Once You Add Them")
         Text(" ")
         Text("⚫️ Your Current Location is Used for Event Location And Is On ✅")
       //  Text("Inappropriate posts will result in an immediate ban.")
@@ -268,6 +272,7 @@ func getEndTime(duration : String) -> Int {
     }
 
 }
+
 
 
 

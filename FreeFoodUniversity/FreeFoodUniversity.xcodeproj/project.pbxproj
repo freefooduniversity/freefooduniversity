@@ -17,6 +17,7 @@
 		C54DF45328B00070003FC015 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C54DF45228AFFF7D003FC015 /* GoogleService-Info.plist */; };
 		C54DF45828B11609003FC015 /* TurnOnLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54DF45728B11609003FC015 /* TurnOnLocationView.swift */; };
 		C54DF45A28B1413D003FC015 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54DF45928B1413D003FC015 /* User.swift */; };
+		C54DF45C28B284D7003FC015 /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54DF45B28B284D6003FC015 /* Phrase.swift */; };
 		C592537228AC3FA60041F1FC /* GoogleAddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */; };
 		C592537428AD9C200041F1FC /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C592537328AD9C1F0041F1FC /* PictureView.swift */; };
 		C5B44DA4287B68A500A78E94 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B44DA3287B68A300A78E94 /* AboutUsView.swift */; };
@@ -82,6 +83,7 @@
 		C54DF45228AFFF7D003FC015 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C54DF45728B11609003FC015 /* TurnOnLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnOnLocationView.swift; sourceTree = "<group>"; };
 		C54DF45928B1413D003FC015 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C54DF45B28B284D6003FC015 /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
 		C592537028ABFAD50041F1FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C592537128AC3FA50041F1FC /* GoogleAddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAddFoodView.swift; sourceTree = "<group>"; };
 		C592537328AD9C1F0041F1FC /* PictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				D8ACEF8B28A6F3440027F88B /* Marker.swift */,
 				D8ACEF8E28A6F3850027F88B /* Stats.swift */,
 				C54DF45928B1413D003FC015 /* User.swift */,
+				C54DF45B28B284D6003FC015 /* Phrase.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				C5F3C8142895F2AA00293545 /* LocationController.swift in Sources */,
 				C592537228AC3FA60041F1FC /* GoogleAddFoodView.swift in Sources */,
 				C50DFD7428A6D59500F57948 /* renameFunctions.swift in Sources */,
+				C54DF45C28B284D7003FC015 /* Phrase.swift in Sources */,
 				C5B44DAF287D205000A78E94 /* AddFoodView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
