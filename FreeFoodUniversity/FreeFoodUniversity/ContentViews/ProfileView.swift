@@ -9,9 +9,22 @@ import Foundation
 import SwiftUI
 import UIKit
 
+var title = ""
+var College = ""
+var MARKERS: [Marker] = []
+
 struct ProfileView: View {
     @Binding var navButton: String
     var userData: [User]
+    @Binding var markerClicked: String
+    @Binding var showMarkerView: Bool
+    @Binding var college: String
+    
+    func getMarkerClickedData() {
+        getMarkerById(completion: { (marks) in
+            MARKERS = marks
+        }, id: userData[0].active_marker_id)
+    }
     
     var body: some View {
         var likes = Double(userData[0].likes)
@@ -57,6 +70,27 @@ struct ProfileView: View {
                 }
                  
             }
-        }.position(x:200, y:90)
+            
+            if (userData[0].active_marker_id != 0) {
+                    var d = getMarkerClickedData()
+                    Button(action: {
+                        if (MARKERS[0].food != "") {
+                            title = MARKERS[0].food + "|" + MARKERS[0].building
+                            College = MARKERS[0].college
+                            navButton = ""
+                            showMarkerView = true
+                            markerClicked = title
+                            college = College
+                        }
+                    }) {
+                    HStack {
+                        Image("blue")
+                        Text(" Find My Marker    ")
+                            .font(.custom("Helvetica Neue", size: 16))
+                            .foregroundColor(.white)
+                    }
+                    }.background(Color.blue)
+            }
+        }.position(x:200, y:110)
     }
 }

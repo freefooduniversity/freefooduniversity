@@ -303,7 +303,7 @@ struct MainContentView: View {
             }
         } else {
             if (navButton == "profile") {
-                ProfileView(navButton: $navButton, userData: userData)
+                ProfileView(navButton: $navButton, userData: userData, markerClicked: $markerClicked, showMarkerView: $showMarkerView, college: $college)
             }
             else if  (navButton == "aboutUs") {
                 AboutUsView(navButton: $navButton)

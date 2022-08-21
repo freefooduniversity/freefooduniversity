@@ -173,6 +173,7 @@ func deleteFedToday() {
 }
 
 func addMarker(id: Int, foodSelection: String, lat: Double, long: Double, college: String, duration : String, capacity: Int, building: String, event: String, additional_info: String, email: String) {
+    setUserActiveMarkerId(email: email, id: id)
     getTimeZone()
     if (lat == 37.0902 || long == -95.7129) {
         print("TURN LOCATION ON")
@@ -420,5 +421,38 @@ func incrementUser(email: String, action: String) {
         
     URLSession.shared.dataTask(with: url) { (data, _, _) in
      //   let users = try!JSONDecoder().decode([User].self, from: data!)
+    }.resume()
+}
+
+func getMarkerById(completion: @escaping ([Marker]) -> (), id: Int) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/marker/id/" + String(id)) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+        DispatchQueue.main.async {
+            completion(markers)
+        }
+    }.resume()
+}
+
+func setUserActiveMarkerId(email: String, id: Int) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/marker/set/" + String(email) + "/" + String(id)) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+   //     let markers = try!JSONDecoder().decode([Marker].self, from: data!)
+    }.resume()
+}
+
+func removeUserActiveMarkerId(email: String, id: Int) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/marker/remove/" + String(email) + "/" + String(id)) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+   //     let markers = try!JSONDecoder().decode([Marker].self, from: data!)
     }.resume()
 }
