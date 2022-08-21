@@ -11,7 +11,7 @@ struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
         "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth"]
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth", "newbrunswick", "montclair", "rowan", "kean", "newark", "njit"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -100,6 +100,13 @@ struct CollegeLocations {
         if (college == "snhu") { return 43.03848 }
         if (college == "newhampshire") { return 43.13921 }
         if (college == "dartmouth") { return 43.70467 }
+        if (college == "newbrunswick") { return 40.50149 }
+        if (college == "montclair") { return 40.86679 }
+        if (college == "rowan") { return 39.71025 }
+        if (college == "kean") { return 40.68043 }
+        if (college == "newark") { return 40.74228 }
+        if (college == "njit") { return 40.74263 }
+        
         return DEFAULT_LAT
     }
 
@@ -186,6 +193,12 @@ struct CollegeLocations {
         if (college == "snhu") { return -71.44948 }
         if (college == "newhampshire") { return -70.93712 }
         if (college == "dartmouth") { return -72.28877 }
+        if (college == "newbrunswick") { return -74.44835 }
+        if (college == "montclair") { return -74.19768 }
+        if (college == "rowan") { return -75.11927 }
+        if (college == "kean") { return -74.23320 }
+        if (college == "newark") { return -74.17287 }
+        if (college == "njit") { return -74.17933 }
         return DEFAULT_LONG
     }
     
@@ -330,7 +343,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "nebraska") { return ["nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", " ", " ", " ", " ", " ", " "] }
     if (state == "nevada") { return ["vegas", "southernnevada", "nevadareno", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new hampshire") { return ["snhu", "newhampshire", "dartmouth", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "new jersey") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "new jersey") { return ["newbrunswick", "montclair", "rowan", "kean", "newark", "njit", " ", " ", " ", " "] }
     if (state == "new mexico") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new york") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "north carolina") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
