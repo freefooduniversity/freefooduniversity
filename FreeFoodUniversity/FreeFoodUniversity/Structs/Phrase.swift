@@ -8,5 +8,5 @@
 import Foundation
 
 struct Phrase: Codable {
-    var phrase: Int
+    var phrases: Int
 }

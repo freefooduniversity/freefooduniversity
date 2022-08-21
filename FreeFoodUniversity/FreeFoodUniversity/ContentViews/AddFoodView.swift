@@ -105,7 +105,59 @@ struct addFoodToMapView: View {
                         print(getStartTime())
                         print(getStartTime() > 500)
                         print(getStartTime() < 2000)
+                    
+                        
                         if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 15 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage()) {
+                            
+                            for i in 0 ... building.count - 1 {
+                                for j in i+1...building.count {
+                                    var beg = building.index(building.startIndex, offsetBy: i)
+                                    var end = building.index(building.startIndex, offsetBy: j)
+                                    var phrase = building.lowercased()[beg..<end]
+                                    if (checkHash(str: String(phrase)) == "bad") {
+                                        print("bad")
+                                        return
+                                    } else {
+                                        if (phrase == "lack") {
+                                            print(String(checkHash(str: String(phrase))))
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            for i in 0 ... event.count - 1 {
+                                for j in i+1...event.count {
+                                    var beg = event.index(event.startIndex, offsetBy: i)
+                                    var end = event.index(event.startIndex, offsetBy: j)
+                                    var phrase = event.lowercased()[beg..<end]
+                                    if (checkHash(str: String(phrase)) == "bad") {
+                                        print("bad")
+                                        return
+                                    } else {
+                                        if (phrase == "lack") {
+                                            print(String(checkHash(str: String(phrase))))
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            
+                            for i in 0 ... details.count - 1 {
+                                for j in i+1...details.count {
+                                    var beg = details.index(details.startIndex, offsetBy: i)
+                                    var end = details.index(details.startIndex, offsetBy: j)
+                                    var phrase = details.lowercased()[beg..<end]
+                                    if (checkHash(str: String(phrase)) == "bad") {
+                                        print("bad")
+                                        return
+                                    } else {
+                                        if (phrase == "lack") {
+                                            print(String(checkHash(str: String(phrase))))
+                                        }
+                                    }
+                                }
+                            }
+                            
                             var id = Int.random(in: 1..<10000000)
                             FirebaseApp.configure()
                             let storage = Storage.storage()
@@ -271,6 +323,25 @@ func getEndTime(duration : String) -> Int {
         }
     }
 
+}
+
+func checkHash(str: String)  -> String{
+    var hash = 0.0
+        for c in str {
+            hash -= Double(c.asciiValue!)
+            hash += Double(Int(c.asciiValue!) % 7)
+            hash += Double((Int(c.asciiValue!) + (Int(c.asciiValue!) % str.count)))
+            hash *= Double(c.asciiValue!)
+        }
+    hash = hash.truncatingRemainder(dividingBy: 10000000)
+        var hashInt = Int(hash)
+        for phrase in bannedPhrases {
+            if hashInt == phrase.phrases {
+                return "bad"
+            }
+        }
+        
+        return String(hashInt)
 }
 
 
