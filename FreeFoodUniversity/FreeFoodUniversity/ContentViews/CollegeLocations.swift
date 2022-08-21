@@ -190,9 +190,11 @@ struct CollegeLocations {
     }
     
     func getZoom(college: String) -> Float {
-        if (college == "uga") { return 14.8 }
+        return 14
+        /*
+        if (college == "uga") { return 13.5 }
         if (college == "clemson") { return 15}
-        if (college == "gt") { return 15 }
+        if (college == "gt") { return 14.5 }
         if (college == "bama") { return 15 }
         if (college == "florida") { return 15 }
         if (college == "gastate") { return 15 }
@@ -270,6 +272,7 @@ struct CollegeLocations {
         if (college == "southernnevada") { return 14.7 }
         if (college == "nevadareno") { return 14.7 }
         return DEFAULT_ZOOM
+         */
     }
     
     
