@@ -11,7 +11,7 @@ struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
         "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno"]
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -97,7 +97,9 @@ struct CollegeLocations {
         if (college == "vegas") { return 36.10777 }
         if (college == "southernnevada") { return 36.15615 }
         if (college == "nevadareno") { return 39.54395 }
-        
+        if (college == "snhu") { return 43.03848 }
+        if (college == "newhampshire") { return 43.13921 }
+        if (college == "dartmouth") { return 43.70467 }
         return DEFAULT_LAT
     }
 
@@ -181,6 +183,9 @@ struct CollegeLocations {
         if (college == "vegas") { return -115.14356 }
         if (college == "southernnevada") { return -115.23228 }
         if (college == "nevadareno") { return -119.81425 }
+        if (college == "snhu") { return -71.44948 }
+        if (college == "newhampshire") { return -70.93712 }
+        if (college == "dartmouth") { return -72.28877 }
         return DEFAULT_LONG
     }
     
@@ -321,7 +326,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     
     if (state == "nebraska") { return ["nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", " ", " ", " ", " ", " ", " "] }
     if (state == "nevada") { return ["vegas", "southernnevada", "nevadareno", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "new hampshire") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "new hampshire") { return ["snhu", "newhampshire", "dartmouth", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new jersey") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new mexico") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new york") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
