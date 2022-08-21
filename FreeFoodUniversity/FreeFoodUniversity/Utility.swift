@@ -469,3 +469,13 @@ func getBannedPhrases(completion: @escaping ([Phrase]) -> ()) {
         }
     }.resume()
 }
+
+func banUser(email: String) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/user/banned/" + email) else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+     //   let users = try!JSONDecoder().decode([User].self, from: data!)
+    }.resume()
+}

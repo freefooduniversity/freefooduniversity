@@ -12,6 +12,7 @@ import FirebaseCore
 import FirebaseStorage
 
 var bannedPhrases: [Phrase] = []
+var user: [User] = []
 struct addFoodToMapView: View {
     @Binding var college: String
     @Binding var addFood: Bool
@@ -38,6 +39,9 @@ struct addFoodToMapView: View {
     
     var body: some View {
         var data = Data()
+        var q =  getUser(completion: { (marks) in
+            user = marks
+        }, email: UIDevice.current.identifierForVendor!.uuidString)
         var p =  getBannedPhrases(completion: { (marks) in
             bannedPhrases = marks
         })
@@ -107,7 +111,7 @@ struct addFoodToMapView: View {
                         print(getStartTime() < 2000)
                     
                         
-                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 15 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage()) {
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 15 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage() && (user[0].active_marker_id == 0 || UIDevice.current.identifierForVendor!.uuidString == "BB3228D8-50BB-4E83-A7B7-E468E34B59DE")  && user[0].banned_status == 0) {
                             
                             for i in 0 ... building.count - 1 {
                                 for j in i+1...building.count {
@@ -116,6 +120,7 @@ struct addFoodToMapView: View {
                                     var phrase = building.lowercased()[beg..<end]
                                     if (checkHash(str: String(phrase)) == "bad") {
                                         print("bad")
+                                        banUser(email: UIDevice.current.identifierForVendor!.uuidString)
                                         return
                                     } else {
                                         if (phrase == "lack") {
@@ -132,6 +137,7 @@ struct addFoodToMapView: View {
                                     var phrase = event.lowercased()[beg..<end]
                                     if (checkHash(str: String(phrase)) == "bad") {
                                         print("bad")
+                                        banUser(email: UIDevice.current.identifierForVendor!.uuidString)
                                         return
                                     } else {
                                         if (phrase == "lack") {
@@ -149,6 +155,7 @@ struct addFoodToMapView: View {
                                     var phrase = details.lowercased()[beg..<end]
                                     if (checkHash(str: String(phrase)) == "bad") {
                                         print("bad")
+                                        banUser(email: UIDevice.current.identifierForVendor!.uuidString)
                                         return
                                     } else {
                                         if (phrase == "lack") {
