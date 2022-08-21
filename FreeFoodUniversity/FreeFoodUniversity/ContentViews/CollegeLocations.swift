@@ -11,7 +11,7 @@ struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
         "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa"]
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -90,6 +90,12 @@ struct CollegeLocations {
         if (college == "notredame") { return 41.70447 }
         if (college == "iowastate") { return 42.02739 }
         if (college == "iowa") { return 41.66341 }
+        if (college == "nebraskalincoln") { return 40.82098 }
+        if (college == "nebraskaomaha") { return 41.25829 }
+        if (college == "nebraskacc") { return 41.20722 }
+        if (college == "bellevue") { return 41.15077 }
+        
+        
         return DEFAULT_LAT
     }
 
@@ -166,6 +172,10 @@ struct CollegeLocations {
         if (college == "notredame") { return -86.23535 }
         if (college == "iowastate") { return -93.64679 }
         if (college == "iowa") { return -91.55493 }
+        if (college == "nebraskalincoln") { return -96.70132 }
+        if (college == "nebraskaomaha") { return -96.01077 }
+        if (college == "nebraskacc") { return -95.95745 }
+        if (college == "bellevue") { return -95.91820 }
         return DEFAULT_LONG
     }
     
@@ -242,6 +252,10 @@ struct CollegeLocations {
         if (college == "notredame") { return 14.7 }
         if (college == "iowastate") { return 14.7 }
         if (college == "iowa") { return 14.7 }
+        if (college == "nebraskalincoln") { return 14.5 }
+        if (college == "nebraskaomaha") { return 14.7 }
+        if (college == "nebraskacc") { return 14.7 }
+        if (college == "bellevue") { return 14.7 }
         return DEFAULT_ZOOM
     }
     
@@ -296,7 +310,8 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "mississippi") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "missouri") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "montana") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "nebraska") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    
+    if (state == "nebraska") { return ["nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", " ", " ", " ", " ", " ", " "] }
     if (state == "nevada") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new hampshire") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new jersey") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
@@ -308,6 +323,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "oklahoma") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "oregon") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "pennsylvania") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    
     if (state == "rhode island") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "south carolina") { return ["clemson", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "south dakota") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
