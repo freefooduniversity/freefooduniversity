@@ -11,6 +11,7 @@ import UIKit
 
 struct FeedbackView: View {
     @Binding var navButton: String
+    var feedbackPageURL: String
     
     var body: some View {
         VStack {
@@ -41,7 +42,14 @@ struct FeedbackView: View {
             HStack {
                 Image("apple")
                 Button(action: {
-                    
+                    let url = URL(string: feedbackPageURL)!
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        //If you want handle the completion block than
+                        UIApplication.shared.open(url, options: [:], completionHandler: { (success) in
+                             print("Open url : \(success)")
+                        })
+                    }
                 }) {
                     HStack {
                         Image("blue")

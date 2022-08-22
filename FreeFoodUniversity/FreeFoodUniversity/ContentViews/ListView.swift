@@ -50,9 +50,14 @@ struct ListView : View {
                                         .underline()
                                         .foregroundColor(Color.black)
                                     Text(" ")
-                                    Image("right-arrow")
-                                        .resizable()
-                                        .frame(width: 25, height: 25)
+                                    Button(action: {
+                                        showMarkerView = true
+                                        showListView = false
+                                        markerClicked = markers[i - 1].food + "|" + markers[i - 1].building
+                                    }) {
+                                            Text(" Details →")
+                                            .foregroundColor(Color.white)
+                                    }.background(Color.blue)
                                 }
                                 HStack {
                                     Text("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ")
@@ -83,9 +88,14 @@ struct ListView : View {
                                         .underline()
                                         .foregroundColor(Color.black)
                                     Text(" ")
-                                    Image("right-arrow")
-                                        .resizable()
-                                        .frame(width: 25, height: 25)
+                                    Button(action: {
+                                        showMarkerView = true
+                                        showListView = false
+                                        markerClicked = markers[i - 1].food + "|" + markers[i - 1].building
+                                    }) {
+                                            Text(" Details →")
+                                            .foregroundColor(Color.white)
+                                    }.background(Color.blue)
                                 }
                                 HStack {
                                     Text("                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ")

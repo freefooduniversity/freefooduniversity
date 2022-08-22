@@ -15,6 +15,7 @@ var executeForCollege: Bool = true
 var executeUserData: Bool = true
 var emailSet: [String] = []
 var userData: [User] =  []
+var feedbackPageURL: [Feedback] = []
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
@@ -97,7 +98,9 @@ struct MainContentView: View {
         } else {
             execute = true
         }
-         
+        getFeedbackPageURL(completion: { (marks) in
+            feedbackPageURL = marks
+        })
         var tempMarkers = GMSMarkers
        // print("Hello")
             //  print(Markers)
@@ -309,7 +312,7 @@ struct MainContentView: View {
                 AboutUsView(navButton: $navButton)
             }
             else if (navButton == "feedback") {
-                FeedbackView(navButton: $navButton)
+                FeedbackView(navButton: $navButton, feedbackPageURL: feedbackPageURL[0].feedback)
             }
             else if (navButton == "tech-stack") {
                 TechStackView(navButton: $navButton)
