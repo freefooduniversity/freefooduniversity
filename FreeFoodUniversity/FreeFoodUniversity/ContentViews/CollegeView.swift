@@ -410,6 +410,16 @@ func getTitle(college: String) -> String {
     if (college == "cunyborough") { title += "CUNY Boroush" }
     if (college == "syracuse") { title += "Syracuse" }
     if (college == "stjohns") { title += "St. Johns" }
+    if (college == "ncstate") { title += "NC State" }
+    if (college == "nccharlotte") { title += "UNC Charlotte" }
+    if (college == "chapelhill") { title += "UNC Chapel Hill" }
+    if (college == "eastcarolina") { title += "East Carolina" }
+    if (college == "waketech") { title += "Wake Tech" }
+    if (college == "appalachian") { title += "Appalachian State" }
+    if (college == "greensboro") { title += "UNC Greensboro" }
+    if (college == "wilmington") { title += "UNC Wilmington" }
+    if (college == "centralpiedmont") { title += "Central Piedmont" }
+    if (college == "duke") { title += "Duke" }
     return title
 }
 /*
