@@ -35,6 +35,7 @@ struct MainContentView: View {
     @State var zoom: Float = 3.2
     
     @State var selectedState = ""
+    @State var feedbackPageURL: [Feedback] = []
     
     @State var hasLiked: Bool = false
     @State var hasDisliked: Bool  = false
@@ -97,7 +98,9 @@ struct MainContentView: View {
         } else {
             execute = true
         }
-         
+        getFeedbackPageURL(completion: { (marks) in
+            feedbackPageURL = marks
+        })
         var tempMarkers = GMSMarkers
        // print("Hello")
             //  print(Markers)
@@ -309,7 +312,7 @@ struct MainContentView: View {
                 AboutUsView(navButton: $navButton)
             }
             else if (navButton == "feedback") {
-                FeedbackView(navButton: $navButton)
+                FeedbackView(navButton: $navButton,feedbackPageURL: feedbackPageURL[0].feedback)
             }
             else if (navButton == "tech-stack") {
                 TechStackView(navButton: $navButton)

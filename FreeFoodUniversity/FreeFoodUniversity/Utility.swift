@@ -479,3 +479,16 @@ func banUser(email: String) {
      //   let users = try!JSONDecoder().decode([User].self, from: data!)
     }.resume()
 }
+
+func getFeedbackPageURL(completion: @escaping ([Feedback]) -> ()) {
+    guard let url = URL(string: "https://free-food-university.azurewebsites.net/" + foo + "/feedback-url") else {
+        return
+    }
+        
+    URLSession.shared.dataTask(with: url) { (data, _, _) in
+        let feedback = try!JSONDecoder().decode([Feedback].self, from: data!)
+        DispatchQueue.main.async {
+            completion(feedback)
+        }
+    }.resume()
+}
