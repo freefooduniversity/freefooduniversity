@@ -15,6 +15,7 @@ var executeForCollege: Bool = true
 var executeUserData: Bool = true
 var emailSet: [String] = []
 var userData: [User] =  []
+var feedbackPageURL: [Feedback] = []
 struct MainContentView: View {
     @State var college: String = "all"
     @State var addFood: Bool = false
@@ -35,7 +36,6 @@ struct MainContentView: View {
     @State var zoom: Float = 3.2
     
     @State var selectedState = ""
-    @State var feedbackPageURL: [Feedback] = []
     
     @State var hasLiked: Bool = false
     @State var hasDisliked: Bool  = false
@@ -312,7 +312,7 @@ struct MainContentView: View {
                 AboutUsView(navButton: $navButton)
             }
             else if (navButton == "feedback") {
-                FeedbackView(navButton: $navButton,feedbackPageURL: feedbackPageURL[0].feedback)
+                FeedbackView(navButton: $navButton, feedbackPageURL: feedbackPageURL[0].feedback)
             }
             else if (navButton == "tech-stack") {
                 TechStackView(navButton: $navButton)
