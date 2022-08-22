@@ -415,6 +415,35 @@ func getTitle(college: String) -> String {
     if (college == "newhampshire") { title += "New Hampshire" }
     if (college == "snhu") { title += "Southern NH" }
     if (college == "dartmouth") { title += "Dartmouth" }
+    if (college == "newbrunswick") { title += "Rutgers" }
+    if (college == "montclair") { title += "Montclair State" }
+    if (college == "rowan") { title += "Rowan University" }
+    if (college == "kean") { title += "Kean University" }
+    if (college == "newark") { title += "Rutgers" }
+    if (college == "njit") { title += "NJIT" }
+    if (college == "newmexico") { title += "U of New Mexico" }
+    if (college == "cnmcc") { title += "Central New Mexico" }
+    if (college == "nmstate") { title += "New Mexico State" }
+    if (college == "nyu") { title += "NYU" }
+    if (college == "buffalo") { title += "Buffalo" }
+    if (college == "columbia") { title += "Columbia NY" }
+    if (college == "stonybrook") { title += "Stony Brook" }
+    if (college == "cunyhunter") { title += "CUNY Hunter" }
+    if (college == "cornell") { title += "Cornell" }
+    if (college == "suffolk") { title += "Suffolk" }
+    if (college == "cunyborough") { title += "CUNY Boroush" }
+    if (college == "syracuse") { title += "Syracuse" }
+    if (college == "stjohns") { title += "St. Johns" }
+    if (college == "ncstate") { title += "NC State" }
+    if (college == "nccharlotte") { title += "UNC Charlotte" }
+    if (college == "chapelhill") { title += "UNC Chapel Hill" }
+    if (college == "eastcarolina") { title += "East Carolina" }
+    if (college == "waketech") { title += "Wake Tech" }
+    if (college == "appalachian") { title += "Appalachian State" }
+    if (college == "greensboro") { title += "UNC Greensboro" }
+    if (college == "wilmington") { title += "UNC Wilmington" }
+    if (college == "centralpiedmont") { title += "Central Piedmont" }
+    if (college == "duke") { title += "Duke" }
     return title
 }
 /*

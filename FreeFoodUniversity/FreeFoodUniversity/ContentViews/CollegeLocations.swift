@@ -11,7 +11,7 @@ struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
         "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "kansas", "kansasstate", "wichita","nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth"]
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth", "newbrunswick", "montclair", "rowan", "kean", "newark", "njit", "newmexico", "cnmcc", "nmstate", "nyu", "buffalo", "columbia", "stonybrook", "cunyhunter", "cornell", "suffolk", "cunyborough", "syracuse", "stjohns", "ncstate", "nccharlotte", "chapelhill", "eastcarolina", "waketech", "appalachian", "greensboro", "uncwilmington", "centralpiedmont", "duke"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -122,6 +122,35 @@ struct CollegeLocations {
         if (college == "snhu") { return 43.03848 }
         if (college == "newhampshire") { return 43.13921 }
         if (college == "dartmouth") { return 43.70467 }
+        if (college == "newbrunswick") { return 40.50149 }
+        if (college == "montclair") { return 40.86679 }
+        if (college == "rowan") { return 39.71025 }
+        if (college == "kean") { return 40.68043 }
+        if (college == "newark") { return 40.74228 }
+        if (college == "njit") { return 40.74263 }
+        if (college == "newmexico") { return 35.08471 }
+        if (college == "cnmcc") { return 35.07171 }
+        if (college == "nmstate") { return 32.27966 }
+        if (college == "nyu") { return 40.73040 }
+        if (college == "buffalo") { return 43.00102 }
+        if (college == "columbia") { return 40.80779 }
+        if (college == "stonybrook") { return 40.90499 }
+        if (college == "cunyhunter") { return 40.76827 }
+        if (college == "cornell") { return 42.45531 }
+        if (college == "suffolk") { return 40.79760 }
+        if (college == "cunyborough") { return 40.71888 }
+        if (college == "syracuse") { return 43.03934 }
+        if (college == "stjohns") { return 40.62161 }
+        if (college == "ncstate") { return 35.78502 }
+        if (college == "nccharlotte") { return 35.30741 }
+        if (college == "chapelhill") { return 35.90528 }
+        if (college == "eastcarolina") { return 35.60709 }
+        if (college == "waketech") { return 35.65202 }
+        if (college == "appalachian") { return 36.21388 }
+        if (college == "greensboro") { return 36.06623 }
+        if (college == "wilmington") { return 34.22575 }
+        if (college == "centralpiedmont") { return 35.21790 }
+        if (college == "duke") { return 36.00165 }
         return DEFAULT_LAT
     }
 
@@ -230,6 +259,35 @@ struct CollegeLocations {
         if (college == "snhu") { return -71.44948 }
         if (college == "newhampshire") { return -70.93712 }
         if (college == "dartmouth") { return -72.28877 }
+        if (college == "newbrunswick") { return -74.44835 }
+        if (college == "montclair") { return -74.19768 }
+        if (college == "rowan") { return -75.11927 }
+        if (college == "kean") { return -74.23320 }
+        if (college == "newark") { return -74.17287 }
+        if (college == "njit") { return -74.17933 }
+        if (college == "newmexico") { return -106.61975 }
+        if (college == "cnmcc") { return -106.62898 }
+        if (college == "nmstate") { return -106.74914 }
+        if (college == "nyu") { return -73.99646 }
+        if (college == "buffalo") { return -78.78904 }
+        if (college == "columbia") { return -73.96260 }
+        if (college == "stonybrook") { return -73.12399 }
+        if (college == "cunyhunter") { return -73.96461 }
+        if (college == "cornell") { return -76.47445 }
+        if (college == "suffolk") { return -73.27121 }
+        if (college == "cunyborough") { return -74.01162 }
+        if (college == "syracuse") { return -76.13524 }
+        if (college == "stjohns") { return -74.09087 }
+        if (college == "ncstate") { return -78.68215 }
+        if (college == "nccharlotte") { return -80.735206 }
+        if (college == "chapelhill") { return -79.04703 }
+        if (college == "eastcarolina") { return -77.36654 }
+        if (college == "waketech") { return -78.70475 }
+        if (college == "appalachian") { return -81.68435 }
+        if (college == "greensboro") { return -79.81204 }
+        if (college == "wilmington") { return -77.87779 }
+        if (college == "centralpiedmont") { return -80.83059 }
+        if (college == "duke") { return -78.93828 }
         return DEFAULT_LONG
     }
     
@@ -374,10 +432,10 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "nebraska") { return ["nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", " ", " ", " ", " ", " ", " "] }
     if (state == "nevada") { return ["vegas", "southernnevada", "nevadareno", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new hampshire") { return ["snhu", "newhampshire", "dartmouth", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "new jersey") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "new mexico") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "new york") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "north carolina") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "new jersey") { return ["newbrunswick", "montclair", "rowan", "kean", "newark", "njit", " ", " ", " ", " "] }
+    if (state == "new mexico") { return ["newmexico", "cnmcc", "nmstate", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "new york") { return ["nyu", "buffalo", "columbia", "stonybrook", "cunyhunter", "cornell", "suffolk", "cunyborough", "syracuse", "stjohns"] }
+    if (state == "north carolina") { return ["ncstate", "nccharlotte", "chapelhill", "eastcarolina", "waketech", "appalachian", "greensboro", "uncwilmington", "centralpiedmont", "duke"] }
     if (state == "north dakota") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "ohio") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "oklahoma") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
