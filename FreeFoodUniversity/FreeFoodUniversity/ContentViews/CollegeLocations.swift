@@ -90,6 +90,28 @@ struct CollegeLocations {
         if (college == "notredame") { return 41.70447 }
         if (college == "iowastate") { return 42.02739 }
         if (college == "iowa") { return 41.66341 }
+        if (college == "kansas") { return 38.9543 }
+        if (college == "kansasstate") { return 39.1974 }
+        if (college == "wichita") { return 37.7191 }
+        if (college == "kentucky") { return 38.0307 }
+        if (college == "louisville") { return 38.2123 }
+        if (college == "lsu") { return 30.4133 }
+        if (college == "lafayette") { return 30.2241 }
+        if (college == "tulane") { return 29.9407 }
+        if (college == "maine") { return 44.9019 }
+        if (college == "maryland") { return 38.9869}
+        if (college == "johnshopkins") { return 39.3299}
+        if (college == "towson") { return 39.3925}
+        if (college == "umass") { return 42.3868}
+        if (college == "michstate") { return 42.7018}
+        if (college == "wsu") { return 46.7319}
+        if (college == "minnesota") { return 44.9740}
+        if (college == "walden") { return 44.9812}
+        if (college == "olemiss") { return 34.3647}
+        if (college == "missstate") { return 33.4552}
+        if (college == "mizzou") { return 38.9404}
+        if (college == "missouristate") { return 37.2006}
+        if (college == "montanastate") { return 45.6674}
         if (college == "nebraskalincoln") { return 40.82098 }
         if (college == "nebraskaomaha") { return 41.25829 }
         if (college == "nebraskacc") { return 41.20722 }
@@ -205,6 +227,28 @@ struct CollegeLocations {
         if (college == "notredame") { return -86.23535 }
         if (college == "iowastate") { return -93.64679 }
         if (college == "iowa") { return -91.55493 }
+        if (college == "kansas") { return -95.2558 }
+        if (college == "kansasstate") { return -96.5847}
+        if (college == "wichita") { return -97.2899 }
+        if (college == "kentucky") { return -84.5040 }
+        if (college == "louisville") { return -85.7585 }
+        if (college == "lsu") { return -91.1800 }
+        if (college == "lafayette") { return -92.0198 }
+        if (college == "tulane") { return -90.1203 }
+        if (college == "maine") { return -68.6688}
+        if (college == "maryland") { return -76.9426}
+        if (college == "johnshopkins") { return -76.6205}
+        if (college == "towson") { return -76.6126}
+        if (college == "umass") { return -72.5301}
+        if (college == "michstate") { return -84.4822}
+        if (college == "wsu") { return -117.1542}
+        if (college == "minnesota") { return -93.2277}
+        if (college == "walden") { return -93.2658}
+        if (college == "olemiss") { return -89.5384}
+        if (college == "missstate") { return -88.7944}
+        if (college == "mizzou") { return -92.3277}
+        if (college == "missouristate") { return -93.2807}
+        if (college == "montanastate") { return -111.0546}
         if (college == "nebraskalincoln") { return -96.70132 }
         if (college == "nebraskaomaha") { return -96.01077 }
         if (college == "nebraskacc") { return -95.95745 }
@@ -373,17 +417,17 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "illinois") { return ["urbana", "uic", "devry", "northwestern", " ", " ", " ", " ", " ", " "] }
     if (state == "indiana") { return ["ivytech", "purdue", "notredame", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "iowa") { return ["iowastate", "iowa", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "kansas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "kentucky") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "lousiana") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "maine") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "maryland") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "massachussetts") { return ["harvard", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "michigan") { return ["michigan", " ", " ", " ", " ", " ", " ", " ", " ", " "]}
-    if (state == "minnesota") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "mississippi") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "missouri") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "montana") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "kansas") { return ["kansas", "kansasstate", "wichita", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "kentucky") { return ["kentucky", "louisville", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "lousiana") { return ["lsu", "lafayette", "tulane", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "maine") { return ["maine", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "maryland") { return ["maryland", "johnshopkins", "towson", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "massachussetts") { return ["harvard", "umass", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "michigan") { return ["michigan", "michstate", "wsu", " ", " ", " ", " ", " ", " ", " "]}
+    if (state == "minnesota") { return ["minnesota", "walden", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "mississippi") { return ["olemiss", "missstate", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "missouri") { return ["mizzou", "missouristate", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "montana") { return ["montanastate", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     
     if (state == "nebraska") { return ["nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", " ", " ", " ", " ", " ", " "] }
     if (state == "nevada") { return ["vegas", "southernnevada", "nevadareno", " ", " ", " ", " ", " ", " ", " "] }

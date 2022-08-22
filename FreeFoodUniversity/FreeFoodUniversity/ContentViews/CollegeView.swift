@@ -381,6 +381,30 @@ func getTitle(college: String) -> String {
     if (college == "notredame") { title += "Notre Dame" }
     if (college == "iowastate") { title += "Iowa State" }
     if (college == "iowa") { title += "University of Iowa" }
+    if (college == "kansas") { title += "University of Iowa" }
+    if (college == "iowa") { title += "University of Iowa" }
+    if (college == "kansas") { title += "University of Kansas" }
+    if (college == "kansasstate") { title += "Kansas State" }
+    if (college == "wichita") { title += "Wichita State" }
+    if (college == "kentucky") { title += "University of Kentucky"}
+    if (college == "louisville") { title += "Louisville"}
+    if (college == "lsu") { title += "LSU"}
+    if (college == "lafayette") { title += "Lafayette"}
+    if (college == "tulane") { title += "Tulane"}
+    if (college == "maine") { title += "University of Maine"}
+    if (college == "maryland") { title += "University Of Maryland"}
+    if (college == "johnshopkins") { title += "Johns Hopkins"}
+    if (college == "towson") { title += "Towson"}
+    if (college == "umass") { title += "UMass"}
+    if (college == "michstate") { title += "Michigan State"}
+    if (college == "wsu") { title += "WSU"}
+    if (college == "minnesota") { title += "University of Minnesota"}
+    if (college == "walden") { title += "Walden University"}
+    if (college == "olemiss") { title += "Ole Miss"}
+    if (college == "missstate") { title += "Mississippi State"}
+    if (college == "mizzou") { title += "Mizzou"}
+    if (college == "missouristate") { title += "Missouri State"}
+    if (college == "montanastate") { title += "Montana State"}
     if (college == "nebraskalincoln") { title += "U of Nebraska" }
     if (college == "nebraskaomaha") { title += "U of Nebraska" }
     if (college == "nebraskacc") { title += "Metropolitan CC" }
