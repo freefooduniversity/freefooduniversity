@@ -11,7 +11,7 @@ struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
         "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth", "newbrunswick", "montclair", "rowan", "kean", "newark", "njit", "newmexico", "cnmcc", "nmstate", "nyu", "buffalo", "columbia", "stonybrook", "cunyhunter", "cornell", "suffolk", "cunyborough", "syracuse", "stjohns", "ncstate", "nccharlotte", "chapelhill", "eastcarolina", "waketech", "appalachian", "greensboro", "uncwilmington", "centralpiedmont", "duke", "northdakota", "ndsu", "oregonstate", "portland", "portlandcc", "oregon"]
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth", "newbrunswick", "montclair", "rowan", "kean", "newark", "njit", "newmexico", "cnmcc", "nmstate", "nyu", "buffalo", "columbia", "stonybrook", "cunyhunter", "cornell", "suffolk", "cunyborough", "syracuse", "stjohns", "ncstate", "nccharlotte", "chapelhill", "eastcarolina", "waketech", "appalachian", "greensboro", "uncwilmington", "centralpiedmont", "duke", "northdakota", "ndsu", "oregonstate", "portland", "portlandcc", "oregon", "oaklahoma", "osu"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -157,6 +157,8 @@ struct CollegeLocations {
         if (college == "portland") { return 45.51134 }
         if (college == "portlandcc") { return 45.43655 }
         if (college == "oregon") { return 44.04506 }
+        if (college == "oaklahoma") { return 35.20613 }
+        if (college == "osu") { return 36.12735 }
         return DEFAULT_LAT
     }
 
@@ -300,6 +302,8 @@ struct CollegeLocations {
         if (college == "portland") { return -122.68346 }
         if (college == "portlandcc") { return -122.72973 }
         if (college == "oregon") { return -123.07278 }
+        if (college == "oaklahoma") { return -97.44586 }
+        if (college == "osu") { return -97.07376 }
         return DEFAULT_LONG
     }
     
@@ -450,7 +454,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "north carolina") { return ["ncstate", "nccharlotte", "chapelhill", "eastcarolina", "waketech", "appalachian", "greensboro", "uncwilmington", "centralpiedmont", "duke"] }
     if (state == "north dakota") { return ["northdakota", "ndsu", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "ohio") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "oklahoma") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "oklahoma") { return ["oaklahoma", "osu", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "oregon") { return ["oregonstate", "portland", "portlandcc", "oregon", " ", " ", " ", " ", " ", " "] }
     if (state == "pennsylvania") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     
