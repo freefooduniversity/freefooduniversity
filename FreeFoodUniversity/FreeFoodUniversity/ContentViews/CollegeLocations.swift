@@ -98,6 +98,10 @@ struct CollegeLocations {
         if (college == "lsu") { return 30.4133 }
         if (college == "lafayette") { return 30.2241 }
         if (college == "tulane") { return 29.9407 }
+        if (college == "maine") { return 44.9019 }
+        if (college == "maryland") { return 38.9869}
+        if (college == "johnshopkins") { return 39.3299}
+        if (college == "towson") { return 39.3925}
         if (college == "nebraskalincoln") { return 40.82098 }
         if (college == "nebraskaomaha") { return 41.25829 }
         if (college == "nebraskacc") { return 41.20722 }
@@ -192,6 +196,10 @@ struct CollegeLocations {
         if (college == "lsu") { return -91.1800 }
         if (college == "lafayette") { return -92.0198 }
         if (college == "tulane") { return -90.1203 }
+        if (college == "maine") { return -68.6688}
+        if (college == "maryland") { return -76.9426}
+        if (college == "johnshopkins") { return -76.6205}
+        if (college == "towson") { return -76.6126}
         if (college == "nebraskalincoln") { return -96.70132 }
         if (college == "nebraskaomaha") { return -96.01077 }
         if (college == "nebraskacc") { return -95.95745 }
@@ -334,8 +342,8 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "kansas") { return ["kansas", "kansasstate", "wichita", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "kentucky") { return ["kentucky", "louisville", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "lousiana") { return ["lsu", "lafayette", "tulane", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "maine") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "maryland") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "maine") { return ["maine", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "maryland") { return ["maryland", "johnshopkins", "towson", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "massachussetts") { return ["harvard", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "michigan") { return ["michigan", " ", " ", " ", " ", " ", " ", " ", " ", " "]}
     if (state == "minnesota") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
