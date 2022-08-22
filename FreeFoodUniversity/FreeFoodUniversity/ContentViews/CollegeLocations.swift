@@ -528,7 +528,7 @@ func getStateZoom(selectedState: String) -> Float {
     if (state == "wisconsin") { return [] }
     if (state == "wyoming") { return [] }
      */
-    return 1.0
+    return 6
 }
 
 func getStateLat(selectedState: String) -> Double {
@@ -547,44 +547,43 @@ func getStateLat(selectedState: String) -> Double {
      if (state == "idaho") { return 44.0682 }
     if (state == "illinois") { return 40.6331 }
     if (state == "indiana") { return 40.2672 }
-    /*
-     if (state == "iowa") { return [] }
-     if (state == "kansas") { return [] }
-     if (state == "kentucky") { return [] }
-     if (state == "lousiana") { return [] }
-     if (state == "maine") { return [] }
-     if (state == "maryland") { return [] }
-     if (state == "massachussetts") { return ["harvard"] }
-     if (state == "michigan") { return ["michigan"] }
-     if (state == "minnesota") { return [] }
-     if (state == "mississippi") { return [] }
-     if (state == "missouri") { return [] }
-     if (state == "montana") { return [] }
-     if (state == "nebraska") { return [] }
-     if (state == "nevada") { return [] }
-     if (state == "new hampshire") { return [] }
-     if (state == "new jersey") { return [] }
-     if (state == "new mexico") { return [] }
-     if (state == "new york") { return [] }
-     if (state == "north carolina") { return [] }
-     if (state == "north dakota") { return [] }
-     if (state == "ohio") { return [] }
-     if (state == "oklahoma") { return [] }
-     if (state == "oregon") { return [] }
-     if (state == "pennsylvania") { return [] }
-     if (state == "rhode island") { return [] }
-     if (state == "south carolina") { return ["clemson"] }
-     if (state == "south dakota") { return [] }
-     if (state == "tennessee") { return [] }
-     if (state == "texas") { return [] }
-     if (state == "utah") { return [] }
-     if (state == "vermont") { return [] }
-     if (state == "virginia") { return [] }
-     if (state == "washington") { return [] }
-     if (state == "west virginia") { return [] }
-     if (state == "wisconsin") { return [] }
-     if (state == "wyoming") { return [] }
-     */
+    if (state == "iowa") { return 41.8780 }
+    if (state == "kansas") { return 39.0119 }
+    if (state == "kentucky") { return 37.8393 }
+    if (state == "lousiana") { return 30.9843}
+    if (state == "maine") { return 45.2538 }
+    if (state == "maryland") { return 39.0458 }
+    if (state == "massachussetts") { return 42.4072 }
+    if (state == "michigan") { return 44.3148}
+    if (state == "minnesota") { return 46.7296 }
+    if (state == "mississippi") { return 32.3547}
+    if (state == "missouri") { return 37.9643 }
+    if (state == "montana") { return 46.8797 }
+    if (state == "nebraska") { return 41.4925 }
+    if (state == "nevada") { return 38.8026 }
+    if (state == "new hampshire") { return 43.1939 }
+    if (state == "new jersey") { return 40.0583 }
+    if (state == "new mexico") { return 34.5199 }
+    if (state == "new york") { return 40.7128}
+    if (state == "north carolina") { return 35.7596 }
+    if (state == "north dakota") { return 47.5515 }
+    if (state == "ohio") { return 40.4173 }
+    if (state == "oklahoma") { return 35.0078}
+    if (state == "oregon") { return 43.8041 }
+    if (state == "pennsylvania") { return 41.2033 }
+    if (state == "rhode island") { return 41.5801 }
+    if (state == "south carolina") { return 33.8361 }
+    if (state == "south dakota") { return 43.9695 }
+    if (state == "tennessee") { return 35.5175 }
+    if (state == "texas") { return 31.9686 }
+    if (state == "utah") { return 39.3210 }
+    if (state == "vermont") { return 44.5588 }
+    if (state == "virginia") { return 37.4316 }
+    if (state == "washington") { return 47.7511 }
+    if (state == "west virginia") { return 38.5976 }
+    if (state == "winsconsin") { return 43.7844 }
+    if (state == "wyoming") { return 43.0760 }
+     
      
     return -30.0
 }
@@ -606,44 +605,43 @@ func getStateLong(selectedState: String) -> Double {
     if (state == "idaho") { return -114.7420 }
     if (state == "illinois") { return -89.3985 }
     if (state == "indiana") { return -86.1349 }
-    /*
-     if (state == "iowa") { return [] }
-     if (state == "kansas") { return [] }
-     if (state == "kentucky") { return [] }
-     if (state == "lousiana") { return [] }
-     if (state == "maine") { return [] }
-     if (state == "maryland") { return [] }
-     if (state == "massachussetts") { return ["harvard"] }
-     if (state == "michigan") { return ["michigan"] }
-     if (state == "minnesota") { return [] }
-     if (state == "mississippi") { return [] }
-     if (state == "missouri") { return [] }
-     if (state == "montana") { return [] }
-     if (state == "nebraska") { return [] }
-     if (state == "nevada") { return [] }
-     if (state == "new hampshire") { return [] }
-     if (state == "new jersey") { return [] }
-     if (state == "new mexico") { return [] }
-     if (state == "new york") { return [] }
-     if (state == "north carolina") { return [] }
-     if (state == "north dakota") { return [] }
-     if (state == "ohio") { return [] }
-     if (state == "oklahoma") { return [] }
-     if (state == "oregon") { return [] }
-     if (state == "pennsylvania") { return [] }
-     if (state == "rhode island") { return [] }
-     if (state == "south carolina") { return ["clemson"] }
-     if (state == "south dakota") { return [] }
-     if (state == "tennessee") { return [] }
-     if (state == "texas") { return [] }
-     if (state == "utah") { return [] }
-     if (state == "vermont") { return [] }
-     if (state == "virginia") { return [] }
-     if (state == "washington") { return [] }
-     if (state == "west virginia") { return [] }
-     if (state == "wisconsin") { return [] }
-     if (state == "wyoming") { return [] }
-     */
+    if (state == "iowa") { return -93.0977 }
+    if (state == "kansas") { return -98.4842 }
+    if (state == "kentucky") { return -84.2700 }
+    if (state == "lousiana") { return -91.9623 }
+    if (state == "maine") { return -69.4455 }
+    if (state == "maryland") { return -76.6413 }
+    if (state == "massachussetts") { return -71.3824 }
+    if (state == "michigan") { return -85.6024 }
+    if (state == "minnesota") { return -94.6859 }
+    if (state == "mississippi") { return -89.3985 }
+    if (state == "missouri") { return -91.8318 }
+    if (state == "montana") { return -110.3626 }
+    if (state == "nebraska") { return -99.9018 }
+    if (state == "nevada") { return -116.4194 }
+    if (state == "new hampshire") { return -71.5724 }
+    if (state == "new jersey") { return -74.4057 }
+    if (state == "new mexico") { return -105.8701 }
+    if (state == "new york") { return -74.0060 }
+    if (state == "north carolina") { return -79.0193 }
+    if (state == "north dakota") { return -101.0020 }
+    if (state == "ohio") { return -82.9071 }
+    if (state == "oklahoma") { return -97.0929 }
+    if (state == "oregon") { return -120.5542 }
+    if (state == "pennsylvania") { return -77.1945 }
+    if (state == "rhode island") { return -71.4774 }
+    if (state == "south carolina") { return -81.1637}
+    if (state == "south dakota") { return -99.9018 }
+    if (state == "tennessee") { return -86.5804 }
+    if (state == "texas") { return -99.9018 }
+    if (state == "utah") { return -111.0937 }
+    if (state == "vermont") { return -72.5778 }
+    if (state == "virginia") { return -78.6569 }
+    if (state == "washington") { return -120.7401 }
+    if (state == "west virginia") { return -80.4549 }
+    if (state == "winsconsin") { return -88.7879 }
+    if (state == "wyoming") { return -107.2903  }
+     
      
     return 83.0
 }
