@@ -103,6 +103,8 @@ struct CollegeLocations {
         if (college == "johnshopkins") { return 39.3299}
         if (college == "towson") { return 39.3925}
         if (college == "umass") { return 42.3868}
+        if (college == "michstate") { return 42.7018}
+        if (college == "wsu") { return 46.7319}
         if (college == "nebraskalincoln") { return 40.82098 }
         if (college == "nebraskaomaha") { return 41.25829 }
         if (college == "nebraskacc") { return 41.20722 }
@@ -202,6 +204,8 @@ struct CollegeLocations {
         if (college == "johnshopkins") { return -76.6205}
         if (college == "towson") { return -76.6126}
         if (college == "umass") { return -72.5301}
+        if (college == "michstate") { return -84.4822}
+        if (college == "wsu") { return -117.1542}
         if (college == "nebraskalincoln") { return -96.70132 }
         if (college == "nebraskaomaha") { return -96.01077 }
         if (college == "nebraskacc") { return -95.95745 }
@@ -347,7 +351,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "maine") { return ["maine", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "maryland") { return ["maryland", "johnshopkins", "towson", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "massachussetts") { return ["harvard", "umass", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "michigan") { return ["michigan", " ", " ", " ", " ", " ", " ", " ", " ", " "]}
+    if (state == "michigan") { return ["michigan", "michstate", "wsu", " ", " ", " ", " ", " ", " ", " "]}
     if (state == "minnesota") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "mississippi") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "missouri") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
