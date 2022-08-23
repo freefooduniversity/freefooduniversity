@@ -69,15 +69,15 @@ struct addFoodToMapView: View {
                     }.border(.secondary)
                 }
                 HStack {
-                    TextField("Building ", text: $building)
+                    TextField("Building - 15 Char Max ", text: $building)
                         .frame(width: 180, height: 30)
                         .border(.secondary)
-                    TextField("Event ", text: $event)
+                    TextField("Event - 25 Char Max", text: $event)
                         .frame(width: 180, height: 30)
                         .border(.secondary)
                 }
                 HStack {
-                    TextField("Additional Details ", text: $details)
+                    TextField("Additional Details - 25 Char Max ", text: $details)
                         .frame(width: 200, height: 60)
                         .border(.secondary)
                     Button(action: {
@@ -111,7 +111,7 @@ struct addFoodToMapView: View {
                         print(getStartTime() < 2000)
                     
                         
-                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 15 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage() && (user[0].active_marker_id == 0 || UIDevice.current.identifierForVendor!.uuidString == "BB3228D8-50BB-4E83-A7B7-E468E34B59DE")  && user[0].banned_status == 0) {
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 15 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage() && (user[0].active_marker_id == 0 || UIDevice.current.identifierForVendor!.uuidString == "7971DA4A-F2B3-4EBC-B96E-34C3E492D401")  && user[0].banned_status == 0) {
                             
                             for i in 0 ... building.count - 1 {
                                 for j in i+1...building.count {
@@ -237,6 +237,9 @@ struct addFoodToMapView: View {
         }
         VStack (alignment: .leading){
         Text(" ")
+        Text("⚫️ If not working check below bullet points")
+                .bold()
+                .underline()
         Text(" ")
         Text("⚫️ All Above Fields Are Required")
         Text(" ")
@@ -244,7 +247,6 @@ struct addFoodToMapView: View {
         Text(" ")
         Text("⚫️ Food Events Start Once You Add Them")
         Text(" ")
-        Text("⚫️ Your Current Location is Used for Event Location And Is On ✅")
       //  Text("Inappropriate posts will result in an immediate ban.")
      //       .font(.custom("Helvetica Neue", size: 16))
       //      .foregroundColor(.black)

@@ -92,7 +92,7 @@ struct MarkerView: View {
                         Text(String(marker.likes))
                             .foregroundColor(Color.blue)
                     } else {
-                        Text(String(marker.likes + 1))
+                        Text(String(marker.likes))
                             .foregroundColor(Color.blue)
                     }
                     Button(action: {
@@ -115,7 +115,7 @@ struct MarkerView: View {
                     Text(String(marker.dislikes))
                         .foregroundColor(Color.blue)
                     } else {
-                        Text(String(marker.dislikes + 1))
+                        Text(String(marker.dislikes))
                             .foregroundColor(Color.blue)
                     }
                     Button(action: {
@@ -189,7 +189,7 @@ struct MarkerView: View {
                                     Text(String(marker.dibs))
                                         .foregroundColor(Color.blue)
                                 } else {
-                                    Text(String(marker.dibs + 1))
+                                    Text(String(marker.dibs))
                                         .foregroundColor(Color.blue)
                                 }
                                 Text("/")
