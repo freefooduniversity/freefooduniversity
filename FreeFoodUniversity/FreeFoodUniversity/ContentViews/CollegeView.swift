@@ -309,7 +309,6 @@ func setSelectionFive(foods : [(String, Int)], markers : [Marker]) -> [String] {
 
 func getTitle(college: String) -> String {
     var title = "Free Food at "
-    
     if (college == "uga") { title += "UGA" }
     if (college == "clemson") { title += "Clemson" }
     if (college == "gt") { title += "Georgia Tech" }
@@ -461,6 +460,11 @@ func getTitle(college: String) -> String {
     if (college == "cincinnati") { title += "Cincinnati" }
     if (college == "kentstate") { title += "Kent State" }
     if (college == "ohiou") { title += "Ohio University" }
+    if (college == "tennessee") { title += "University of Tennessee" }
+    if (college == "memphis") { title += "University of Memphisy" }
+    if (college == "middlestate") { title += "Middle Tennessee State" }
+    if (college == "eaststate") { title += "East Tennessee State" }
+    if (college == "vandy") { title += "Vandy" }
     if (college == "washington") { title += "Washington University" }
     if (college == "washingtonstate") { title += "Washington State" }
     if (college == "westvirginia") { title += "WV University" }
@@ -468,6 +472,17 @@ func getTitle(college: String) -> String {
     if (college == "winsconsinmadison") { title += "UW Madison" }
     if (college == "winsconsinmilkwaukee") { title += "UW Milkwaukee" }
     if (college == "winsconsinoshkosh") { title += "UW Oshkosh" }
+    if (college == "wyoming") { title += "University Of Wyoming" }
+    if (college == "a&m") { title += "Texas A&M" }
+    if (college == "utaustin") { title += "UT Austin" }
+    if (college == "houston") { title += "UT Houston" }
+    if (college == "arlington") { title += "UT Arlington" }
+    if (college == "northtexas") { title += "UT North Texas" }
+    if (college == "texastech") { title += "Texas Tech" }
+    if (college == "texasstate") { title += "Texas State" }
+    if (college == "utsanantonio") { title += "UT San Antonio"}
+    if (college == "utdallas") { title += "UT Dallas" }
+    if (college == "utelpaso") { title += "UT El Paso" }
     return title
 }
 /*

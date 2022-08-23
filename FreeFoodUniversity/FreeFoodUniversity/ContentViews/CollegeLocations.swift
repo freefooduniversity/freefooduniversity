@@ -183,6 +183,22 @@ struct CollegeLocations {
         if (college == "winsconsinmadison") {return 43.0766}
         if (college == "winsconsinmilwaukee") {return 43.0783}
         if (college == "winsconsinoshkosh") {return 44.0247}
+        if (college == "wyoming") {return 41.3149}
+        if (college == "tennessee") {return 35.9399}
+        if (college == "memphis") {return 35.1187}
+        if (college == "middlestate") {return 35.8486}
+        if (college == "eaststate") {return 36.3024}
+        if (college == "vandy") {return 36.1447}
+        if (college == "a&m") {return 30.6187}
+        if (college == "utaustin") {return 30.2849}
+        if (college == "houston") {return 29.7030}
+        if (college == "arlington") {return 32.7292}
+        if (college == "northtexas") {return 33.2075}
+        if (college == "texastech") {return 33.5843}
+        if (college == "texasstate") {return 29.8884}
+        if (college == "utsanantonio") {return 29.5831}
+        if (college == "utdallas") {return 32.9857}
+        if (college == "utelpaso") {return 31.7732}
         return DEFAULT_LAT
     }
 
@@ -347,11 +363,27 @@ struct CollegeLocations {
         if (college == "augustana") {return 96.7394}
         if (college == "washington") {return -122.3035}
         if (college == "washingtonstate") {return -117.1542}
+        if (college == "tennessee") {return -83.9432}
+        if (college == "memphis") {return -89.9375}
+        if (college == "middlestate") {return -86.3669}
+        if (college == "eaststate") {return -82.3699}
+        if (college == "vandy") {return -86.8027}
         if (college == "westvirginia") {return -79.9697}
         if (college == "marshall") {return -82.4247}
         if (college == "winsconsinmadison") {return -89.4125}
         if (college == "winsconsinmilwaukee") {return -87.8820}
         if (college == "winsconsinoshkosh") {return -88.5426}
+        if (college == "wyoming") {return -105.5666}
+        if (college == "a&m") {return -96.3365}
+        if (college == "utaustin") {return -97.7341}
+        if (college == "houston") {return -95.4032}
+        if (college == "arlington") {return -97.1152}
+        if (college == "northtexas") {return -97.1526}
+        if (college == "texastech") {return -101.8783}
+        if (college == "texasstate") {return -97.9384}
+        if (college == "utsanantonio") {return -98.6197}
+        if (college == "utdallas") {return -96.7502}
+        if (college == "utelpaso") {return -106.5047}
         return DEFAULT_LONG
     }
     
@@ -509,15 +541,15 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "rhode island") { return ["brown", "rhodeisland", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "south carolina") { return ["clemson", "southcarolina", "charleston", "coastalcarolina", " ", " ", " ", " ", " ", " "] }
     if (state == "south dakota") { return ["southdakota", "southdakotastate", "augustana", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "tennessee") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "texas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "tennessee") { return ["tennessee", "memphis", "middlestate", "eaststate", "vandy", " ", " ", " ", " ", " "] }
+    if (state == "texas") { return ["a&m", "utaustin", "houston", "arlington", "northtexas", "texastech", "texasstate", "utsanantonio", "utdallas", "utelpaso"] }
     if (state == "utah") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "vermont") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "virginia") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "washington") { return ["washington", "washingtonstate", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "west virginia") { return ["westvirginia", "marshall", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "winsconsin") { return ["winsconsinmadison", "winsconsinmilwaukee", "winsconsinoshkosh", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "wyoming") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "wyoming") { return ["wyoming", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     return ["uga", "bama", "gt", "clemson", "florida", "michigan", "ksu", "gastate", "usc", "harvard"]
 }
 
