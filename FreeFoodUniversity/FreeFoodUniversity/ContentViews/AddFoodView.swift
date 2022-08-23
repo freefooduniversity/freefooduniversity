@@ -69,7 +69,7 @@ struct addFoodToMapView: View {
                     }.border(.secondary)
                 }
                 HStack {
-                    TextField("Building - 15 Char Max ", text: $building)
+                    TextField("Building - 25 Char Max ", text: $building)
                         .frame(width: 180, height: 30)
                         .border(.secondary)
                     TextField("Event - 25 Char Max", text: $event)
@@ -111,7 +111,7 @@ struct addFoodToMapView: View {
                         print(getStartTime() < 2000)
                     
                         
-                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 15 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage() && (user[0].active_marker_id == 0 || UIDevice.current.identifierForVendor!.uuidString == "7971DA4A-F2B3-4EBC-B96E-34C3E492D401")  && user[0].banned_status == 0) {
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 25 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage() && (user[0].active_marker_id == 0)  && user[0].banned_status == 0) {
                             
                             for i in 0 ... building.count - 1 {
                                 for j in i+1...building.count {
