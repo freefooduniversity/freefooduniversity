@@ -91,7 +91,7 @@ struct MainPageContentView: View {
                     Text("      Pick Your College       ").bold()
                         .font(.custom("Helvetica Neue", size: 13))
                         .foregroundColor(.black)
-                    Text("        (From 100+)           ")
+                    Text("        (From 200+)           ")
                         .font(.custom("Helvetica Neue", size: 11))
                         .foregroundColor(.black)
                 }.border(Color.black)

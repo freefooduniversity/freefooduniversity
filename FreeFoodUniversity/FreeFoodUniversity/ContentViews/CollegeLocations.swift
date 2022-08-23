@@ -180,6 +180,9 @@ struct CollegeLocations {
         if (college == "washingtonstate") {return 46.7319}
         if (college == "westvirginia") {return 39.6480}
         if (college == "marshall") {return 38.4237}
+        if (college == "winsconsinmadison") {return 43.0766}
+        if (college == "winsconsinmilwaukee") {return 43.0783}
+        if (college == "winsconsinoshkosh") {return 44.0247}
         return DEFAULT_LAT
     }
 
@@ -346,6 +349,9 @@ struct CollegeLocations {
         if (college == "washingtonstate") {return -117.1542}
         if (college == "westvirginia") {return -79.9697}
         if (college == "marshall") {return -82.4247}
+        if (college == "winsconsinmadison") {return -89.4125}
+        if (college == "winsconsinmilwaukee") {return -87.8820}
+        if (college == "winsconsinoshkosh") {return -88.5426}
         return DEFAULT_LONG
     }
     
@@ -510,7 +516,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "virginia") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "washington") { return ["washington", "washingtonstate", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "west virginia") { return ["westvirginia", "marshall", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "wisconsin") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "winsconsin") { return ["winsconsinmadison", "winsconsinmilwaukee", "winsconsinoshkosh", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "wyoming") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     return ["uga", "bama", "gt", "clemson", "florida", "michigan", "ksu", "gastate", "usc", "harvard"]
 }
