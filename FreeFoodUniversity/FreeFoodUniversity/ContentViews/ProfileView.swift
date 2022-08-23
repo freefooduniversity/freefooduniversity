@@ -85,7 +85,7 @@ struct ProfileView: View {
                     }) {
                     HStack {
                         Image("blue")
-                        Text(" Find My Marker      ")
+                        Text(" Find My Free Food Event      ")
                             .font(.custom("Helvetica Neue", size: 16))
                             .foregroundColor(.white)
                     }
