@@ -204,6 +204,11 @@ struct CollegeLocations {
         if (college == "utah") {return 40.7649}
         if (college == "weber") {return 41.1915}
         if (college == "utahstate") {return 41.7452}
+        if (college == "vermont") { return 44.4779}
+        if (college == "ccvermont") { return 44.4913 }
+        if (college == "champlain") { return 44.4731}
+        if (college == "norwich") { return 44.1388 }
+        if (college == "middlebury") { return 44.0081}
         return DEFAULT_LAT
     }
 
@@ -394,6 +399,11 @@ struct CollegeLocations {
         if (college == "utah") {return -111.8421}
         if (college == "weber") {return -111.9440}
         if (college == "utahstate") {return -111.8097}
+        if (college == "vermont") { return -73.1965}
+        if (college == "ccvermont") { return -73.1817 }
+        if (college == "champlain") { return -73.2041}
+        if (college == "norwich") { return -72.6616 }
+        if (college == "middlebury") { return -73.1760}
         return DEFAULT_LONG
     }
     
@@ -534,7 +544,6 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "mississippi") { return ["olemiss", "missstate", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "missouri") { return ["mizzou", "missouristate", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "montana") { return ["montanastate", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    
     if (state == "nebraska") { return ["nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", " ", " ", " ", " ", " ", " "] }
     if (state == "nevada") { return ["vegas", "southernnevada", "nevadareno", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "new hampshire") { return ["snhu", "newhampshire", "dartmouth", " ", " ", " ", " ", " ", " ", " "] }
@@ -547,14 +556,13 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "oklahoma") { return ["oaklahoma", "osu", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "oregon") { return ["oregonstate", "portland", "portlandcc", "oregon", " ", " ", " ", " ", " ", " "] }
     if (state == "pennsylvania") { return ["pennstate", "temple", "pitt", "upenn", "drexel", " ", " ", " ", " ", " "] }
-    
     if (state == "rhode island") { return ["brown", "rhodeisland", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "south carolina") { return ["clemson", "southcarolina", "charleston", "coastalcarolina", " ", " ", " ", " ", " ", " "] }
     if (state == "south dakota") { return ["southdakota", "southdakotastate", "augustana", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "tennessee") { return ["tennessee", "memphis", "middlestate", "eaststate", "vandy", " ", " ", " ", " ", " "] }
     if (state == "texas") { return ["a&m", "utaustin", "houston", "arlington", "northtexas", "texastech", "texasstate", "utsanantonio", "utdallas", "utelpaso"] }
     if (state == "utah") { return ["utahvalley", "brigham", "utah", "weber", "utahstate", " ", " ", " ", " ", " "] }
-    if (state == "vermont") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "vermont") { return ["vermont", "ccvermont", "champlain", "norwich", "middlebury", " ", " ", " ", " ", " "] }
     if (state == "virginia") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "washington") { return ["washington", "washingtonstate", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "west virginia") { return ["westvirginia", "marshall", " ", " ", " ", " ", " ", " ", " ", " "] }
