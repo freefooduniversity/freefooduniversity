@@ -199,6 +199,11 @@ struct CollegeLocations {
         if (college == "utsanantonio") {return 29.5831}
         if (college == "utdallas") {return 32.9857}
         if (college == "utelpaso") {return 31.7732}
+        if (college == "utahvalley") {return 40.2788}
+        if (college == "brigham") {return 40.2518}
+        if (college == "utah") {return 40.7649}
+        if (college == "weber") {return 41.1915}
+        if (college == "utahstate") {return 41.7452}
         return DEFAULT_LAT
     }
 
@@ -384,6 +389,11 @@ struct CollegeLocations {
         if (college == "utsanantonio") {return -98.6197}
         if (college == "utdallas") {return -96.7502}
         if (college == "utelpaso") {return -106.5047}
+        if (college == "utahvalley") {return -111.7154}
+        if (college == "brigham") {return -111.6493}
+        if (college == "utah") {return -111.8421}
+        if (college == "weber") {return -111.9440}
+        if (college == "utahstate") {return -111.8097}
         return DEFAULT_LONG
     }
     
@@ -543,7 +553,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "south dakota") { return ["southdakota", "southdakotastate", "augustana", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "tennessee") { return ["tennessee", "memphis", "middlestate", "eaststate", "vandy", " ", " ", " ", " ", " "] }
     if (state == "texas") { return ["a&m", "utaustin", "houston", "arlington", "northtexas", "texastech", "texasstate", "utsanantonio", "utdallas", "utelpaso"] }
-    if (state == "utah") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "utah") { return ["utahvalley", "brigham", "utah", "weber", "utahstate", " ", " ", " ", " ", " "] }
     if (state == "vermont") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "virginia") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "washington") { return ["washington", "washingtonstate", " ", " ", " ", " ", " ", " ", " ", " "] }
