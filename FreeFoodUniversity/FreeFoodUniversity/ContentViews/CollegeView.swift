@@ -492,7 +492,17 @@ func getTitle(college: String) -> String {
     if (college == "ccvermont") { title += "Community College Vermont" }
     if (college == "champlain") { title += "Champlain"}
     if (college == "norwich") { title += "Norwich" }
-    if (college == "middlebury") { title += "MIddlebury" }
+    if (college == "middlebury") { title += "Middlebury" }
+    if (college == "northernvirginia") { title += "Northern Virginia" }
+    if (college == "georgemason") { title += "George Mason" }
+    if (college == "virginiatech") { title += "Virginia Tech"}
+    if (college == "virginiacommon") { title += "Commonwealth U" }
+    if (college == "uva") { title += "UVA" }
+    if (college == "olddominion") { title += "Old Dominion U" }
+    if (college == "jamesmadison") { title += "James Madison U" }
+    if (college == "tidewater") { title += "Tidewater College"}
+    if (college == "radford") { title += "Radford U" }
+    if (college == "johntyler") { title += "John Tyler College" }
     return title
 }
 /*

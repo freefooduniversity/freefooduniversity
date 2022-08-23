@@ -209,6 +209,16 @@ struct CollegeLocations {
         if (college == "champlain") { return 44.4731}
         if (college == "norwich") { return 44.1388 }
         if (college == "middlebury") { return 44.0081}
+        if (college == "northernvirginia") { return  38.8332}
+        if (college == "georgemason") { return 38.8315}
+        if (college == "virginiatech") { return 37.2284}
+        if (college == "virginiacommon") { return 37.5527 }
+        if (college == "uva") { return 38.0336}
+        if (college == "olddominion") {return 36.8853}
+        if (college == "jamesmadison") {return 38.4351}
+        if (college == "tidewater") { return 36.7861}
+        if (college == "radford") { return 37.1375}
+        if (college == "johntyler") { return 37.3460}
         return DEFAULT_LAT
     }
 
@@ -404,6 +414,16 @@ struct CollegeLocations {
         if (college == "champlain") { return -73.2041}
         if (college == "norwich") { return -72.6616 }
         if (college == "middlebury") { return -73.1760}
+        if (college == "northernvirginia") { return -77.2365}
+        if (college == "georgemason") { return -77.3117}
+        if (college == "virginiatech") { return -80.4234}
+        if (college == "virginiacommon") { return -77.4527}
+        if (college == "uva") { return -78.5080 }
+        if (college == "olddominion") {return -76.3059 }
+        if (college == "jamesmadison") {return -78.8698}
+        if (college == "tidewater") { return -76.0956}
+        if (college == "radford") { return -80.5502}
+        if (college == "johntyler") { return -77.4079}
         return DEFAULT_LONG
     }
     
@@ -563,7 +583,7 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "texas") { return ["a&m", "utaustin", "houston", "arlington", "northtexas", "texastech", "texasstate", "utsanantonio", "utdallas", "utelpaso"] }
     if (state == "utah") { return ["utahvalley", "brigham", "utah", "weber", "utahstate", " ", " ", " ", " ", " "] }
     if (state == "vermont") { return ["vermont", "ccvermont", "champlain", "norwich", "middlebury", " ", " ", " ", " ", " "] }
-    if (state == "virginia") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "virginia") { return ["northernvirginia", "georgemason", "virginiatech", "virginiacommon", "uva", "olddominion", "jamesmadison", "tidewater", "radford", "johntyler"] }
     if (state == "washington") { return ["washington", "washingtonstate", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "west virginia") { return ["westvirginia", "marshall", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "winsconsin") { return ["winsconsinmadison", "winsconsinmilwaukee", "winsconsinoshkosh", " ", " ", " ", " ", " ", " ", " "] }
