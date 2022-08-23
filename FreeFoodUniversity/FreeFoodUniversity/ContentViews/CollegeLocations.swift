@@ -11,7 +11,7 @@ struct CollegeLocations {
     
     var colleges: [String] = ["uga", "clemson", "gt", "bama", "florida", "gastate", "ksu", "michigan", "usc", "harvard", "auburn", "alabamastate", "alabamaa&m",
         "uabbirmingham", "arizonatucson", "arizonastate", "northernarizona", "alaskaanchorage", "alaskafairbanks", "alaskasoutheast", "arkansas",
-                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth", "newbrunswick", "montclair", "rowan", "kean", "newark", "njit", "newmexico", "cnmcc", "nmstate", "nyu", "buffalo", "columbia", "stonybrook", "cunyhunter", "cornell", "suffolk", "cunyborough", "syracuse", "stjohns", "ncstate", "nccharlotte", "chapelhill", "eastcarolina", "waketech", "appalachian", "greensboro", "uncwilmington", "centralpiedmont", "duke", "northdakota", "ndsu", "oregonstate", "portland", "portlandcc", "oregon", "oaklahoma", "osu", "pennstate", "temple", "pitt", "upenn", "drexel", "ohiostate", "cincinnati", "kentstate", "ohiou"]
+                              "arkansasstate", "arkansastech", "centralarkansas", "southerncalifornia", "ucla", "berkeley", "fullerton", "northridge", "longbeach", "sandiego", "davis", "irvine", "boulder", "coloradostate", "coloradotech", "denver", "msudenver", "conneticut", "post", "yale", "central", "quinnipiac", "delaware", "wilmington", "delawaretech", "centralflorida", "fiu", "southflorida", "miamidade", "valencia", "fsu", "broward", "fau", "palmbeach", "gasouthern", "emory", "uwg", "hawaii", "boise", "idahostate", "idaho", "urbana", "uic", "devry", "northwestern", "ivytech", "purdue", "notredame", "iowastate", "iowa", "nebraskalincoln", "nebraskaomaha", "nebraskacc", "bellevue", "vegas", "southernnevada", "nevadareno", "snhu", "newhampshire", "dartmouth", "newbrunswick", "montclair", "rowan", "kean", "newark", "njit", "newmexico", "cnmcc", "nmstate", "nyu", "buffalo", "columbia", "stonybrook", "cunyhunter", "cornell", "suffolk", "cunyborough", "syracuse", "stjohns", "ncstate", "nccharlotte", "chapelhill", "eastcarolina", "waketech", "appalachian", "greensboro", "uncwilmington", "centralpiedmont", "duke", "northdakota", "ndsu", "oregonstate", "portland", "portlandcc", "oregon", "oaklahoma", "osu", "pennstate", "temple", "pitt", "upenn", "drexel", "ohiostate", "cincinnati", "kentstate", "ohiou", "brown", "rhodeisland"]
     
     var DEFAULT_LAT: Double = 37.0902
     var DEFAULT_LONG: Double = -95.7129
@@ -168,6 +168,14 @@ struct CollegeLocations {
         if (college == "cincinnati") { return 39.13256 }
         if (college == "kentstate") { return 41.15005 }
         if (college == "ohiou") { return 39.32416 }
+        if (college == "brown") { return 41.82681}
+        if (college == "rhodeisland") { return 41.48621}
+        if (college == "southcarolina") {return 33.99381}
+        if (college == "charleston") {return 32.78821}
+        if (college == "coastalcarolina") {return 33.79611}
+        if (college == "southdakota") {return 42.78831}
+        if (college == "southdakotastate") {return 44.31911}
+        if (college == "augustana") {return 43.52241}
         return DEFAULT_LAT
     }
 
@@ -322,6 +330,14 @@ struct CollegeLocations {
         if (college == "cincinnati") { return -84.51496 }
         if (college == "kentstate") { return -81.34339 }
         if (college == "ohiou") { return -82.10141 }
+        if (college == "brown") {return -71.40251}
+        if (college == "rhodeisland") {return -71.53071}
+        if (college == "southcarolina") {return -81.02991}
+        if (college == "charleston") {return -79.95911}
+        if (college == "coastalcarolina") {return -79.01371}
+        if (college == "southdakota") {return -96.92531}
+        if (college == "southdakotastate") {return -96.78351}
+        if (college == "augustana") {return 96.7394}
         return DEFAULT_LONG
     }
     
@@ -476,9 +492,9 @@ func getCollegesByState(selectedState: String) -> [String] {
     if (state == "oregon") { return ["oregonstate", "portland", "portlandcc", "oregon", " ", " ", " ", " ", " ", " "] }
     if (state == "pennsylvania") { return ["pennstate", "temple", "pitt", "upenn", "drexel", " ", " ", " ", " ", " "] }
     
-    if (state == "rhode island") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "south carolina") { return ["clemson", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
-    if (state == "south dakota") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "rhode island") { return ["brown", "rhodeisland", " ", " ", " ", " ", " ", " ", " ", " "] }
+    if (state == "south carolina") { return ["clemson", "southcarolina", "charleston", "coastalcarolina", " ", " ", " ", " ", " ", " "] }
+    if (state == "south dakota") { return ["southdakota", "southdakotastate", "augustana", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "tennessee") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "texas") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
     if (state == "utah") { return [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "] }
@@ -612,14 +628,14 @@ func getStateLong(selectedState: String) -> Double {
     if (state == "alabama") { return -86.9023}
     if (state == "alaska") { return -152.4937 }
     if (state == "arizona") { return -112.0937 }
-     if (state == "arkansas") { return -92.2863 }
+    if (state == "arkansas") { return -92.2863 }
     if (state == "california") { return -119.4179 }
     if (state == "colorado") { return -105.7821 }
     if (state == "conneticut") { return -72.8877 }
     if (state == "delaware") { return -75.5277 }
     if (state == "florida") { return -83.4158 }
     if (state == "georgia") { return -82.9001 }
-     if (state == "hawaii") { return -156.5828 }
+    if (state == "hawaii") { return -156.5828 }
     if (state == "idaho") { return -114.7420 }
     if (state == "illinois") { return -89.3985 }
     if (state == "indiana") { return -86.1349 }
