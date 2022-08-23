@@ -216,8 +216,9 @@ struct CollegeContentView: View {
                         Text("                                                                                                                                                  ")
                             .font(.custom("Helvetica Neue", size: 8))
                         HStack {
-            
-                            Text("Show All Events at " + (getName(college: college)))
+                                Text("Click Here To Show All Free Food")
+                           // Text("Show All Free Food at " + (getName(college: college)))
+                                .bold()
                                 .foregroundColor(Color.white)
 
                     }
