@@ -10,9 +10,6 @@ import SwiftUI
 import FirebaseCore
 import FirebaseStorage
 
-//Can't leave credentials open like this, will change APIKey and fix later
-var APIKey: String = "AIzaSyCgBb4hG2hijjScdCmZy6jKm2K8_VAgq3Q"
-
 @main
 struct FreeFoodUniversityApp: App {
     let persistenceController = PersistenceController.shared
@@ -35,7 +32,7 @@ struct FreeFoodUniversityApp: App {
 
 class AppDelegate: NSObject, UIApplicationDelegate, GMSMapViewDelegate{
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-         GMSServices.provideAPIKey(APIKey)
+      //   GMSServices.provideAPIKey(value)
          return true
      }
     
@@ -45,3 +42,4 @@ class AppDelegate: NSObject, UIApplicationDelegate, GMSMapViewDelegate{
     }
  }
  
+let value = Bundle.main.object(forInfoDictionaryKey: "other") as? String

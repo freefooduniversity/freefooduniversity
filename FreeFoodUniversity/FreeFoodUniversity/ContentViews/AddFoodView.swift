@@ -32,7 +32,6 @@ struct addFoodToMapView: View {
     @State var durationSelection = "Duration"
     @State var capacitySelection = "Capacity"
     
-
     let foods = [" Select Food ", " Pizza 🍕 ", " Burgers 🍔 ", " Breakfast 🍳 ", " Lunch 🥘 ", " Dinner 🍽️ ", " Dessert 🍦 ", " Fruit 🍉 ", " Mexican 🌮 ", " Coffee ☕️ ", " Sandwiches 🥪 ", " Chick-fil-A 🐄 "]
     let durations = [" Select Duration ", " 30 min ", " 1 Hour ", " 2 Hours ", " 3 Hours ", " 4 Hours "]
     let capacities = [" Select Capacity ", " 1 🧑🏻‍💼 ", " 5 🧑🏻‍💼 ", " 10 🧑🏻‍💼 ", " 25 🧑🏻‍💼 ", " 50 🧑🏻‍💼 ", " 100 🧑🏻‍💼 ", " 250 🧑🏻‍💼 ", " 500 🧑🏻‍💼 "]
@@ -111,7 +110,7 @@ struct addFoodToMapView: View {
                         print(getStartTime() < 2000)
                     
                         
-                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 25 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage() && (user[0].active_marker_id == 0)  && user[0].banned_status == 0) {
+                        if (foodSelection != "" && durationSelection != "" && capacitySelection != "" && building != "" && building.count <= 25 && event.count <= 25 && details.count <= 25 && event != "" && details != "" && getStartTime() < 2000 && getStartTime() > 500 && imageSelected != UIImage() && (user[0].active_marker_id == 0) && user[0].banned_status == 0) {
                             
                             for i in 0 ... building.count - 1 {
                                 for j in i+1...building.count {

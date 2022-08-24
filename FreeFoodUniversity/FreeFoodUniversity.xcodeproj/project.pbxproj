@@ -788,6 +788,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER = AIzaSyCgBb4hG2hijjScdCmZy6jKm2K8_VAgq3Q;
 				PRODUCT_BUNDLE_IDENTIFIER = com.freefooduniversity.FreeFoodUniversity;
 				PRODUCT_NAME = "Free Food";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -825,6 +826,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER = AIzaSyCgBb4hG2hijjScdCmZy6jKm2K8_VAgq3Q;
 				PRODUCT_BUNDLE_IDENTIFIER = com.freefooduniversity.FreeFoodUniversity;
 				PRODUCT_NAME = "Free Food";
 				SWIFT_EMIT_LOC_STRINGS = YES;
