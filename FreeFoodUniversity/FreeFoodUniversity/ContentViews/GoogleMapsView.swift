@@ -15,13 +15,11 @@ struct GoogleMapsView: UIViewRepresentable {
     @Binding var zoom: Float
     @Binding var marker: [GMSMarker]
     
-    
-    
         
         func makeUIView(context: Context) -> GMSMapView {
             var usa = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: zoom)
-            
-            GMSServices.provideAPIKey(APIKey)
+    
+            GMSServices.provideAPIKey(value!)
             let camera = usa
             let mapView = GMSMapView(frame: CGRect.zero, camera: camera)
             return mapView

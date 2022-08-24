@@ -45,5 +45,7 @@
 	</array>
 	<key>food</key>
 	<string>$(FOOD)</string>
+	<key>other</key>
+	<string>$(OTHER)</string>
 </dict>
 </plist>

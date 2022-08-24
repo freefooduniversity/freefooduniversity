@@ -82,7 +82,7 @@ struct pickCollegeContentView: View {
                 }.position(x: 195, y: 10)
                 HStack {
                     HStack {
-                        Image("3bars")
+               //         Image("3bars")
                         SelectStateDropDownView(selectedState: ($selectedState))
                     }
                     Text("   ")
